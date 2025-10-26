@@ -1,0 +1,126 @@
+<!--
+  Archivo: index.html
+  Proyecto: DEEDPRI (versión final 2025)
+  Descripción: Página principal con header fijo, menú hamburguesa animado (panel lateral derecho),
+  overlay, animaciones de entrada y botón flotante de WhatsApp (SVG local).
+  Notas: Código comentado en español para aprendizaje.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta básicas -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Título corto solicitado -->
+  <title>deedpri</title>
+
+  <!-- Tipografía moderna: Poppins (Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!--
+    HEADER FIJO
+    - Contiene el nombre "deedpri / Centro de impresión" alineado a la izquierda.
+    - Botón hamburguesa con animación (líneas → ✖).
+    - Menú lateral blanco (desde el lado derecho) + overlay.
+  -->
+  <header class="topbar" role="banner">
+    <div class="branding" aria-label="Identidad del sitio">
+      <div class="brand-text">
+        <span class="brand-name">deedpri</span>
+        <span class="giro">Centro de impresión</span>
+      </div>
+    </div>
+
+    <!-- Botón hamburguesa (visible en tablets/móviles). aria-expanded cambia con JS -->
+    <button id="menuBtn" class="hamburger" aria-label="Abrir menú" aria-controls="mainNav" aria-expanded="false">
+      <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+    </button>
+
+    <!-- MENÚ LATERAL (off-canvas) -->
+    <nav id="mainNav" class="nav" role="navigation" aria-hidden="true">
+      <!-- Botón ✖ dentro del panel -->
+      <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">✖</button>
+
+      <ul class="nav-list">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Overlay detrás del panel (cierre al hacer clic) -->
+    <div id="overlay" class="overlay" aria-hidden="true"></div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="inicio" class="content" role="main">
+    <!-- HERO: mensaje principal con animaciones de entrada (reveal) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <h1 id="hero-title" class="reveal">Impresiones rápidas y de calidad profesional</h1>
+        <p class="lead reveal" data-delay="120">
+          Copias, impresión fotográfica, impresión láser y más. Tamaños hasta tabloide.
+        </p>
+        <a class="btn btn-primary reveal" data-delay="240" href="https://wa.me/7295414907" target="_blank" rel="noopener">
+          Escríbenos por WhatsApp
+        </a>
+      </div>
+      <!-- Bloque decorativo (simboliza tarjetas/papel) -->
+      <div class="hero-art reveal" data-delay="300" aria-hidden="true">
+        <img src="img/hero-deedpri.png" alt="Ilustración moderna de centro de impresión deedpri">
+      </div>
+    </section>
+
+    <!-- Sección Servicios con tarjetas -->
+    <section id="servicios" class="section">
+      <h2 class="section-title reveal">Nuestros Servicios</h2>
+      <div class="cards reveal" data-delay="120">
+        <article class="card"><h3>Copias e impresiones</h3><p>Blanco y negro o color, calidad profesional.</p></article>
+        <article class="card"><h3>Impresión fotográfica</h3><p>Fotos en diferentes papeles y acabados.</p></article>
+        <article class="card"><h3>Impresión láser</h3><p>Documentos nítidos y duraderos.</p></article>
+        <article class="card"><h3>Tamaños hasta tabloide</h3><p>Formato amplio sin perder calidad.</p></article>
+      </div>
+    </section>
+
+    <!-- Sección Ubicación con enlace a Maps -->
+    <section id="ubicacion" class="section">
+      <h2 class="section-title reveal">Dónde estamos</h2>
+      <p class="reveal">
+        📍 Plaza Aurrera local 14B — Arriba de Laboratorios Santa María, junto a Music Center.
+      </p>
+      <div class="map reveal" data-delay="120">
+        <a class="btn" href="https://maps.app.goo.gl/qr7sTAfCzxKGTJFM8" target="_blank" rel="noopener">Ver en Google Maps</a>
+      </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section">
+      <h2 class="section-title reveal">Contacto</h2>
+      <p class="reveal">WhatsApp: <a href="https://wa.me/7295414907" target="_blank" rel="noopener">729 541 4907</a></p>
+    </section>
+  </main>
+
+  <!-- FOOTER simple con año dinámico -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="small">Plaza Aurrera local 14B. Unica sucursal</p>
+      <p>© <span id="year"></span> deedpri — Centro de impresión</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP (SVG local) -->
+  <a href="https://wa.me/7295414907" class="whatsapp-fab" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">
+    <img src="img/whatsapp.svg" width="60" height="60" alt="WhatsApp">
+  </a>
+
+  <!-- JavaScript principal (control de menú, overlay, reveals y FAB) -->
+  <script src="menu.js"></script>
+</body>
+</html>
