@@ -150,6 +150,10 @@ body{
   border: none;
   border-radius: 10px;
 }
+.mapa {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
 
 .section{ padding: 28px 0; }
 .section-title{ font-size: 1.2rem; margin-bottom: 12px; color: var(--negro); }
