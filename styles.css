@@ -212,7 +212,7 @@ nav.open {
 /* ===== RESPONSIVE: versión móvil más ligera ===== */
 @media (max-width: 980px){
   /* Fondo móvil: blanco con toques amarillos (más liviano) */
-  body{ background: #ffffff; }
+ 
 
   .hamburger{ display: block; }         /* Mostrar el botón hamburguesa */
   .brand-name{ font-size: 2rem; }
