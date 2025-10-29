@@ -177,6 +177,31 @@ body{
 .whatsapp-fab:hover{ transform: translateY(-2px); box-shadow: 0 14px 32px rgba(37,211,102,0.45); }
 .whatsapp-fab img{ display:block; width:60px; height:60px; filter: brightness(0) invert(1); } /* SVG blanco */
 
+/* Evita desplazamiento horizontal */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Asegura que el contenedor principal no se mueva */
+body {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Si el menú usa transformaciones */
+nav {
+  transition: transform 0.3s ease;
+  transform: translateX(100%); /* empieza oculto */
+}
+
+/* Cuando se abre el menú */
+nav.open {
+  transform: translateX(0);
+}
+
+
 /* Animación de entrada del FAB */
 @keyframes fabIn{
   0%{ opacity:0; transform: translateY(12px) scale(.92); }
