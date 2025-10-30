@@ -159,7 +159,7 @@ body{
 .section-title{ font-size: 1.2rem; margin-bottom: 12px; color: var(--negro); }
 .section h2{
   font-size: 2rem;
-      color: var(--gris-oscuro);
+      color: var(--negro);
       margin-bottom: 40px;
       position: relative;
       display: inline-block;
@@ -168,7 +168,7 @@ body{
   content: '';
       width: 50px;
       height: 4px;
-      background-color: var(--amarillo);
+      background-color: var(--negro);
       display: block;
       margin: 10px auto 0;
 }
