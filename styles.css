@@ -191,7 +191,7 @@ body{
   width: 150px;
   height: 150px;
   background: var(--azul-rey);
-  opacity:1;
+  opacity:;
   border-radius: 50%;
 }
 
@@ -257,7 +257,38 @@ body{
 .reveal.active{ opacity: 1; transform: translateY(0); }
 
 /* ===== Footer ===== */
-.footer-inner{ max-width: var(--max-width); margin: 0 auto; padding: 24px 20px; text-align: center; color: #666; font-size: .95rem; }
+.footer-inner {
+  width: 100vw; /* ocupa todo el ancho visible */
+  margin: 0;
+  padding: 16px 10px; /* más compacto */
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85); /* blanco más suave */
+  background: linear-gradient(180deg, #5a5a5a 0%, #3f3f3f 100%); /* degradado gris tenue */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15); /* sombra sutil hacia arriba */
+  letter-spacing: 0.3px;
+}
+
+/* enlace dentro del footer */
+.footer-inner a {
+  color: var(--amarillo);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.footer-inner a:hover {
+  opacity: 0.8;
+}
+
+/* opcional: texto pequeño y discreto */
+.footer-inner small {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .small{ opacity: .9; margin-top: 6px; }
 
 /* ===== Botón flotante de WhatsApp ===== */
