@@ -43,6 +43,15 @@ a:hover, button:hover {
   filter: brightness(1.1);
 }
 
+/*Separar secciones*/
+section {
+  padding: 40px 20px;  /* espacio interno (dentro del bloque) */
+  margin-bottom: 60px; /* espacio externo (separa de la siguiente sección) */
+}
+
+section:nth-child(even) {
+  background: #f9f9f9;
+}
 
 /* ===== Header fijo (topbar) ===== */
 .topbar{
