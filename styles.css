@@ -19,6 +19,7 @@
   --muted: #f6f6f6;       /* Fondo suave */
   --max-width: 1100px;    /* Ancho máximo del contenido */
   --whatsapp: #25D366;    /* Verde oficial WhatsApp */
+  --azul-rey: #004aad;
 }
 
 /* ===== Reset y base ===== */
@@ -172,6 +173,76 @@ body{
       display: block;
       margin: 10px auto 0;
 }
+/* Sección Contacto */
+.section-contacto {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #fff 0%, #f7f7f7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto decorativo sutil */
+.section-contacto::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: var(--azul-rey);
+  opacity:1;
+  border-radius: 50%;
+}
+
+.section-title-contacto {
+  font-size: 2.2rem;
+  color: var(--negro);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Subrayado animado */
+.section-title-contacto::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 60px;
+  height: 4px;
+  background: var(--amarillo);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.section-contacto p {
+  font-size: 1.1rem;
+  color: var(--negro);
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+/* Enlace WhatsApp */
+.section-contacto a {
+  color: var(--negro);
+  text-decoration: none;
+  font-weight: bold;
+  background: var(--amarillo);
+  padding: 8px 14px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-contacto a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
 
 .cards{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
 .card{ background: var(--muted); padding: 18px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); transition: transform .2s ease; }
