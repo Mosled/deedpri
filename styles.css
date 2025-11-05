@@ -35,6 +35,14 @@ body{
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.55;
 }
+/*Aumenta el contraste en botones y enlaces si se leen en móvil*/
+a, button {
+  color: var(--gris-oscuro);
+}
+a:hover, button:hover {
+  filter: brightness(1.1);
+}
+
 
 /* ===== Header fijo (topbar) ===== */
 .topbar{
