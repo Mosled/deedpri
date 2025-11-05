@@ -244,9 +244,84 @@ body{
 }
 
 
-.cards{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+/*.cards{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
 .card{ background: var(--muted); padding: 18px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); transition: transform .2s ease; }
-.card:hover{ transform: translateY(-6px); }
+.card:hover{ transform: translateY(-6px); }*/
+/* ================================
+   🎨 Sección Servicios
+   ================================ */
+#servicios {
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+  text-align: center;
+}
+
+#servicios .section-title {
+  font-size: 2rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Contenedor de tarjetas */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Cada tarjeta */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.8rem 1.2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Títulos y texto */
+.card h3 {
+  font-size: 1.15rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 0.6rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Imágenes centradas */
+.card img {
+  display: block;
+  margin: 0 auto;
+  width: 64px;
+  height: auto;
+  background: rgba(255, 211, 0, 0.1);
+  border-radius: 50%;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
 
 /* Botones */
 .btn{  color:darkblue;display: inline-block; text-decoration: none; padding: 12px 20px; border-radius: 30px; font-weight: 700; }
@@ -351,4 +426,27 @@ nav.open {
 /* ===== Accesibilidad opcional: reduce motion ===== */
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; }
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  #servicios {
+    padding: 2.5rem 1rem;
+  }
+
+  .card {
+    padding: 1.4rem;
+  }
+
+  .card h3 {
+    font-size: 1.05rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .card img {
+    width: 56px;
+  }
 }
