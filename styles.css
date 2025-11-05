@@ -258,7 +258,7 @@ body{
 
 #servicios .section-title {
   font-size: 2rem;
-  color: var(--gris-oscuro);
+  color: var(--negro);
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -310,7 +310,7 @@ body{
 .card img {
   display: block;
   margin: 0 auto;
-  width: 64px;
+  width: clamp(100px, 25vw, 140px);
   height: auto;
   background: rgba(255, 211, 0, 0.1);
   border-radius: 50%;
@@ -448,5 +448,12 @@ nav.open {
 
   .card img {
     width: 56px;
+  }
+}
+@media (max-width: 768px) {
+  .card img {
+    width: 110px;   /* tamaño fijo para pantallas pequeñas */
+    height: auto;
+    padding: 12px;
   }
 }
