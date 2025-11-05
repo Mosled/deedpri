@@ -191,7 +191,7 @@ body{
   width: 150px;
   height: 150px;
   background: var(--azul-rey);
-  opacity:;
+  opacity:1;
   border-radius: 50%;
 }
 
