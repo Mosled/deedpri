@@ -118,9 +118,10 @@ section {
   transition: transform .2s ease, background .2s ease, color .2s ease;
 }
 .nav-list a:hover{
-  color: var(--amarillo);
+  color: var(--azul-rey);
   background: linear-gradient(90deg, rgba(255,211,0,0.08), rgba(255,211,0,0.02));
   transform: translateX(6px);
+  transition: all 0.3s ease;
 }
 
 /* Overlay semitransparente con blur */
