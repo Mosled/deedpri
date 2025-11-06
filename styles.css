@@ -24,6 +24,10 @@
 
 /* ===== Reset y base ===== */
 *{ box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;     /* desplazamiento suave */
+  scroll-padding-top: 100px;    /* espacio reservado arriba al hacer clic en enlaces */
+}
 html, body{ height: 100%; }
 body{
   margin: 0;
@@ -43,10 +47,11 @@ a:hover, button:hover {
   filter: brightness(1.1);
 }
 
-/*Separar */
+/*Separar espacios entre */
 section {
   padding: 40px 20px;  /* espacio interno (dentro del bloque) */
-  margin-bottom: 60px; /* espacio externo (separa de la siguiente sección) */
+  margin-bottom: 30px; /* espacio externo (separa de la siguiente sección) */
+  scroll-margin-top: 80px; /* ajusta según la altura de tu header */
 }
 
 
@@ -66,7 +71,7 @@ section {
 
 /* Identidad (logo/nombre) alineado a la izquierda */
 .branding{ display: flex; align-items: center; gap: 14px; }
-.brand-text{ display: flex; flex-direction: column; line-height: 1; }
+.brand-text{ display: flex; flex-direction: column; line-height: 1;}
 .brand-name{
   font-family: 'League Spartan', sans-serif;
   color: var(--blanco);
@@ -466,11 +471,12 @@ nav.open {
   .card img {
     width: 56px;
   }
-}
-@media (max-width: 768px) {
   .card img {
     width: 110px;   /* tamaño fijo para pantallas pequeñas */
     height: auto;
     padding: 12px;
+  }
+  html {
+    scroll-margin-top: 150px;
   }
 }
