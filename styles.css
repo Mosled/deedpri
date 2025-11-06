@@ -401,7 +401,7 @@ section {
   z-index: 55; /* Debajo del overlay/menú (65/70), por eso se oculta al abrir */
 }
 .whatsapp-fab:hover{ transform: translateY(-2px); box-shadow: 0 14px 32px rgba(37,211,102,0.45); }
-.whatsapp-fab img{ display:block; width:60px; height:60px; filter: brightness(0) invert(1); } /* SVG blanco */
+.whatsapp-fab img{ display:block; width:60px; height:60px; } /* SVG blanco */
 
 /* Evita desplazamiento horizontal */
 
