@@ -14,6 +14,7 @@ const navLinks = document.querySelectorAll('#mainNav a'); // Enlaces del menú
 const revealEls = document.querySelectorAll('.reveal');   // Elementos con animación de entrada
 const yearEl = document.getElementById('year');       // Año dinámico en el footer
 const fab = document.querySelector('.whatsapp-fab');  // Botón flotante de WhatsApp
+const mainContent = document.querySelector('#mainContent');
 
 // ===== Funciones para abrir/cerrar el menú =====
 function openMenu(){
