@@ -251,10 +251,6 @@ section {
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-
-/*.cards{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
-.card{ background: var(--muted); padding: 18px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); transition: transform .2s ease; }
-.card:hover{ transform: translateY(-6px); }*/
 /* ================================
    🎨 Sección Servicios
    ================================ */
@@ -404,6 +400,8 @@ section {
   box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
   animation: fabIn .6s ease-out both;
   z-index: 55;
+  transform: translateZ(0);
+  overflow: visible;
 }
 
 /* Tooltip oculto por defecto */
