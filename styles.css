@@ -30,9 +30,9 @@ html {
 }
 html, body{ height: 100%; }
 body{
-  margin: 0;
+  
   font-family: 'Poppins', sans-serif;
-  color: var(#000);
+  
   /* Degradado vertical (ESCRITORIO). En móviles lo sobreescribimos a blanco. */
   background: linear-gradient(180deg, #ffd300 0%, #d6d4c4 35%, #fff 100%);
   -webkit-font-smoothing: antialiased;
@@ -403,9 +403,9 @@ section {
 .whatsapp-fab img{ display:block; width:60px; height:60px; filter: brightness(0) invert(1); } /* SVG blanco */
 
 /* Evita desplazamiento horizontal */
-html, body {
-  overflow-x: hidden;
-}
+
+  
+
 
 /* Asegura que el contenedor principal no se mueva */
 body {
