@@ -92,10 +92,10 @@ section {
 .hamburger-inner{ top: 50%; transform: translateY(-50%); }
 .hamburger-inner::before{ content: ''; top: -9px; }
 .hamburger-inner::after{ content: ''; top: 9px; }
-/* Estado abierto -> X */
-.hamburger.open .hamburger-inner{ transform: rotate(45deg); background: var(--amarillo); }
+/* Estado abierto -> X 
+.hamburger.open .hamburger-inner{ transform: rotate(45deg); background: var(--azul-rey); }
 .hamburger.open .hamburger-inner::before{ transform: rotate(90deg); top: 0; }
-.hamburger.open .hamburger-inner::after{ opacity: 0; transform: translateX(-10px); }
+.hamburger.open .hamburger-inner::after{ opacity: 0; transform: translateX(-10px); }*/
 
 /* ===== Menú lateral (off-canvas) + overlay ===== */
 .nav{
