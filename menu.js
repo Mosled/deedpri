@@ -23,14 +23,21 @@ function openMenu(){
   overlay.classList.add('show');
   // Accesibilidad: actualizamos roles/atributos
   menuBtn.setAttribute('aria-expanded','true');
-  nav.setAttribute('aria-hidden','false');
-  // Bloquear scroll del fondo mientras el menú está abierto
+  
+  // 🟡 Nuevo: volver inerte el resto del contenido
+  mainContent.setAttribute('inert', '');
+  // (opcional) también el header si no forma parte del menú
+  // document.querySelector('.topbar').setAttribute('inert', '');
+
+  // Bloquear scroll del fondo
   document.documentElement.style.overflow = 'hidden';
   document.body.style.overflow = 'hidden';
-  // Enfocar el primer enlace del menú (mejor UX con teclado)
+
+  // Foco al primer enlace del menú
   const firstLink = nav.querySelector('a');
   if (firstLink) firstLink.focus();
-  // Ocultar botón flotante para evitar superposición
+
+  // Ocultar botón flotante
   if (fab) fab.style.display = 'none';
 }
 
@@ -39,11 +46,17 @@ function closeMenu(){
   nav.classList.remove('open');
   overlay.classList.remove('show');
   menuBtn.setAttribute('aria-expanded','false');
-  nav.setAttribute('aria-hidden','true');
+  // 🟢 Quitar inert al contenido principal
+  mainContent.removeAttribute('inert');
+  // document.querySelector('.topbar').removeAttribute('inert');
+
+  // Restaurar scroll
   document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
-  // Devolver foco al botón hamburguesa
+
+  // Foco de regreso al botón del menú
   menuBtn.focus();
+
   // Mostrar el botón flotante nuevamente
   if (fab) fab.style.display = '';
 }
