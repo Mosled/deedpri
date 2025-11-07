@@ -56,83 +56,174 @@ section {
   margin-bottom: 30px; /* espacio externo (separa de la siguiente sección) */
   scroll-margin-top: 80px; /* ajusta según la altura de tu header */
 }
+/*Header principal*/
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--gris-oscuro, #545454);
+  color: var(--blanco, #fff);
+  padding: 1rem 3rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  flex-wrap: wrap; /* 👈 permite que los íconos bajen en móvil */
+  position: relative;
+  z-index: 80;
+}
 
-
-/* ===== Header fijo (topbar) ===== */
-.topbar{
-  position: sticky;      /* Siempre visible al hacer scroll */
-  top: 0;
-  z-index: 60;
+/* ===== IDENTIDAD ===== */
+.branding {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  background: var(--gris-oscuro);
-  backdrop-filter: blur(6px); /* Efecto de vidrio esmerilado */
-  border-bottom: 1px solid rgba(84,84,84,0.08);
+  justify-content: flex-start;
+  flex: 1;
+  padding-left: 5rem;
 }
 
-/* Identidad (logo/nombre) alineado a la izquierda */
-.branding{ display: flex; align-items: center; gap: 14px; }
-.brand-text{ display: flex; flex-direction: column; line-height: 1;}
-.brand-name{
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-name {
   font-family: 'League Spartan', sans-serif;
-  color: var(--blanco);
-  font-weight: 700;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 2px 8px rgba(0,0,0,0.06); /* Brillo + sombra suave */
+  color: var(--amarillo, #ffd300);
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: 1.2px;
+  text-transform: lowercase;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
-.giro{ font-size: .9rem; color: var(--blanco); opacity: .95; }
 
-/* ===== Botón hamburguesa con animación (líneas → X) ===== */
-.hamburger{ background: none; border: 0; cursor: pointer; padding: 8px; display: none; }
-.hamburger-box{ width: 34px; height: 22px; display: inline-block; position: relative; }
-.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after{
-  position: absolute; left: 0; width: 100%; height: 3px; background: var(--blanco); border-radius: 3px;
-  transition: transform .32s cubic-bezier(.2,.9,.3,1), opacity .32s ease, background .32s ease;
+.giro {
+  font-size: 0.95rem;
+  color: var(--blanco, #fff);
+  opacity: 0.9;
 }
-.hamburger-inner{ top: 50%; transform: translateY(-50%); }
-.hamburger-inner::before{ content: ''; top: -9px; }
-.hamburger-inner::after{ content: ''; top: 9px; }
-/* Estado abierto -> X 
-.hamburger.open .hamburger-inner{ transform: rotate(45deg); background: var(--azul-rey); }
-.hamburger.open .hamburger-inner::before{ transform: rotate(90deg); top: 0; }
-.hamburger.open .hamburger-inner::after{ opacity: 0; transform: translateX(-10px); }*/
 
-/* ===== Menú lateral (off-canvas) + overlay ===== */
-.nav{
-  position: fixed; top: 0; right: -100%; height: 100vh; width: min(360px, 86%);
-  background: #ffffff; /* menú blanco con texto oscuro (pedido) */
+/* ===== REDES SOCIALES ===== */
+.social-icons {
+  display: flex;
+  gap: 1.2rem;
+  margin-right: 2rem;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  transform: translateX(-40px); /* mueve 40px a la izquierda */
+}
+
+.social-icons a {
+  color: var(--blanco, #fff);
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: var(--amarillo, #ffd300);
+  transform: translateY(-2px);
+}
+
+
+/* ===== BOTÓN HAMBURGUESA ===== */
+.hamburger {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+  display: none; /* visible en móvil */
+  z-index: 90;
+}
+.hamburger-box {
+  width: 34px;
+  height: 22px;
+  position: relative;
+  display: inline-block;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--blanco);
+  border-radius: 3px;
+  transition: transform .32s ease, opacity .32s ease, background .32s ease;
+}
+.hamburger-inner { top: 50%; transform: translateY(-50%); }
+.hamburger-inner::before { content: ''; top: -9px; }
+.hamburger-inner::after { content: ''; top: 9px; }
+
+/* ===== MENÚ LATERAL ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: min(360px, 86%);
+  background: #ffffff;
   box-shadow: -18px 0 40px rgba(0,0,0,0.12);
-  transition: right .36s cubic-bezier(.2,.9,.3,1);
+  transition: right .36s ease;
   z-index: 70;
   padding: 72px 20px 24px;
-  display: flex; flex-direction: column; gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
-.close-btn{
-  position: absolute; left: 14px; top: 14px; background: none; border: 0; font-size: 20px;
-  cursor: pointer; color: var(--gris-oscuro);
+.nav.open { right: 0; }
+
+.close-btn {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: none;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--gris-oscuro);
 }
-.nav.open{ right: 0; }
-.nav-list{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
-.nav-list a{
-  text-decoration: none; color: var(--gris-oscuro); padding: 10px 12px; border-radius: 10px; font-weight: 600; display: block;
-  transition: transform .2s ease, background .2s ease, color .2s ease;
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
-.nav-list a:hover{
+.nav-list a {
+  text-decoration: none;
+  color: var(--gris-oscuro);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  display: block;
+  transition: all 0.3s ease;
+}
+.nav-list a:hover {
   color: var(--azul-rey);
   background: linear-gradient(90deg, rgba(255,211,0,0.08), rgba(255,211,0,0.02));
   transform: translateX(6px);
-  transition: all 0.3s ease;
 }
 
-/* Overlay semitransparente con blur */
-.overlay{
-  position: fixed; inset: 0; background: rgba(0,0,0,0.42); opacity: 0; visibility: hidden; transition: opacity .32s ease;
-  z-index: 65; backdrop-filter: blur(2px);
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.42);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .32s ease;
+  z-index: 65;
+  backdrop-filter: blur(2px);
 }
-.overlay.show{ opacity: 1; visibility: visible; }
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 /* ===== Contenido y secciones ===== */
 .content{ max-width: var(--max-width); margin: 28px auto; padding: 0 20px; }
@@ -444,9 +535,6 @@ section {
 
 /* Evita desplazamiento horizontal */
 
-  
-
-
 /* Asegura que el contenedor principal no se mueva */
 body {
   position: relative;
@@ -464,75 +552,4 @@ nav {
 /* Cuando se abre el menú */
 nav.open {
   transform: translateX(0);
-}
-
-
-/* Animación de entrada del FAB */
-@keyframes fabIn{
-  0%{ opacity:0; transform: translateY(12px) scale(.92); }
-  60%{ opacity:1; transform: translateY(-2px) scale(1.02); }
-  100%{ opacity:1; transform: translateY(0) scale(1); }
-}
-
-/* ===== RESPONSIVE: versión móvil más ligera ===== */
-@media (max-width: 980px){
-  /* Fondo móvil: blanco con toques amarillos (más liviano) */
- 
-
-  .hamburger{ display: block; }         /* Mostrar el botón hamburguesa */
-  .brand-name{ font-size: 2rem; }
-  .hero{ grid-template-columns: 1fr; }  /* Pasa a una sola columna */
-  .hero-art{ height: 180px; }
-}
-
-/* ===== Accesibilidad opcional: reduce motion ===== */
-@media (prefers-reduced-motion: reduce){
-  *{ animation: none !important; transition: none !important; }
-}
-
-/* Responsivo para pantallas pequeñas */
-@media (max-width: 768px) {
-  #servicios {
-    padding: 2.5rem 1rem;
-  }
-
-  .card {
-    padding: 1.4rem;
-  }
-
-  .card h3 {
-    font-size: 1.05rem;
-  }
-
-  .card p {
-    font-size: 0.9rem;
-  }
-
-  .card img {
-    width: 56px;
-  }
-  .card img {
-    width: 110px;   /* tamaño fijo para pantallas pequeñas */
-    height: auto;
-    padding: 12px;
-  }
-  html {
-    scroll-margin-top: 150px;
-  }
-}
-/* En móviles: mostrar tooltip al tocar */
-@media (hover: none) and (pointer: coarse) {
-  .whatsapp-fab .tooltip {
-    right: 70px;
-    opacity: 1;
-    transform: translateY(50%);
-    animation: tooltipFade 2.5s ease-in-out forwards;
-  }
-
-  @keyframes tooltipFade {
-    0% { opacity: 0; transform: translateY(50%) translateX(5px); }
-    20% { opacity: 1; transform: translateY(50%) translateX(0); }
-    80% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(50%) translateX(5px); }
-  }
 }

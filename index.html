@@ -25,7 +25,10 @@
 
   <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+  <link rel="stylesheet" href="assets/css/mobile-fixes.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
   <!--
@@ -35,34 +38,41 @@
     - Menú lateral blanco (desde el lado derecho) + overlay.
   -->
   <header class="topbar" role="banner">
-    <div class="branding" aria-label="Identidad del sitio">
-      <div class="brand-text">
-        <span class="brand-name">deedpri</span>
-        <span class="giro">Centro de impresión</span>
-      </div>
+  <!-- Identidad -->
+  <div class="branding" aria-label="Identidad del sitio">
+    <div class="brand-text">
+      <span class="brand-name">deedpri</span>
+      <span class="giro">Centro de impresión</span>
     </div>
+  </div>
 
-    <!-- Botón hamburguesa (visible en tablets/móviles). aria-expanded cambia con JS -->
-    <button id="menuBtn" class="hamburger" aria-label="Abrir menú" aria-controls="mainNav" aria-expanded="false">
-      <span class="hamburger-box"><span class="hamburger-inner"></span></span>
-    </button>
+  <!-- Redes sociales -->
+  <nav class="social-icons">
+    <a href="#" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+  </nav>
 
-    <!-- MENÚ LATERAL (off-canvas) -->
-    <nav id="mainNav" class="nav" role="navigation">
-      <!-- Botón ✖ dentro del panel -->
-      <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">✖</button>
+  <!-- Botón hamburguesa -->
+  <button id="menuBtn" class="hamburger" aria-label="Abrir menú" aria-controls="mainNav" aria-expanded="false">
+    <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+  </button>
 
-      <ul class="nav-list">
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+  <!-- Menú lateral -->
+  <nav id="mainNav" class="nav" role="navigation">
+    <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">✖</button>
+    <ul class="nav-list">
+      <li><a href="#hero">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
 
-    <!-- Overlay detrás del panel (cierre al hacer clic) -->
-    <div id="overlay" class="overlay"></div>
-  </header>
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+</header>
+
 <main id="mainContent">
   <!-- CONTENIDO PRINCIPAL -->
    <!-- la clase content es la que esta esta controlando el ancho y alto del contenido en la pagina -->
