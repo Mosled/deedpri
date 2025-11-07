@@ -9,19 +9,6 @@ html, body {
 
 /* Hero image más ligera en móvil */
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-
-  .hero-art img {
-    width: 90%;
-    max-width: 320px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
 
   .brand-name {
     font-size: 2rem;
@@ -59,14 +46,6 @@ html, body {
 
 /* Ajustes de tipografía en pantallas pequeñas */
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 1.6rem;
-  }
-
-  .section p,
-  .section a {
-    font-size: 1rem;
-  }
 
   .contacto,
   .servicios,
@@ -89,27 +68,25 @@ body.menu-open {
 }
 
 /* Ajustes para WhatsApp o botones flotantes */
-.btn-whatsapp {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  z-index: 1000;
-  background: #25d366;
-  color: white;
-  border-radius: 50%;
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
-}
+ .btn-whatsapp {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+  }
 
-.btn-whatsapp:hover {
-  transform: scale(1.1);
-}
+  .btn-whatsapp:hover {
+    transform: scale(1.1);
+  }
 
 /* ===================================================== */
 /* 📱 RESPONSIVE DESIGN: Ajustes para pantallas pequeñas */
@@ -124,93 +101,132 @@ body.menu-open {
   .brand-name {
     font-size: 2rem;
   }
-
-  /* Hero */
-  .hero {
-    grid-template-columns: 1fr; /* pasa a una sola columna */
-  }
-  .hero-art {
-    height: 180px;
-  }
 }
 
-/* Pantallas hasta 900px (tablets medianas y móviles grandes) */
+/* ===== Header fijo optimizado para móvil ===== */
 @media (max-width: 900px) {
-  /* Header general */
   .topbar {
-    padding: 1rem 1.5rem;
-    flex-wrap: wrap;
-  }
-  .branding {
-    padding-left: 1rem;
-  }
-  .hamburger {
-    display: block;
-  }
-
-  /* Redes sociales (centradas abajo del header) */
-  .social-icons {
-    order: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0.8rem 0 0;
+    z-index: 999;
+    background-color: var(--gris-oscuro, #545454);
+    padding: 0.7rem 1rem;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+  }
+
+  .branding {
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
     justify-content: center;
-    margin-right: 0;
-    gap: 1.6rem;
-    font-size: 1.3rem;
-  }
-}
-
-/* Pantallas hasta 768px (móviles verticales comunes) */
-@media (max-width: 768px) {
-  /* Sección Servicios */
-  #servicios {
-    padding: 2.5rem 1rem;
   }
 
-  .card {
-    padding: 1.4rem;
+  .brand-name {
+    font-size: 1.8rem;
   }
 
-  .card h3 {
-    font-size: 1.05rem;
-  }
-
-  .card p {
+  .giro {
     font-size: 0.9rem;
   }
 
-  .card img {
-    width: 110px; /* un solo valor, eliminamos duplicado */
+  .hamburger {
+    position: absolute;
+    right: 1rem;
+    top: 0.9rem;
+  }
+
+  /* Íconos sociales centrados debajo */
+  .social-icons {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-top: 0.4rem;
+  }
+
+  body {
+    padding-top: 90px; /* evita que el contenido quede detrás del header */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero-text {
+    max-width: 90%;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .hero-art img {
+    width: 85%;
+    max-width: 320px;
     height: auto;
-    padding: 12px;
+    margin-bottom: 1.2rem;
   }
 
-  html {
-    scroll-margin-top: 150px;
-  }
-}
-
-/* ===== Tooltip móvil (cuando no hay hover) ===== */
-@media (hover: none) and (pointer: coarse) {
-  .whatsapp-fab .tooltip {
-    right: 70px;
-    opacity: 1;
-    transform: translateY(50%);
-    animation: tooltipFade 2.5s ease-in-out forwards;
+  .hero button {
+    background: var(--amarillo);
+    color: var(--gris-oscuro);
+    padding: 0.9rem 1.8rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
 
-  @keyframes tooltipFade {
-    0% { opacity: 0; transform: translateY(50%) translateX(5px); }
-    20% { opacity: 1; transform: translateY(50%) translateX(0); }
-    80% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(50%) translateX(5px); }
+  .hero button:hover {
+    background: #ffdf3a;
   }
 }
+@media (max-width: 768px) {
+  #servicios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+  }
 
-/* ===== Accesibilidad: reducir movimiento ===== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  .card {
+    width: 90%;
+    max-width: 340px;
+    text-align: center;
+    padding: 1.6rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background: #fff;
+  }
+
+  .card img {
+    width: 100px;
+    margin-bottom: 0.6rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    color: var(--gris-oscuro);
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    color: #444;
+  }
+}
+@media (max-width: 900px) {
+  .topbar.scrolled {
+    background-color: rgba(84, 84, 84, 0.97);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
   }
 }

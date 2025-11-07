@@ -66,8 +66,18 @@ section {
   padding: 1rem 3rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   flex-wrap: wrap; /* 👈 permite que los íconos bajen en móvil */
-  position: relative;
-  z-index: 80;
+  position: fixed;
+  top: 0;                /* ancla al borde superior */
+  left: 0;
+  width: 100%;           /* ocupa todo el ancho */
+  z-index: 999;          /* queda encima del contenido */
+}
+
+.topbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: rgba(84, 84, 84, 0.97);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
 }
 
 /* ===== IDENTIDAD ===== */
@@ -541,6 +551,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  padding-top: 80px;     /* 👈 evita que el contenido quede oculto detrás del header */
 }
 
 /* Si el menú usa transformaciones */
