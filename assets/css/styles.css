@@ -127,8 +127,8 @@ section {
   gap: 1.2rem;
   margin-right: 2rem;
   width: auto;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   flex-wrap: wrap;
   transform: translateX(-40px); /* mueve 40px a la izquierda */
   
