@@ -28,7 +28,10 @@ html {
   scroll-behavior: smooth;     /* desplazamiento suave */
   scroll-padding-top: 100px;    /* espacio reservado arriba al hacer clic en enlaces */
 }
-html, body{ height: 100%; }
+html, body{ height: 100%;
+background-color: #ffffff !important;
+  color-scheme: only light;
+}
 body{
   
   font-family: 'Poppins', sans-serif;
