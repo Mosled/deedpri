@@ -1,67 +1,3 @@
-/* ==============================================
-   📱 Mejoras para versión móvil – deedpri
-   ============================================== */
-
-/* Evita scroll horizontal */
-html, body {
-  overflow-x: hidden;
-}
-
-/* ----------------------------------------------
-   Footer limpio
-   ---------------------------------------------- */
-.footer-inner {
-  width: 100vw;
-  margin: 0;
-  padding: 14px 10px;
-  text-align: center;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-  background: linear-gradient(180deg, #606060 0%, #3c3c3c 100%);
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-  letter-spacing: 0.3px;
-}
-
-.footer-inner a {
-  color: var(--amarillo);
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
-}
-.footer-inner a:hover { opacity: 0.8; }
-
-/* Bloqueo del scroll cuando se abre el menú */
-nav.open,
-body.menu-open { overflow: hidden; }
-
-/* Botón WhatsApp flotante */
-.btn-whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 52px;
-  height: 52px;
-  font-size: 1.4rem;
-  background: #25d366;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
-}
-.btn-whatsapp:hover { transform: scale(1.1); }
-
-/* ===================================================== */
-/* 📱 RESPONSIVE DESIGN */
-/* ===================================================== */
-
-/* Tablets grandes (≤ 980 px) */
-@media (max-width: 980px) {
-  .hamburger { display: block; }
-}
-
 /* Móviles y tablets (≤ 900 px) */
 @media (max-width: 900px) {
 
@@ -103,17 +39,7 @@ body.menu-open { overflow: hidden; }
     text-align: left;
   }
 
-  /* Íconos arriba a la derecha */
-  .social-icons {
-    position: absolute;
-    top: 0.6rem;
-    right: .3rem;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.8rem;
-    font-size: 1.1rem;
-    transform: translateX(6px);
-  }
+
 
   /* Botón hamburguesa debajo */
   .hamburger {
@@ -225,12 +151,15 @@ body.menu-open { overflow: hidden; }
 @media (min-width: 901px) and (max-width: 1600px) {
   .social-icons {
     position: absolute;
-    top: 1rem;          /* ajusta la altura del header */
-    right: 2rem;        /* 📍 los lleva a la derecha */
+    top: 0.6rem;          /* ajusta la altura del header */
+    right: 3rem;        /* 📍 los lleva a la derecha */
     margin: 0;
     justify-content: flex-end;
-    gap: 1rem;
+    gap: 0.8rem;
     transform: none;
+    display: flex;
+    font-size: 1.1rem;
+    transform: translateX(6px);
   }
 
   .social-icons a {
@@ -249,17 +178,7 @@ body.menu-open { overflow: hidden; }
 }
 @media (min-width: 901px) and (max-width: 980px) {
   /* Iconos de redes arriba */
-  .social-icons {
-    position: absolute;
-    top: 0.6rem;      /* ligeramente arriba */
-    right: 1.2rem;    /* pegados al borde derecho */
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    transform: none;
-    margin: 0;
-    z-index: 10;
-  }
+
 
   /* Menú hamburguesa debajo de los iconos */
   .hamburger {
@@ -271,3 +190,30 @@ body.menu-open { overflow: hidden; }
     z-index: 9;       /* ligeramente por debajo de los iconos */
   }
 }
+/* ==============================================
+   Posición correcta de iconos y menú en móvil
+   ============================================== */
+
+@media (max-width: 900px) {
+  .social-icons {
+    position: absolute;
+    top: 0.6rem;
+    right: 0; /* 👈 antes 3.2rem */
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    font-size: 1.1rem;
+    transform: none;
+    z-index: 1000;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 2.6rem;
+    right: 1rem;
+    transform: none;
+    margin: 0;
+    z-index: 999;
+  }
+}
+
