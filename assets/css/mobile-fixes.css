@@ -205,3 +205,20 @@ body.menu-open { overflow: hidden; }
     padding: 2.5rem 1rem;
   }
 }
+/* ===== Ajustes progresivos ===== */
+
+/* 🖥️ Pantallas grandes */
+@media (min-width: 1400px) {
+  .branding {
+    padding-left: 14%; /* se mueve más hacia el centro */
+  }
+}
+
+/* 💻 Pantallas medianas (laptops ~1200px) */
+@media (max-width: 1200px) {
+  .branding {
+    padding-left: 8%;
+  }
+}
+
+/* 📱 En móviles ya controlado en mobile-fixes.css */

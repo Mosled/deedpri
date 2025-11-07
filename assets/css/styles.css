@@ -59,7 +59,7 @@ section {
 /*Header principal*/
 .topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: var(--gris-oscuro, #545454);
   color: var(--blanco, #fff);
@@ -82,11 +82,15 @@ section {
 
 /* ===== IDENTIDAD ===== */
 .branding {
-  display: flex;
+   max-width: 1400px; /* evita que se estire demasiado */
+  width: 100%;
+ display: flex;
   align-items: center;
   justify-content: flex-start;
   flex: 1;
-  padding-left: 5rem;
+  padding-left: 8rem; /* antes 5rem → mueve más hacia la derecha */
+  position: relative;
+  z-index: 10; /* asegura que quede por encima del hero */
 }
 
 .brand-text {
@@ -564,3 +568,78 @@ nav {
 nav.open {
   transform: translateX(0);
 }
+
+/*///PRUEBA DE HEADER MAS MODERNO///*/
+/* ==============================================
+   🎨 Header inteligente – Deedpri 2025
+   ============================================== */
+
+.topbar {
+  display: flex;
+  justify-content: center; /* centra todo el bloque dentro del ancho máximo */
+  align-items: center;
+  background-color: var(--gris-oscuro, #545454);
+  color: var(--blanco, #fff);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 1rem 0;
+}
+
+/* Contenedor del contenido (limita el ancho máximo) */
+.topbar .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1400px; /* 👈 evita que se estire demasiado en pantallas enormes */
+}
+
+/* Branding: logo + texto */
+.branding {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 10%; /* 👈 usa porcentaje proporcional */
+  transition: all 0.3s ease;
+}
+
+.brand-name {
+  font-family: 'League Spartan', sans-serif;
+  color: var(--amarillo, #ffd300);
+  font-weight: 800;
+  font-size: 2.3rem;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  line-height: 1;
+}
+
+.giro {
+  font-size: 1rem;
+  color: var(--blanco);
+  opacity: 0.9;
+}
+
+/* Redes sociales */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-right: 2%;
+}
+
+.social-icons a {
+  color: var(--blanco);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  color: var(--amarillo);
+  transform: translateY(-2px);
+}
+
+
