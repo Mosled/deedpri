@@ -28,19 +28,14 @@ html {
   scroll-behavior: smooth;     /* desplazamiento suave */
   scroll-padding-top: 100px;    /* espacio reservado arriba al hacer clic en enlaces */
 }
-html, body{ height: 100%;
-background-color: #ffffff !important;
-  color-scheme: only light;
-}
-body{
-  
+body {
   font-family: 'Poppins', sans-serif;
-  
-  /* Degradado vertical (ESCRITORIO). En móviles lo sobreescribimos a blanco. */
   background: linear-gradient(180deg, #ffd300 0%, #d6d4c4 35%, #fff 100%);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1.55;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  padding-top: 90px;
 }
 /*Aumenta el contraste en botones y enlaces si se leen en móvil*/
 a, button {
@@ -79,19 +74,31 @@ section {
   backdrop-filter: blur(4px);
   transition: all 0.3s ease;
 }
+/* Contenedor del contenido (limita el ancho máximo) */
+.topbar .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1400px; /* 👈 evita que se estire demasiado en pantallas enormes */
+}
 
 /* ===== IDENTIDAD ===== */
 .branding {
-   max-width: 1400px; /* evita que se estire demasiado */
+  display: flex;
+  flex-direction: column;      /* organiza "deedpri" y "Centro de impresión" en columna */
+  justify-content: flex-start; /* alineación vertical */
+  align-items: flex-start;     /* alineación horizontal a la izquierda */
+  
   width: 100%;
- display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 1;
-  padding-left: 8rem; /* antes 5rem → mueve más hacia la derecha */
+  max-width: 1400px;           /* evita que se estire en pantallas muy grandes */
+  
+  padding-left: 8rem;          /* base para escritorio (ajusta posición hacia la derecha) */
   position: relative;
-  z-index: 10; /* asegura que quede por encima del hero */
+  z-index: 10;                 /* asegura que quede por encima del hero */
+  transition: all 0.3s ease;   /* animación suave en cambios de tamaño */
 }
+
 
 .brand-text {
   display: flex;
@@ -108,7 +115,6 @@ section {
   text-transform: lowercase;
   text-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
-
 .giro {
   font-size: 0.95rem;
   color: var(--blanco, #fff);
@@ -125,6 +131,7 @@ section {
   align-items: center;
   flex-wrap: wrap;
   transform: translateX(-40px); /* mueve 40px a la izquierda */
+  
 }
 
 .social-icons a {
@@ -247,10 +254,6 @@ section {
 .lead{ color: #000; margin-bottom: 18px; }
 
 /* Bloque decorativo tipo “tarjeta” */
-.hero-art{ width: 100%; height: 260px; border-radius: 12px;
-  background: linear-gradient(180deg,#fff,#f7f7f7);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-}
 /* css para edicion del cuadro hero*/
 .hero-art {
   width: 100%;
@@ -259,6 +262,7 @@ section {
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   background-color: #fff;
+  background: linear-gradient(180deg,#fff,#f7f7f7);
 }
 
 .hero-art img {
@@ -546,100 +550,3 @@ section {
   opacity: 1;
   transform: translateY(50%) translateX(-5px);
 }
-
-/* Evita desplazamiento horizontal */
-
-/* Asegura que el contenedor principal no se mueva */
-body {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  padding-top: 80px;     /* 👈 evita que el contenido quede oculto detrás del header */
-}
-
-/* Si el menú usa transformaciones */
-nav {
-  transition: transform 0.3s ease;
-  transform: translateX(100%); /* empieza oculto */
-}
-
-/* Cuando se abre el menú */
-nav.open {
-  transform: translateX(0);
-}
-
-/*///PRUEBA DE HEADER MAS MODERNO///*/
-/* ==============================================
-   🎨 Header inteligente – Deedpri 2025
-   ============================================== */
-
-.topbar {
-  display: flex;
-  justify-content: center; /* centra todo el bloque dentro del ancho máximo */
-  align-items: center;
-  background-color: var(--gris-oscuro, #545454);
-  color: var(--blanco, #fff);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  padding: 1rem 0;
-}
-
-/* Contenedor del contenido (limita el ancho máximo) */
-.topbar .inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1400px; /* 👈 evita que se estire demasiado en pantallas enormes */
-}
-
-/* Branding: logo + texto */
-.branding {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 10%; /* 👈 usa porcentaje proporcional */
-  transition: all 0.3s ease;
-}
-
-.brand-name {
-  font-family: 'League Spartan', sans-serif;
-  color: var(--amarillo, #ffd300);
-  font-weight: 800;
-  font-size: 2.3rem;
-  letter-spacing: 1px;
-  text-transform: lowercase;
-  line-height: 1;
-}
-
-.giro {
-  font-size: 1rem;
-  color: var(--blanco);
-  opacity: 0.9;
-}
-
-/* Redes sociales */
-.social-icons {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  margin-right: 2%;
-}
-
-.social-icons a {
-  color: var(--blanco);
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-.social-icons a:hover {
-  color: var(--amarillo);
-  transform: translateY(-2px);
-}
-
-
