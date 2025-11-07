@@ -7,19 +7,9 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Hero image más ligera en móvil */
-@media (max-width: 768px) {
-
-  .brand-name {
-    font-size: 2rem;
-  }
-
-  section {
-    padding: 2rem 1rem;
-  }
-}
-
-/* Footer más limpio y adaptado */
+/* ----------------------------------------------
+   Footer limpio
+   ---------------------------------------------- */
 .footer-inner {
   width: 100vw;
   margin: 0;
@@ -28,83 +18,54 @@ html, body {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.85);
   background: linear-gradient(180deg, #606060 0%, #3c3c3c 100%);
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
   letter-spacing: 0.3px;
 }
 
-/* Enlaces del footer */
 .footer-inner a {
   color: var(--amarillo);
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.3s ease;
 }
-
-.footer-inner a:hover {
-  opacity: 0.8;
-}
-
-/* Ajustes de tipografía en pantallas pequeñas */
-@media (max-width: 768px) {
-
-  .contacto,
-  .servicios,
-  .ubicacion {
-    padding: 2.5rem 1rem;
-  }
-}
+.footer-inner a:hover { opacity: 0.8; }
 
 /* Bloqueo del scroll cuando se abre el menú */
 nav.open,
-body.menu-open {
-  overflow: hidden;
+body.menu-open { overflow: hidden; }
+
+/* Botón WhatsApp flotante */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  font-size: 1.4rem;
+  background: #25d366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease;
 }
-
-/* Botón hamburguesa más accesible */
-.hamburger {
-  right: 1rem;
-  top: 1rem;
-  z-index: 1001;
-}
-
-/* Ajustes para WhatsApp o botones flotantes */
- .btn-whatsapp {
-    bottom: 20px;
-    right: 20px;
-    width: 52px;
-    height: 52px;
-    font-size: 1.4rem;
-    background: #25d366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    transition: transform 0.3s ease;
-  }
-
-  .btn-whatsapp:hover {
-    transform: scale(1.1);
-  }
+.btn-whatsapp:hover { transform: scale(1.1); }
 
 /* ===================================================== */
-/* 📱 RESPONSIVE DESIGN: Ajustes para pantallas pequeñas */
+/* 📱 RESPONSIVE DESIGN */
 /* ===================================================== */
 
-/* Pantallas hasta 980px (tablets grandes y móviles horizontales) */
+/* Tablets grandes (≤ 980 px) */
 @media (max-width: 980px) {
-  /* Header */
-  .hamburger {
-    display: block;
-  }
-  .brand-name {
-    font-size: 2rem;
-  }
+  .hamburger { display: block; }
 }
 
-/* ===== Header fijo optimizado para móvil ===== */
+/* Móviles y tablets (≤ 900 px) */
 @media (max-width: 900px) {
+
+  /* Header fijo y compacto */
   .topbar {
     position: fixed;
     top: 0;
@@ -118,42 +79,72 @@ body.menu-open {
     transition: all 0.3s ease;
   }
 
+  /* Logo y texto */
   .branding {
-    padding-left: 0;
-    text-align: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 1rem;
     width: 100%;
-    justify-content: center;
+    text-align: left;
+  }
+
+  .brand-text {
+    align-items: flex-start;
+    text-align: left;
   }
 
   .brand-name {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
+    line-height: 1;
   }
 
   .giro {
     font-size: 0.9rem;
+    text-align: left;
   }
 
+  /* Íconos arriba a la derecha */
+  .social-icons {
+    position: absolute;
+    top: 0.6rem;
+    right: .3rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    font-size: 1.1rem;
+    transform: translateX(6px);
+  }
+
+  /* Botón hamburguesa debajo */
   .hamburger {
     position: absolute;
+    top: 2.6rem;
     right: 1rem;
-    top: 0.9rem;
-  }
-
-  /* Íconos sociales centrados debajo */
-  .social-icons {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 1.4rem;
-    margin-top: 0.4rem;
+    z-index: 1001;
+    display: block;
   }
 
   body {
-    padding-top: 90px; /* evita que el contenido quede detrás del header */
+    padding-top: 120px; /* compensa header fijo */
+  }
+
+  /* Header al hacer scroll */
+  .topbar.scrolled {
+    background-color: rgba(84,84,84,0.97);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Corrige desplazamiento de anclas */
+  main > section {
+    scroll-margin-top: 120px;
   }
 }
 
+/* Móviles verticales (≤ 768 px) */
 @media (max-width: 768px) {
+
+  /* Hero */
   .hero {
     display: flex;
     flex-direction: column;
@@ -184,12 +175,9 @@ body.menu-open {
     font-weight: 600;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
+  .hero button:hover { background: #ffdf3a; }
 
-  .hero button:hover {
-    background: #ffdf3a;
-  }
-}
-@media (max-width: 768px) {
+  /* Sección Servicios */
   #servicios {
     display: flex;
     flex-direction: column;
@@ -208,25 +196,12 @@ body.menu-open {
     background: #fff;
   }
 
-  .card img {
-    width: 100px;
-    margin-bottom: 0.6rem;
-  }
+  .card img { width: 100px; margin-bottom: 0.6rem; }
+  .card h3 { font-size: 1.1rem; color: var(--gris-oscuro); }
+  .card p { font-size: 0.95rem; color: #444; }
 
-  .card h3 {
-    font-size: 1.1rem;
-    color: var(--gris-oscuro);
-  }
-
-  .card p {
-    font-size: 0.95rem;
-    color: #444;
-  }
-}
-@media (max-width: 900px) {
-  .topbar.scrolled {
-    background-color: rgba(84, 84, 84, 0.97);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    backdrop-filter: blur(6px);
+  /* Secciones varias */
+  .contacto, .servicios, .ubicacion {
+    padding: 2.5rem 1rem;
   }
 }

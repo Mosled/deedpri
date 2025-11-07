@@ -97,7 +97,7 @@ section {
 
 .brand-name {
   font-family: 'League Spartan', sans-serif;
-  color: var(--amarillo, #ffd300);
+  color: var(--blanco, #ffd300);
   font-weight: 800;
   font-size: 2.2rem;
   letter-spacing: 1.2px;
