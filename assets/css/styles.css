@@ -139,6 +139,16 @@ section {
   font-size: 1.3rem;
   transition: all 0.3s ease;
   text-decoration: none;
+   position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+.social-icons a i {
+  pointer-events: none; /* permite que el clic pase al enlace, no al icono */
+}
+
+.social-icons a:first-child {
+  margin-left: 10px;
 }
 
 .social-icons a:hover {
@@ -549,4 +559,68 @@ section {
 .whatsapp-fab:hover .tooltip {
   opacity: 1;
   transform: translateY(50%) translateX(-5px);
+}
+
+/* === CORRECCIÓN DE ICONOS SOCIALES === */
+.social-icons {
+  position: absolute;
+  top: 0.6rem;
+  right: 2.8rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  z-index: 1200; /* 🔹 siempre encima del header y la marca */
+}
+
+.social-icons a {
+  cursor: pointer;
+  position: relative;
+  z-index: 1201;
+}
+
+.social-icons i {
+  pointer-events: none; /* 🔹 asegura que el clic pase al enlace */
+}
+
+/* Evita que otras capas bloqueen clics */
+.topbar, .branding, header {
+  position: relative;
+  z-index: 900;
+}
+
+.topbar::before,
+.branding::before,
+header::before {
+  pointer-events: none;
+}
+/* === CORRECCIÓN VISUAL DEL HEADER (sin mover posiciones) === */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* 🔹 vuelve a estar sobre el fondo pero debajo de íconos */
+}
+
+header {
+  position: relative;
+  z-index: 900; /* 🔹 asegura orden correcto debajo de topbar */
+}
+
+/* 🔹 fondo debajo del header no sobresale */
+body {
+  background: linear-gradient(180deg, #ffd300 0%, #d6d4c4 35%, #fff 100%);
+  position: relative;
+  z-index: 0;
+}
+
+/* 🔹 íconos correctamente encima, pero sin empujar al header */
+.social-icons {
+  position: absolute;
+  top: 0.7rem;
+  right: 3rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  z-index: 1100; /* justo por encima del header, no más */
 }
