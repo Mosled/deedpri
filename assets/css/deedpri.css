@@ -774,6 +774,7 @@ body {
   .contacto, .servicios, .ubicacion {
     padding: 2.5rem 1rem;
   }
+.social-icons { z-index: 950; position: absolute; right: 0.5rem; top: 0.8rem; }
 }
 /* Móviles y tablets (≤ 900 px) */
 @media (max-width: 900px) {
@@ -1026,7 +1027,7 @@ header, .topbar { z-index: 700; position: relative; }
 .nav { z-index: 900; }
 .overlay { z-index: 800; pointer-events: none; }
 .overlay.show { pointer-events: auto; } /* solo bloquea al abrir menú */
-.social-icons { z-index: 950; position: absolute; right: 2.2rem; top: 0.8rem; }
+.social-icons { z-index: 950; position: absolute; right: 0.5rem; top: 0.8rem; }
 
 /* Íconos clicables sin interferencias */
 .social-icons a {
