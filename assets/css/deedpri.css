@@ -1,3 +1,4 @@
+/* ====== Base (styles.css) ====== */
 /* 
   Archivo: styles.css
   Proyecto: DEEDPRI (versión final 2025)
@@ -623,4 +624,350 @@ body {
   gap: 0.8rem;
   flex-wrap: wrap;
   z-index: 1100; /* justo por encima del header, no más */
+}
+
+/* ====== Mobile fixes (mobile-fixes.css) ====== */
+/* Móviles verticales (≤ 768 px) */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero-text {
+    max-width: 90%;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .hero-art img {
+    width: 85%;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero button {
+    background: var(--amarillo);
+    color: var(--gris-oscuro);
+    padding: 0.9rem 1.8rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  .hero button:hover { background: #ffdf3a; }
+
+  /* Sección Servicios */
+  #servicios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 340px;
+    text-align: center;
+    padding: 1.6rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background: #fff;
+  }
+
+  .card img { width: 100px; margin-bottom: 0.6rem; }
+  .card h3 { font-size: 1.1rem; color: var(--gris-oscuro); }
+  .card p { font-size: 0.95rem; color: #444; }
+
+  /* Secciones varias */
+  .contacto, .servicios, .ubicacion {
+    padding: 2.5rem 1rem;
+  }
+}
+/* Móviles y tablets (≤ 900 px) */
+@media (max-width: 900px) {
+
+  /* Header fijo y compacto */
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: var(--gris-oscuro, #545454);
+    padding: 1.4rem 0.8rem;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+  }
+
+  /* Logo y texto */
+  .branding {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 1rem;
+    width: 100%;
+    text-align: left;
+  }
+
+  .brand-text {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .brand-name {
+    font-size: 2.4rem;
+    line-height: 1;
+  }
+
+  .giro {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  /* Botón hamburguesa debajo */
+  .hamburger {
+    position: absolute;
+    top: 2.6rem;
+    right: 1rem;
+    z-index: 1001;
+    display: block;
+  }
+
+  body {
+    padding-top: 80px; /* compensa header fijo */
+  }
+
+  /* Header al hacer scroll */
+  .topbar.scrolled {
+    background-color: rgba(84,84,84,0.97);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Corrige desplazamiento de anclas */
+  main > section {
+    scroll-margin-top: 120px;
+  }
+}
+
+
+/* ===== Ajustes progresivos ===== */
+
+/* 🖥️ Pantallas grandes */
+@media (min-width: 1400px) {
+  .branding {
+    padding-left: 14%; /* se mueve más hacia el centro */
+  }
+}
+
+/* 💻 Pantallas medianas (laptops ~1200px) */
+@media (max-width: 1200px) {
+  .branding {
+    padding-left: 8%;
+  }
+}
+
+/* 📱 En móviles ya controlado en mobile-fixes.css */
+@media (min-width: 901px) and (max-width: 1600px) {
+  .social-icons {
+    position: absolute;
+    top: 0.6rem;          /* ajusta la altura del header */
+    right: 3rem;        /* 📍 los lleva a la derecha */
+    margin: 0;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    transform: none;
+    display: flex;
+    font-size: 1.1rem;
+    transform: translateX(6px);
+  }
+
+  .social-icons a {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 901px) and (max-width: 980px) {
+  .hamburger {
+    position: absolute;
+    top: 1rem;         /* altura respecto al header */
+    right: 1.5rem;     /* 📍 lo mueve a la derecha */
+    transform: none;
+    margin: 0;
+    z-index: 1001;
+  }
+}
+@media (min-width: 901px) and (max-width: 980px) {
+  /* Iconos de redes arriba */
+
+
+  /* Menú hamburguesa debajo de los iconos */
+  .hamburger {
+    position: absolute;
+    top: 2.8rem;      /* 👈 esta es la clave: lo coloca más abajo */
+    right: 1.2rem;
+    transform: none;
+    margin: 0;
+    z-index: 9;       /* ligeramente por debajo de los iconos */
+  }
+}
+/* ==============================================
+   Posición correcta de iconos y menú en móvil
+   ============================================== */
+
+@media (max-width: 900px) {
+  .social-icons {
+    position: absolute;
+    top: 0.6rem;
+    right: 0; /* 👈 antes 3.2rem */
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    font-size: 1.1rem;
+    transform: none;
+    z-index: 1000;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 2.6rem;
+    right: 1rem;
+    transform: none;
+    margin: 0;
+    z-index: 999;
+  }
+}
+
+
+
+
+/* ==============================================
+   Overrides: z-index, mobile spacing, smoother transitions
+   (Mantiene el diseño original; solo corrige capas y posiciones)
+   ============================================== */
+.topbar{ z-index: 750; }
+
+.social-icons{ position: relative; z-index: 800; }
+.overlay{ z-index: 850; transition: opacity .32s ease-in-out, visibility .32s ease-in-out; }
+.nav{ z-index: 900; transition: right .36s ease-in-out; }
+.close-btn{ z-index: 950; position: absolute; top: 14px; right: 14px; }
+
+/* Espaciado correcto bajo header fijo en móvil */
+@media (max-width: 900px){
+  body{ padding-top: 80px; }
+  main > section{ scroll-margin-top: 100px; }
+
+  /* Iconos arriba derecha; menú debajo */
+  .social-icons{
+    position: absolute;
+    top: 0.6rem;
+    right: 1rem;
+    display: flex; gap: 0.8rem; justify-content: flex-end;
+    transform: none;
+  }
+  .hamburger{
+    position: absolute;
+    top: 2.6rem;
+    right: 1rem;
+    transform: none; margin: 0;
+  }
+}
+
+/* Zona media: evita solapamiento 901–980 */
+@media (min-width: 901px) and (max-width: 980px){
+  .social-icons{
+    position: absolute;
+    top: 0.6rem;
+    right: 1.2rem;
+    display: flex; gap: 1rem; justify-content: flex-end;
+    transform: none; margin: 0;
+  }
+  .hamburger{
+    position: absolute;
+    top: 2.8rem;
+    right: 1.2rem;
+    transform: none; margin: 0;
+  }
+}
+
+/* Pantallas medianas 901–1600: iconos a la derecha */
+@media (min-width: 901px) and (max-width: 1600px){
+  .social-icons{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    margin: 0;
+    justify-content: flex-end;
+    gap: 1rem;
+    transform: none;
+  }
+}
+/* ======= FIX FINAL: iconos clicables y capas ordenadas ======= */
+
+/* Prioridad de capas */
+header, .topbar { z-index: 700; position: relative; }
+.nav { z-index: 900; }
+.overlay { z-index: 800; pointer-events: none; }
+.overlay.show { pointer-events: auto; } /* solo bloquea al abrir menú */
+.social-icons { z-index: 950; position: absolute; right: 2.2rem; top: 0.8rem; }
+
+/* Íconos clicables sin interferencias */
+.social-icons a {
+  position: relative;
+  z-index: 951;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.social-icons i {
+  pointer-events: none; /* mantiene clic solo en <a> */
+}
+
+/* Botón cerrar menú */
+.close-btn {
+  z-index: 1001;
+  position: absolute;
+  top: 14px;
+  right: 16px;
+}
+
+/* Evita que el header o hero tapen iconos */
+.hero, main, section {
+  position: relative;
+  z-index: 1;
+}
+/* ====== Ajuste visual del header ====== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--gris-oscuro, #545454);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem; /* 🔧 aumenta alto */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 700;
+}
+@media (max-width: 900px) {
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--gris-oscuro, #545454);
+    padding: 1.1rem 1rem;
+    z-index: 999; /* 👈 más alto para que quede encima de todo */
+  }
+
+  body {
+    padding-top: 90px; /* evita que el contenido se tape */
+  }
 }
