@@ -38,6 +38,12 @@ body {
   padding: 0;
   padding-top: 70px;
 }
+body.pagina-interna {
+   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff; /* asegura fondo limpio */
+}
 /*Aumenta el contraste en botones y enlaces si se leen en móvil*/
 a, button {
   color: var(--gris-oscuro);
@@ -531,6 +537,24 @@ section {
 .card:hover img {
   transform: scale(1.08);
 }
+/* ==== Enlaces que envuelven tarjetas ==== */
+.cards a {
+  text-decoration: none;     /* ❌ quita el subrayado */
+  color: inherit;            /* mantiene el color del texto del contenedor */
+  display: block;            /* hace que todo el enlace sea clicable */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards a:hover {
+  transform: translateY(-6px);     /* anima la tarjeta al pasar el cursor */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Opcional: mejora visual al hacer clic */
+.cards a:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
 /* ================================
    🎨 Sección Ubicación
@@ -707,6 +731,122 @@ body {
   gap: 0.8rem;
   flex-wrap: wrap;
   z-index: 1100; /* justo por encima del header, no más */
+}
+/*//// PAGINA INTERNA CSS ///*/
+/* === Corrección: footer fijo al fondo sin dejar espacio en paginas de servicios === */
+body.pagina-interna {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.content {
+  flex: 1 0 auto; /* hace que el contenido empuje al footer hacia abajo */
+}
+
+/* Asegura que el footer quede pegado sin margen extra */
+.site-footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+.pagina-interna .section {
+  background: #fff;
+  color: #222;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.pagina-interna .section-title {
+  color: #000;
+}
+
+.pagina-interna .lead {
+  color: #333;
+}
+/* ===== Estilo para página Copias e Impresiones ===== */
+.pagina-copias {
+  padding: 6rem 2rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: #333;
+}
+
+.pagina-copias h1 {
+  font-family: "League Spartan", sans-serif;
+  font-size: 2.4rem;
+  color: var(--gris-oscuro, #545454);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.pagina-copias h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--amarillo, #ffd300);
+  margin: 0.6rem auto;
+  border-radius: 2px;
+}
+
+.pagina-copias p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin: 1.2rem 0;
+}
+
+.imagen-servicio {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.imagen-servicio img {
+  width: 260px;
+  max-width: 90%;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+
+.imagen-servicio img:hover {
+  transform: scale(1.05);
+}
+
+/* Botón de volver */
+.btn-volver {
+  display: inline-block;
+  margin-top: 2rem;
+  background: var(--amarillo, #ffd300);
+  color: #333;
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+  background: #ffdf3a;
+  transform: translateY(-2px);
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .pagina-copias {
+    padding: 5rem 1.2rem 2rem;
+  }
+
+  .pagina-copias h1 {
+    font-size: 2rem;
+  }
+
+  .pagina-copias p {
+    font-size: 1rem;
+  }
 }
 
 /* ====== Mobile fixes (mobile-fixes.css) ====== */
