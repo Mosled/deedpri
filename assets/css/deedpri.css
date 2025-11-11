@@ -262,36 +262,41 @@ section {
   visibility: visible;
 }
 
-
-/* ===== Contenido y secciones ===== */
-.content{ max-width: var(--max-width); margin: 28px auto; padding: 0 20px; }
-
 .hero{ display: grid; grid-template-columns: 1fr 380px; gap: 28px; align-items: center; padding: 36px 0; }
 .hero-inner h1{ font-size: 2rem; margin: 0 0 12px 0; color: #000; }
 .lead{ color: #000; margin-bottom: 18px; }
 
 /* Bloque decorativo tipo “tarjeta” */
 /* css para edicion del cuadro hero*/
+/* 🎨 HERO ART (bloque de ilustración) - Versión simplificada y adaptable */
 .hero-art {
-  width: 100%;
-  height: 260px;
-  border-radius: 12px;
+  flex: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  background-color: #fff;
-  background: linear-gradient(180deg,#fff,#f7f7f7);
+  height: 100%;
+  background: linear-gradient(180deg, #fff, #f7f7f7);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  max-height: 450px;
+  margin: 0 auto;
 }
 
+/* Imagen completamente ajustada al bloque */
 .hero-art img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform .4s ease;
+  object-fit: cover; /* 🔹 llena todo el bloque sin deformar (recorta un poco si es necesario) */
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.08));
+  transition: transform 0.5s ease;
+  border-radius: 16px;
 }
 
-/* Efecto zoom al pasar el mouse */
+/* Pequeño efecto zoom al pasar el cursor */
 .hero-art:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 /* ===== HERO ENHANCEMENT - DEEDPRI 2025 ===== */
 .hero {
@@ -358,24 +363,7 @@ section {
   transform: translateY(-3px);
 }
 
-/* 🖼 Imagen del hero */
-.hero-art {
-  flex: 1;
-  position: relative;
-  display: flex;
-  align-items: center;     /* centra verticalmente la imagen */
-  justify-content: flex-end;
-  height: 100%;            /* ocupa toda la altura del hero */
-}
 
-.hero-art img {
-  width: 100%;
-  max-width: 550px;        /* evita que se pase de grande */
-  height: auto;
-  object-fit: contain;     /* mantiene proporciones sin recortar */
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
-  animation: float 4s ease-in-out infinite;
-}
 .section{ padding: 28px 0; }
 .section-title{ font-size: 1.2rem; margin-bottom: 12px; color: var(--negro); }
 .section h2{
@@ -738,10 +726,6 @@ body.pagina-interna {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-main.content {
-  flex: 1 0 auto; /* hace que el contenido empuje al footer hacia abajo */
 }
 
 /* Asegura que el footer quede pegado sin margen extra */
