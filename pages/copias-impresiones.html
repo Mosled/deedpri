@@ -46,60 +46,100 @@
   </header>
   <!-- CONTENIDO PRINCIPAL -->
  <main>
-  <section class="pagina-copias">
-    <h1>Copias e Impresiones</h1>
-    <p>En <strong>deedpri</strong> ofrecemos copias e impresiones en blanco y negro o color, con calidad profesional y la mejor definición.</p>
+  <section class="pagina-copias flat-hero">
+    <div class="contenido">
+      <div class="texto">
+        <h1>Copias e Impresiones</h1>
+        <p>En <strong>deedpri</strong> realizamos copias e impresiones en <b>blanco y negro</b> o <b>color</b>, con calidad profesional, rapidez y definición impecable.</p>
+        <p>Imprime tus ideas en formatos desde <strong>media carta</strong> hasta <strong>tabloide</strong>. Perfecto para proyectos escolares, material publicitario o documentos empresariales.</p>
 
-    <div class="imagen-servicio">
-      <img src="../assets/img/copias-impresiones.png" alt="Copias e Impresiones" width="300" height="300" loading="lazy">
+        <a href="#cotizador" class="btn-principal">💡 Cotiza tus copias</a>
+      </div>
+
+      <div class="imagen">
+        <img src="../assets/img/copias-impresiones.png" alt="Ilustración de copias e impresiones deedpri" loading="lazy">
+      </div>
     </div>
-
-    <p>Trabajamos desde documentos simples hasta impresiones en formato <strong>tabloide</strong>, ideales para planos, proyectos escolares, material publicitario o presentaciones.</p>
-
-    <a href="../index.html#servicios" class="btn-volver">⬅ Regresar a servicios</a>
   </section>
 </main>
 
+
 <section class="tamaños">
   <h2>Tamaños disponibles</h2>
+  <p class="descripcion-tamanos">
+    Contamos con los formatos más utilizados para documentos, proyectos y material publicitario.
+  </p>
+
   <div class="tabla-tamaños">
-    <div class="tamaño"><strong>Media Carta</strong><br>14 × 21.5 cm</div>
-    <div class="tamaño"><strong>Carta</strong><br>21.5 × 28 cm</div>
-    <div class="tamaño"><strong>Oficio</strong><br>21.5 × 34 cm</div>
-    <div class="tamaño"><strong>Tabloide</strong><br>28 × 43 cm</div>
+    <div class="tamaño">
+      <div class="icono"><i class="fa-regular fa-file-lines"></i></div>
+      <strong>Media Carta</strong>
+      <span>14 × 21.5 cm</span>
+    </div>
+    <div class="tamaño">
+      <div class="icono"><i class="fa-regular fa-file"></i></div>
+      <strong>Carta</strong>
+      <span>21.5 × 28 cm</span>
+    </div>
+    <div class="tamaño">
+      <div class="icono"><i class="fa-regular fa-file-alt"></i></div>
+      <strong>Oficio</strong>
+      <span>21.5 × 34 cm</span>
+    </div>
+    <div class="tamaño">
+      <div class="icono"><i class="fa-regular fa-newspaper"></i></div>
+      <strong>Tabloide</strong>
+      <span>28 × 43 cm</span>
+    </div>
   </div>
 </section>
 
-<section class="cotizador">
-  <h2>Calcula tu costo</h2>
-  <p>Selecciona el tamaño y la cantidad para estimar el costo.</p>
 
-  <form id="form-cotizador">
-    <label for="tamano">Tamaño:</label>
-    <select id="tamano">
-      <option value="1">Carta ($1.00 c/u)</option>
-      <option value="1.5">Oficio ($1.50 c/u)</option>
-      <option value="2.5">Tabloide ($2.50 c/u)</option>
+<section id="cotizador" class="cotizador">
+  <h2>Cotizador de copias e impresiones</h2>
+
+  <form id="formCotizador">
+    <label for="tipo">Tipo de impresión:</label>
+    <select id="tipo" required>
+      <option value="bn">Blanco y negro</option>
+      <option value="color">Color</option>
     </select>
 
-    <label for="cantidad">Cantidad:</label>
-    <input type="number" id="cantidad" min="1" placeholder="Ej. 10">
+    <label for="tamano">Tamaño de papel:</label>
+    <select id="tamano" required>
+      <option value="carta">Carta (8.5" x 11")</option>
+      <option value="oficio">Oficio (8.5" x 13")</option>
+      <option value="tabloide">Tabloide (11" x 17")</option>
+    </select>
+<label for="cobertura">Cobertura de tinta:</label>
+<select id="cobertura" required>
+  <option value="baja">Baja (texto o logos simples)</option>
+  <option value="media">Media (texto + imagen)</option>
+  <option value="alta">Alta (fotos o fondos sólidos)</option>
+</select>
+    <label for="cantidad">Cantidad de copias:</label>
+    <input type="number" id="cantidad" min="1" placeholder="Ejemplo: 10" required>
 
-    <button type="button" id="calcular">Calcular</button>
+    <button type="button" id="calcular">Calcular total</button>
   </form>
 
-  <p id="resultado"></p>
+  <div id="resultado"></div>
+  <div id="mensaje-descuento"></div>
+
 </section>
+
 <section class="ejemplos">
   <h2>Usos comunes</h2>
   <ul>
-    <li>Trabajos escolares y tareas</li>
-    <li>Material de oficina</li>
-    <li>Planos o presentaciones</li>
-    <li>Publicidad o carteles pequeños</li>
+    <li><i class="fa-solid fa-book"></i> Trabajos escolares y tareas</li>
+    <li><i class="fa-solid fa-briefcase"></i> Material de oficina</li>
+    <li><i class="fa-solid fa-drafting-compass"></i> Planos o presentaciones</li>
+    <li><i class="fa-solid fa-bullhorn"></i> Publicidad o carteles pequeños</li>
   </ul>
 </section>
 
+
+ <a href="../index.html#servicios" class="btn-volver">⬅ Regresar a servicios</a>
 
   <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
@@ -133,17 +173,7 @@
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
   </script>
-  <script>
-  const calcular = document.getElementById('calcular');
-  calcular.addEventListener('click', () => {
-    const tamano = parseFloat(document.getElementById('tamano').value);
-    const cantidad = parseInt(document.getElementById('cantidad').value) || 0;
-    const total = (tamano * cantidad).toFixed(2);
-    document.getElementById('resultado').textContent = cantidad > 0
-      ? `Total estimado: $${total} MXN`
-      : 'Por favor, ingresa una cantidad válida.';
-  });
-</script>
+  <script src="../assets/js/cotizador.js"></script>
 </body>
 </html>
 
