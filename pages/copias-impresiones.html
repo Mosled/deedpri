@@ -60,6 +60,46 @@
   </section>
 </main>
 
+<section class="tamaños">
+  <h2>Tamaños disponibles</h2>
+  <div class="tabla-tamaños">
+    <div class="tamaño"><strong>Media Carta</strong><br>14 × 21.5 cm</div>
+    <div class="tamaño"><strong>Carta</strong><br>21.5 × 28 cm</div>
+    <div class="tamaño"><strong>Oficio</strong><br>21.5 × 34 cm</div>
+    <div class="tamaño"><strong>Tabloide</strong><br>28 × 43 cm</div>
+  </div>
+</section>
+
+<section class="cotizador">
+  <h2>Calcula tu costo</h2>
+  <p>Selecciona el tamaño y la cantidad para estimar el costo.</p>
+
+  <form id="form-cotizador">
+    <label for="tamano">Tamaño:</label>
+    <select id="tamano">
+      <option value="1">Carta ($1.00 c/u)</option>
+      <option value="1.5">Oficio ($1.50 c/u)</option>
+      <option value="2.5">Tabloide ($2.50 c/u)</option>
+    </select>
+
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" id="cantidad" min="1" placeholder="Ej. 10">
+
+    <button type="button" id="calcular">Calcular</button>
+  </form>
+
+  <p id="resultado"></p>
+</section>
+<section class="ejemplos">
+  <h2>Usos comunes</h2>
+  <ul>
+    <li>Trabajos escolares y tareas</li>
+    <li>Material de oficina</li>
+    <li>Planos o presentaciones</li>
+    <li>Publicidad o carteles pequeños</li>
+  </ul>
+</section>
+
 
   <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
@@ -93,6 +133,17 @@
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
   </script>
+  <script>
+  const calcular = document.getElementById('calcular');
+  calcular.addEventListener('click', () => {
+    const tamano = parseFloat(document.getElementById('tamano').value);
+    const cantidad = parseInt(document.getElementById('cantidad').value) || 0;
+    const total = (tamano * cantidad).toFixed(2);
+    document.getElementById('resultado').textContent = cantidad > 0
+      ? `Total estimado: $${total} MXN`
+      : 'Por favor, ingresa una cantidad válida.';
+  });
+</script>
 </body>
 </html>
 
