@@ -473,7 +473,7 @@ section {
   }
   
   .hamburger {
-    display: block;
+    display: block; /* 🔹 ACTIVADO */
     position: absolute;
     top: 2.8rem;
     right: 1.2rem;
@@ -522,12 +522,20 @@ section {
     transform: none;
   }
   
-  /* Hamburguesa */
+  /* 🔹 Hamburguesa - FORZADO */
   .hamburger {
-    display: block;
-    position: absolute;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
     top: 2.6rem;
     right: 1rem;
+    z-index: 1001;
+    pointer-events: auto;
+  }
+  
+  .hamburger-box {
+    display: inline-block !important;
   }
   
   /* Hero responsive */
@@ -645,6 +653,13 @@ section {
 
 /* 📱 Móviles verticales (hasta 768px) */
 @media (max-width: 768px) {
+  /* 🔹 Hamburguesa visible */
+  .hamburger {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
   /* Hero mobile */
   .hero {
     display: flex;
@@ -724,7 +739,6 @@ section {
 }
 
 /* ===== FIN DEL CSS DEPURADO ===== */;
-}
 
 .social-icons a i {
   pointer-events: none;
@@ -741,7 +755,19 @@ section {
   border: 0;
   cursor: pointer;
   padding: 8px;
-  display: none; /* visible solo en móvil */
+  display: none; /* oculto por defecto en desktop */
+  position: relative;
+  z-index: 1001;
+}
+
+/* 🔹 FORZAR visibilidad en pantallas menores a 980px */
+@media (max-width: 980px) {
+  .hamburger {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+  }
 }
 
 .hamburger-box {
@@ -763,9 +789,34 @@ section {
   transition: transform .32s ease, opacity .32s ease;
 }
 
-.hamburger-inner { top: 50%; transform: translateY(-50%); }
-.hamburger-inner::before { content: ''; top: -9px; }
-.hamburger-inner::after { content: ''; top: 9px; }
+.hamburger-inner { 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+
+.hamburger-inner::before { 
+  content: ''; 
+  top: -9px; 
+}
+
+.hamburger-inner::after { 
+  content: ''; 
+  top: 9px; 
+}
+
+/* 🔹 Asegurar que las barras sean visibles en móvil */
+@media (max-width: 980px) {
+  .hamburger-box {
+    display: inline-block !important;
+  }
+  
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
 
 /* Menú Lateral */
 .nav {
@@ -1464,4 +1515,4 @@ section {
   border-radius: 10px;
   padding: 1rem;
   font-size: 1.1rem;
-  cursor: pointer
+  cursor: pointer}
