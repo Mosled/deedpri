@@ -1,9 +1,7 @@
 <!--
   Archivo: index.html
-  Proyecto: DEEDPRI (versión final 2025)
-  Descripción: Página principal con header fijo, menú hamburguesa animado (panel lateral derecho),
-  overlay, animaciones de entrada y botón flotante de WhatsApp (SVG local).
-  Notas: Código comentado en español para aprendizaje.
+  Proyecto: DEEDPRI (versión optimizada 2025)
+  Descripción: Página principal con SEO mejorado, accesibilidad completa y performance optimizado.
 -->
 <!DOCTYPE html>
 <html lang="es">
@@ -11,150 +9,235 @@
   <!-- Meta básicas -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Centro de impresión DEEDPRI: copias, impresiones, stickers, y diseño profesional en Zacualtipán.">
-  <meta name="keywords" content="copias, impresiones, stickers, impresión fotográfica, deedpri, Zacualtipán">
+  
+  <!-- SEO mejorado -->
+  <title>deedpri - Centro de Impresión en Zacualtipán | Copias, Stickers y Diseño</title>
+  <meta name="description" content="Centro de impresión DEEDPRI en Zacualtipán: copias blanco y negro y color, impresión fotográfica, stickers personalizados y diseño profesional. Calidad garantizada.">
+  <meta name="keywords" content="copias Zacualtipán, impresiones, stickers personalizados, impresión fotográfica, diseño gráfico, deedpri">
   <meta name="author" content="deedpri">
-
-  <!-- Título corto solicitado -->
-  <title>deedpri</title>
-
-  <!-- Tipografía moderna: Poppins (Google Fonts) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome (iconos sociales) -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  referrerpolicy="no-referrer"
-/>
-
+  
+  <!-- Open Graph (redes sociales) -->
+  <meta property="og:title" content="deedpri - Centro de Impresión Profesional">
+  <meta property="og:description" content="Copias, impresiones fotográficas, stickers y diseño en Zacualtipán">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tudominio.com">
+  <meta property="og:image" content="https://tudominio.com/assets/img/og-image.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="deedpri - Centro de Impresión">
+  <meta name="twitter:description" content="Impresiones profesionales en Zacualtipán">
+  
+  <!-- Tema de color para móviles -->
+  <meta name="theme-color" content="#ffd300">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  
+  <!-- Preconnect para mejor performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Tipografía moderna: Poppins + League Spartan -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Spartan:wght@400;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome (diferido para mejor performance) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    media="print"
+    onload="this.media='all'"
+    referrerpolicy="no-referrer"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </noscript>
+  
   <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="assets/css/deedpriv2.css"/>
-
 </head>
+
 <body>
-  <!--
-    HEADER FIJO
-    - Contiene el nombre "deedpri / Centro de impresión" alineado a la izquierda.
-    - Botón hamburguesa con animación (líneas → ✖).
-    - Menú lateral blanco (desde el lado derecho) + overlay.
-  -->
+  <!-- HEADER FIJO con menú hamburguesa -->
   <header class="topbar" role="banner">
-  <!-- Identidad -->
-   <div class="inner">
-  <div class="branding" aria-label="Identidad del sitio">
-    <div class="brand-text">
-      <a href="index.html" class="brand-link"><span class="brand-name">deedpri</span></a>
-      <span class="giro">Centro de impresión</span>
-    </div>
-  </div>
+    <div class="inner">
+      <!-- Identidad / Logo -->
+      <div class="branding" aria-label="Identidad del sitio">
+        <div class="brand-text">
+          <a href="index.html" class="brand-link" aria-label="Ir a inicio">
+            <span class="brand-name">deedpri</span>
+          </a>
+          <span class="giro">Centro de impresión</span>
+        </div>
+      </div>
 
-  <!-- Redes sociales -->
-  <nav class="social-icons">
-    <a href="https://www.facebook.com/deedpri/" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/deedpri_oficial" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@deedpri_" aria-label="TikTok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-  </nav>
-
-  <!-- Botón hamburguesa -->
-  <button id="menuBtn" class="hamburger" aria-label="Abrir menú" aria-controls="mainNav" aria-expanded="false">
-    <span class="hamburger-box"><span class="hamburger-inner"></span></span>
-  </button>
-
-  <!-- Menú lateral -->
-  <nav id="mainNav" class="nav" role="navigation">
-    <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">✖</button>
-    <ul class="nav-list">
-      <li><a href="#hero">Inicio</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#ubicacion">Ubicación</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-
-  <!-- Overlay -->
-  <div id="overlay" class="overlay"></div>
-  </div>
-</header>
-
-<main id="mainContent">
-  <!-- CONTENIDO PRINCIPAL -->
-   <!-- la clase content es la que esta esta controlando el ancho y alto del contenido en la pagina -->
-  <main id="inicio" class="content" role="main">
-    <!-- HERO: mensaje principal con animaciones de entrada (reveal) -->
-    <section id="hero" class="hero" aria-labelledby="hero-title">
-      <div class="hero-inner">
-        <h1 id="hero-title" class="reveal">Impresiones rápidas y de calidad profesional</h1>
-        <p class="lead reveal" data-delay="120">
-          Copias, impresión fotográfica, impresión láser y más. Tamaños hasta tabloide.
-        </p>
-        <a class="btn btn-primary reveal" data-delay="240" href="https://wa.me/7295414907" target="_blank" rel="noopener">
-          Escríbenos por WhatsApp
+      <!-- Redes sociales -->
+      <nav class="social-icons" aria-label="Redes sociales">
+        <a href="https://www.facebook.com/deedpri/" aria-label="Visitar Facebook de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
         </a>
-      </div>
-      <!-- Bloque decorativo (simboliza tarjetas/papel) -->
-      <div class="hero-art reveal" data-delay="300">
-        <img src="assets/img/hero-deedpri.png" alt="Ilustración moderna de centro de impresión deedpri" loading="lazy">
-      </div>
-    </section>
+        <a href="https://www.instagram.com/deedpri_oficial" aria-label="Visitar Instagram de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.tiktok.com/@deedpri_" aria-label="Visitar TikTok de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+        </a>
+      </nav>
 
-    <!-- Sección Servicios con tarjetas -->
-    <section id="servicios" class="section">
-      <h2 class="section-title reveal">Nuestros Servicios</h2>
-      <div class="cards reveal" data-delay="120">
-        <a href="pages/copias-impresiones.html"><article class="card"><h3>Copias e impresiones</h3><p>Blanco y negro o color, calidad profesional hasta tamaño tabloide.</p><img src="assets/img/copias-impresiones.png" alt="copias-impresiones" loading="lazy"></article></a>
-        <a href="pages/impresion-fotografica.html"><article class="card"><h3>Impresión fotográfica</h3><p>Fotos con calidad profesional en distintos tipos de papel.</p><img src="assets/img/impresion-fotografica.png" alt="impresion-fotografica" loading="lazy"></article></a>
-        <a href="pages/impresion-laser.html"><article class="card"><h3>Impresión láser</h3><p>Rápida, precisa y con colores vibrantes para tus documentos.</p><img src="assets/img/impresion-laser.png"  alt="impresion-laser" loading="lazy"></article></a>
-        <a href="pages/impresion-stickers.html"><article class="card"><h3>Impresión de Stickers</h3><p>Personalizamos tus stickers </p><img src="assets/img/impresion-stickers.png" alt="impresion-stickers" loading="lazy"></article></a>
-        <a href="pages/impresion-publicitaria.html"><article class="card"><h3>Impresión Publicitaria</h3><p>Impresión de menús, folletos, recetas, notas de remisión, boletos personalizados, etc...</p><img src="assets/img/impresion-publicitaria.png" alt="impresion-publicitaria" loading="lazy"></article></a>
-        <a href="pages/diseño-personalizacion.html"><article class="card"><h3>Diseño y Personalización</h3><p>Diseñamos tus materiales con estilo y calidad profesional.</p><img src="assets/img/diseno-personalizacion.png" alt="diseno-personalizacion" loading="lazy"></article></a>
-      </div>
-    </section>
+      <!-- Botón hamburguesa -->
+      <button id="menuBtn" class="hamburger" aria-label="Abrir menú de navegación" aria-controls="mainNav" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
 
-    <!-- Sección Ubicación con enlace a Maps -->
-    <section id="ubicacion" class="section">
-      <h2 class="section-title reveal">Dónde estamos</h2>
-      <p class="reveal">
-        📍 Plaza Aurrera local 14B — Arriba de Laboratorios Santa María, junto a Music Center.
-      </p>
-      <div class="map reveal" data-delay="120">
-        <a class="btn" href="https://maps.app.goo.gl/qr7sTAfCzxKGTJFM8" target="_blank" rel="noopener">Ver en Google Maps</a>
-      </div>
-    </section>
+      <!-- Menú lateral -->
+      <nav id="mainNav" class="nav" role="navigation" aria-label="Menú principal">
+        <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">✖</button>
+        <ul class="nav-list">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="section-contacto">
-      <h2 class="section-title-contacto reveal">Contacto</h2>
-      <p class="reveal">WhatsApp: <a href="https://wa.me/7295414907" target="_blank" rel="noopener">729 541 4907</a></p>
-    </section>
+      <!-- Overlay oscuro -->
+      <div id="overlay" class="overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL (solo UNA etiqueta main) -->
+  <main id="mainContent" role="main">
+    <!-- Contenedor de ancho máximo -->
+    <div class="content">
+      
+      <!-- HERO: Mensaje principal -->
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <h1 id="hero-title" class="reveal">Impresiones rápidas y de calidad profesional</h1>
+          <p class="lead reveal" data-delay="120">
+            Copias, impresión fotográfica, impresión láser y más. Tamaños hasta tabloide.
+          </p>
+          <a class="btn btn-primary reveal" data-delay="240" href="https://wa.me/5217295414907" target="_blank" rel="noopener noreferrer">
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+        
+        <!-- Imagen decorativa -->
+        <div class="hero-art reveal" data-delay="300">
+          <img src="assets/img/hero-deedpri.png" alt="Ilustración de servicios de impresión profesional deedpri" loading="lazy" width="460" height="450">
+        </div>
+      </section>
+
+      <!-- Sección Servicios -->
+      <section id="servicios" class="section" aria-labelledby="servicios-title">
+        <h2 id="servicios-title" class="section-title reveal">Nuestros Servicios</h2>
+        <div class="cards reveal" data-delay="120">
+          
+          <a href="pages/copias-impresiones.html" aria-label="Ver detalles de copias e impresiones">
+            <article class="card">
+              <img src="assets/img/copias-impresiones.png" alt="Servicio de copias e impresiones" loading="lazy" width="140" height="140">
+              <h3>Copias e impresiones</h3>
+              <p>Blanco y negro o color, calidad profesional hasta tamaño tabloide.</p>
+            </article>
+          </a>
+          
+          <a href="pages/impresion-fotografica.html" aria-label="Ver detalles de impresión fotográfica">
+            <article class="card">
+              <img src="assets/img/impresion-fotografica.png" alt="Servicio de impresión fotográfica" loading="lazy" width="140" height="140">
+              <h3>Impresión fotográfica</h3>
+              <p>Fotos con calidad profesional en distintos tipos de papel.</p>
+            </article>
+          </a>
+          
+          <a href="pages/impresion-laser.html" aria-label="Ver detalles de impresión láser">
+            <article class="card">
+              <img src="assets/img/impresion-laser.png" alt="Servicio de impresión láser" loading="lazy" width="140" height="140">
+              <h3>Impresión láser</h3>
+              <p>Rápida, precisa y con colores vibrantes para tus documentos.</p>
+            </article>
+          </a>
+          
+          <a href="pages/impresion-stickers.html" aria-label="Ver detalles de impresión de stickers">
+            <article class="card">
+              <img src="assets/img/impresion-stickers.png" alt="Servicio de impresión de stickers" loading="lazy" width="140" height="140">
+              <h3>Impresión de Stickers</h3>
+              <p>Personalizamos tus stickers con diseños únicos.</p>
+            </article>
+          </a>
+          
+          <a href="pages/impresion-publicitaria.html" aria-label="Ver detalles de impresión publicitaria">
+            <article class="card">
+              <img src="assets/img/impresion-publicitaria.png" alt="Servicio de impresión publicitaria" loading="lazy" width="140" height="140">
+              <h3>Impresión Publicitaria</h3>
+              <p>Impresión de menús, folletos, recetas, notas de remisión, boletos personalizados y más.</p>
+            </article>
+          </a>
+          
+          <a href="pages/diseño-personalizacion.html" aria-label="Ver detalles de diseño y personalización">
+            <article class="card">
+              <img src="assets/img/diseno-personalizacion.png" alt="Servicio de diseño y personalización" loading="lazy" width="140" height="140">
+              <h3>Diseño y Personalización</h3>
+              <p>Diseñamos tus materiales con estilo y calidad profesional.</p>
+            </article>
+          </a>
+          
+        </div>
+      </section>
+
+      <!-- Sección Ubicación -->
+      <section id="ubicacion" class="section" aria-labelledby="ubicacion-title">
+        <h2 id="ubicacion-title" class="section-title reveal">Dónde estamos</h2>
+        <p class="reveal">
+          📍 Plaza Aurrera local 14B — Arriba de Laboratorios Santa María, junto a Music Center.
+        </p>
+        <div class="map reveal" data-delay="120">
+          <a class="btn" href="https://maps.app.goo.gl/qr7sTAfCzxKGTJFM8" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación de deedpri en Google Maps">
+            Ver en Google Maps
+          </a>
+        </div>
+      </section>
+
+      <!-- Sección Contacto -->
+      <section id="contacto" class="section-contacto" aria-labelledby="contacto-title">
+        <h2 id="contacto-title" class="section-title-contacto reveal">Contacto</h2>
+        <p class="reveal">
+          WhatsApp: <a href="https://wa.me/5217295414907" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp al 729 541 4907">729 541 4907</a>
+        </p>
+      </section>
+      
+    </div>
   </main>
 
-  <!-- FOOTER simple con año dinámico -->
+  <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
-      <p>© <span id="year"></span> deedpri — Centro de impresión</p>
+      <p>&copy; <span id="year"></span> deedpri — Centro de impresión</p>
+      <small>Zacualtipán, Hidalgo</small>
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE DE WHATSAPP (SVG local) -->
-  <a href="https://wa.me/7295414907" class="whatsapp-fab" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">
-    <img src="assets/img/WhatsApp.svg" width="60" height="60" alt="WhatsApp" loading="lazy" >
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/5217295414907" class="whatsapp-fab" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener noreferrer">
+    <img src="assets/img/WhatsApp.svg" width="60" height="60" alt="Ícono de WhatsApp" loading="lazy">
     <span class="tooltip">¡Escríbenos!</span>
   </a>
-</main>
-  <!-- JavaScript principal (control de menú, overlay, reveals y FAB) -->
+
+  <!-- JavaScript -->
   <script src="assets/js/menu.js"></script>
   <script>
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".topbar");
-  if (window.scrollY > 20) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
-</script>
-
+    // Efecto de scroll en header
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector(".topbar");
+      if (window.scrollY > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
 </body>
 </html>

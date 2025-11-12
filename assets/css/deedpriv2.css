@@ -1,15 +1,6 @@
 /* ====================================================================
-   DEEDPRI - CSS DEPURADO Y ORGANIZADO (2025)
-   
-   Estructura:
-   1. Variables y Reset
-   2. Layout Base
-   3. Header y Navegación
-   4. Hero y Secciones
-   5. Componentes (Tarjetas, Botones, etc.)
-   6. Páginas Internas
-   7. Animaciones
-   8. Media Queries (Desktop → Mobile)
+   DEEDPRI - CSS FINAL LIMPIO (2025)
+   Sin duplicados - Versión completa y funcional
    ==================================================================== */
 
 /* ===== 1. VARIABLES Y RESET ===== */
@@ -24,9 +15,7 @@
   --azul-rey: #004aad;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -49,13 +38,8 @@ body.pagina-interna {
   background: #fff;
 }
 
-a, button {
-  color: var(--gris-oscuro);
-}
-
-a:hover, button:hover {
-  filter: brightness(1.1);
-}
+a, button { color: var(--gris-oscuro); }
+a:hover, button:hover { filter: brightness(1.1); }
 
 section {
   padding: 40px 20px;
@@ -64,8 +48,6 @@ section {
 }
 
 /* ===== 2. HEADER Y NAVEGACIÓN ===== */
-
-/* 🔹 Z-INDEX CENTRALIZADO (NO TOCAR) */
 .topbar { z-index: 999; }
 .social-icons { z-index: 1050; }
 .overlay { z-index: 998; }
@@ -73,7 +55,6 @@ section {
 .close-btn { z-index: 1001; }
 .hamburger { z-index: 1001; }
 
-/* Header Principal */
 .topbar {
   position: fixed;
   top: 0;
@@ -104,7 +85,6 @@ section {
   max-width: 1400px;
 }
 
-/* Identidad (Logo) */
 .branding {
   display: flex;
   flex-direction: column;
@@ -140,15 +120,14 @@ section {
   opacity: 0.9;
 }
 
-/* Redes Sociales */
 .social-icons {
   position: absolute;
   top: 0.6rem;
-  right: 3rem;
+  right: 3.5rem;
   display: flex;
   gap: 1.2rem;
   flex-wrap: wrap;
-  transform: translateX(-40px);
+  padding-right: 0.5rem;
 }
 
 .social-icons a {
@@ -158,616 +137,23 @@ section {
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cotizador button:hover {
-  background-color: #ffdf3a;
-  transform: translateY(-2px);
-}
-
-/* Resultado del cotizador */
-#resultado {
-  margin-top: 1.8rem;
-  padding: 1.2rem 1.5rem;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-  font-size: 1.2rem;
-  color: #222;
-  font-weight: 600;
-  text-align: center;
-  display: none;
-}
-
-#resultado.mostrar {
-  display: block;
-  animation: fadeUp 0.6s ease forwards;
-  border-left: 6px solid #FFD300;
-  position: relative;
-}
-
-#resultado::before {
-  content: "💰";
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.4rem;
-}
-
-#resultado.descuento {
-  background: #eaffea;
-  border-left: 6px solid #00b050;
-  color: #1f5c1f;
-  animation: bounceIn 0.6s ease, glow 1.2s ease;
-}
-
-#resultado.descuento::before {
-  content: "🎉";
-  font-size: 1.5rem;
-}
-
-#mensaje-descuento {
-  margin-top: 0.8rem;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #007a2e;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.6s ease, transform 0.5s ease;
-}
-
-#mensaje-descuento.mostrar-mensaje {
-  opacity: 1;
-  transform: translateY(0);
-  animation: mensajeFade 0.8s ease;
-}
-
-/* Botones del cotizador */
-.botones-cotizador {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.2rem;
-}
-
-.btn-cotizar, .btn-limpiar {
-  background-color: #ffd300;
-  color: #545454;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  font-family: "League Spartan", sans-serif;
-}
-
-.btn-cotizar:hover {
-  background-color: #ffda33;
-  transform: scale(1.05);
-}
-
-.btn-limpiar {
-  background-color: #e5e5e5;
-}
-
-.btn-limpiar:hover {
-  background-color: #d1d1d1;
-  transform: scale(1.05);
-}
-
-.btn-limpio {
-  animation: limpiarBrillo 0.8s ease-in-out;
-}
-
-/* Mensajes de error */
-.mensaje-error {
-  color: #c92a2a;
-  background: #fff0f0;
-  border: 1px solid #ff7b7b;
-  padding: 10px 14px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: 600;
-  animation: aparecerError 0.4s ease-out;
-}
-
-.error-resaltado {
-  animation: parpadeo 0.6s ease-in-out 2;
-  background-color: #fff7b0;
-  border: 2px solid #ffd300;
-  border-radius: 6px;
-}
-
-.desvanecer {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-/* Ejemplos de uso */
-.ejemplos {
-  padding: 5rem 8%;
-  background: #fff;
-  text-align: center;
-}
-
-.ejemplos h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 2.3rem;
-  color: #545454;
-  margin-bottom: 2rem;
-}
-
-.ejemplos ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.6rem;
-  max-width: 800px;
-}
-
-.ejemplos li {
-  background: #f9f9f9;
-  padding: 1.2rem 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  font-size: 1.1rem;
-  color: #333;
-  flex: 1 1 280px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.8rem;
-  transition: all 0.3s ease;
-}
-
-.ejemplos li i {
-  color: #FFD300;
-  font-size: 1.4rem;
-}
-
-.ejemplos li:hover {
-  transform: translateY(-4px);
-  background: #fff8cc;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-}
-
-/* ===== 9. ANIMACIONES ===== */
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-4px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.6;
-  }
-  60% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-  80% {
-    transform: scale(0.98);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 0 rgba(0, 176, 80, 0);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 176, 80, 0.3);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(0, 176, 80, 0);
-  }
-}
-
-@keyframes mensajeFade {
-  0% {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-2px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes limpiarBrillo {
-  0% { box-shadow: 0 0 0 rgba(255,211,0,0); }
-  50% { box-shadow: 0 0 10px rgba(255,211,0,0.7); }
-  100% { box-shadow: 0 0 0 rgba(255,211,0,0); }
-}
-
-@keyframes parpadeo {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@keyframes aparecerError {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fabIn {
-  from {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* ===== 10. MEDIA QUERIES (Desktop → Mobile) ===== */
-
-/* 🖥️ Pantallas muy grandes (1400px+) */
-@media (min-width: 1400px) {
-  .branding {
-    padding-left: 14%;
-  }
-}
-
-/* 💻 Pantallas grandes (1200px - 1400px) */
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .branding {
-    padding-left: 8%;
-  }
-  
-  .hero {
-    padding: 3rem 8%;
-    min-height: 70vh;
-  }
-}
-
-/* 📱 Tablets y pantallas medianas (901px - 1600px) */
-@media (min-width: 901px) and (max-width: 1600px) {
-  .social-icons {
-    position: absolute;
-    top: 0.6rem;
-    right: 3rem;
-    gap: 0.8rem;
-    transform: none;
-  }
-  
-  .social-icons a {
-    font-size: 1.2rem;
-  }
-}
-
-/* 📱 Tablets (901px - 980px) - Zona crítica */
-@media (min-width: 901px) and (max-width: 980px) {
-  .social-icons {
-    top: 0.6rem;
-    right: 1.2rem;
-  }
-  
-  .hamburger {
-    display: block; /* 🔹 ACTIVADO */
-    position: absolute;
-    top: 2.8rem;
-    right: 1.2rem;
-  }
-}
-
-/* 📱 Tablets y móviles horizontales (hasta 900px) */
-@media (max-width: 900px) {
-  /* Header ajustado */
-  .topbar {
-    padding: 1.4rem 0.8rem;
-    flex-wrap: wrap;
-  }
-  
-  body {
-    padding-top: 90px;
-  }
-  
-  main > section {
-    scroll-margin-top: 120px;
-  }
-  
-  /* Logo */
-  .branding {
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-left: 1rem;
-    width: 100%;
-    text-align: left;
-  }
-  
-  .brand-name {
-    font-size: 2.4rem;
-  }
-  
-  .giro {
-    font-size: 0.9rem;
-  }
-  
-  /* Iconos sociales */
-  .social-icons {
-    position: absolute;
-    top: 0.6rem;
-    right: 1rem;
-    gap: 0.8rem;
-    transform: none;
-  }
-  
-  /* 🔹 Hamburguesa - FORZADO */
-  .hamburger {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: absolute !important;
-    top: 2.6rem;
-    right: 1rem;
-    z-index: 1001;
-    pointer-events: auto;
-  }
-  
-  .hamburger-box {
-    display: inline-block !important;
-  }
-  
-  /* Hero responsive */
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 5rem 1.5rem;
-  }
-  
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-  
-  .hero p {
-    font-size: 1rem;
-    margin: 0.8rem 0 1.6rem;
-  }
-  
-  .hero::before {
-    top: -100px;
-    right: -150px;
-    width: 120%;
-    height: 120%;
-    opacity: 0.3;
-  }
-  
-  /* Flat hero (páginas internas) */
-  .flat-hero {
-    padding: 4rem 1.5rem;
-  }
-  
-  .flat-hero .contenido {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-  
-  .flat-hero h1 {
-    font-size: 2.2rem;
-  }
-  
-  .flat-hero p {
-    font-size: 1rem;
-  }
-  
-  .flat-hero .imagen img {
-    max-width: 320px;
-  }
-  
-  /* Tamaños */
-  .tamaños {
-    padding: 3.5rem 1.5rem;
-  }
-  
-  .tamaños h2 {
-    font-size: 2rem;
-  }
-  
-  .descripcion-tamanos {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .tamaño {
-    max-width: 100%;
-  }
-  
-  /* Cotizador */
-  .cotizador {
-    padding: 3.5rem 1.5rem;
-  }
-  
-  .cotizador h2 {
-    font-size: 2rem;
-  }
-  
-  .cotizador form {
-    padding: 2rem;
-  }
-  
-  /* Ejemplos */
-  .ejemplos {
-    padding: 3rem 1.2rem;
-  }
-  
-  .ejemplos h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.4rem;
-  }
-  
-  .ejemplos ul {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .ejemplos li {
-    flex: 1 1 auto;
-    padding: 0.9rem 1rem;
-    font-size: 0.95rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    justify-content: center;
-  }
-  
-  .ejemplos li i {
-    font-size: 1.2rem;
-  }
-  
-  /* Botón volver */
-  .btn-volver {
-    width: 80%;
-    padding: 0.8rem 1.2rem;
-    font-size: 0.95rem;
-  }
-}
-
-/* 📱 Móviles verticales (hasta 768px) */
-@media (max-width: 768px) {
-  /* 🔹 Hamburguesa visible */
-  .hamburger {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  
-  /* Hero mobile */
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-  
-  .hero-text {
-    max-width: 90%;
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  
-  .hero-art img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    margin-bottom: 1.2rem;
-  }
-  
-  .hero button {
-    background: var(--amarillo);
-    color: var(--gris-oscuro);
-    padding: 0.9rem 1.8rem;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-  
-  .hero button:hover {
-    background: #ffdf3a;
-  }
-  
-  /* Servicios mobile */
-  #servicios {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem 1rem;
-  }
-  
-  .card {
-    width: 90%;
-    max-width: 340px;
-    text-align: center;
-    padding: 1.6rem 1rem;
-  }
-  
-  .card img {
-    width: 100px;
-    margin-bottom: 0.6rem;
-  }
-  
-  .card h3 {
-    font-size: 1.1rem;
-  }
-  
-  .card p {
-    font-size: 0.95rem;
-  }
-  
-  /* Secciones varias */
-  .contacto, .servicios, .ubicacion {
-    padding: 2.5rem 1rem;
-  }
-  
-  /* Iconos sociales mobile */
-  .social-icons {
-    position: absolute;
-    right: 0.5rem;
-    top: 0.8rem;
-  }
-}
-
-/* ===== FIN DEL CSS DEPURADO ===== */;
-
-.social-icons a i {
-  pointer-events: none;
-}
+.social-icons a i { pointer-events: none; }
 
 .social-icons a:hover {
   color: var(--amarillo);
   transform: translateY(-2px);
 }
 
-/* Botón Hamburguesa */
 .hamburger {
   background: none;
   border: 0;
   cursor: pointer;
   padding: 8px;
-  display: none; /* oculto por defecto en desktop */
+  display: none;
   position: relative;
   z-index: 1001;
-}
-
-/* 🔹 FORZAR visibilidad en pantallas menores a 980px */
-@media (max-width: 980px) {
-  .hamburger {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: absolute !important;
-  }
 }
 
 .hamburger-box {
@@ -789,36 +175,10 @@ section {
   transition: transform .32s ease, opacity .32s ease;
 }
 
-.hamburger-inner { 
-  top: 50%; 
-  transform: translateY(-50%); 
-}
+.hamburger-inner { top: 50%; transform: translateY(-50%); }
+.hamburger-inner::before { content: ''; top: -9px; }
+.hamburger-inner::after { content: ''; top: 9px; }
 
-.hamburger-inner::before { 
-  content: ''; 
-  top: -9px; 
-}
-
-.hamburger-inner::after { 
-  content: ''; 
-  top: 9px; 
-}
-
-/* 🔹 Asegurar que las barras sean visibles en móvil */
-@media (max-width: 980px) {
-  .hamburger-box {
-    display: inline-block !important;
-  }
-  
-  .hamburger-inner,
-  .hamburger-inner::before,
-  .hamburger-inner::after {
-    display: block !important;
-    visibility: visible !important;
-  }
-}
-
-/* Menú Lateral */
 .nav {
   position: fixed;
   top: 0;
@@ -872,7 +232,6 @@ section {
   transform: translateX(6px);
 }
 
-/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -903,7 +262,6 @@ section {
   overflow: hidden;
 }
 
-/* Fondo decorativo amarillo */
 .hero::before {
   content: "";
   position: absolute;
@@ -957,7 +315,6 @@ section {
   transform: translateY(-3px);
 }
 
-/* Hero Art (imagen) */
 .hero-art {
   flex: 0.8;
   display: flex;
@@ -980,20 +337,11 @@ section {
   border-radius: 16px;
 }
 
-.hero-art:hover img {
-  transform: scale(1.04);
-}
+.hero-art:hover img { transform: scale(1.04); }
 
 /* ===== 4. SECCIONES ===== */
-.section {
-  padding: 28px 0;
-}
-
-.section-title {
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-  color: var(--negro);
-}
+.section { padding: 28px 0; }
+.section-title { font-size: 1.2rem; margin-bottom: 12px; color: var(--negro); }
 
 .section h2 {
   font-size: 2rem;
@@ -1012,7 +360,6 @@ section {
   margin: 10px auto 0;
 }
 
-/* Sección Contacto */
 .section-contacto {
   padding: 80px 20px;
   text-align: center;
@@ -1079,7 +426,6 @@ section {
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* Sección Servicios */
 #servicios {
   padding: 4rem 2rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
@@ -1120,18 +466,8 @@ section {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
-.card h3 {
-  font-size: 1.15rem;
-  color: var(--gris-oscuro);
-  margin-bottom: 0.6rem;
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
+.card h3 { font-size: 1.15rem; color: var(--gris-oscuro); margin-bottom: 0.6rem; }
+.card p { font-size: 0.95rem; color: #555; line-height: 1.5; margin-bottom: 1rem; }
 
 .card img {
   display: block;
@@ -1144,9 +480,7 @@ section {
   transition: transform 0.3s ease;
 }
 
-.card:hover img {
-  transform: scale(1.08);
-}
+.card:hover img { transform: scale(1.08); }
 
 .cards a {
   text-decoration: none;
@@ -1155,17 +489,9 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cards a:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
+.cards a:hover { transform: translateY(-6px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15); }
+.cards a:active { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
 
-.cards a:active {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Sección Ubicación */
 #ubicacion {
   padding: 1rem 1rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
@@ -1180,9 +506,7 @@ section {
   letter-spacing: 1.5px;
 }
 
-/* ===== 5. COMPONENTES REUTILIZABLES ===== */
-
-/* Botones */
+/* ===== 5. BOTONES ===== */
 .btn {
   color: darkblue;
   display: inline-block;
@@ -1192,11 +516,7 @@ section {
   font-weight: 700;
 }
 
-.btn-primary {
-  background: var(--amarillo);
-  color: #222;
-  box-shadow: 0 10px 30px rgba(255,211,0,0.16);
-}
+.btn-primary { background: var(--amarillo); color: #222; box-shadow: 0 10px 30px rgba(255,211,0,0.16); }
 
 .btn-volver {
   display: inline-block;
@@ -1218,17 +538,13 @@ section {
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* Animaciones de entrada */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity .68s cubic-bezier(.2,.9,.3,1), transform .68s cubic-bezier(.2,.9,.3,1);
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.active { opacity: 1; transform: translateY(0); }
 
 /* ===== 6. FOOTER ===== */
 .footer-inner {
@@ -1243,30 +559,12 @@ section {
   letter-spacing: 0.3px;
 }
 
-.footer-inner a {
-  color: var(--amarillo);
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
-}
+.footer-inner a { color: var(--amarillo); text-decoration: none; font-weight: 500; transition: opacity 0.3s ease; }
+.footer-inner a:hover { opacity: 0.8; }
+.footer-inner small { display: block; margin-top: 6px; font-size: 0.75rem; color: rgba(255, 255, 255, 0.6); }
+.site-footer { flex-shrink: 0; margin-top: auto; }
 
-.footer-inner a:hover {
-  opacity: 0.8;
-}
-
-.footer-inner small {
-  display: block;
-  margin-top: 6px;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.site-footer {
-  flex-shrink: 0;
-  margin-top: auto;
-}
-
-/* ===== 7. BOTÓN FLOTANTE WHATSAPP ===== */
+/* ===== 7. WHATSAPP ===== */
 .whatsapp-fab {
   position: fixed;
   right: 18px;
@@ -1309,210 +607,110 @@ section {
   border-color: transparent transparent transparent #333;
 }
 
-.whatsapp-fab:hover .tooltip {
-  opacity: 1;
-  transform: translateY(50%) translateX(-5px);
+.whatsapp-fab:hover .tooltip { opacity: 1; transform: translateY(50%) translateX(-5px); }
+
+/* ===== 8. ANIMACIONES ===== */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  60% { opacity: 1; transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== 8. PÁGINAS INTERNAS (Copias, Impresiones, etc.) ===== */
-
-/* Hero plano para páginas internas */
-.flat-hero {
-  background-color: #fff;
-  padding: 6rem 8%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  overflow: hidden;
+@keyframes bounceIn {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  60% { transform: scale(1.05); opacity: 1; }
+  80% { transform: scale(0.98); }
+  100% { transform: scale(1); }
 }
 
-.flat-hero .contenido {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  width: 100%;
-  gap: 2rem;
+@keyframes glow {
+  0% { box-shadow: 0 0 0 rgba(0, 176, 80, 0); }
+  50% { box-shadow: 0 0 20px rgba(0, 176, 80, 0.3); }
+  100% { box-shadow: 0 0 0 rgba(0, 176, 80, 0); }
 }
 
-.flat-hero .texto {
-  flex: 1;
-  min-width: 320px;
-  color: #545454;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-.flat-hero h1 {
-  font-size: 2.8rem;
-  color: #545454;
-  margin-bottom: 1rem;
-  font-family: 'League Spartan', sans-serif;
+@keyframes fabIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.flat-hero p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+/* ===== 9. MEDIA QUERIES ===== */
+
+@media (min-width: 1400px) {
+  .branding { padding-left: 14%; }
 }
 
-.btn-principal {
-  background-color: #FFD300;
-  color: #333;
-  padding: 0.9rem 2rem;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  display: inline-block;
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .branding { padding-left: 8%; }
+  .hero { padding: 3rem 8%; min-height: 70vh; }
 }
 
-.btn-principal:hover {
-  background-color: #ffdf3a;
-  transform: translateY(-3px);
+@media (min-width: 901px) and (max-width: 1600px) {
+  .social-icons { 
+    position: absolute; 
+    top: 0.6rem; 
+    right: 3.5rem;
+    gap: 0.8rem; 
+    padding-right: 0.5rem;
+  }
+  .social-icons a { font-size: 1.2rem; }
 }
 
-.flat-hero .imagen {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 901px) and (max-width: 980px) {
+  .social-icons { 
+    top: 0.6rem; 
+    right: 1.5rem;
+    padding-right: 0.5rem;
+  }
+  .hamburger { display: block !important; position: absolute; top: 2.8rem; right: 1.2rem; }
 }
 
-.flat-hero .imagen img {
-  width: 90%;
-  max-width: 460px;
-  height: auto;
-  animation: float 4s ease-in-out infinite;
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.1));
+@media (max-width: 900px) {
+  .topbar { padding: 1.4rem 0.8rem; flex-wrap: wrap; }
+  body { padding-top: 90px; }
+  main > section { scroll-margin-top: 120px; }
+  
+  .branding { justify-content: flex-start; align-items: flex-start; padding-left: 1rem; width: 100%; text-align: left; }
+  .brand-name { font-size: 2.4rem; }
+  .giro { font-size: 0.9rem; }
+  
+  .social-icons { position: absolute; top: 0.6rem; right: 1rem; gap: 0.8rem; transform: none; }
+  
+  .hamburger {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    top: 2.6rem;
+    right: 1rem;
+    z-index: 1001;
+    pointer-events: auto;
+  }
+  
+  .hamburger-box { display: inline-block !important; }
+  
+  .hero { flex-direction: column; text-align: center; padding: 5rem 1.5rem; }
+  .hero h1 { font-size: 2.3rem; }
+  .hero p { font-size: 1rem; margin: 0.8rem 0 1.6rem; }
+  .hero::before { top: -100px; right: -150px; width: 120%; height: 120%; opacity: 0.3; }
 }
 
-/* Sección Tamaños */
-.tamaños {
-  background: #f9f9f9;
-  padding: 5rem 8%;
-  text-align: center;
+@media (max-width: 768px) {
+  .hamburger { display: block !important; visibility: visible !important; opacity: 1 !important; }
+  
+  .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2rem 1rem; }
+  .hero-art img { width: 100%; max-width: 320px; height: auto; margin-bottom: 1.2rem; }
+  
+  #servicios { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding: 2rem 1rem; }
+  .card { width: 90%; max-width: 340px; text-align: center; padding: 1.6rem 1rem; }
+  .card img { width: 100px; margin-bottom: 0.6rem; }
+  
+  .social-icons { position: absolute; right: 0.5rem; top: 0.8rem; }
 }
 
-.tamaños h2 {
-  font-size: 2.4rem;
-  color: #545454;
-  margin-bottom: 1rem;
-  font-family: 'League Spartan', sans-serif;
-}
-
-.descripcion-tamanos {
-  font-size: 1.1rem;
-  color: #666;
-  max-width: 600px;
-  margin: 0 auto 3rem;
-  line-height: 1.6;
-}
-
-.tabla-tamaños {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.8rem;
-  justify-items: center;
-}
-
-.tamaño {
-  background: #fff;
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  width: 100%;
-  max-width: 260px;
-}
-
-.tamaño:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.1);
-}
-
-.tamaño .icono {
-  font-size: 2.4rem;
-  color: #FFD300;
-  margin-bottom: 1rem;
-}
-
-.tamaño strong {
-  display: block;
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 0.4rem;
-}
-
-.tamaño span {
-  color: #777;
-  font-size: 0.95rem;
-}
-
-/* Cotizador */
-.cotizador {
-  background: #fff;
-  padding: 5rem 8%;
-  text-align: center;
-}
-
-.cotizador h2 {
-  font-size: 2.4rem;
-  color: #545454;
-  margin-bottom: 1.2rem;
-  font-family: 'League Spartan', sans-serif;
-}
-
-.cotizador form {
-  background: #f9f9f9;
-  padding: 2.5rem;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  max-width: 480px;
-  margin: 0 auto;
-  text-align: left;
-  transition: transform 0.3s ease;
-}
-
-.cotizador form:hover {
-  transform: translateY(-3px);
-}
-
-.cotizador label {
-  display: block;
-  font-weight: 600;
-  color: #333;
-  margin: 1rem 0 0.5rem;
-  font-size: 1rem;
-}
-
-.cotizador select,
-.cotizador input[type="number"] {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
-  border: 2px solid #e3e3e3;
-  border-radius: 10px;
-  outline: none;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.cotizador select:focus,
-.cotizador input[type="number"]:focus {
-  border-color: #FFD300;
-  box-shadow: 0 0 0 3px rgba(255,211,0,0.25);
-}
-
-.cotizador button {
-  margin-top: 1.6rem;
-  width: 100%;
-  background-color: #FFD300;
-  color: #333;
-  font-weight: 700;
-  border: none;
-  border-radius: 10px;
-  padding: 1rem;
-  font-size: 1.1rem;
-  cursor: pointer}
+/* FIN */
