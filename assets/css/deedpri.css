@@ -1212,6 +1212,99 @@ body.pagina-interna {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* ⚠️ Mensaje visual de error */
+.mensaje-error {
+  color: #c92a2a;
+  background: #fff0f0;
+  border: 1px solid #ff7b7b;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  animation: aparecerError 0.4s ease-out;
+}
+/* 🟡 Botones del cotizador */
+.botones-cotizador {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.btn-cotizar, .btn-limpiar {
+  background-color: #ffd300;
+  color: #545454;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "League Spartan", sans-serif;
+}
+
+.btn-cotizar:hover {
+  background-color: #ffda33;
+  transform: scale(1.05);
+}
+
+.btn-limpiar {
+  background-color: #e5e5e5;
+}
+
+.btn-limpiar:hover {
+  background-color: #d1d1d1;
+  transform: scale(1.05);
+}
+
+/* ✨ Efecto visual al limpiar */
+.btn-limpio {
+  animation: limpiarBrillo 0.8s ease-in-out;
+}
+
+@keyframes limpiarBrillo {
+  0% { box-shadow: 0 0 0 rgba(255,211,0,0); }
+  50% { box-shadow: 0 0 10px rgba(255,211,0,0.7); }
+  100% { box-shadow: 0 0 0 rgba(255,211,0,0); }
+}
+
+
+@keyframes aparecerError {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ Efecto visual cuando falta cobertura */
+.error-resaltado {
+  animation: parpadeo 0.6s ease-in-out 2;
+  background-color: #fff7b0;
+  border: 2px solid #ffd300;
+  border-radius: 6px;
+}
+/* ✨ Desvanecimiento suave al limpiar resultados */
+.desvanecer {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* 🟡 Brillo del botón limpiar */
+.btn-limpio {
+  animation: limpiarBrillo 0.8s ease-in-out;
+}
+
+@keyframes limpiarBrillo {
+  0% { box-shadow: 0 0 0 rgba(255,211,0,0); }
+  50% { box-shadow: 0 0 10px rgba(255,211,0,0.7); }
+  100% { box-shadow: 0 0 0 rgba(255,211,0,0); }
+}
+
+
+@keyframes parpadeo {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+
 @media (max-width: 768px) {
   .btn-volver {
     width: 80%;
