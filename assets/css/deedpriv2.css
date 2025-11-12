@@ -438,6 +438,8 @@ section {
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  text-align: center;
+  width: 100%;
 }
 
 .cards {
@@ -679,7 +681,13 @@ section {
   .brand-name { font-size: 2.4rem; }
   .giro { font-size: 0.9rem; }
   
-  .social-icons { position: absolute; top: 0.6rem; right: 1rem; gap: 0.8rem; transform: none; }
+  .social-icons { 
+    position: absolute; 
+    top: 0.6rem; 
+    right: 1.2rem;
+    gap: 0.8rem;
+    padding-right: 0.5rem;
+  }
   
   .hamburger {
     display: block !important;
@@ -698,6 +706,38 @@ section {
   .hero h1 { font-size: 2.3rem; }
   .hero p { font-size: 1rem; margin: 0.8rem 0 1.6rem; }
   .hero::before { top: -100px; right: -150px; width: 120%; height: 120%; opacity: 0.3; }
+  
+  /* Centrar servicios en tablet/móvil */
+  #servicios {
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #servicios .section-title {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.5rem;
+  }
+  
+  .cards a {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -710,7 +750,12 @@ section {
   .card { width: 90%; max-width: 340px; text-align: center; padding: 1.6rem 1rem; }
   .card img { width: 100px; margin-bottom: 0.6rem; }
   
-  .social-icons { position: absolute; right: 0.5rem; top: 0.8rem; }
+  .social-icons { 
+    position: absolute; 
+    right: 1rem;
+    top: 0.8rem;
+    padding-right: 0.5rem;
+  }
 }
 
 /* FIN */
