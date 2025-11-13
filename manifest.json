@@ -1,8 +1,8 @@
 {
   "name": "deedpri - Centro de impresión",
   "short_name": "deedpri",
-  "scope": "/",
-  "start_url": "/index.html",
+  "scope": "/deedpri/",
+  "start_url": "/deedpri/index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffd300",
@@ -26,13 +26,13 @@
       "src": "assets/icons/maskable-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "assets/icons/maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }
