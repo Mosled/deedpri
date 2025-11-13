@@ -30,6 +30,9 @@
   
   <!-- Tema de color para móviles -->
   <meta name="theme-color" content="#ffd300">
+
+  <!-- Manifest PWA -->
+  <link rel="manifest" href="manifest.json">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -238,6 +241,32 @@
         header.classList.remove("scrolled");
       }
     });
+
+    // Registrar Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => {
+            // Actualización del SW cuando hay una nueva versión
+            if (reg.waiting) { reg.waiting.postMessage({ type: 'SKIP_WAITING' }); }
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              if (!newWorker) return;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // Nueva versión lista. Se puede notificar al usuario si se desea.
+                }
+              });
+            });
+          })
+          .catch(err => console.error('SW registration failed:', err));
+      });
+      // Mensaje para permitir skipWaiting desde el SW
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return; refreshing = true; window.location.reload();
+      });
+    }
   </script>
 </body>
 </html>
