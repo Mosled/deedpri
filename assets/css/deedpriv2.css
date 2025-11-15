@@ -758,4 +758,450 @@ section {
   }
 }
 
+/* ====================================================================
+   ESTILOS PARA PÁGINA DE COPIAS E IMPRESIONES
+   ==================================================================== */
+
+/* === HERO ESPECÍFICO === */
+.pagina-copias {
+  padding: 3rem 5%;
+  background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+}
+
+.flat-hero .contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.flat-hero .texto h1 {
+  font-size: 2.8rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.flat-hero .texto p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.flat-hero .btn-principal {
+  display: inline-block;
+  background: var(--amarillo);
+  color: var(--gris-oscuro);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.flat-hero .btn-principal:hover {
+  background: #ffdf3a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.flat-hero .imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flat-hero .imagen img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
+  border-radius: 12px;
+}
+
+/* === SECCIÓN TAMAÑOS === */
+.tamaños {
+  padding: 3rem 5%;
+  text-align: center;
+  background: #fff;
+}
+
+.tamaños h2 {
+  font-size: 2rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 1rem;
+}
+
+.descripcion-tamanos {
+  font-size: 1.05rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.tabla-tamaños {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tamaño {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #e8e8e8;
+  transition: all 0.3s ease;
+}
+
+.tamaño:hover {
+  border-color: var(--amarillo);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.tamaño .icono {
+  font-size: 2.5rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 0.8rem;
+}
+
+.tamaño strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 0.5rem;
+}
+
+.tamaño span {
+  font-size: 0.95rem;
+  color: #777;
+}
+
+/* === COTIZADOR === */
+.cotizador {
+  padding: 3rem 5%;
+  background: linear-gradient(180deg, #f9f9f9 0%, #fff 100%);
+  text-align: center;
+  scroll-margin-top: 100px;
+}
+
+.cotizador h2 {
+  font-size: 2rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 2rem;
+}
+
+#formCotizador {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+#formCotizador label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  color: var(--gris-oscuro);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+#formCotizador select,
+#formCotizador input {
+  width: 100%;
+  padding: 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+#formCotizador select:focus,
+#formCotizador input:focus {
+  outline: none;
+  border-color: var(--amarillo);
+  box-shadow: 0 0 0 3px rgba(255, 211, 0, 0.15);
+}
+
+#formCotizador input.error-resaltado,
+#formCotizador select.error-resaltado {
+  border-color: #e74c3c;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* Botones del cotizador */
+.botones-cotizador {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-cotizar,
+.btn-limpiar {
+  flex: 1;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-cotizar {
+  background: var(--amarillo);
+  color: var(--gris-oscuro);
+  box-shadow: 0 4px 12px rgba(255, 211, 0, 0.3);
+}
+
+.btn-cotizar:hover {
+  background: #ffdf3a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 211, 0, 0.4);
+}
+
+.btn-limpiar {
+  background: #f0f0f0;
+  color: var(--gris-oscuro);
+}
+
+.btn-limpiar:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.btn-limpiar.btn-limpio {
+  animation: pulso 0.6s ease;
+}
+
+@keyframes pulso {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Resultado */
+#resultado {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+#resultado.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#resultado.descuento {
+  border: 2px solid var(--amarillo);
+  background: linear-gradient(135deg, #fffef8 0%, #fff 100%);
+}
+
+#resultado.desvanecer {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Mensaje de error */
+.mensaje-error {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #e74c3c;
+  background: #fef1f0;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  border-left: 4px solid #e74c3c;
+}
+
+.mensaje-error i {
+  font-size: 1.3rem;
+}
+
+.mensaje-error p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Resumen de cotización */
+.resumen-cotizacion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resumen-cotizacion .detalle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.resumen-cotizacion .detalle:last-child {
+  border-bottom: none;
+}
+
+.resumen-cotizacion .label {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.resumen-cotizacion .valor {
+  font-size: 1rem;
+  color: var(--gris-oscuro);
+  font-weight: 600;
+}
+
+.resumen-cotizacion .tachado {
+  text-decoration: line-through;
+  color: #999;
+  font-weight: 400;
+}
+
+.resumen-cotizacion .total {
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--amarillo);
+}
+
+.resumen-cotizacion .precio-final {
+  font-size: 1.5rem;
+  color: var(--amarillo);
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Mensaje de descuento */
+#mensaje-descuento {
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, var(--amarillo) 0%, #ffe86a 100%);
+  color: var(--gris-oscuro);
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+#mensaje-descuento.mostrar-mensaje {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#mensaje-descuento i {
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+}
+
+#mensaje-descuento small {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* === SECCIÓN EJEMPLOS === */
+.ejemplos {
+  padding: 3rem 5%;
+  background: #fff;
+  text-align: center;
+}
+
+.ejemplos h2 {
+  font-size: 2rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 2rem;
+}
+
+.ejemplos ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.ejemplos li {
+  background: #f9f9f9;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--amarillo);
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.ejemplos li:hover {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateX(5px);
+}
+
+.ejemplos li i {
+  font-size: 1.3rem;
+  color: var(--amarillo);
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  .flat-hero .contenido {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .flat-hero .texto h1 {
+    font-size: 2rem;
+  }
+  
+  .tabla-tamaños {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .botones-cotizador {
+    flex-direction: column;
+  }
+  
+  .ejemplos ul {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* FIN */
