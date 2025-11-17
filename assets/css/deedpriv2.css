@@ -123,7 +123,7 @@ section {
 .social-icons {
   position: absolute;
   top: 0.6rem;
-  right: 3.5rem;
+  right: 5rem;
   display: flex;
   gap: 1.2rem;
   flex-wrap: wrap;
@@ -151,8 +151,10 @@ section {
   border: 0;
   cursor: pointer;
   padding: 8px;
-  display: none;
-  position: relative;
+  display: block; /* ← CAMBIAR a block */
+  position: absolute; /* ← AGREGAR */
+  top: 2rem; /* ← AGREGAR */
+  right: 1.2rem; /* ← AGREGAR */
   z-index: 1001;
 }
 
@@ -1334,10 +1336,36 @@ section {
   font-size: 1.3rem;
   color: var(--amarillo);
 }
+/* ===== 10. MEDIA QUERIES ===== */
+
+/* Desktop grande (1200px+) */
+@media (min-width: 1200px) {
+  .slide {
+    min-height: 85vh !important;
+    padding: 4rem 8%;
+  }
+  
+  .slide-promo {
+    min-height: 80vh !important;
+  }
+}
+
+/* Monitores muy grandes (1920px+) */
+@media (min-width: 1920px) {
+  .slide {
+    min-height: 85vh !important;
+    padding: 5rem 10%;
+  }
+  
+  .slide-promo {
+    min-height: 85vh !important;
+  }
+}
 
 /* ====================================================================
    AJUSTES PARA MÓVIL - Reemplazar en la sección de media queries
    ==================================================================== */
+   /* ===== 10. MEDIA QUERIES ===== */
 
 /* Tablet y móvil (max 900px) */
 @media (max-width: 900px) {
