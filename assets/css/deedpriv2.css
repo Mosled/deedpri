@@ -1343,6 +1343,112 @@ section {
   color: var(--amarillo);
 }
 
+/* ====================================================================
+   COTIZADOR - COLORES POR RANGO DE CANTIDAD
+   ==================================================================== */
+
+/* === RANGO 1-99: GRIS OSCURO === */
+#resultado.rango-bajo {
+  border-left: 5px solid #545454;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+#resultado.rango-bajo .precio-final {
+  color: #545454;
+}
+
+#mensaje-descuento.rango-bajo {
+  background: linear-gradient(135deg, #545454 0%, #6a6a6a 100%);
+  color: white;
+}
+
+/* === RANGO 100-999: AMARILLO === */
+#resultado.rango-medio {
+  border-left: 5px solid #ffd300;
+  background: linear-gradient(135deg, #fffef8 0%, #fff9d6 100%);
+}
+
+#resultado.rango-medio .precio-final {
+  color: #d4a100;
+}
+
+#mensaje-descuento.rango-medio {
+  background: linear-gradient(135deg, #ffd300 0%, #ffe86a 100%);
+  color: #545454;
+}
+
+#mensaje-descuento.rango-medio i {
+  animation: pulse-amarillo 2s ease-in-out infinite;
+}
+
+/* === RANGO 1000+: VERDE === */
+#resultado.rango-alto {
+  border-left: 5px solid #28a745;
+  background: linear-gradient(135deg, #f0fff4 0%, #d4edda 100%);
+}
+
+#resultado.rango-alto .precio-final {
+  color: #1e7e34;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 4px rgba(30, 126, 52, 0.2);
+}
+
+#mensaje-descuento.rango-alto {
+  background: linear-gradient(135deg, #28a745 0%, #34ce57 100%);
+  color: white;
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+#mensaje-descuento.rango-alto i {
+  animation: rotate-star 3s linear infinite;
+}
+
+/* === ANIMACIONES === */
+@keyframes pulse-amarillo {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes rotate-star {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === BADGE DE RANGO (opcional) === */
+.badge-rango {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.badge-rango.bajo {
+  background: #545454;
+  color: white;
+}
+
+.badge-rango.medio {
+  background: #ffd300;
+  color: #545454;
+}
+
+.badge-rango.alto {
+  background: #28a745;
+  color: white;
+}
+
 /* === SLIDE 3: BENEFICIOS (MINIMALISTA) === */
 .slide-beneficios {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;

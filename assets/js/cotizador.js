@@ -181,8 +181,8 @@ function obtenerDatosFormulario() {
 function limpiarResultados() {
   elementos.resultado.textContent = '';
   elementos.mensajeDescuento.textContent = '';
-  elementos.resultado.classList.remove('mostrar', 'descuento');
-  elementos.mensajeDescuento.classList.remove('mostrar-mensaje');
+  elementos.resultado.classList.remove('mostrar', 'descuento', 'rango-bajo', 'rango-medio', 'rango-alto');
+  elementos.mensajeDescuento.classList.remove('mostrar-mensaje', 'rango-bajo', 'rango-medio', 'rango-alto');
 }
 
 function resetearFormulario() {
@@ -209,6 +209,14 @@ function mostrarError(texto) {
 
 function mostrarResultado({ total, precioUnitario, rangoTexto }, { tipo, tamano, cantidad }) {
   limpiarResultados();
+  
+  // Determinar clase de rango para estilos
+  let claseRango = 'rango-bajo'; // Por defecto 1-99
+  if (cantidad >= 1000) {
+    claseRango = 'rango-alto'; // 1000+
+  } else if (cantidad >= 100) {
+    claseRango = 'rango-medio'; // 100-999
+  }
   
   // Textos descriptivos
   const tipoTexto = tipo === 'bn' ? 'blanco y negro' : 'a color';
@@ -250,6 +258,9 @@ function mostrarResultado({ total, precioUnitario, rangoTexto }, { tipo, tamano,
   
   elementos.resultado.innerHTML = html;
   
+  // Agregar clase de rango
+  elementos.resultado.classList.add(claseRango);
+  
   // Mostrar mensaje informativo según el rango
   if (cantidad >= 100 && cantidad < 1000) {
     elementos.mensajeDescuento.innerHTML = `
@@ -257,20 +268,20 @@ function mostrarResultado({ total, precioUnitario, rangoTexto }, { tipo, tamano,
       Estás en el rango de 100-999 copias
       <small>Precio preferencial aplicado</small>
     `;
-    elementos.mensajeDescuento.classList.add('mostrar-mensaje');
+    elementos.mensajeDescuento.classList.add('mostrar-mensaje', 'rango-medio');
   } else if (cantidad >= 1000) {
     elementos.mensajeDescuento.innerHTML = `
       <i class="fa-solid fa-star"></i>
       ¡Precio mayorista activado!
       <small>1000+ copias - Mejor precio disponible</small>
     `;
-    elementos.mensajeDescuento.classList.add('mostrar-mensaje');
+    elementos.mensajeDescuento.classList.add('mostrar-mensaje', 'rango-alto');
   }
   
   // Forzar reflow para animación
   elementos.resultado.offsetWidth;
   elementos.resultado.classList.add('mostrar');
-
+  
   // Scroll suave al resultado
   setTimeout(() => {
     elementos.resultado.scrollIntoView({ 
