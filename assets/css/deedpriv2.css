@@ -1342,7 +1342,99 @@ section {
   font-size: 1.3rem;
   color: var(--amarillo);
 }
-/* ===== 10. MEDIA QUERIES ===== */
+
+/* === SLIDE 3: BENEFICIOS (MINIMALISTA) === */
+.slide-beneficios {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+  justify-content: center; /* ← AGREGAR ESTA LÍNEA */
+  align-items: center; /* ← AGREGAR ESTA LÍNEA */
+}
+
+.slide-beneficios::before {
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: var(--amarillo);
+  opacity: 0.1;
+  border-radius: 50%;
+}
+
+.beneficios-wrapper {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.beneficios-titulo {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--gris-oscuro);
+  margin-bottom: 3rem;
+  line-height: 1.1;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.beneficio {
+  background: white;
+  padding: 2rem 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.beneficio:hover {
+  transform: translateY(-8px);
+  border-color: var(--amarillo);
+  box-shadow: 0 8px 30px rgba(255, 211, 0, 0.2);
+}
+
+.beneficio .icono {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: float-beneficio 3s ease-in-out infinite;
+}
+
+.beneficio:nth-child(2) .icono {
+  animation-delay: 0.3s;
+}
+
+.beneficio:nth-child(3) .icono {
+  animation-delay: 0.6s;
+}
+
+.beneficio:nth-child(4) .icono {
+  animation-delay: 0.9s;
+}
+
+.beneficio h3 {
+  font-size: 1.1rem;
+  color: var(--gris-oscuro);
+  font-weight: 700;
+}
+
+.beneficios-ubicacion {
+  font-size: 1.2rem;
+  color: var(--gris-oscuro);
+  font-weight: 600;
+  margin-top: 2rem;
+  opacity: 0.8;
+}
+
+@keyframes float-beneficio {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
 
 /* Desktop grande (1200px+) */
 @media (min-width: 1200px) {
@@ -1600,9 +1692,29 @@ section {
   .ejemplos ul {
     grid-template-columns: 1fr;
   }
+  .beneficios-titulo {
+    font-size: 2rem;
+  }
+
+  .beneficios-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .beneficio {
+    padding: 1.5rem 1rem;
+  }
+
+  .beneficio .icono {
+    font-size: 2.5rem;
+  }
+
+  .beneficio h3 {
+    font-size: 1rem;
+  }
 }
 
-/* === MÓVIL PEQUEÑO (max 600px) === */
+/* === MÓVIL PEQUEÑO (max 600px) === 2 */
 @media (max-width: 600px) {
   .slide {
     padding: 1.5rem 1rem;
@@ -1712,6 +1824,34 @@ section {
   
   .card img { 
     width: 100px; 
+  }
+
+  .beneficios-grid {
+    grid-template-columns: repeat(2, 1fr); /* ← 2x2 en móvil */
+    gap: 1rem; /* Gap más pequeño */
+  }
+
+  .beneficios-titulo {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .beneficio {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .beneficio .icono {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .beneficio h3 {
+    font-size: 0.9rem;
+  }
+
+  .beneficios-ubicacion {
+    font-size: 1rem;
+    margin-top: 1.5rem;
   }
 }
 
