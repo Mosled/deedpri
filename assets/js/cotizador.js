@@ -270,6 +270,14 @@ function mostrarResultado({ total, precioUnitario, rangoTexto }, { tipo, tamano,
   // Forzar reflow para animación
   elementos.resultado.offsetWidth;
   elementos.resultado.classList.add('mostrar');
+
+  // Scroll suave al resultado
+  setTimeout(() => {
+    elementos.resultado.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'nearest'
+    });
+  }, 100);
 }
 
 // 9️⃣ Iniciar cuando el DOM esté listo
