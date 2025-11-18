@@ -1054,7 +1054,7 @@ section {
 }
 
 .cotizador {
-  padding: 3rem 5%;
+  padding: 3rem 5% 1.5rem 5%; /* Reducir padding inferior */
   background: linear-gradient(180deg, #f9f9f9 0%, #fff 100%);
   text-align: center;
   scroll-margin-top: 100px;
@@ -1299,9 +1299,9 @@ section {
 }
 
 .ejemplos {
-  padding: 3rem 5%;
-  background: #fff;
+   padding: 2rem 20px ; /* En lugar de más padding arriba */
   text-align: center;
+  background: #fff;
 }
 
 .ejemplos h2 {
