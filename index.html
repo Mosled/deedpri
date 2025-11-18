@@ -47,7 +47,15 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   
   <!-- Tipografía moderna: Poppins + League Spartan -->
+  <link rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Spartan:wght@400;700;800&display=swap" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'">
+      
+  <!-- Fallback para navegadores sin JavaScript -->
+  <noscript>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Spartan:wght@400;700;800&display=swap" rel="stylesheet">
+  </noscript>
   
   <!-- Font Awesome (diferido para mejor performance) -->
   <link
