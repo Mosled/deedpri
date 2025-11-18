@@ -297,8 +297,8 @@ if (tipo === 'color') {
     <i class="fa-solid fa-info-circle"></i>
     <small>
       💡 ℹ️ IMPORTANTE: Esta cotización asume cobertura de tinta ESTÁNDAR (texto y gráficos simples).🎨 ¿Tu documento tiene MUCHO COLOR,
-      fotos o fondos sólidos?📱 Contáctanos para cotización personalizada. 
-      <a href="https://wa.me/5217295414907?text=Necesito%20cotización%20con%20alta%20cobertura" 
+      fotos o fondos sólidos?📱 Para cotización personalizada. 
+      <a href="https://wa.me/5217295414907?text=Necesito%20cotización%20con%20alta%20cobertura%20para%20impresión/copia" 
          target="_blank" 
          rel="noopener noreferrer"
          style="color: #004aad; font-weight: 600;">
