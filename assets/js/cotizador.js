@@ -1,33 +1,43 @@
-// === COTIZADOR DE COPIAS E IMPRESIONES - VERSIÓN MEJORADA ===
+// === COTIZADOR DE COPIAS E IMPRESIONES - PRECIOS POR RANGOS ===
 
-// 1️⃣ Configuración centralizada y clara
+// 1️⃣ Configuración de precios por rangos
 const CONFIG = {
   precios: {
     bn: { 
-      carta: 1.0, 
-      oficio: 1.5, 
-      tabloide: 3.0 
+      carta: [
+        { min: 1, max: 99, precio: 1.00 },
+        { min: 100, max: 999, precio: 0.90 },
+        { min: 1000, max: Infinity, precio: 0.80 }
+      ],
+      oficio: [
+        { min: 1, max: 99, precio: 1.50 },
+        { min: 100, max: 999, precio: 1.00 },
+        { min: 1000, max: Infinity, precio: 0.90 }
+      ],
+      tabloide: [
+        { min: 1, max: 99, precio: 5.00 },
+        { min: 100, max: 999, precio: 4.00 },
+        { min: 1000, max: Infinity, precio: 3.50 }
+      ]
     },
     color: { 
-      carta: 3.0, 
-      oficio: 4.5,      // Ajustado proporcionalmente
-      tabloide: 8.0     // Ajustado proporcionalmente
+      carta: [
+        { min: 1, max: 99, precio: 2.00 },
+        { min: 100, max: 999, precio: 1.00 },
+        { min: 1000, max: Infinity, precio: 0.90 }
+      ],
+      oficio: [
+        { min: 1, max: 99, precio: 2.50 },
+        { min: 100, max: 999, precio: 2.00 },
+        { min: 1000, max: Infinity, precio: 1.80 }
+      ],
+      tabloide: [
+        { min: 1, max: 99, precio: 10.00 },
+        { min: 100, max: 999, precio: 8.00 },
+        { min: 1000, max: Infinity, precio: 7.00 }
+      ]
     }
   },
-  
-  // Factor de cobertura (solo para color)
-  coberturaFactor: { 
-    baja: 1.0,      // Sin incremento
-    media: 1.15,    // +15%
-    alta: 1.35      // +35%
-  },
-  
-  // Descuentos por volumen (ordenados de mayor a menor)
-  descuentos: [
-    { minimo: 500, descuento: 0.80, etiqueta: '20% de descuento' },
-    { minimo: 200, descuento: 0.85, etiqueta: '15% de descuento' },
-    { minimo: 100, descuento: 0.90, etiqueta: '10% de descuento' }
-  ],
   
   // Duraciones de animación
   animaciones: {
@@ -41,8 +51,6 @@ const CONFIG = {
 const elementos = {
   tipo: document.getElementById('tipo'),
   tamano: document.getElementById('tamano'),
-  cobertura: document.getElementById('cobertura'),
-  coberturaLabel: document.querySelector('label[for="cobertura"]'),
   cantidad: document.getElementById('cantidad'),
   resultado: document.getElementById('resultado'),
   mensajeDescuento: document.getElementById('mensaje-descuento'),
@@ -58,11 +66,7 @@ function inicializar() {
     return;
   }
   
-  // Estado inicial: ocultar cobertura
-  toggleCobertura(false);
-  
   // Event listeners
-  elementos.tipo.addEventListener('change', manejarCambioTipo);
   elementos.calcular.addEventListener('click', manejarCalcular);
   elementos.limpiar.addEventListener('click', manejarLimpiar);
   
@@ -71,19 +75,6 @@ function inicializar() {
 }
 
 // 4️⃣ Manejadores de eventos
-function manejarCambioTipo() {
-  const esColor = elementos.tipo.value === 'color';
-  toggleCobertura(esColor);
-  
-  if (!esColor) {
-    elementos.cobertura.value = 'baja';
-    elementos.cobertura.classList.remove('error-resaltado');
-  }
-  
-  // Limpiar resultado previo
-  limpiarResultados();
-}
-
 function manejarCalcular() {
   try {
     const datos = obtenerDatosFormulario();
@@ -92,8 +83,8 @@ function manejarCalcular() {
       return;
     }
     
-    const { total, precioBase, factorDescuento, descuentoInfo } = calcularTotal(datos);
-    mostrarResultado(total, datos, precioBase, factorDescuento, descuentoInfo);
+    const resultado = calcularTotal(datos);
+    mostrarResultado(resultado, datos);
     
   } catch (error) {
     console.error('❌ Error al calcular:', error);
@@ -125,55 +116,44 @@ function validarCantidad(e) {
 }
 
 // 5️⃣ Lógica de cálculo
-function calcularTotal({ tipo, tamano, cobertura, cantidad }) {
-  // Precio base según tipo y tamaño
-  let precioUnitario = CONFIG.precios[tipo][tamano];
-  const precioBase = precioUnitario;
+function calcularTotal({ tipo, tamano, cantidad }) {
+  // Obtener los rangos de precios para el tipo y tamaño
+  const rangos = CONFIG.precios[tipo][tamano];
   
-  // Factor de cobertura (solo para color)
-  if (tipo === 'color' && cobertura) {
-    precioUnitario *= CONFIG.coberturaFactor[cobertura];
+  // Encontrar el rango correcto según la cantidad
+  const rangoActual = rangos.find(r => cantidad >= r.min && cantidad <= r.max);
+  
+  if (!rangoActual) {
+    throw new Error('No se encontró un rango de precio válido');
   }
   
-  // Aplicar descuento por volumen
-  const descuentoInfo = obtenerDescuento(cantidad);
-  const factorDescuento = descuentoInfo.descuento;
-  precioUnitario *= factorDescuento;
-  
+  const precioUnitario = rangoActual.precio;
   const total = precioUnitario * cantidad;
   
+  // Información del rango para mostrar
+  let rangoTexto = '';
+  if (rangoActual.min === 1 && rangoActual.max === 99) {
+    rangoTexto = '1-99 copias';
+  } else if (rangoActual.min === 100 && rangoActual.max === 999) {
+    rangoTexto = '100-999 copias';
+  } else if (rangoActual.min === 1000) {
+    rangoTexto = '1000+ copias';
+  }
+  
   return { 
-    total, 
-    precioBase, 
-    factorDescuento,
-    descuentoInfo
+    total,
+    precioUnitario,
+    rangoTexto,
+    rangoInfo: rangoActual
   };
 }
 
-function obtenerDescuento(cantidad) {
-  // Buscar el descuento aplicable (ya ordenados de mayor a menor)
-  for (const desc of CONFIG.descuentos) {
-    if (cantidad >= desc.minimo) {
-      return desc;
-    }
-  }
-  
-  return { minimo: 0, descuento: 1.0, etiqueta: null }; // Sin descuento
-}
-
 // 6️⃣ Validaciones
-function validarDatos({ tipo, tamano, cobertura, cantidad }) {
+function validarDatos({ cantidad }) {
   // Validar cantidad
   if (!cantidad || cantidad <= 0) {
     mostrarError('Por favor, ingresa una cantidad válida (mayor a 0).');
     resaltarError(elementos.cantidad);
-    return false;
-  }
-  
-  // Validar cobertura para color
-  if (tipo === 'color' && !cobertura) {
-    mostrarError('Por favor, selecciona la cobertura de tinta.');
-    resaltarError(elementos.cobertura);
     return false;
   }
   
@@ -194,19 +174,8 @@ function obtenerDatosFormulario() {
   return {
     tipo: elementos.tipo.value,
     tamano: elementos.tamano.value,
-    cobertura: elementos.cobertura.value,
     cantidad: parseInt(elementos.cantidad.value) || 0
   };
-}
-
-function toggleCobertura(mostrar) {
-  const display = mostrar ? 'block' : 'none';
-  elementos.coberturaLabel.style.display = display;
-  elementos.cobertura.style.display = display;
-  
-  if (!mostrar) {
-    elementos.cobertura.value = 'baja';
-  }
 }
 
 function limpiarResultados() {
@@ -219,10 +188,8 @@ function limpiarResultados() {
 function resetearFormulario() {
   elementos.tipo.value = 'bn';
   elementos.tamano.value = 'carta';
-  elementos.cobertura.value = 'baja';
   elementos.cantidad.value = '';
   
-  toggleCobertura(false);
   limpiarResultados();
   elementos.resultado.classList.remove('desvanecer');
   elementos.mensajeDescuento.classList.remove('desvanecer');
@@ -240,11 +207,8 @@ function mostrarError(texto) {
   elementos.resultado.classList.add('mostrar');
 }
 
-function mostrarResultado(total, { tipo, tamano, cobertura, cantidad }, precioBase, factorDescuento, descuentoInfo) {
+function mostrarResultado({ total, precioUnitario, rangoTexto }, { tipo, tamano, cantidad }) {
   limpiarResultados();
-  
-  const tieneDescuento = factorDescuento < 1.0;
-  const precioSinDescuento = precioBase * cantidad;
   
   // Textos descriptivos
   const tipoTexto = tipo === 'bn' ? 'blanco y negro' : 'a color';
@@ -253,12 +217,6 @@ function mostrarResultado(total, { tipo, tamano, cobertura, cantidad }, precioBa
     oficio: 'Oficio (8.5" × 13")',
     tabloide: 'Tabloide (11" × 17")'
   }[tamano];
-  
-  const coberturaTexto = tipo === 'color' ? {
-    baja: 'cobertura baja',
-    media: 'cobertura media',
-    alta: 'cobertura alta'
-  }[cobertura] : '';
   
   // Construir HTML del resultado
   let html = `
@@ -275,28 +233,14 @@ function mostrarResultado(total, { tipo, tamano, cobertura, cantidad }, precioBa
         <span class="label">Tamaño:</span>
         <span class="valor">${tamanoTexto}</span>
       </div>
-  `;
-  
-  if (tipo === 'color' && coberturaTexto) {
-    html += `
       <div class="detalle">
-        <span class="label">Cobertura:</span>
-        <span class="valor">${coberturaTexto.charAt(0).toUpperCase() + coberturaTexto.slice(1)}</span>
+        <span class="label">Rango de precio:</span>
+        <span class="valor">${rangoTexto}</span>
       </div>
-    `;
-  }
-  
-  // Mostrar precio tachado si hay descuento
-  if (tieneDescuento) {
-    html += `
-      <div class="detalle precio-original">
-        <span class="label">Precio regular:</span>
-        <span class="valor tachado">$${precioSinDescuento.toFixed(2)} MXN</span>
+      <div class="detalle">
+        <span class="label">Precio unitario:</span>
+        <span class="valor">$${precioUnitario.toFixed(2)} MXN</span>
       </div>
-    `;
-  }
-  
-  html += `
       <div class="detalle total">
         <span class="label">Total a pagar:</span>
         <span class="valor precio-final">$${total.toFixed(2)} MXN</span>
@@ -306,14 +250,19 @@ function mostrarResultado(total, { tipo, tamano, cobertura, cantidad }, precioBa
   
   elementos.resultado.innerHTML = html;
   
-  // Mostrar mensaje de descuento
-  if (tieneDescuento) {
-    elementos.resultado.classList.add('descuento');
-    const ahorro = precioSinDescuento - total;
+  // Mostrar mensaje informativo según el rango
+  if (cantidad >= 100 && cantidad < 1000) {
     elementos.mensajeDescuento.innerHTML = `
-      <i class="fa-solid fa-tag"></i>
-      ${descuentoInfo.etiqueta} aplicado
-      <small>Ahorras $${ahorro.toFixed(2)} MXN</small>
+      <i class="fa-solid fa-info-circle"></i>
+      Estás en el rango de 100-999 copias
+      <small>Precio preferencial aplicado</small>
+    `;
+    elementos.mensajeDescuento.classList.add('mostrar-mensaje');
+  } else if (cantidad >= 1000) {
+    elementos.mensajeDescuento.innerHTML = `
+      <i class="fa-solid fa-star"></i>
+      ¡Precio mayorista activado!
+      <small>1000+ copias - Mejor precio disponible</small>
     `;
     elementos.mensajeDescuento.classList.add('mostrar-mensaje');
   }
