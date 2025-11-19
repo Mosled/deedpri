@@ -1,0 +1,662 @@
+/* ====================================================================
+   IMPRESION-FOTOGRAFICA.CSS - ESTILO CLEAN STUDIO
+   Página: impresion-fotografica.html
+   Estilo: Limpio, minimalista, profesional
+   ==================================================================== */
+
+/* === VARIABLES === */
+:root {
+  --foto-white: #ffffff;
+  --foto-light: #f8f9fa;
+  --foto-gray: #e9ecef;
+  --foto-gray-dark: #dee2e6;
+  --foto-text: #333333;
+  --foto-text-light: #666666;
+  --foto-text-muted: #999999;
+  --foto-accent: #ffd300;
+  --foto-accent-hover: #ffdf3a;
+  --foto-shadow: rgba(0, 0, 0, 0.06);
+  --foto-shadow-hover: rgba(0, 0, 0, 0.12);
+}
+
+/* === AJUSTE PARA LA PÁGINA === */
+.pagina-interna {
+  background: var(--foto-white);
+}
+
+/* === MAIN CONTAINER === */
+.main-fotografia {
+  background: var(--foto-white);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ====================================================================
+   HERO LIMPIO - DISEÑO 2 COLUMNAS
+   ==================================================================== */
+.hero-foto {
+  min-height: 600px;
+  background: var(--foto-white);
+  display: flex;
+  align-items: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+}
+
+.hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text {
+  text-align: left;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+  color: var(--foto-text);
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  color: var(--foto-text-light);
+  line-height: 1.6;
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--foto-accent);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 211, 0, 0.2);
+}
+
+.btn-hero:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 211, 0, 0.3);
+  background: var(--foto-accent-hover);
+}
+
+/* RESPONSIVE HERO */
+@media (max-width: 968px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .hero-text {
+    text-align: center;
+  }
+  
+  .hero-image {
+    order: 2;
+  }
+  
+  .hero-text {
+    order: 1;
+  }
+}
+
+/* ====================================================================
+   SECCIÓN TAMAÑOS
+   ==================================================================== */
+.seccion-tamanos {
+  padding: 6rem 2rem;
+  background: var(--foto-light);
+}
+
+.container-tamanos {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.titulo-seccion {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+  color: var(--foto-text);
+}
+
+.subtitulo-seccion {
+  text-align: center;
+  color: var(--foto-text-light);
+  font-size: 1.1rem;
+  margin-bottom: 4rem;
+  font-weight: 300;
+}
+
+.tamanos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.tamano-card {
+  background: var(--foto-white);
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px var(--foto-shadow);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.tamano-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px var(--foto-shadow-hover);
+  border-color: var(--foto-accent);
+}
+
+.tamano-visual {
+  background: linear-gradient(135deg, var(--foto-light), var(--foto-gray));
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--foto-accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 3px solid var(--foto-gray-dark);
+  transition: all 0.3s;
+}
+
+.tamano-card:hover .tamano-visual {
+  border-color: var(--foto-accent);
+  background: linear-gradient(135deg, #fff9e6, #fff3cc);
+}
+
+/* Tamaños proporcionales visuales */
+.t-4x6 { width: 90px; height: 135px; }
+.t-5x7 { width: 100px; height: 140px; }
+.t-8x10 { width: 120px; height: 150px; }
+.t-carta { width: 115px; height: 149px; }
+.t-a4 { width: 105px; height: 149px; }
+.t-12x16 { width: 115px; height: 153px; }
+
+.tamano-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--foto-text);
+  font-weight: 600;
+}
+
+.tamano-medidas {
+  color: var(--foto-text-muted);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.tamano-precio {
+  color: var(--foto-accent);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.badge-promo {
+  display: inline-block;
+  background: var(--foto-accent);
+  color: #000;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+}
+
+/* Tamaño personalizado */
+.tamano-personalizado {
+  background: var(--foto-light);
+  border: 2px dashed var(--foto-accent);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.tamano-personalizado i {
+  font-size: 3rem;
+  color: var(--foto-accent);
+}
+
+.tamano-personalizado h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--foto-text);
+}
+
+.tamano-personalizado p {
+  color: var(--foto-text-light);
+  margin-bottom: 1rem;
+}
+
+.btn-contacto-simple {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: var(--foto-accent);
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-contacto-simple:hover {
+  background: var(--foto-accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ====================================================================
+   SECCIÓN PAPELES
+   ==================================================================== */
+.seccion-papeles {
+  padding: 6rem 2rem;
+  background: var(--foto-light);
+}
+
+.container-papeles {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.papeles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.papel-card {
+  background: var(--foto-white);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--foto-shadow);
+  transition: all 0.3s;
+  border-left: 4px solid var(--foto-accent);
+}
+
+.papel-card:hover {
+  box-shadow: 0 8px 30px var(--foto-shadow-hover);
+  transform: translateY(-5px);
+}
+
+.papel-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.papel-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--foto-text);
+  font-weight: 600;
+}
+
+.papel-subtitle {
+  color: var(--foto-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.papel-card p {
+  color: var(--foto-text-light);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Acabado especial */
+.acabado-especial {
+  background: linear-gradient(135deg, rgba(255, 211, 0, 0.1), transparent);
+  border: 2px solid var(--foto-accent);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.acabado-especial i {
+  font-size: 3rem;
+  color: var(--foto-accent);
+}
+
+.acabado-especial h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--foto-accent);
+}
+
+.acabado-especial p {
+  color: var(--foto-text-light);
+  margin: 0;
+}
+
+/* ====================================================================
+   SECCIÓN COTIZADOR
+   ==================================================================== */
+.seccion-cotizador {
+  padding: 6rem 2rem;
+  background: var(--foto-white);
+}
+
+.container-cotizador {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cotizador-form {
+  background: var(--foto-white);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px var(--foto-shadow);
+  border: 1px solid var(--foto-gray);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: var(--foto-text);
+  font-size: 0.9rem;
+}
+
+.form-group label i {
+  color: var(--foto-accent);
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 1rem;
+  background: var(--foto-white);
+  border: 2px solid var(--foto-gray);
+  border-radius: 10px;
+  color: var(--foto-text);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: var(--foto-accent);
+  box-shadow: 0 0 0 4px rgba(255, 211, 0, 0.1);
+}
+
+.form-group select option {
+  background: var(--foto-white);
+  color: var(--foto-text);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-calcular-foto,
+.btn-limpiar-foto {
+  flex: 1;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.btn-calcular-foto {
+  background: var(--foto-accent);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(255, 211, 0, 0.2);
+}
+
+.btn-calcular-foto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 211, 0, 0.3);
+  background: var(--foto-accent-hover);
+}
+
+.btn-limpiar-foto {
+  background: var(--foto-white);
+  color: var(--foto-text);
+  border: 2px solid var(--foto-gray);
+}
+
+.btn-limpiar-foto:hover {
+  background: var(--foto-light);
+  border-color: var(--foto-gray-dark);
+}
+
+/* Resultado del cotizador */
+.resultado-foto {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: var(--foto-light);
+  border-radius: 16px;
+  border: 2px solid var(--foto-accent);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  display: none;
+}
+
+.resultado-foto.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+  display: block;
+}
+
+.resultado-foto h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--foto-text);
+}
+
+.resultado-foto .detalle {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--foto-gray);
+  color: var(--foto-text-light);
+}
+
+.resultado-foto .detalle:last-child {
+  border-bottom: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--foto-accent);
+  margin-top: 1rem;
+}
+
+/* ====================================================================
+   NOTA DE CRECIMIENTO
+   ==================================================================== */
+.nota-crecimiento {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--foto-accent) 0%, var(--foto-accent-hover) 100%);
+  color: #000;
+}
+
+.nota-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nota-content i {
+  font-size: 3.5rem;
+}
+
+.nota-content h3 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.nota-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Botón volver */
+.seccion-volver {
+  text-align: center;
+  padding: 2rem;
+  background: var(--foto-light);
+}
+
+.btn-volver-foto {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background: var(--foto-white);
+  color: var(--foto-text);
+  text-decoration: none;
+  border-radius: 10px;
+  border: 2px solid var(--foto-gray);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-volver-foto:hover {
+  background: var(--foto-light);
+  border-color: var(--foto-accent);
+  color: var(--foto-accent);
+  transform: translateX(-5px);
+}
+
+/* ====================================================================
+   ANIMACIONES
+   ==================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====================================================================
+   RESPONSIVE
+   ==================================================================== */
+@media (max-width: 768px) {
+  .hero-foto {
+    min-height: 400px;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .tamanos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .tamano-personalizado,
+  .acabado-especial,
+  .nota-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cotizador-form {
+    padding: 2rem 1.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .seccion-tamanos,
+  .seccion-papeles,
+  .seccion-cotizador {
+    padding: 3rem 1rem;
+  }
+  
+  .papeles-grid {
+    grid-template-columns: 1fr;
+  }
+}
