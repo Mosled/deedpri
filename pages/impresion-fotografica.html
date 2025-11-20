@@ -151,6 +151,10 @@
     </div>
   </div>
 </div>
+</section>
+
+    <!-- TIPOS DE PAPEL -->
+    <section class="seccion-papeles" id="papeles">
         
         <!-- Tamaño personalizado -->
         <div class="tamano-personalizado">
@@ -218,24 +222,183 @@
             <p>Acabado ultra brillante. Colores intensos y profundidad excepcional.</p>
           </div>
         </div>
-        
-        <!-- Acabado especial -->
-        <div class="acabado-especial">
-          <i class="fa-solid fa-layer-group"></i>
-          <div>
-            <h3>Acabado Especial: Laminado</h3>
-            <p>Protege tus fotografías con laminado de alta calidad. Mayor durabilidad y resistencia.</p>
+      </div>
+    </section>
+
+    </section>
+
+    <!-- COTIZADOR WIZARD -->
+    <section class="seccion-cotizador">
+      <div class="wizard-container">
+        <h2 class="titulo-seccion">Cotiza tu Pedido</h2>
+        <p class="subtitulo-seccion">Calcula el precio de tus impresiones en 4 simples pasos</p>
+
+        <!-- Barra de progreso -->
+        <div class="progress-bar">
+          <div class="progress-line" id="progress-line"></div>
+          <div class="progress-step active" data-paso="1">1</div>
+          <div class="progress-step" data-paso="2">2</div>
+          <div class="progress-step" data-paso="3">3</div>
+          <div class="progress-step" data-paso="4">4</div>
+        </div>
+
+        <!-- Paso 1: Tamaño -->
+        <div class="paso active" data-paso="1">
+          <div class="paso-header">
+            <h3>📐 Selecciona el tamaño</h3>
+            <p>Elige el formato que mejor se adapte a tu proyecto</p>
           </div>
+          <div class="opciones-grid">
+            <div class="opcion-card" data-value="18" data-nombre="4×6 (Postal)">
+              <i class="fa-solid fa-image"></i>
+              <h4>4×6</h4>
+              <p>10 × 15 cm · Postal</p>
+              <div class="opcion-precio">$18</div>
+            </div>
+            <div class="opcion-card" data-value="28" data-nombre="5×7 (Estándar)">
+              <i class="fa-solid fa-image"></i>
+              <h4>5×7</h4>
+              <p>13 × 18 cm · Estándar</p>
+              <div class="opcion-precio">$28</div>
+            </div>
+            <div class="opcion-card" data-value="38" data-nombre="8×10 (Mediano)">
+              <i class="fa-solid fa-image"></i>
+              <h4>8×10</h4>
+              <p>20 × 25 cm · Mediano</p>
+              <div class="opcion-precio">$38</div>
+            </div>
+            <div class="opcion-card" data-value="40" data-nombre="Carta">
+              <i class="fa-solid fa-image"></i>
+              <h4>Carta</h4>
+              <p>21.5 × 28 cm</p>
+              <div class="opcion-precio">$40</div>
+            </div>
+            <div class="opcion-card" data-value="55" data-nombre="A4 (Grande)">
+              <i class="fa-solid fa-image"></i>
+              <h4>A4</h4>
+              <p>21 × 29.7 cm · Grande</p>
+              <div class="opcion-precio">$55</div>
+            </div>
+            <div class="opcion-card" data-value="120" data-nombre="12×16 (Extra Grande)">
+              <i class="fa-solid fa-image"></i>
+              <h4>12×16</h4>
+              <p>30 × 40 cm · Extra Grande</p>
+              <div class="opcion-precio">$120</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 2: Papel -->
+        <div class="paso" data-paso="2">
+          <div class="paso-header">
+            <h3>📄 Elige el tipo de papel</h3>
+            <p>Todos nuestros papeles tienen el mismo precio</p>
+          </div>
+          <div class="opciones-grid">
+            <div class="opcion-card" data-value="0" data-nombre="Glossy">
+              <i class="fa-solid fa-sparkles"></i>
+              <h4>Glossy</h4>
+              <p>Brillante · Colores vibrantes</p>
+            </div>
+            <div class="opcion-card" data-value="0" data-nombre="Mate">
+              <i class="fa-solid fa-circle"></i>
+              <h4>Mate</h4>
+              <p>Sin reflejos · Elegante</p>
+            </div>
+            <div class="opcion-card" data-value="0" data-nombre="Aperlado">
+              <i class="fa-solid fa-gem"></i>
+              <h4>Aperlado</h4>
+              <p>Sutil brillo · Balance</p>
+            </div>
+            <div class="opcion-card" data-value="0" data-nombre="Satinado">
+              <i class="fa-solid fa-star"></i>
+              <h4>Satinado</h4>
+              <p>Sedoso · Premium</p>
+            </div>
+            <div class="opcion-card" data-value="0" data-nombre="Metálico">
+              <i class="fa-solid fa-medal"></i>
+              <h4>Metálico</h4>
+              <p>Efecto metal · Único</p>
+            </div>
+            <div class="opcion-card" data-value="0" data-nombre="Alto Brillo">
+              <i class="fa-solid fa-sun"></i>
+              <h4>Alto Brillo</h4>
+              <p>Ultra brillante · Intenso</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 3: Cantidad -->
+        <div class="paso" data-paso="3">
+          <div class="paso-header">
+            <h3>📸 ¿Cuántas fotos necesitas?</h3>
+            <p>Selecciona la cantidad de impresiones</p>
+          </div>
+          <div class="cantidad-section">
+            <div class="cantidad-control">
+              <button class="btn-cantidad" id="btn-menos">-</button>
+              <div class="cantidad-display" id="cantidad-display">1</div>
+              <button class="btn-cantidad" id="btn-mas">+</button>
+            </div>
+            <p class="cantidad-label">foto(s)</p>
+            <div class="nota-descuento">
+              <i class="fa-solid fa-info-circle"></i>
+              <p>¿Necesitas muchas impresiones? Contáctanos para cotizaciones especiales por volumen.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 4: Resumen -->
+        <div class="paso" data-paso="4">
+          <div class="paso-header">
+            <h3>📋 Resumen de tu pedido</h3>
+            <p>Verifica que todo esté correcto</p>
+          </div>
+          <div class="resumen-final">
+            <h4>Tu pedido</h4>
+            <div class="resumen-item">
+              <span>Tamaño:</span>
+              <span id="r-tamano">-</span>
+            </div>
+            <div class="resumen-item">
+              <span>Papel:</span>
+              <span id="r-papel">-</span>
+            </div>
+            <div class="resumen-item">
+              <span>Cantidad:</span>
+              <span id="r-cantidad">-</span>
+            </div>
+            <div class="resumen-item resumen-total-item">
+              <span>TOTAL:</span>
+              <span id="r-total">$0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones navegación -->
+        <div class="wizard-buttons">
+          <button class="btn-wizard btn-back" id="btn-back" style="display: none;">
+            <i class="fa-solid fa-arrow-left"></i>
+            Anterior
+          </button>
+          <button class="btn-wizard btn-next" id="btn-next">
+            Siguiente
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-wizard btn-whatsapp-wizard" id="btn-final" style="display: none;">
+            <i class="fa-brands fa-whatsapp"></i>
+            Enviar pedido por WhatsApp
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- NOTA DE CRECIMIENTO -->
+     <!-- NOTA DE CRECIMIENTO -->
     <section class="nota-crecimiento">
       <div class="nota-content">     
         <div>
           <p>
-            Estos son nuestros tamaños actuales. <strong>Próximamente tendremos más formatos disponibles</strong> 
+            <strong>Próximamente tendremos más formatos y tamaños disponibles</strong> 
             para que des vida a tus proyectos más ambiciosos.
           </p>
         </div>
@@ -281,6 +444,165 @@
       });
     });
   </script>
+  <!-- JavaScript Cotizador Wizard -->
+  <script>
+    // Verificar que el cotizador existe antes de ejecutar
+    if (document.querySelector('.wizard-container')) {
+      let pasoActual = 1;
+      const totalPasos = 4;
+      
+      let seleccion = {
+        tamano: { precio: 0, nombre: '' },
+        papel: { precio: 0, nombre: '' },
+        cantidad: 1
+      };
+
+      // Navegación
+      const btnNext = document.getElementById('btn-next');
+      const btnBack = document.getElementById('btn-back');
+      const btnFinal = document.getElementById('btn-final');
+
+      if (btnNext) btnNext.addEventListener('click', siguientePaso);
+      if (btnBack) btnBack.addEventListener('click', pasoAnterior);
+      if (btnFinal) btnFinal.addEventListener('click', enviarWhatsApp);
+
+      // Cantidad
+      const btnMas = document.getElementById('btn-mas');
+      const btnMenos = document.getElementById('btn-menos');
+      const cantidadDisplay = document.getElementById('cantidad-display');
+
+      if (btnMas) {
+        btnMas.addEventListener('click', () => {
+          seleccion.cantidad++;
+          cantidadDisplay.textContent = seleccion.cantidad;
+        });
+      }
+
+      if (btnMenos) {
+        btnMenos.addEventListener('click', () => {
+          if (seleccion.cantidad > 1) {
+            seleccion.cantidad--;
+            cantidadDisplay.textContent = seleccion.cantidad;
+          }
+        });
+      }
+
+      // Selección de opciones
+      document.querySelectorAll('.opcion-card').forEach(card => {
+        card.addEventListener('click', function() {
+          const paso = this.closest('.paso').dataset.paso;
+          const value = parseFloat(this.dataset.value);
+          const nombre = this.dataset.nombre;
+
+          // Desmarcar otros del mismo paso
+          this.closest('.opciones-grid').querySelectorAll('.opcion-card').forEach(c => {
+            c.classList.remove('selected');
+          });
+          this.classList.add('selected');
+
+          if (paso === '1') {
+            seleccion.tamano = { precio: value, nombre };
+          } else if (paso === '2') {
+            seleccion.papel = { precio: value, nombre };
+          }
+
+          // Auto-scroll a los botones en móvil después de seleccionar
+          setTimeout(() => {
+            const wizardButtons = document.querySelector('.wizard-buttons');
+            if (wizardButtons && window.innerWidth <= 768) {
+              wizardButtons.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest' 
+              });
+            }
+          }, 300);
+        });
+      });
+
+      function siguientePaso() {
+        // Validar selección actual
+        if (pasoActual === 1 && !seleccion.tamano.nombre) {
+          alert('Por favor selecciona un tamaño');
+          return;
+        }
+        if (pasoActual === 2 && !seleccion.papel.nombre) {
+          alert('Por favor selecciona un tipo de papel');
+          return;
+        }
+
+        if (pasoActual < totalPasos) {
+          pasoActual++;
+          mostrarPaso();
+        }
+      }
+
+      function pasoAnterior() {
+        if (pasoActual > 1) {
+          pasoActual--;
+          mostrarPaso();
+        }
+      }
+
+      function mostrarPaso() {
+        // Actualizar pasos
+        document.querySelectorAll('.paso').forEach(p => p.classList.remove('active'));
+        const pasoActivo = document.querySelector(`.paso[data-paso="${pasoActual}"]`);
+        if (pasoActivo) pasoActivo.classList.add('active');
+
+        // Actualizar progreso
+        document.querySelectorAll('.progress-step').forEach((step, index) => {
+          step.classList.remove('active', 'completed');
+          if (index + 1 < pasoActual) step.classList.add('completed');
+          if (index + 1 === pasoActual) step.classList.add('active');
+        });
+
+        const progress = ((pasoActual - 1) / (totalPasos - 1)) * 100;
+        const progressLine = document.getElementById('progress-line');
+        if (progressLine) progressLine.style.width = progress + '%';
+
+        // Botones
+        if (btnBack) btnBack.style.display = pasoActual === 1 ? 'none' : 'flex';
+        if (btnNext) btnNext.style.display = pasoActual === totalPasos ? 'none' : 'flex';
+        if (btnFinal) btnFinal.style.display = pasoActual === totalPasos ? 'flex' : 'none';
+
+        // Actualizar resumen en paso final
+        if (pasoActual === totalPasos) {
+          actualizarResumen();
+        }
+      }
+
+      function actualizarResumen() {
+        const rTamano = document.getElementById('r-tamano');
+        const rPapel = document.getElementById('r-papel');
+        const rCantidad = document.getElementById('r-cantidad');
+        const rTotal = document.getElementById('r-total');
+
+        if (rTamano) rTamano.textContent = seleccion.tamano.nombre;
+        if (rPapel) rPapel.textContent = seleccion.papel.nombre;
+        if (rCantidad) rCantidad.textContent = `${seleccion.cantidad} foto${seleccion.cantidad > 1 ? 's' : ''}`;
+
+        const total = seleccion.tamano.precio * seleccion.cantidad;
+        if (rTotal) rTotal.textContent = `$${total}`;
+      }
+
+      function enviarWhatsApp() {
+        const total = document.getElementById('r-total').textContent;
+        const mensaje = `Hola, quiero hacer un pedido de impresión fotográfica:
+
+📐 Tamaño: ${seleccion.tamano.nombre}
+📄 Papel: ${seleccion.papel.nombre}
+📸 Cantidad: ${seleccion.cantidad} foto${seleccion.cantidad > 1 ? 's' : ''}
+
+💰 Total: ${total}`;
+
+        const url = `https://wa.me/5217295414907?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+      }
+    }
+  </script>
+  
+</body>
+</html>
   
 </body>
 </html>
