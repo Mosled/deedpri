@@ -635,6 +635,21 @@
     const sections = document.querySelectorAll('section[id]');
     const quickNav = document.querySelector('.quick-nav');
 
+    // Toggle menú en móvil
+    if (window.innerWidth <= 768 && quickNav) {
+      quickNav.addEventListener('click', (e) => {
+        // Si hizo clic en el fondo (no en un item)
+        if (e.target === quickNav || e.target.closest('.quick-nav') === quickNav && !e.target.classList.contains('quick-nav-item')) {
+          quickNav.classList.toggle('open');
+        } else if (e.target.classList.contains('quick-nav-item') || e.target.closest('.quick-nav-item')) {
+          // Si hizo clic en un item, cerrar el menú
+          setTimeout(() => {
+            quickNav.classList.remove('open');
+          }, 300);
+        }
+      });
+    }
+
     // Mostrar quick nav después de scroll
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {

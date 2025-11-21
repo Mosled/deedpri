@@ -1010,20 +1010,87 @@
 }
 
 /* Ocultar en móviles */
+/* Responsive móvil - Menú colapsable */
 @media (max-width: 768px) {
   .quick-nav {
     position: fixed;
-  top: 12rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-  display: flex;
-  flex-direction: row; /* horizontal */
-  gap: 1rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-    
+    bottom: auto;
+    right: 1.5rem;
+    top: 12rem;
+    left: auto;
+    transform: none;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  /* Botón principal (toggle) */
+  .quick-nav::before {
+    content: '\f58d';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    width: 40px;
+    height: 40px;
+    background: var(--foto-accent);
+    border: 2px solid var(--foto-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 20px rgba(255, 211, 0, 0.4);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  .quick-nav:hover::before {
+    transform: scale(1.1);
+  }
+
+  /* Ocultar items por defecto */
+  .quick-nav-item {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  /* Mostrar items cuando está abierto */
+  .quick-nav.open::before {
+    content: '\f00d'; /* Icono X de cerrar */
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    width: 40px;      /* Mismo tamaño que cerrado */
+    height: 40px;     /* Mismo tamaño que cerrado */
+    font-size: 1.1rem; /* Mismo tamaño de ícono */
+  }
+
+  .quick-nav.open .quick-nav-item {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+  }
+
+  /* Animación escalonada */
+  .quick-nav.open .quick-nav-item:nth-child(1) {
+    transition-delay: 0.05s;
+  }
+
+  .quick-nav.open .quick-nav-item:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+
+  .quick-nav.open .quick-nav-item:nth-child(3) {
+    transition-delay: 0.15s;
+  }
+
+  /* Ocultar tooltips en móvil */
+  .quick-nav-tooltip {
+    display: none;
   }
 }
 
