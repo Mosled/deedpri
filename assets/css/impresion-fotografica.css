@@ -620,6 +620,7 @@
 .paso {
   display: none;
   animation: fadeIn 0.4s ease;
+  padding: 0 0.5rem;
 }
 
 .paso.active {
@@ -634,16 +635,19 @@
 .paso-header {
   text-align: center;
   margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .paso-header h3 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: var(--foto-text);
+  font-size: 1.2rem;
 }
 
 .paso-header p {
   color: var(--foto-text-light);
+  font-size: 0.8rem;
 }
 
 /* Opciones grid */
@@ -1112,67 +1116,324 @@
    RESPONSIVE
    ==================================================================== */
 @media (max-width: 768px) {
+  /* HERO */
   .hero-foto {
-    min-height: 400px;
-    padding: 2rem 1rem;
+    min-height: auto;
+    padding: 3rem 1rem 2rem;
   }
   
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
   }
-  
+
+  .btn-hero {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  /* SECCIÓN TAMAÑOS */
+  .seccion-tamanos {
+    padding: 3rem 1rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .subtitulo-seccion {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
   .tamanos-grid {
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
 
-/* Tarjetas en 1 columna en móvil */
-.tamano-card {
-  grid-template-columns: 1fr;
-  padding: 1.2rem 1.2rem 3rem;
-}
+  .tamano-card {
+    grid-template-columns: 1fr;
+    padding: 1rem 1rem 2rem;
+  }
 
-.tamano-info {
-  text-align: center;
-}
+  .tamano-imagen {
+    height: 140px;
+  }
 
-.tamano-imagen {
-  height: 180px;
-}
-  
-  .tamano-personalizado,
-  .acabado-especial,
-  .nota-content {
+  .tamano-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .tamano-nombre {
+    font-size: 0.95rem;
+  }
+
+  .tamano-medidas {
+    font-size: 0.8rem;
+  }
+
+  .tamano-info {
+    text-align: center;
+  }
+
+  /* TAMAÑO PERSONALIZADO */
+  .tamano-personalizado {
+    padding: 1.5rem;
+    margin-top: 2rem;
     flex-direction: column;
     text-align: center;
   }
-  
-  .cotizador-form {
-    padding: 2rem 1.5rem;
+
+  .tamano-personalizado i {
+    font-size: 2rem;
   }
-  
-  .form-row {
+
+  .tamano-personalizado h3 {
+    font-size: 1.1rem;
+  }
+
+  .tamano-personalizado p {
+    font-size: 0.9rem;
+  }
+
+  /* PROCESO DE PEDIDO */
+  .seccion-proceso {
+    padding: 3rem 1rem;
+  }
+
+  .pasos-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
-  .form-actions {
-    flex-direction: column;
-  }
-}
 
-@media (max-width: 480px) {
-  .seccion-tamanos,
-  .seccion-papeles,
+  .paso-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .paso-numero {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    top: -12px;
+  }
+
+  .paso-icono {
+    font-size: 2rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .paso-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .paso-card p {
+    font-size: 0.85rem;
+  }
+
+  .btn-proceso {
+    padding: 1rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  /* TIPOS DE PAPEL */
+  .seccion-papeles {
+    padding: 3rem 1rem;
+  }
+
+  .papeles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .papel-card {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .papel-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .papel-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .papel-card p {
+    font-size: 0.85rem;
+  }
+
+  /* ACABADO ESPECIAL */
+  .acabado-especial {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .acabado-especial i {
+    font-size: 2rem;
+  }
+
+  .acabado-especial h3 {
+    font-size: 1.1rem;
+  }
+
+  .acabado-especial p {
+    font-size: 0.85rem;
+  }
+
+  /* COTIZADOR */
+ /* COTIZADOR */
   .seccion-cotizador {
     padding: 3rem 1rem;
   }
-  
-  .papeles-grid {
-    grid-template-columns: 1fr;
+
+  .wizard-container {
+    padding: 2rem 0.5rem; /* ← Cambiar de 0.8rem a 0.5rem */
+  }
+
+  .progress-bar {
+    max-width: 280px;
+    margin-bottom: 2rem;
+  }
+
+  .progress-step {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .paso-header h3 {
+    font-size: 1.2rem; /* ← Cambiar de 1.3rem a 1.2rem */
+  }
+
+  .paso-header p {
+    font-size: 0.8rem; /* ← Cambiar de 0.85rem a 0.8rem */
+  }
+
+  .paso {
+    padding: 0 0.3rem; /* ← AGREGAR ESTA LÍNEA */
+  }
+
+  .opciones-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem; /* ← Cambiar de 0.8rem a 0.5rem */
+    padding: 0;
+  }
+
+  .opcion-card {
+    padding: 0.7rem 0.3rem; /* ← Cambiar de 0.8rem 0.4rem a 0.7rem 0.3rem */
+  }
+
+  .opcion-card i {
+    font-size: 1.5rem; /* ← Cambiar de 2rem a 1.5rem */
+    margin-bottom: 0.4rem; /* ← Cambiar de 0.6rem a 0.4rem */
+  }
+
+  .opcion-card h4 {
+    font-size: 0.85rem; /* ← Cambiar de 1rem a 0.85rem */
+  }
+
+  .opcion-card p {
+    font-size: 0.65rem; /* ← Cambiar de 0.75rem a 0.65rem */
+  }
+
+  .opcion-precio {
+    font-size: 0.85rem; /* ← Cambiar de 1rem a 0.85rem */
+  }
+
+  .cantidad-display {
+    font-size: 2.5rem;
+  }
+
+  .btn-cantidad {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
+
+  .nota-descuento {
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .nota-descuento i {
+    font-size: 1.5rem;
+  }
+
+  .nota-descuento p {
+    font-size: 0.85rem;
+  }
+
+  .resumen-final {
+    padding: 1.5rem;
+  }
+
+  .resumen-final h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .resumen-item {
+    font-size: 0.95rem;
+    padding: 0.8rem 0;
+  }
+
+  .resumen-total-item {
+    font-size: 1.4rem;
+  }
+
+  .wizard-buttons {
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+
+  .btn-wizard {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* NOTA DE CRECIMIENTO */
+  .nota-crecimiento {
+    padding: 2rem 1rem;
+  }
+
+  .nota-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .nota-content p {
+    font-size: 0.95rem;
+  }
+
+  /* BOTÓN VOLVER */
+  .seccion-volver {
+    padding: 1.5rem;
+  }
+
+  .btn-volver-foto {
+    padding: 0.8rem 1.4rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* EXTRA PEQUEÑO (menos de 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.6rem;
+  }
+
+  .tamano-imagen {
+    height: 160px;
   }
 }
