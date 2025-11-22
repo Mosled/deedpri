@@ -1012,7 +1012,28 @@
   opacity: 1;
   right: 70px;
 }
+.btn-info-wizard {
+  background: #3b82f6;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
 
+.btn-info-wizard:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
 /* Ocultar en móviles */
 /* Responsive móvil - Menú colapsable */
 @media (max-width: 768px) {

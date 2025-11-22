@@ -235,7 +235,8 @@
     <section class="seccion-cotizador" id="cotizador">
       <div class="wizard-container">
         <h2 class="titulo-seccion">Cotiza tu Pedido</h2>
-        <p class="subtitulo-seccion">Calcula el precio de tus impresiones en 4 simples pasos</p>
+        <p class="subtitulo-seccion">Calcula el precio de tus impresiones en 4 simples pasos. Este no es el precio final. 
+          Envía un mensaje por WhatsApp para obtener una cotización más precisa.</p>
 
         <!-- Barra de progreso -->
         <div class="progress-bar">
@@ -389,10 +390,10 @@
             Siguiente
             <i class="fa-solid fa-arrow-right"></i>
           </button>
-          <button class="btn-wizard btn-whatsapp-wizard" id="btn-final" style="display: none;">
-            <i class="fa-brands fa-whatsapp"></i>
-            Enviar pedido por WhatsApp
-          </button>
+          <button class="btn-wizard btn-info-wizard" id="btn-final" style="display: none;">
+  <i class="fa-solid fa-info-circle"></i>
+  Cotización aproximada
+</button>
         </div>
       </div>
     </section>
@@ -614,17 +615,13 @@
       }
 
       function enviarWhatsApp() {
-        const total = document.getElementById('r-total').textContent;
-        const mensaje = `Hola, quiero hacer un pedido de impresión fotográfica:
-
-📐 Tamaño: ${seleccion.tamano.nombre}
-📄 Papel: ${seleccion.papel.nombre}
-📸 Cantidad: ${seleccion.cantidad} foto${seleccion.cantidad > 1 ? 's' : ''}
-
-💰 Total: ${total}`;
-
-        const url = `https://wa.me/5217295414907?text=${encodeURIComponent(mensaje)}`;
-        window.open(url, '_blank');
+       // Cambiar el event listener de btn-final
+if (btnFinal) {
+  btnFinal.addEventListener('click', () => {
+    alert('Esta es una cotización aproximada.\n\nPara realizar tu pedido, contáctanos por WhatsApp:\n729 541 4907');
+    window.open('https://wa.me/5217295414907?text=Hola,%20necesito%20hacer%20un%20pedido%20de%20impresión%20fotográfica', '_blank');
+  });
+}
       }
     }
   </script>
