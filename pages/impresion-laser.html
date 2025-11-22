@@ -111,19 +111,51 @@
             <p class="tamano-medidas">21.6 × 33 cm</p>
             <span class="tamano-badge">Legal</span>
           </div>
-          
-          <!-- Tabloide -->
-          <div class="tamano-card">
-            <div class="tamano-icono">
-              <i class="fa-regular fa-newspaper"></i>
-            </div>
-            <h3>Tabloide</h3>
-            <p class="tamano-medidas">27.9 × 43.2 cm</p>
-            <span class="tamano-badge">Grande</span>
-          </div>
         </div>
       </div>
     </section>
+    <!-- COMPARACIÓN LÁSER VS COPIAS -->
+<section class="seccion-comparacion">
+  <div class="container-comparacion">
+    <h2 class="titulo-seccion">¿Por qué elegir Impresión Láser?</h2>
+    <p class="subtitulo-seccion">Mayor inversión, resultados profesionales superiores</p>
+    
+    <div class="comparacion-grid">
+      
+      <div class="comparacion-card card-copias">
+        <div class="card-header">
+          <i class="fa-solid fa-copy"></i>
+          <h3>Copias Regulares</h3>
+          <span class="badge-precio">Económico</span>
+        </div>
+        <ul class="caracteristicas">
+          <li><i class="fa-solid fa-check"></i> Ideal para documentos cotidianos</li>
+          <li><i class="fa-solid fa-check"></i> Bajo costo</li>
+          <li><i class="fa-solid fa-check"></i> Buen resultado general</li>
+          <li><i class="fa-solid fa-minus"></i> Calidad estándar</li>
+        </ul>
+      </div>
+
+      <div class="comparacion-card card-laser">
+        <div class="card-header">
+          <i class="fa-solid fa-crown"></i>
+          <h3>Impresión Láser</h3>
+          <span class="badge-precio badge-premium">Premium</span>
+        </div>
+        <ul class="caracteristicas">
+          <li><i class="fa-solid fa-star"></i> Nitidez y detalle excepcional</li>
+          <li><i class="fa-solid fa-star"></i> Colores más vibrantes y precisos</li>
+          <li><i class="fa-solid fa-star"></i> Resistente al agua y tiempo</li>
+          <li><i class="fa-solid fa-star"></i> Presentaciones profesionales</li>
+        </ul>
+        <div class="card-footer">
+          <strong>Vale la inversión para proyectos importantes</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- USOS COMUNES -->
     <section class="seccion-usos">
@@ -155,66 +187,6 @@
             <h3>Documentos Legales</h3>
             <p>Contratos, actas, escrituras y documentos oficiales</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COTIZADOR -->
-    <section id="cotizador" class="seccion-cotizador">
-      <div class="cotizador-container">
-        <h2 class="titulo-seccion">Cotizador de Impresión Láser</h2>
-        <p class="subtitulo-seccion">Calcula el precio aproximado de tus impresiones en segundos. 
-          Este no es el precio final. Envía un mensaje por WhatsApp para obtener una cotización más precisa.
-        </p>
-
-        <div class="cotizador-card">
-          <form id="formCotizador" class="cotizador-form">
-            <div class="form-group">
-              <label for="tipo">
-                <i class="fa-solid fa-palette"></i>
-                Tipo de impresión
-              </label>
-              <select id="tipo" required>
-                <option value="bn">Blanco y negro</option>
-                <option value="color">Color</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="tamano">
-                <i class="fa-solid fa-ruler-combined"></i>
-                Tamaño de papel
-              </label>
-              <select id="tamano" required>
-                <option value="media-carta">Media Carta (14 × 21.6 cm)</option>
-                <option value="carta">Carta (21.6 × 27.9 cm)</option>
-                <option value="oficio">Oficio (21.6 × 33 cm)</option>
-                <option value="tabloide">Tabloide (27.9 × 43.2 cm)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="cantidad">
-                <i class="fa-solid fa-hashtag"></i>
-                Cantidad de impresiones
-              </label>
-              <input type="number" id="cantidad" min="1" placeholder="Ejemplo: 50" required>
-            </div>
-
-            <div class="form-buttons">
-              <button id="calcular" class="btn-calcular" type="button">
-                <i class="fa-solid fa-calculator"></i>
-                Calcular
-              </button>
-              <button id="limpiar" class="btn-limpiar" type="button">
-                <i class="fa-solid fa-rotate-left"></i>
-                Limpiar
-              </button>
-            </div>
-          </form>
-
-          <div id="resultado" class="resultado-cotizacion"></div>
-          <div id="mensaje-descuento" class="mensaje-descuento"></div>
         </div>
       </div>
     </section>
