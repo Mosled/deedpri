@@ -1,17 +1,16 @@
 <!--
-  Archivo: copias-impresiones.html
-  Proyecto: DEEDPRI (página de servicio)
-  Descripción: Página individual del servicio "Copias e Impresiones"
-  con mismo header/footer del sitio, pero sin menú hamburguesa.
+  Archivo: impresion-laser.html
+  Proyecto: DEEDPRI
+  Descripción: Página de Impresión Láser con estilo Clean Studio
 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Copias e impresiones profesionales en Zacualtipán con la calidad de DEEDPRI. Blanco y negro o color hasta tamaño tabloide.">
+  <meta name="description" content="Impresión láser profesional en Zacualtipán con la calidad de deedpri. Rapidez, precisión y color vibrante.">
   <meta name="author" content="deedpri">
-  <title>Impresion Laser | deedpri</title>
+  <title>Impresión Láser | deedpri</title>
 
   <!-- Tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -22,77 +21,246 @@
 
   <!-- CSS principal -->
   <link rel="stylesheet" href="../assets/css/deedpriv2.css"/>
+  
+  <!-- CSS específico para esta página -->
+  <link rel="stylesheet" href="../assets/css/impresion-laser.css"/>
 </head>
 
 <body class="pagina-interna">
-  <!-- HEADER (sin menú hamburguesa) -->
+  <!-- HEADER (mantiene estructura deedpri) -->
   <header class="topbar" role="banner">
     <div class="inner">
       <div class="branding" aria-label="Identidad del sitio">
         <div class="brand-text">
           <a href="../index.html" class="brand-link">
-          <span class="brand-name">deedpri</span></a>
+            <span class="brand-name">deedpri</span>
+          </a>
           <span class="giro">Centro de impresión</span>
         </div>
       </div>
 
       <!-- Redes sociales -->
       <nav class="social-icons">
-        <a href="https://www.facebook.com/deedpri/" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/deedpri_oficial" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@deedpri_" aria-label="TikTok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/deedpri/" aria-label="Facebook" target="_blank">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/deedpri_oficial" aria-label="Instagram" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@deedpri_" aria-label="TikTok" target="_blank">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
       </nav>
     </div>
   </header>
-  <!-- CONTENIDO PRINCIPAL -->
- <main>
-  <section class="pagina-copias">
-    <h1>Impresión Láser</h1>
-    <p>En <strong>deedpri</strong> Nuestra impresión láser combina <strong> rapidez, precisión y color vibrante</strong> para resultados profesionales.Perfecta para documentos empresariales, reportes, catálogos o material educativo.</p>
 
-    <div class="imagen-servicio">
-      <img src="../assets/img/impresion-laser.png" alt="Copias e Impresiones" width="300" height="300" loading="lazy">
+  <!-- CONTENIDO PRINCIPAL - ESTILO CLEAN STUDIO -->
+  <main class="main-laser">
+    
+    <!-- HERO LIMPIO - 2 COLUMNAS -->
+    <section class="hero-laser">
+      <div class="hero-container">
+        <div class="hero-text">
+          <h1 class="hero-title">Impresión Láser</h1>
+          <p class="hero-subtitle">Rapidez · Precisión · Color Vibrante</p>
+          <div class="hero-note hero-note-premium">
+            <i class="fa-solid fa-crown"></i>
+            <span><strong>CALIDAD PREMIUM:</strong> Mayor inversión, mejores resultados · Ideal para proyectos importantes</span>
+          </div>
+          <a href="#cotizador" class="btn-hero">Cotiza tu proyecto</a>
+        </div>
+        <div class="hero-image">
+          <img src="../assets/img/impresion-laser-pag.png" alt="Impresión Láser deedpri" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <!-- TAMAÑOS DISPONIBLES -->
+    <section class="seccion-tamanos" id="tamanos">
+      <div class="container-tamanos">
+        <h2 class="titulo-seccion">Tamaños Disponibles</h2>
+        <p class="subtitulo-seccion">Imprime en el formato que necesites para tus proyectos</p>
+        
+        <div class="tamanos-grid">
+          <!-- Media Carta -->
+          <div class="tamano-card">
+            <div class="tamano-icono">
+              <i class="fa-regular fa-file-lines"></i>
+            </div>
+            <h3>Media Carta</h3>
+            <p class="tamano-medidas">14 × 21.6 cm</p>
+            <span class="tamano-badge">Compacto</span>
+          </div>
+          
+          <!-- Carta -->
+          <div class="tamano-card">
+            <div class="tamano-icono">
+              <i class="fa-regular fa-file"></i>
+            </div>
+            <h3>Carta</h3>
+            <p class="tamano-medidas">21.6 × 27.9 cm</p>
+            <span class="tamano-badge">Estándar</span>
+          </div>
+          
+          <!-- Oficio -->
+          <div class="tamano-card">
+            <div class="tamano-icono">
+              <i class="fa-regular fa-file-alt"></i>
+            </div>
+            <h3>Oficio</h3>
+            <p class="tamano-medidas">21.6 × 33 cm</p>
+            <span class="tamano-badge">Legal</span>
+          </div>
+          
+          <!-- Tabloide -->
+          <div class="tamano-card">
+            <div class="tamano-icono">
+              <i class="fa-regular fa-newspaper"></i>
+            </div>
+            <h3>Tabloide</h3>
+            <p class="tamano-medidas">27.9 × 43.2 cm</p>
+            <span class="tamano-badge">Grande</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USOS COMUNES -->
+    <section class="seccion-usos">
+      <div class="container-usos">
+        <h2 class="titulo-seccion">Usos Comunes</h2>
+        <p class="subtitulo-seccion">Ideal para múltiples aplicaciones profesionales</p>
+        
+        <div class="usos-grid">
+          <div class="uso-card">
+            <i class="fa-solid fa-building"></i>
+            <h3>Documentos Empresariales</h3>
+            <p>Reportes, presentaciones, manuales y documentación corporativa</p>
+          </div>
+          
+          <div class="uso-card">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>Material Educativo</h3>
+            <p>Tareas, proyectos, apuntes y material didáctico</p>
+          </div>
+          
+          <div class="uso-card">
+            <i class="fa-solid fa-bullhorn"></i>
+            <h3>Material Publicitario</h3>
+            <p>Volantes, folletos, menús y material promocional</p>
+          </div>
+          
+          <div class="uso-card">
+            <i class="fa-solid fa-file-contract"></i>
+            <h3>Documentos Legales</h3>
+            <p>Contratos, actas, escrituras y documentos oficiales</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COTIZADOR -->
+    <section id="cotizador" class="seccion-cotizador">
+      <div class="cotizador-container">
+        <h2 class="titulo-seccion">Cotizador de Impresión Láser</h2>
+        <p class="subtitulo-seccion">Calcula el precio aproximado de tus impresiones en segundos. 
+          Este no es el precio final. Envía un mensaje por WhatsApp para obtener una cotización más precisa.
+        </p>
+
+        <div class="cotizador-card">
+          <form id="formCotizador" class="cotizador-form">
+            <div class="form-group">
+              <label for="tipo">
+                <i class="fa-solid fa-palette"></i>
+                Tipo de impresión
+              </label>
+              <select id="tipo" required>
+                <option value="bn">Blanco y negro</option>
+                <option value="color">Color</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="tamano">
+                <i class="fa-solid fa-ruler-combined"></i>
+                Tamaño de papel
+              </label>
+              <select id="tamano" required>
+                <option value="media-carta">Media Carta (14 × 21.6 cm)</option>
+                <option value="carta">Carta (21.6 × 27.9 cm)</option>
+                <option value="oficio">Oficio (21.6 × 33 cm)</option>
+                <option value="tabloide">Tabloide (27.9 × 43.2 cm)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cantidad">
+                <i class="fa-solid fa-hashtag"></i>
+                Cantidad de impresiones
+              </label>
+              <input type="number" id="cantidad" min="1" placeholder="Ejemplo: 50" required>
+            </div>
+
+            <div class="form-buttons">
+              <button id="calcular" class="btn-calcular" type="button">
+                <i class="fa-solid fa-calculator"></i>
+                Calcular
+              </button>
+              <button id="limpiar" class="btn-limpiar" type="button">
+                <i class="fa-solid fa-rotate-left"></i>
+                Limpiar
+              </button>
+            </div>
+          </form>
+
+          <div id="resultado" class="resultado-cotizacion"></div>
+          <div id="mensaje-descuento" class="mensaje-descuento"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTÓN VOLVER -->
+    <div class="seccion-volver">
+      <a href="../index.html#servicios" class="btn-volver-laser">
+        <i class="fa-solid fa-arrow-left"></i>
+        Regresar a servicios
+      </a>
     </div>
 
-    <p>Impresiones en <strong> alta resolución</strong>, resistentes al paso del tiempo y con secado inmediato.</p>
+  </main>
 
-    <a href="../index.html#servicios" class="btn-volver">⬅ Regresar a servicios</a>
-  </section>
-</main>
-
-
-  <!-- FOOTER -->
+  <!-- FOOTER (mantiene estructura deedpri) -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
-      <p>© <span id="year"></span> deedpri — Centro de impresión</p>
+      <p>&copy; <span id="year"></span> deedpri – Centro de impresión</p>
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE -->
-  <a href="https://wa.me/7295414907" class="whatsapp-fab" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/5217295414907" class="whatsapp-fab" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">
     <img src="../assets/img/WhatsApp.svg" width="60" height="60" alt="WhatsApp" loading="lazy">
     <span class="tooltip">¡Escríbenos!</span>
   </a>
 
-  <!-- JS (solo reveal y fecha dinámica) -->
+  <!-- JavaScript -->
   <script>
-  // Año dinámico
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  // Efecto reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    reveals.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
-      if (elementTop < windowHeight - 100) {
-        el.classList.add('visible');
-      }
+    // Año dinámico
+    document.getElementById("year").textContent = new Date().getFullYear();
+    
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
-  };
-  window.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('load', revealOnScroll);
   </script>
+  
+  <!-- JavaScript del cotizador -->
+  <script src="../assets/js/cotizador-laser.js"></script>
+  
 </body>
 </html>
-
