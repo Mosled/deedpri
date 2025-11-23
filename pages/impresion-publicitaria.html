@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Copias e impresiones profesionales en Zacualtipán con la calidad de DEEDPRI. Blanco y negro o color hasta tamaño tabloide.">
+  <meta name="description" content="Impresión publicitaria en Zacualtipán. Menús, volantes, folletos, boletos y más en papel de calidad. Hasta tamaño Oficio y Tabloide.">
   <meta name="author" content="deedpri">
   <title>Impresion Publicitaria | deedpri</title>
 
@@ -22,6 +22,9 @@
 
   <!-- CSS principal -->
   <link rel="stylesheet" href="../assets/css/deedpriv2.css"/>
+
+  <!-- CSS específico para esta página -->
+<link rel="stylesheet" href="../assets/css/impresion-publicitaria.css"/>
 </head>
 
 <body class="pagina-interna">
@@ -44,20 +47,190 @@
       </nav>
     </div>
   </header>
-  <!-- CONTENIDO PRINCIPAL -->
- <main>
-  <section class="pagina-copias">
-    <h1>Impresión Publicitaria</h1>
-    <p>Dale <strong> presencia a tu negocio</strong> con impresiones publicitarias atractivas y profesionales.Realizamos <strong> menús, folletos, boletos, volantes, notas de remisión y recetas</strong> en distintos tamaños y acabados.</p>
-
-    <div class="imagen-servicio">
-      <img src="../assets/img/impresion-publicitaria.png" alt="Copias e Impresiones" width="300" height="300" loading="lazy">
+  <!-- CONTENIDO PRINCIPAL - ESTILO CLEAN STUDIO -->
+<main class="main-publicitaria">
+  
+  <!-- HERO LIMPIO - 2 COLUMNAS -->
+  <section class="hero-publicitaria">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1 class="hero-title">Impresión Publicitaria</h1>
+        <p class="hero-subtitle">Promociona · Comunica · Destaca</p>
+        <p class="hero-description">
+          Dale <strong>presencia a tu negocio</strong> con impresiones publicitarias 
+          atractivas y profesionales en papel de alta calidad.
+        </p>
+        <div class="hero-note">
+          <i class="fa-solid fa-file-lines"></i>
+          <span><strong>Impresión en papel:</strong> Hasta tamaño Oficio (láser) o Tabloide (tinta)</span>
+        </div>
+        <a href="#productos" class="btn-hero">Ver productos</a>
+      </div>
+      <div class="hero-image">
+        <img src="../assets/img/impresion-publicitaria-pag.png" alt="Impresión Publicitaria deedpri" loading="eager">
+      </div>
     </div>
-
-    <p>Utilizamos papeles de alta calidad y tintas duraderas, ideales para promocionar tu marca o evento.También ofrecemos diseño gráfico personalizado para destacar tu mensaje.</p>
-
-    <a href="../index.html#servicios" class="btn-volver">⬅ Regresar a servicios</a>
   </section>
+
+  <!-- PRODUCTOS QUE IMPRIMIMOS -->
+  <section class="seccion-productos" id="productos">
+    <div class="container-productos">
+      <h2 class="titulo-seccion">Qué Imprimimos</h2>
+      <p class="subtitulo-seccion">Material publicitario y corporativo en papel</p>
+      
+      <div class="productos-grid">
+        
+        <!-- Menús -->
+        <div class="producto-card">
+          <div class="producto-icono">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <h3>Menús</h3>
+          <p>Restaurantes, cafeterías y negocios de comida</p>
+        </div>
+
+        <!-- Volantes -->
+        <div class="producto-card">
+          <div class="producto-icono">
+            <i class="fa-solid fa-newspaper"></i>
+          </div>
+          <h3>Volantes</h3>
+          <p>Promociones, ofertas y publicidad masiva</p>
+        </div>
+
+        <!-- Folletos -->
+        <div class="producto-card">
+          <div class="producto-icono">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <h3>Folletos</h3>
+          <p>Información de productos o servicios</p>
+        </div>
+
+        <!-- Boletos -->
+        <div class="producto-card">
+          <div class="producto-icono">
+            <i class="fa-solid fa-ticket"></i>
+          </div>
+          <h3>Boletos</h3>
+          <p>Eventos, rifas y entradas numeradas</p>
+        </div>
+
+        <!-- Notas de Remisión -->
+        <div class="producto-card">
+          <div class="producto-icono">
+            <i class="fa-solid fa-clipboard-list"></i>
+          </div>
+          <h3>Notas de Remisión</h3>
+          <p>Documentos de entrega para tu negocio</p>
+        </div>
+
+        <!-- Recetas -->
+        <div class="producto-card">
+          <div class="producto-icono">
+            <i class="fa-solid fa-prescription"></i>
+          </div>
+          <h3>Recetas</h3>
+          <p>Médicas o para cualquier necesidad</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOS DE PAPEL -->
+  <section class="seccion-papel">
+    <div class="container-papel">
+      <h2 class="titulo-seccion">Tipos de Papel Disponibles</h2>
+      <p class="subtitulo-seccion">Elige el acabado perfecto para tu proyecto</p>
+      
+      <div class="papel-grid">
+        
+        <div class="papel-card">
+          <div class="papel-icono">
+            <i class="fa-solid fa-file"></i>
+          </div>
+          <h3>Bond</h3>
+          <p>Papel estándar, ideal para volantes y documentos</p>
+        </div>
+
+        <div class="papel-card">
+          <div class="papel-icono">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <h3>Couché</h3>
+          <p>Brillante y profesional, perfecto para folletos</p>
+        </div>
+
+        <div class="papel-card">
+          <div class="papel-icono">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <h3>Opalina</h3>
+          <p>Elegante y texturizado, ideal para menús premium</p>
+        </div>
+
+        <div class="papel-card">
+          <div class="papel-icono">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h3>Cartulina</h3>
+          <p>Resistente y duradera para uso frecuente</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIFICACIONES -->
+  <section class="seccion-specs">
+    <div class="container-specs">
+      <h2 class="titulo-seccion">Especificaciones</h2>
+      
+      <div class="specs-grid">
+        
+        <div class="spec-card">
+          <i class="fa-solid fa-ruler"></i>
+          <h3>Tamaños</h3>
+          <p><strong>Láser:</strong> Hasta Oficio<br><strong>Tinta:</strong> Hasta Tabloide</p>
+        </div>
+
+        <div class="spec-card">
+          <i class="fa-solid fa-palette"></i>
+          <h3>Colores</h3>
+          <p>Blanco y negro o full color con tintas de alta calidad</p>
+        </div>
+
+        <div class="spec-card">
+          <i class="fa-solid fa-layer-group"></i>
+          <h3>Material</h3>
+          <p><strong>Solo papel</strong><br>Diferentes gramajes y acabados</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="seccion-cta-final">
+    <div class="container-cta">
+      <h2>¿Listo para promocionar tu negocio?</h2>
+      <p>Cotiza tu material publicitario con nosotros</p>
+      <a href="https://wa.me/5217295414907?text=Hola,%20necesito%20cotizar%20material%20publicitario" class="btn-cta-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        Cotizar ahora
+      </a>
+    </div>
+  </section>
+
+  <!-- BOTÓN VOLVER -->
+  <div class="seccion-volver">
+    <a href="../index.html#servicios" class="btn-volver-publicitaria">
+      <i class="fa-solid fa-arrow-left"></i>
+      Regresar a servicios
+    </a>
+  </div>
+
 </main>
 
 
@@ -92,6 +265,16 @@
   };
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
+  // Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
   </script>
 </body>
 </html>
