@@ -1,0 +1,538 @@
+/* ====================================================================
+   DISENO-PERSONALIZACION.CSS - ESTILO CLEAN STUDIO VISUAL
+   Página: diseño-personalizacion.html
+   Estilo: Limpio, visual, enfoque en galería y creatividad
+   ==================================================================== */
+
+/* === VARIABLES === */
+:root {
+  --diseno-white: #ffffff;
+  --diseno-light: #f8f9fa;
+  --diseno-gray: #e9ecef;
+  --diseno-gray-dark: #dee2e6;
+  --diseno-text: #333333;
+  --diseno-text-light: #666666;
+  --diseno-text-muted: #999999;
+  --diseno-accent: #ffd300;
+  --diseno-accent-hover: #ffdf3a;
+  --diseno-shadow: rgba(0, 0, 0, 0.06);
+  --diseno-shadow-hover: rgba(0, 0, 0, 0.12);
+}
+
+/* === AJUSTE PARA LA PÁGINA === */
+.pagina-interna {
+  background: var(--diseno-white);
+}
+
+/* === MAIN CONTAINER === */
+.main-diseno {
+  background: var(--diseno-white);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ====================================================================
+   HERO MINIMALISTA
+   ==================================================================== */
+.hero-diseno {
+  min-height: 600px;
+  background: var(--diseno-white);
+  display: flex;
+  align-items: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+}
+
+.hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text {
+  text-align: left;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+  color: var(--diseno-text);
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  color: var(--diseno-text-light);
+  line-height: 1.6;
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: var(--diseno-text-light);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--diseno-accent);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 211, 0, 0.3);
+  font-size: 1rem;
+}
+
+.btn-hero:hover {
+  background: var(--diseno-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 211, 0, 0.4);
+}
+
+/* ====================================================================
+   GALERÍA VISUAL
+   ==================================================================== */
+.seccion-galeria {
+  padding: 5rem 2rem;
+  background: var(--diseno-light);
+}
+
+.container-galeria {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titulo-seccion {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--diseno-text);
+  letter-spacing: -1px;
+}
+
+.subtitulo-seccion {
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-align: center;
+  color: var(--diseno-text-light);
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.galeria-card {
+  background: var(--diseno-white);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--diseno-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.galeria-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px var(--diseno-shadow-hover);
+}
+
+.galeria-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--diseno-accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.galeria-card:hover::before {
+  transform: scaleX(1);
+}
+
+.galeria-icono {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, var(--diseno-accent), #ffdf3a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.galeria-card:hover .galeria-icono {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.galeria-icono i {
+  font-size: 3rem;
+  color: var(--diseno-text);
+}
+
+.galeria-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--diseno-text);
+}
+
+.galeria-card p {
+  font-size: 1rem;
+  color: var(--diseno-text-light);
+  line-height: 1.6;
+}
+
+/* ====================================================================
+   PROCESO CREATIVO
+   ==================================================================== */
+.seccion-proceso {
+  padding: 5rem 2rem;
+  background: var(--diseno-white);
+}
+
+.container-proceso {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.proceso-step {
+  text-align: center;
+  position: relative;
+  padding: 2rem 1.5rem;
+}
+
+.step-numero {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: var(--diseno-accent);
+  color: var(--diseno-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 211, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.proceso-step:hover .step-numero {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 211, 0, 0.4);
+}
+
+.proceso-step h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--diseno-text);
+}
+
+.proceso-step p {
+  font-size: 1rem;
+  color: var(--diseno-text-light);
+  line-height: 1.6;
+}
+
+/* ====================================================================
+   CTA FINAL
+   ==================================================================== */
+.seccion-cta-final {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+  text-align: center;
+}
+
+.container-cta {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container-cta h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--diseno-text);
+  margin-bottom: 1rem;
+}
+
+.container-cta p {
+  font-size: 1.1rem;
+  color: var(--diseno-text-light);
+  margin-bottom: 2rem;
+}
+
+.btn-cta-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 3rem;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-cta-whatsapp:hover {
+  background: #20BA5A;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.btn-cta-whatsapp i {
+  font-size: 1.5rem;
+}
+
+/* ====================================================================
+   BOTÓN VOLVER
+   ==================================================================== */
+.seccion-volver {
+  text-align: center;
+  padding: 2rem;
+  background: var(--diseno-white);
+}
+
+.btn-volver-diseno {
+  display: inline-block;
+  background-color: var(--diseno-accent);
+  color: var(--diseno-text);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.9rem 1.6rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.btn-volver-diseno:hover {
+  background-color: var(--diseno-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* ====================================================================
+   RESPONSIVE
+   ==================================================================== */
+@media (max-width: 768px) {
+  /* HERO */
+  .hero-diseno {
+    min-height: auto;
+    padding: 2rem 1rem 1.5rem;
+  }
+  
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .hero-text {
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-hero {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* SECCIONES */
+  .seccion-galeria,
+  .seccion-proceso,
+  .seccion-cta-final {
+    padding: 2.5rem 1rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .subtitulo-seccion {
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  /* GALERÍA - 1 COLUMNA (mejor para ver detalles) */
+  .galeria-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .galeria-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .galeria-icono {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+  }
+
+  .galeria-icono i {
+    font-size: 2.5rem;
+  }
+
+  .galeria-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .galeria-card p {
+    font-size: 0.9rem;
+  }
+
+  /* PROCESO - 2 COLUMNAS */
+  .proceso-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .proceso-step {
+    padding: 1.5rem 1rem;
+  }
+
+  .step-numero {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .proceso-step h3 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .proceso-step p {
+    font-size: 0.85rem;
+  }
+
+  /* CTA FINAL */
+  .seccion-cta-final {
+    padding: 2.5rem 1rem;
+  }
+
+  .container-cta h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .container-cta p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-cta-whatsapp {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-cta-whatsapp i {
+    font-size: 1.3rem;
+  }
+
+  /* BOTÓN VOLVER */
+  .seccion-volver {
+    padding: 1.5rem 1rem;
+  }
+
+  .btn-volver-diseno {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* MÓVILES MUY PEQUEÑOS */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.4rem;
+  }
+
+  .galeria-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .proceso-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-cta-whatsapp {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}
