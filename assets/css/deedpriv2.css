@@ -1223,8 +1223,9 @@ section {
 }
 
 .footer-expandable.open {
-  max-height: 800px;
-  padding: 3rem 0;
+  max-height: 1200px;
+  padding: 2rem 0;
+  overflow-y: auto;
 }
 
 .footer-expandable-content {
@@ -1398,6 +1399,10 @@ section {
   
   .footer-brand {
     grid-column: 1 / -1;
+  }
+  .footer-expandable.open {
+    max-height: 1000px;
+    padding: 1.5rem 0;
   }
 }
 
@@ -1654,40 +1659,53 @@ section {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    padding: 0 1rem;
   }
   
   .footer-toggle-btn {
-    width: 100%;
+    width: auto; /* ← Cambiar de 100% a auto */
+    min-width: 200px; /* ← Ancho mínimo */
     justify-content: center;
+    margin-top: 0.5rem;
+    align-self: center; 
   }
   
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+    text-align: center;
   }
   
   .footer-brand {
     grid-column: 1;
-    text-align: center;
   }
   
-  .footer-column {
-    text-align: center;
-  }
-  
-  .footer-info-item {
+   .footer-info-item {
     flex-direction: column;
     text-align: center;
     align-items: center;
+    gap: 0.5rem;
   }
   
   .footer-horario {
     margin-left: 0;
+    text-align: center;
   }
   
   .footer-btn-map {
-    display: block;
+    display: inline-block; /* ← Cambiar de block a inline-block */
     text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Asegurar que el contenido sea visible */
+  .footer-expandable.open {
+    max-height: 1500px; /* ← Más alto para móvil */
+    padding: 1rem 0;
+  }
+  
+  .footer-expandable-content {
+    padding: 0 1rem;
   }
 }
 /* === MÓVIL PEQUEÑO (max 600px) === 2 */
@@ -1876,6 +1894,39 @@ section {
   .card {
     min-height: auto;
   }
+  .footer-expandable.open {
+    max-height: none; /* ← Sin límite de altura */
+    padding: 1rem 0;
+  }
+  
+  .footer-links {
+    font-size: 0.9rem;
+  }
+  
+  .footer-info-item {
+    font-size: 0.85rem;
+  }
+  
+  .footer-btn-map {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
 }
-
+/* Móvil muy pequeño - Asegurar footer visible */
+@media (max-width: 480px) {
+  .footer-colapsable {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .footer-expandable.open {
+    max-height: none;
+    overflow-y: visible;
+  }
+  .footer-toggle-btn {
+    min-width: 180px; /* ← Un poco más pequeño en móviles muy pequeños */
+    padding: 0.5rem 1.2rem; /* ← Padding reducido */
+    font-size: 0.85rem;
+  }
+}
 /* FIN */

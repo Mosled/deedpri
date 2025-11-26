@@ -124,7 +124,6 @@
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 20px 60px rgba(255, 211, 0, 0.4);
-  animation: float 6s ease-in-out infinite;
   border: 8px solid var(--acerca-yellow);
 }
 
