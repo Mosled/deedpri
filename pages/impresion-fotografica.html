@@ -464,11 +464,114 @@
   
 
   <!-- FOOTER (mantiene estructura deedpri) -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <p>&copy; <span id="year"></span> deedpri – Centro de impresión</p>
+   <footer class="footer-colapsable">
+  
+  <!-- Barra principal (siempre visible) -->
+  <div class="footer-main">
+    <div class="footer-main-content">
+      
+      <div class="footer-copyright">
+        © 2025 deedpri — Centro de Impresión
+      </div>
+      
+      <div class="footer-social-inline">
+        <a href="https://facebook.com/tu-pagina" class="social-link-inline" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/tu-cuenta" class="social-link-inline" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://tiktok.com/@tu-cuenta" class="social-link-inline" target="_blank" rel="noopener" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+      
+      <button class="footer-toggle-btn" id="footerToggle" aria-expanded="false" aria-controls="footerExpandable">
+        <span id="footerToggleText">Más información</span>
+        <i class="fa-solid fa-chevron-down footer-toggle-icon"></i>
+      </button>
+      
     </div>
-  </footer>
+  </div>
+  
+  <!-- Contenido expandible -->
+  <div class="footer-expandable" id="footerExpandable">
+    <div class="footer-expandable-content">
+      <div class="footer-grid">
+        
+        <!-- Columna 1: Marca y descripción -->
+        <div class="footer-brand">
+          <div class="footer-logo">deedpri</div>
+          <p class="footer-tagline">
+            Tu centro de impresión y diseño. Calidad profesional, atención personalizada.
+          </p>
+        </div>
+        
+        <!-- Columna 2: Servicios -->
+        <div class="footer-column">
+          <h3>Servicios</h3>
+          <ul class="footer-links">
+            <li><a href="pages/copias-impresiones.html">Copias e Impresiones</a></li>
+            <li><a href="pages/impresion-laser.html">Impresión Láser</a></li>
+            <li><a href="pages/impresion-stickers.html">Stickers Personalizados</a></li>
+            <li><a href="pages/diseno-personalizacion.html">Diseño y Personalización</a></li>
+            <li><a href="pages/impresion-publicitaria.html">Material Publicitario</a></li>
+            <li><a href="pages/impresion-fotografica.html">Impresión Fotográfica</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 3: Contacto -->
+        <div class="footer-column">
+          <h3>Contacto</h3>
+          
+          <div class="footer-info-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong>Teléfono:</strong><br>
+              <a href="tel:7295414907">729 541 4907</a>
+            </div>
+          </div>
+          
+          <div class="footer-info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <a href="mailto:contacto@deedpri.com">contacto@deedpri.com</a>
+            </div>
+          </div>
+          
+          <div class="footer-info-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <strong>Horarios:</strong>
+              <div class="footer-horario">
+                Lun-Vie: 8:00 AM - 7:00 PM<br>
+                Sáb-Dom: 9:00 AM - 5:00 PM
+              </div>
+            </div>
+          </div>
+          
+          <div class="footer-info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>Dirección:</strong><br>
+              Av. Ocampo #115, Col. Centro<br>
+              Zacualtipán, Hidalgo
+            </div>
+          </div>
+          
+          <a href="https://maps.google.com/?q=Av.+Ocampo+115+Zacualtipan+Hidalgo" 
+             target="_blank" 
+             rel="noopener"
+             class="footer-btn-map">
+            <i class="fa-solid fa-map-location-dot"></i> Ver en Mapa
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</footer>
 
   <!-- BOTÓN FLOTANTE DE WHATSAPP -->
   <a href="https://wa.me/5217295414907" class="whatsapp-fab" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">
@@ -694,6 +797,31 @@ if (btnFinal) {
       });
     });
   </script>
+  <script>
+// Footer colapsable
+(function() {
+  const toggleBtn = document.getElementById('footerToggle');
+  const expandable = document.getElementById('footerExpandable');
+  const toggleText = document.getElementById('footerToggleText');
   
+  if (!toggleBtn || !expandable) return;
+  
+  toggleBtn.addEventListener('click', function() {
+    const isOpen = expandable.classList.toggle('open');
+    toggleBtn.classList.toggle('active');
+    
+    // Actualizar texto y aria
+    toggleText.textContent = isOpen ? 'Menos información' : 'Más información';
+    toggleBtn.setAttribute('aria-expanded', isOpen);
+    
+    // Scroll suave al footer si se abre (opcional)
+    if (isOpen) {
+      setTimeout(() => {
+        expandable.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  });
+})();
+</script>
 </body>
 </html>

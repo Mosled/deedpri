@@ -1,0 +1,712 @@
+/* ===========================
+   ACERCA DE - DEEDPRI
+   Estilo: Moderno y dinámico
+   Versión: 1.0
+   =========================== */
+
+:root {
+  --acerca-yellow: #ffd300;
+  --acerca-dark: #1a1a1a;
+  --acerca-gray: #666;
+  --acerca-light: #f5f5f5;
+}
+
+/* Main container */
+.acerca-main {
+  background: #fff;
+  padding-top: 80px; /* Espacio para header fijo */
+}
+
+.acerca-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.acerca-section {
+  padding: 4rem 0;
+}
+
+/* Section headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-label {
+  display: inline-block;
+  background: var(--acerca-yellow);
+  color: var(--acerca-dark);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--acerca-dark);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+
+.acerca-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.acerca-hero-content {
+  flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.acerca-hero-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--acerca-yellow), #ffdf3a);
+  color: var(--acerca-dark);
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(255, 211, 0, 0.3);
+}
+
+.acerca-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--acerca-dark);
+  margin: 0 0 1.5rem 0;
+}
+
+.acerca-hero-title .highlight {
+  color: var(--acerca-yellow);
+  position: relative;
+  display: inline-block;
+}
+
+.acerca-hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--acerca-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.acerca-hero-visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-image-circle {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 20px 60px rgba(255, 211, 0, 0.4);
+  animation: float 6s ease-in-out infinite;
+  border: 8px solid var(--acerca-yellow);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ===========================
+   HISTORIA
+   =========================== */
+
+.acerca-historia {
+  background: var(--acerca-light);
+}
+
+.historia-content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.historia-year {
+  text-align: center;
+  position: sticky;
+  top: 120px;
+}
+
+.year-badge {
+  width: 150px;
+  height: 150px;
+  background: var(--acerca-yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--acerca-dark);
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 10px 30px rgba(255, 211, 0, 0.3);
+}
+
+.year-text {
+  font-size: 0.9rem;
+  color: var(--acerca-gray);
+  font-weight: 600;
+}
+
+.historia-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--acerca-dark);
+  margin-bottom: 1.5rem;
+}
+
+.historia-text strong {
+  color: var(--acerca-dark);
+  font-weight: 600;
+}
+
+/* ===========================
+   MISIÓN
+   =========================== */
+
+.acerca-mision {
+  background: var(--acerca-dark);
+}
+
+.mision-card {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.mision-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--acerca-yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem auto;
+}
+
+.mision-icon i {
+  font-size: 2rem;
+  color: var(--acerca-dark);
+}
+
+.mision-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.5rem 0;
+}
+
+.mision-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* ===========================
+   VALORES
+   =========================== */
+
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.valor-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  border: 2px solid #eee;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.valor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--acerca-yellow);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.valor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--acerca-yellow);
+}
+
+.valor-card:hover::before {
+  transform: scaleX(1);
+}
+
+.valor-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--acerca-yellow), #ffdf3a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+  transition: transform 0.3s ease;
+}
+
+.valor-card:hover .valor-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.valor-icon i {
+  font-size: 1.5rem;
+  color: var(--acerca-dark);
+}
+
+.valor-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--acerca-dark);
+  margin: 0 0 0.75rem 0;
+}
+
+.valor-text {
+  font-size: 0.95rem;
+  color: var(--acerca-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===========================
+   VENTAJAS
+   =========================== */
+
+.acerca-ventajas {
+  background: var(--acerca-light);
+}
+
+.ventajas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ventaja-item {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.ventaja-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--acerca-yellow);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ventaja-numero {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--acerca-yellow);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.ventaja-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--acerca-yellow);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+}
+
+.ventaja-icon i {
+  font-size: 1.8rem;
+  color: var(--acerca-dark);
+}
+
+.ventaja-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--acerca-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.ventaja-desc {
+  font-size: 0.9rem;
+  color: var(--acerca-gray);
+  margin: 0;
+}
+
+/* ===========================
+   LOGROS
+   =========================== */
+
+.logros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.logro-card {
+  background: var(--acerca-light);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.logro-card:hover {
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.logro-card i {
+  font-size: 2.5rem;
+  color: var(--acerca-yellow);
+  margin-bottom: 1rem;
+}
+
+.logro-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--acerca-dark);
+  margin: 0 0 0.75rem 0;
+}
+
+.logro-card p {
+  font-size: 0.9rem;
+  color: var(--acerca-gray);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.logro-especial {
+  background: linear-gradient(135deg, var(--acerca-yellow), #ffdf3a);
+  border-radius: 15px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  box-shadow: 0 15px 40px rgba(255, 211, 0, 0.3);
+}
+
+.logro-especial-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logro-especial-icon i {
+  font-size: 2rem;
+  color: var(--acerca-dark);
+}
+
+.logro-especial-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--acerca-dark);
+  opacity: 0.8;
+  margin: 0 0 0.5rem 0;
+}
+
+.logro-especial-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--acerca-dark);
+  margin: 0 0 0.75rem 0;
+}
+
+.logro-especial-text {
+  font-size: 1rem;
+  color: var(--acerca-dark);
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ===========================
+   CTA FINAL
+   =========================== */
+
+.acerca-cta {
+  background: var(--acerca-dark);
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem 0;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 2.5rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-cta-primary,
+.btn-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-cta-primary {
+  background: var(--acerca-yellow);
+  color: var(--acerca-dark);
+}
+
+.btn-cta-primary:hover {
+  background: #ffdf3a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 211, 0, 0.4);
+}
+
+.btn-cta-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-cta-secondary:hover {
+  background: #fff;
+  color: var(--acerca-dark);
+  transform: translateY(-3px);
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 968px) {
+  .acerca-hero {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+  }
+  
+  .acerca-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-image-circle {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .historia-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .historia-year {
+    position: static;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .logro-especial {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .acerca-section {
+    padding: 3rem 0;
+  }
+  
+  .acerca-hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-image-circle {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .valores-grid,
+  .ventajas-grid,
+  .logros-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .btn-cta-primary,
+  .btn-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* ===========================
+     FOOTER RESPONSIVE - FIX MÓVIL
+     =========================== */
+  
+  .footer-main-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .footer-toggle-btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+  
+  .footer-copyright {
+    font-size: 0.85rem;
+    width: 100%;
+  }
+  
+  .footer-social-inline {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .footer-brand {
+    grid-column: 1;
+    text-align: center;
+  }
+  
+  .footer-column {
+    text-align: center;
+  }
+  
+  .footer-info-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .footer-horario {
+    margin-left: 0;
+  }
+  
+  .footer-btn-map {
+    display: block;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .footer-expandable-content {
+    padding: 0 1rem;
+  }
+  
+  .footer-main,
+  .footer-expandable {
+    overflow-x: hidden;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 375px) {
+  .hero-image-circle {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .footer-main-content {
+    padding: 0 0.75rem;
+  }
+  
+  .footer-toggle-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .footer-grid {
+    padding: 0 0.75rem;
+  }
+}
