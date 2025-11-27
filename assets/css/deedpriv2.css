@@ -1269,6 +1269,10 @@ section {
   opacity: 0.9;
   margin: 0;
 }
+.acerca-de {
+color: var(--amarillo);
+font-family: 'Poppins', sans-serif;
+}
 
 /* Columna de enlaces */
 .footer-column h3 {
