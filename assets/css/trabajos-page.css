@@ -1,0 +1,414 @@
+/* ====================================================================
+   TRABAJOS-PAGE.CSS - ESTILO CLEAN STUDIO
+   Página: trabajos.html
+   Estilo: Limpio, minimalista, profesional (galería con filtros)
+   ==================================================================== */
+
+/* === VARIABLES === */
+:root {
+  --trabajos-white: #ffffff;
+  --trabajos-light: #f8f9fa;
+  --trabajos-gray: #e9ecef;
+  --trabajos-gray-dark: #dee2e6;
+  --trabajos-text: #333333;
+  --trabajos-text-light: #666666;
+  --trabajos-text-muted: #999999;
+  --trabajos-accent: #ffd300;
+  --trabajos-accent-hover: #ffdf3a;
+  --trabajos-shadow: rgba(0, 0, 0, 0.06);
+  --trabajos-shadow-hover: rgba(0, 0, 0, 0.12);
+}
+
+/* === AJUSTE PARA LA PÁGINA === */
+.pagina-interna {
+  background: var(--trabajos-white);
+}
+
+/* === MAIN CONTAINER === */
+.main-trabajos {
+  background: var(--trabajos-white);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ====================================================================
+   SECCIÓN PRINCIPAL DE TRABAJOS
+   ==================================================================== */
+.trabajos-section-page {
+  padding: 6rem 2rem 5rem;
+  background: var(--trabajos-white);
+  min-height: calc(100vh - 200px);
+}
+
+/* ====================================================================
+   HEADER DE LA SECCIÓN
+   ==================================================================== */
+.section-header-trabajos {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header-trabajos h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+  color: var(--trabajos-text);
+  line-height: 1.1;
+}
+
+.section-header-trabajos p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  color: var(--trabajos-text-light);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ====================================================================
+   FILTROS DE CATEGORÍAS
+   ==================================================================== */
+.filtros-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto 3rem;
+  flex-wrap: wrap;
+  max-width: 900px;
+}
+
+.filtro-btn {
+  background: var(--trabajos-white);
+  border: 2px solid var(--trabajos-gray);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--trabajos-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--trabajos-shadow);
+}
+
+.filtro-btn:hover {
+  border-color: var(--trabajos-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 211, 0, 0.2);
+}
+
+.filtro-btn.active {
+  background: var(--trabajos-accent);
+  border-color: var(--trabajos-accent);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 211, 0, 0.3);
+}
+
+/* ====================================================================
+   GRID DE TRABAJOS
+   ==================================================================== */
+.galeria-grid-trabajos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ====================================================================
+   CARD DE TRABAJO INDIVIDUAL
+   ==================================================================== */
+.trabajo-card-item {
+  background: var(--trabajos-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--trabajos-shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.trabajo-card-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px var(--trabajos-shadow-hover);
+}
+
+/* Animación para filtrado */
+.trabajo-card-item.hide {
+  opacity: 0;
+  transform: scale(0.9);
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* ====================================================================
+   IMAGEN DEL TRABAJO
+   ==================================================================== */
+.trabajo-imagen-item {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, var(--trabajos-gray), var(--trabajos-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.trabajo-imagen-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.trabajo-card-item:hover .trabajo-imagen-item img {
+  transform: scale(1.08);
+}
+
+/* Badge destacado */
+.trabajo-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--trabajos-accent);
+  color: #000;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+/* ====================================================================
+   INFORMACIÓN DEL TRABAJO
+   ==================================================================== */
+.trabajo-info-item {
+  padding: 2rem;
+}
+
+/* Tag de categoría */
+.trabajo-categoria-tag {
+  display: inline-block;
+  background: var(--trabajos-accent);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Título del trabajo */
+.trabajo-titulo-item {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.8rem 0;
+  color: var(--trabajos-text);
+  line-height: 1.3;
+}
+
+/* Descripción */
+.trabajo-descripcion-item {
+  font-size: 0.95rem;
+  color: var(--trabajos-text-light);
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+/* ====================================================================
+   STATS DEL TRABAJO
+   ==================================================================== */
+.trabajo-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--trabajos-gray);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--trabajos-text-muted);
+  font-weight: 500;
+}
+
+.stat-item i {
+  color: var(--trabajos-accent);
+  font-size: 1rem;
+}
+
+/* ====================================================================
+   FOOTER DE ACCIONES (BOTÓN VOLVER)
+   ==================================================================== */
+.trabajos-footer-actions {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 2px solid var(--trabajos-gray);
+}
+
+.btn-volver {
+  display: inline-block;
+  background-color: var(--trabajos-accent);
+  color: var(--trabajos-text);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(255, 211, 0, 0.3);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.btn-volver:hover {
+  background-color: var(--trabajos-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 211, 0, 0.4);
+}
+
+.btn-volver i {
+  transition: transform 0.3s ease;
+}
+
+.btn-volver:hover i {
+  transform: translateX(-4px);
+}
+
+/* ====================================================================
+   RESPONSIVE
+   ==================================================================== */
+
+/* Tablets y móvil grande */
+@media (max-width: 768px) {
+  .trabajos-section-page {
+    padding: 4rem 1rem 3rem;
+  }
+
+  .section-header-trabajos {
+    margin-bottom: 3rem;
+  }
+
+  .section-header-trabajos h1 {
+    font-size: 2rem;
+  }
+
+  .section-header-trabajos p {
+    font-size: 0.95rem;
+  }
+
+  .filtros-container {
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .filtro-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .galeria-grid-trabajos {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .trabajo-imagen-item {
+    height: 240px;
+  }
+
+  .trabajo-info-item {
+    padding: 1.5rem;
+  }
+
+  .trabajos-footer-actions {
+    margin-top: 3rem;
+    padding-top: 2rem;
+  }
+}
+
+/* Móvil */
+@media (max-width: 640px) {
+  .trabajos-section-page {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .section-header-trabajos {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header-trabajos h1 {
+    font-size: 1.8rem;
+  }
+
+  .galeria-grid-trabajos {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .trabajo-stats {
+    gap: 0.8rem;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  .trabajos-section-page {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .section-header-trabajos h1 {
+    font-size: 1.6rem;
+  }
+
+  .section-header-trabajos p {
+    font-size: 0.9rem;
+  }
+
+  .filtros-container {
+    gap: 0.6rem;
+  }
+
+  .filtro-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .trabajo-titulo-item {
+    font-size: 1.1rem;
+  }
+
+  .trabajo-descripcion-item {
+    font-size: 0.85rem;
+  }
+
+  .btn-volver {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .trabajos-footer-actions {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+  }
+}

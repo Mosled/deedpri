@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta básicas -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FZYBH51F8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1FZYBH51F8');
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico?v=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=1.0">
+  <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png?v=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=1.0">
+  <link rel="icon" type="image/png" sizes="192x192" href="../web-app-manifest-192x192.png?v=1.0">
+  <link rel="icon" type="image/png" sizes="512x512" href="../web-app-manifest-512x512.png?v=1.0">
+  <meta name="theme-color" content="#ffd300">
+  
+  <!-- SEO -->
+  <title>Nuestros Trabajos - deedpri | Portfolio de Impresiones y Diseño</title>
+  <meta name="description" content="Conoce nuestros trabajos de impresión, diseño gráfico, fotografía y personalización. Portfolio de proyectos realizados en Zacualtipán.">
+  <meta name="keywords" content="trabajos deedpri, portfolio impresión, proyectos diseño, galería trabajos Zacualtipán">
+  <meta name="author" content="deedpri">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nuestros Trabajos - deedpri">
+  <meta property="og:description" content="Portfolio de trabajos de impresión, diseño y fotografía">
+  <meta property="og:type" content="website">
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Tipografía -->
+  <link rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Spartan:wght@400;700;800&display=swap" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Spartan:wght@400;700;800&display=swap" rel="stylesheet">
+  </noscript>
+  
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    media="print"
+    onload="this.media='all'"
+    referrerpolicy="no-referrer"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </noscript>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/deedpriv2.css?v=1.1"/>
+  <link rel="stylesheet" href="../assets/css/trabajos-page.css"/>
+</head>
+
+<body class="pagina-interna">
+  <!-- HEADER -->
+  <header class="topbar" role="banner">
+    <div class="inner">
+      <!-- Logo -->
+      <div class="branding" aria-label="Identidad del sitio">
+        <div class="brand-text">
+          <a href="../index.html" class="brand-link" aria-label="Ir a inicio">
+            <span class="brand-name">deedpri</span>
+          </a>
+          <span class="giro">Centro de impresión</span>
+        </div>
+      </div>
+
+      <!-- Redes sociales -->
+      <nav class="social-icons" aria-label="Redes sociales">
+        <a href="https://www.facebook.com/deedpri/" aria-label="Visitar Facebook de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/deedpri_oficial" aria-label="Visitar Instagram de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.tiktok.com/@deedpri_" aria-label="Visitar TikTok de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+        </a>
+      </nav>
+      <!-- Overlay -->
+      <div id="overlay" class="overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main role="main">
+    
+    <!-- Sección de trabajos con filtros -->
+    <section id="galeria-trabajos" class="trabajos-section-page">
+      
+      <!-- Header -->
+      <div class="section-header-trabajos">
+        <h1>Nuestros Trabajos</h1>
+        <p>Explora los proyectos que hemos realizado con calidad profesional</p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="filtros-container">
+        <button class="filtro-btn active" data-filter="todos">Todos</button>
+        <button class="filtro-btn" data-filter="impresion">Impresión</button>
+        <button class="filtro-btn" data-filter="diseno">Diseño</button>
+        <button class="filtro-btn" data-filter="fotografia">Fotografía</button>
+        <button class="filtro-btn" data-filter="personalizacion">Personalización</button>
+        <button class="filtro-btn" data-filter="corporativo">Corporativo</button>
+      </div>
+
+      <!-- Grid de trabajos -->
+      <div class="galeria-grid-trabajos">
+        
+        <!-- TRABAJO 1 -->
+        <div class="trabajo-card-item" data-categoria="impresion">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-1.jpg" 
+                 alt="Tesis profesional impresión láser" 
+                 loading="lazy">
+            <span class="trabajo-badge">Destacado</span>
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Impresión Láser</span>
+            <h3 class="trabajo-titulo-item">Tesis Profesional</h3>
+            <p class="trabajo-descripcion-item">Impresión premium de 150 páginas con acabado profesional</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-file-lines"></i>
+                150 páginas
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-star"></i>
+                Premium
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 2 -->
+        <div class="trabajo-card-item" data-categoria="diseno">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-2.jpg" 
+                 alt="Diseño de logo restaurante" 
+                 loading="lazy">
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Diseño Gráfico</span>
+            <h3 class="trabajo-titulo-item">Logo Restaurante</h3>
+            <p class="trabajo-descripcion-item">Identidad visual completa para negocio local</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-palette"></i>
+                Branding
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-utensils"></i>
+                Restaurante
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 3 -->
+        <div class="trabajo-card-item" data-categoria="fotografia">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-3.jpg" 
+                 alt="Sesión XV años" 
+                 loading="lazy">
+            <span class="trabajo-badge">Destacado</span>
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Fotografía</span>
+            <h3 class="trabajo-titulo-item">Sesión XV Años</h3>
+            <p class="trabajo-descripcion-item">Cobertura completa con álbum premium</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-camera"></i>
+                200+ fotos
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-book"></i>
+                Álbum
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 4 -->
+        <div class="trabajo-card-item" data-categoria="personalizacion">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-4.jpg" 
+                 alt="Stickers troquelados" 
+                 loading="lazy">
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Personalización</span>
+            <h3 class="trabajo-titulo-item">Stickers Troquelados</h3>
+            <p class="trabajo-descripcion-item">500 calcomanías para marca local</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-scissors"></i>
+                Troquelado
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-layer-group"></i>
+                500 uds
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 5 -->
+        <div class="trabajo-card-item" data-categoria="corporativo">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-5.jpg" 
+                 alt="Tarjetas corporativas" 
+                 loading="lazy">
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Corporativo</span>
+            <h3 class="trabajo-titulo-item">Tarjetas de Presentación</h3>
+            <p class="trabajo-descripcion-item">Diseño e impresión para empresa</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-id-card"></i>
+                1000 uds
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-building"></i>
+                Empresa
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 6 -->
+        <div class="trabajo-card-item" data-categoria="impresion">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-6.jpg" 
+                 alt="Volantes promocionales" 
+                 loading="lazy">
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Impresión</span>
+            <h3 class="trabajo-titulo-item">Volantes Promocionales</h3>
+            <p class="trabajo-descripcion-item">1000 volantes full color</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-newspaper"></i>
+                Full color
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-print"></i>
+                1000 uds
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 7 -->
+        <div class="trabajo-card-item" data-categoria="diseno impresion">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-7.jpg" 
+                 alt="Menús restaurante" 
+                 loading="lazy">
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Diseño + Impresión</span>
+            <h3 class="trabajo-titulo-item">Menús para Restaurante</h3>
+            <p class="trabajo-descripcion-item">50 menús plastificados</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-utensils"></i>
+                Menús
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                Plastificado
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 8 -->
+        <div class="trabajo-card-item" data-categoria="fotografia">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-8.jpg" 
+                 alt="Boda premium" 
+                 loading="lazy">
+            <span class="trabajo-badge">Destacado</span>
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Fotografía</span>
+            <h3 class="trabajo-titulo-item">Boda Premium</h3>
+            <p class="trabajo-descripcion-item">Cobertura de 8 horas</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-clock"></i>
+                8 horas
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-heart"></i>
+                300+ fotos
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 9 -->
+        <div class="trabajo-card-item" data-categoria="personalizacion">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-9.jpg" 
+                 alt="Tazas personalizadas" 
+                 loading="lazy">
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Personalización</span>
+            <h3 class="trabajo-titulo-item">Tazas Corporativas</h3>
+            <p class="trabajo-descripcion-item">100 tazas sublimadas</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-mug-hot"></i>
+                Sublimación
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-gift"></i>
+                100 uds
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 10 -->
+        <div class="trabajo-card-item" data-categoria="corporativo impresion">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-10.jpg" 
+                 alt="Lona publicitaria" 
+                 loading="lazy">
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Publicitario</span>
+            <h3 class="trabajo-titulo-item">Lona para Negocio</h3>
+            <p class="trabajo-descripcion-item">Lona 3x2m alta resolución</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-maximize"></i>
+                3x2m
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-store"></i>
+                Exterior
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 11 -->
+        <div class="trabajo-card-item" data-categoria="impresion corporativo">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-11.jpg" 
+                 alt="Manual corporativo" 
+                 loading="lazy">
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Impresión</span>
+            <h3 class="trabajo-titulo-item">Manual Corporativo</h3>
+            <p class="trabajo-descripcion-item">Empastado profesional</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-book"></i>
+                Empastado
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-building"></i>
+                Empresa
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRABAJO 12 -->
+        <div class="trabajo-card-item" data-categoria="diseno corporativo">
+          <div class="trabajo-imagen-item">
+            <img src="../assets/img/trabajos/trabajo-12.jpg" 
+                 alt="Branding completo" 
+                 loading="lazy">
+            <span class="trabajo-badge">Destacado</span>
+          </div>
+          <div class="trabajo-info-item">
+            <span class="trabajo-categoria-tag">Branding</span>
+            <h3 class="trabajo-titulo-item">Identidad Corporativa</h3>
+            <p class="trabajo-descripcion-item">Proyecto completo de branding</p>
+            <div class="trabajo-stats">
+              <span class="stat-item">
+                <i class="fa-solid fa-layer-group"></i>
+                15 piezas
+              </span>
+              <span class="stat-item">
+                <i class="fa-solid fa-palette"></i>
+                Full branding
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Botón volver -->
+      <div class="trabajos-footer-actions">
+        <a href="../index.html" class="btn-volver">
+          <i class="fa-solid fa-arrow-left"></i>
+          Volver a inicio
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+ <!-- FOOTER (mantiene estructura deedpri) -->
+   <footer class="footer-colapsable">
+  
+  <!-- Barra principal (siempre visible) -->
+  <div class="footer-main">
+    <div class="footer-main-content">
+      
+      <div class="footer-copyright">
+        © 2025 deedpri — Centro de Impresión
+      </div>
+      
+      <div class="footer-social-inline">
+        <a href="https://www.facebook.com/deedpri/" class="social-link-inline" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/deedpri_oficial" class="social-link-inline" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@deedpri_" class="social-link-inline" target="_blank" rel="noopener" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+      
+      <button class="footer-toggle-btn" id="footerToggle" aria-expanded="false" aria-controls="footerExpandable">
+        <span id="footerToggleText">Más información</span>
+        <i class="fa-solid fa-chevron-down footer-toggle-icon"></i>
+      </button>
+      
+    </div>
+  </div>
+  
+  <!-- Contenido expandible -->
+  <div class="footer-expandable" id="footerExpandable">
+    <div class="footer-expandable-content">
+      <div class="footer-grid">
+        
+        <!-- Columna 1: Marca y descripción -->
+        <div class="footer-brand">
+          <div class="footer-logo">deedpri</div>
+          <p class="footer-tagline">
+            Tu centro de impresión y diseño. Calidad profesional, atención personalizada.<br>
+            <a href="../pages/acerca-de.html" class="acerca-de">Acerca de nosotros</a>
+          </p>
+        </div>
+        
+        <!-- Columna 2: Servicios -->
+        <div class="footer-column">
+          <h3>Servicios</h3>
+          <ul class="footer-links">
+            <li><a href="../pages/copias-impresiones.html">Copias e Impresiones</a></li>
+            <li><a href="../pages/impresion-laser.html">Impresión Láser</a></li>
+            <li><a href="../pages/impresion-stickers.html">Stickers Personalizados</a></li>
+            <li><a href="../pages/diseno-personalizacion.html">Diseño y Personalización</a></li>
+            <li><a href="../pages/impresion-publicitaria.html">Material Publicitario</a></li>
+            <li><a href="../pages/impresion-fotografica.html">Impresión Fotográfica</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 3: Contacto -->
+        <div class="footer-column">
+          <h3>Contacto</h3>
+          
+          <div class="footer-info-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong>Teléfono:</strong><br>
+              <a href="tel:7295414907">729 541 4907</a>
+            </div>
+          </div>
+          
+          <div class="footer-info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <a href="mailto:contacto@deedpri.com">contacto@deedpri.com</a>
+            </div>
+          </div>
+          
+          <div class="footer-info-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <strong>Horarios:</strong>
+              <div class="footer-horario">
+                Lun-Vie: 8:00 AM - 7:00 PM<br>
+                Sáb-Dom: 9:00 AM - 5:00 PM
+              </div>
+            </div>
+          </div>
+          
+          <div class="footer-info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>Dirección:</strong><br>
+              Av. Ocampo #115, Col. Centro<br>
+              Zacualtipán, Hidalgo
+            </div>
+          </div>
+          
+          <a href="https://maps.app.goo.gl/qr7sTAfCzxKGTJFM8" 
+             target="_blank" 
+             rel="noopener"
+             class="footer-btn-map">
+            <i class="fa-solid fa-map-location-dot"></i> Ver en Mapa
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</footer>
+
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/5217295414907" class="whatsapp-fab" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener noreferrer">
+    <img src="../assets/img/WhatsApp.svg" width="60" height="60" alt="Ícono de WhatsApp" loading="lazy">
+    <span class="tooltip">¡Escríbenos!</span>
+  </a>
+
+  <!-- JavaScript -->
+  <script src="../assets/js/menu.js?v=1.0"></script>
+  
+  <script>
+    // Scroll effect
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector(".topbar");
+      if (window.scrollY > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <script>
+    // Footer colapsable
+    (function() {
+      const toggleBtn = document.getElementById('footerToggle');
+      const expandable = document.getElementById('footerExpandable');
+      const toggleText = document.getElementById('footerToggleText');
+      
+      if (!toggleBtn || !expandable) return;
+      
+      toggleBtn.addEventListener('click', function() {
+        const isOpen = expandable.classList.toggle('open');
+        toggleBtn.classList.toggle('active');
+        
+        toggleText.textContent = isOpen ? 'Menos información' : 'Más información';
+        toggleBtn.setAttribute('aria-expanded', isOpen);
+        
+        if (isOpen) {
+          setTimeout(() => {
+            expandable.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    // Filtros galería
+    (function() {
+      'use strict';
+      
+      const filtros = document.querySelectorAll('.filtro-btn');
+      const trabajos = document.querySelectorAll('.trabajo-card-item');
+      
+      if (!filtros.length || !trabajos.length) return;
+      
+      function filtrarTrabajos(categoria) {
+        trabajos.forEach(trabajo => {
+          const categorias = trabajo.getAttribute('data-categoria');
+          
+          if (categoria === 'todos' || categorias.includes(categoria)) {
+            trabajo.classList.remove('hide');
+            trabajo.style.display = 'block';
+          } else {
+            trabajo.classList.add('hide');
+            setTimeout(() => {
+              trabajo.style.display = 'none';
+            }, 400);
+          }
+        });
+      }
+      
+      filtros.forEach(filtro => {
+        filtro.addEventListener('click', function() {
+          filtros.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          const categoria = this.getAttribute('data-filter');
+          filtrarTrabajos(categoria);
+        });
+      });
+      
+      filtrarTrabajos('todos');
+    })();
+  </script>
+
+</body>
+</html>

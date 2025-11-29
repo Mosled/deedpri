@@ -713,6 +713,8 @@ section {
   gap: 1.5rem;
   justify-content: center;
   align-items: stretch;
+  max-width: 1600px;  /* ← AGREGAR - mismo ancho que el carousel */
+  margin: 0 auto;
 }
 
 .card {
@@ -1358,6 +1360,375 @@ font-family: 'Poppins', sans-serif;
   background: #ffdf3a;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 211, 0, 0.3);
+}
+
+/* ============================================
+   CAROUSEL HORIZONTAL DE TRABAJOS
+   Agregar al final de deedpriv2.css
+   ============================================ */
+
+/* Sección principal */
+.trabajos-carousel-section {
+  padding: 60px 0;
+  background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Header con título y botón */
+.trabajos-header {
+  max-width: 1600px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.trabajos-header-content h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--gris-oscuro);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.trabajos-header-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Botón "Ver todos" en desktop */
+.btn-ver-todos {
+  background: var(--amarillo);
+  color: var(--gris-oscuro);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(255, 211, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-ver-todos:hover {
+  background: #ffdf3a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(255, 211, 0, 0.4);
+}
+
+.btn-ver-todos i {
+  transition: transform 0.3s ease;
+}
+
+.btn-ver-todos:hover i {
+  transform: translateX(4px);
+}
+
+/* Contenedor del carousel */
+.carousel-trabajos-container {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px 70px;
+}
+
+/* Track del carousel */
+.carousel-trabajos-track {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0;
+}
+
+.carousel-trabajos-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card individual del carousel */
+.trabajo-carousel-card {
+  min-width: 320px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.trabajo-carousel-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* Imagen del trabajo */
+.trabajo-carousel-imagen {
+  width: 100%;
+  height: 240px;
+  background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.trabajo-carousel-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.trabajo-carousel-card:hover .trabajo-carousel-imagen img {
+  transform: scale(1.1);
+}
+
+/* Badge destacado */
+.trabajo-carousel-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--amarillo);
+  color: var(--gris-oscuro);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+/* Info del trabajo */
+.trabajo-carousel-info {
+  padding: 20px;
+}
+
+.trabajo-carousel-categoria {
+  display: inline-block;
+  background: var(--amarillo);
+  color: var(--gris-oscuro);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.trabajo-carousel-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gris-oscuro);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.trabajo-carousel-descripcion {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Botones de navegación */
+.carousel-nav-trabajo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  z-index: 10;
+  color: var(--gris-oscuro);
+  font-size: 1.2rem;
+}
+
+.carousel-nav-trabajo:hover {
+  background: var(--amarillo);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-trabajo { left: 10px; }
+.next-trabajo { right: 10px; }
+
+/* Botón para móvil (oculto en desktop) */
+.trabajos-footer-mobile {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.btn-ver-todos-mobile {
+  background: var(--amarillo);
+  color: var(--gris-oscuro);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(255, 211, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-ver-todos-mobile:hover {
+  background: #ffdf3a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(255, 211, 0, 0.4);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .trabajos-carousel-section {
+    padding: 50px 0;
+  }
+
+  .trabajos-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .trabajos-header-content h2 {
+    font-size: 2rem;
+  }
+
+  .trabajos-header-content p {
+    font-size: 1rem;
+  }
+
+  /* Ocultar botón desktop, mostrar botón móvil */
+  .btn-ver-todos {
+    display: none;
+  }
+
+  .trabajos-footer-mobile {
+    display: block;
+  }
+
+  .carousel-trabajos-container {
+    max-width: 100%;  /* ← En móvil sí usa 100% */
+    padding: 20px 55px;
+    overflow: hidden;  /* ← IMPORTANTE: evita desbordamiento */
+  }
+
+  .carousel-nav-trabajo {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .prev-trabajo { left: 8px; }
+  .next-trabajo { right: 8px; }
+
+  .trabajo-carousel-card {
+    min-width: 280px;
+  }
+
+  .trabajo-carousel-imagen {
+    height: 220px;
+  }
+
+}
+
+/* Móvil */
+@media (max-width: 640px) {
+  .trabajos-carousel-section {
+    padding: 40px 0;
+  }
+
+  .trabajos-header {
+    margin-bottom: 25px;
+  }
+
+  .trabajos-header-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .carousel-trabajos-container {
+    padding: 15px 50px;
+  }
+
+  .trabajo-carousel-card {
+    min-width: 260px;
+  }
+
+  .trabajo-carousel-imagen {
+    height: 200px;
+  }
+
+  .trabajo-carousel-info {
+    padding: 18px;
+  }
+
+  .carousel-nav-trabajo {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  .trabajos-header-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .trabajos-header-content p {
+    font-size: 0.95rem;
+  }
+
+  .carousel-trabajos-container {
+    padding: 15px 45px;
+  }
+
+  .trabajo-carousel-card {
+    min-width: 240px;
+  }
+
+  .trabajo-carousel-titulo {
+    font-size: 1rem;
+  }
+
+  .trabajo-carousel-descripcion {
+    font-size: 0.8rem;
+  }
+
+  .carousel-nav-trabajo {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .btn-ver-todos-mobile {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 /* Desktop grande (1200px+) */

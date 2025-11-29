@@ -128,6 +128,9 @@
         <ul class="nav-list">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
+           <!-- 🚧 TEMPORALMENTE OCULTO - Activar cuando imágenes estén listas
+          <li><a href="#trabajos-destacados">Trabajos</a></li>
+          -->
           <li><a href="#ubicacion">Ubicación</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -347,11 +350,169 @@
         </div>
       </section>
 
+      <!-- ============================================
+     🚧 SECCIÓN: TRABAJOS DESTACADOS - TEMPORALMENTE OCULTA 🚧
+     Descomentar cuando las imágenes estén listas
+     ============================================
+<section id="trabajos-destacados" class="trabajos-carousel-section">
+  <div class="trabajos-header">
+    <div class="trabajos-header-content">
+      <h2>Trabajos Destacados</h2>
+      <p>Proyectos recientes que reflejan nuestra calidad</p>
+    </div>
+    <a href="pages/trabajos.html" class="btn-ver-todos">
+      Ver todos los trabajos
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="carousel-trabajos-container">
+    
+    <button class="carousel-nav-trabajo prev-trabajo" aria-label="Trabajo anterior">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    
+    <div class="carousel-trabajos-track" id="carouselTrabajosTrack">
+      
+      
+      <div class="trabajo-carousel-card">
+        <div class="trabajo-carousel-imagen">
+          <img src="assets/img/trabajos/trabajo-1.png" 
+               alt="Tesis profesional con impresión láser" 
+               loading="lazy">
+          <span class="trabajo-carousel-badge">Destacado</span>
+        </div>
+        <div class="trabajo-carousel-info">
+          <span class="trabajo-carousel-categoria">Impresión Láser</span>
+          <h3 class="trabajo-carousel-titulo">Tesis Profesional</h3>
+          <p class="trabajo-carousel-descripcion">Impresión premium de 150 páginas con acabado profesional</p>
+        </div>
+      </div>
+
+      
+      <div class="trabajo-carousel-card">
+        <div class="trabajo-carousel-imagen">
+          <img src="assets/img/trabajos/trabajo-2.png" 
+               alt="Diseño de logo para restaurante" 
+               loading="lazy">
+        </div>
+        <div class="trabajo-carousel-info">
+          <span class="trabajo-carousel-categoria">Diseño Gráfico</span>
+          <h3 class="trabajo-carousel-titulo">Logo Restaurante</h3>
+          <p class="trabajo-carousel-descripcion">Identidad visual completa para negocio local</p>
+        </div>
+      </div>
+
+      
+      <div class="trabajo-carousel-card">
+        <div class="trabajo-carousel-imagen">
+          <img src="assets/img/trabajos/trabajo-3.png" 
+               alt="Sesión fotográfica XV años" 
+               loading="lazy">
+          <span class="trabajo-carousel-badge">Destacado</span>
+        </div>
+        <div class="trabajo-carousel-info">
+          <span class="trabajo-carousel-categoria">Fotografía</span>
+          <h3 class="trabajo-carousel-titulo">Sesión XV Años</h3>
+          <p class="trabajo-carousel-descripcion">Cobertura completa con álbum premium</p>
+        </div>
+      </div>
+
+      
+      <div class="trabajo-carousel-card">
+        <div class="trabajo-carousel-imagen">
+          <img src="assets/img/trabajos/trabajo-4.jpg" 
+               alt="Stickers troquelados personalizados" 
+               loading="lazy">
+        </div>
+        <div class="trabajo-carousel-info">
+          <span class="trabajo-carousel-categoria">Personalización</span>
+          <h3 class="trabajo-carousel-titulo">Stickers Troquelados</h3>
+          <p class="trabajo-carousel-descripcion">500 calcomanías para marca local</p>
+        </div>
+      </div>
+
+      
+      <div class="trabajo-carousel-card">
+        <div class="trabajo-carousel-imagen">
+          <img src="assets/img/trabajos/trabajo-5.jpg" 
+               alt="Tarjetas de presentación corporativas" 
+               loading="lazy">
+        </div>
+        <div class="trabajo-carousel-info">
+          <span class="trabajo-carousel-categoria">Corporativo</span>
+          <h3 class="trabajo-carousel-titulo">Tarjetas de Presentación</h3>
+          <p class="trabajo-carousel-descripcion">Diseño e impresión para empresa</p>
+        </div>
+      </div>
+
+      
+      <div class="trabajo-carousel-card">
+        <div class="trabajo-carousel-imagen">
+          <img src="assets/img/trabajos/trabajo-6.jpg" 
+               alt="Volantes promocionales full color" 
+               loading="lazy">
+        </div>
+        <div class="trabajo-carousel-info">
+          <span class="trabajo-carousel-categoria">Impresión</span>
+          <h3 class="trabajo-carousel-titulo">Volantes Promocionales</h3>
+          <p class="trabajo-carousel-descripcion">1000 volantes full color para evento</p>
+        </div>
+      </div>
+
+      
+      <div class="trabajo-carousel-card">
+        <div class="trabajo-carousel-imagen">
+          <img src="assets/img/trabajos/trabajo-7.jpg" 
+               alt="Menús de restaurante diseñados e impresos" 
+               loading="lazy">
+        </div>
+        <div class="trabajo-carousel-info">
+          <span class="trabajo-carousel-categoria">Diseño + Impresión</span>
+          <h3 class="trabajo-carousel-titulo">Menús para Restaurante</h3>
+          <p class="trabajo-carousel-descripcion">50 menús plastificados con diseño personalizado</p>
+        </div>
+      </div>
+
+      
+      <div class="trabajo-carousel-card">
+        <div class="trabajo-carousel-imagen">
+          <img src="assets/img/trabajos/trabajo-8.jpg" 
+               alt="Fotografía de boda premium" 
+               loading="lazy">
+          <span class="trabajo-carousel-badge">Destacado</span>
+        </div>
+        <div class="trabajo-carousel-info">
+          <span class="trabajo-carousel-categoria">Fotografía</span>
+          <h3 class="trabajo-carousel-titulo">Boda Premium</h3>
+          <p class="trabajo-carousel-descripcion">Cobertura de 8 horas con álbum de lujo</p>
+        </div>
+      </div>
+
+    </div>
+
+   
+    <button class="carousel-nav-trabajo next-trabajo" aria-label="Siguiente trabajo">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+ 
+  <div class="trabajos-footer-mobile">
+    <a href="trabajos.html" class="btn-ver-todos-mobile">
+      Ver galería completa
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+============================================ -->
+
       <!-- Sección Ubicación -->
       <section id="ubicacion" class="section" aria-labelledby="ubicacion-title">
         <h2 id="ubicacion-title" class="section-title reveal">Dónde estamos</h2>
         <p class="reveal">
-          📍 Plaza Aurrera local 14B — Arriba de Laboratorios Santa María, junto a Music Center.
+          📍 Plaza Aurrera local 14B — Av. Ocampo #115, Col. Centro, Zacualtipán, Hidalgo.
         </p>
         <div class="map reveal" data-delay="120">
           <a class="btn" href="https://maps.app.goo.gl/qr7sTAfCzxKGTJFM8" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación de deedpri en Google Maps">
@@ -783,6 +944,71 @@
       }, 100);
     }
   });
+})();
+</script>
+<script>
+// Carousel de trabajos destacados
+(function() {
+  'use strict';
+  
+  const track = document.getElementById('carouselTrabajosTrack');
+  const prevBtn = document.querySelector('.prev-trabajo');
+  const nextBtn = document.querySelector('.next-trabajo');
+  
+  if (!track || !prevBtn || !nextBtn) return;
+  
+  // Ancho de desplazamiento (ancho de card + gap)
+  const scrollAmount = 345; // 320px card + 25px gap
+  
+  // Función para scroll suave
+  function scrollCarousel(direction) {
+    track.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+  
+  // Event listeners para los botones
+  prevBtn.addEventListener('click', function() {
+    scrollCarousel(-1);
+  });
+  
+  nextBtn.addEventListener('click', function() {
+    scrollCarousel(1);
+  });
+  
+  // Soporte para arrastrar con mouse (opcional)
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  
+  track.addEventListener('mousedown', function(e) {
+    isDown = true;
+    track.style.cursor = 'grabbing';
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  
+  track.addEventListener('mouseleave', function() {
+    isDown = false;
+    track.style.cursor = 'grab';
+  });
+  
+  track.addEventListener('mouseup', function() {
+    isDown = false;
+    track.style.cursor = 'grab';
+  });
+  
+  track.addEventListener('mousemove', function(e) {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 2; // Multiplicador para scroll más rápido
+    track.scrollLeft = scrollLeft - walk;
+  });
+  
+  // Establecer cursor inicial
+  track.style.cursor = 'grab';
 })();
 </script>
 </body>
