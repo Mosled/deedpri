@@ -47,33 +47,73 @@
 </head>
 
 <body class="pagina-interna">
-  <!-- HEADER (mantiene estructura deedpri) -->
+   <!-- HEADER PREMIUM - Sin top bar, todo en una línea -->
   <header class="topbar" role="banner">
     <div class="inner">
+      
+      <!-- Logo -->
       <div class="branding" aria-label="Identidad del sitio">
-        <div class="brand-text">
-          <a href="../index.html" class="brand-link">
-            <span class="brand-name">deedpri</span>
-          </a>
-          <span class="giro">Centro de impresión</span>
-        </div>
+        <a href="../index.html" class="brand-link" aria-label="Ir a inicio">
+          <span class="brand-name">deedpri</span>
+        </a>
       </div>
 
-      <!-- Redes sociales -->
-      <nav class="social-icons">
-        <a href="https://www.facebook.com/deedpri/" aria-label="Facebook" target="_blank">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/deedpri_oficial" aria-label="Instagram" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com/@deedpri_" aria-label="TikTok" target="_blank">
-          <i class="fa-brands fa-tiktok"></i>
-        </a>
+      <!-- Navegación Desktop (oculta en móvil) -->
+      <nav class="nav-desktop" aria-label="Menú principal desktop">
+        <a href="../index.html#inicio">Inicio</a>
+        <a href="../index.html#servicios">Servicios</a>
+        <a href="../index.html#ubicacion">Ubicación</a>
+        <a href="../index.html#contacto">Contacto</a>
       </nav>
+
+      <!-- Redes sociales -->
+      <div class="social-icons" aria-label="Redes sociales">
+        <a href="https://www.facebook.com/deedpri/" aria-label="Visitar Facebook de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/deedpri_oficial" aria-label="Visitar Instagram de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.tiktok.com/@deedpri_" aria-label="Visitar TikTok de deedpri" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- Botón hamburguesa (solo móvil) -->
+      <button id="menuBtn" class="hamburger" aria-label="Abrir menú de navegación" aria-controls="mainNav" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <!-- Menú lateral móvil -->
+      <nav id="mainNav" class="nav" role="navigation" aria-label="Menú móvil">
+        <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">×</button>
+        <ul class="nav-list">
+          <li><a href="../index.html#inicio">Inicio</a></li>
+          <li><a href="../index.html#servicios">Servicios</a></li>
+          <li><a href="../index.html#ubicacion">Ubicación</a></li>
+          <li><a href="../index.html#contacto">Contacto</a></li>
+        </ul>
+        
+        <!-- Social en menú móvil -->
+        <div class="social-mobile">
+          <a href="https://www.facebook.com/deedpri/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/deedpri_oficial" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@deedpri_" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Overlay oscuro -->
+      <div id="overlay" class="overlay" aria-hidden="true"></div>
     </div>
   </header>
-
   <!-- CONTENIDO PRINCIPAL - ESTILO CLEAN STUDIO -->
   <main class="main-laser">
     
@@ -350,6 +390,8 @@
     <span class="tooltip">¡Escríbenos!</span>
   </a>
 
+  <!-- JavaScript -->
+  <script src="../assets/js/menu.js?v=1.0"></script>
   <!-- JavaScript -->
   <script>
     // Año dinámico

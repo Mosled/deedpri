@@ -89,21 +89,26 @@
 </head>
 
 <body>
-  <!-- HEADER FIJO con menú hamburguesa -->
+  <!-- HEADER PREMIUM -->
   <header class="topbar" role="banner">
     <div class="inner">
-      <!-- Identidad / Logo -->
+      <!-- Logo -->
       <div class="branding" aria-label="Identidad del sitio">
-        <div class="brand-text">
           <a href="index.html" class="brand-link" aria-label="Ir a inicio">
             <span class="brand-name">deedpri</span>
           </a>
-          <span class="giro">Centro de impresión</span>
-        </div>
       </div>
 
-      <!-- Redes sociales -->
-      <nav class="social-icons" aria-label="Redes sociales">
+      <!-- Navegación Desktop (oculta en móvil) -->
+      <nav class="nav-desktop" aria-label="Menú principal desktop">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+     <!-- Redes sociales -->
+      <div class="social-icons" aria-label="Redes sociales">
         <a href="https://www.facebook.com/deedpri/" aria-label="Visitar Facebook de deedpri" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
         </a>
@@ -113,27 +118,37 @@
         <a href="https://www.tiktok.com/@deedpri_" aria-label="Visitar TikTok de deedpri" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
         </a>
-      </nav>
+      </div>
 
-      <!-- Botón hamburguesa -->
+      <!-- Botón hamburguesa (solo móvil) -->
       <button id="menuBtn" class="hamburger" aria-label="Abrir menú de navegación" aria-controls="mainNav" aria-expanded="false">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
       </button>
 
-      <!-- Menú lateral -->
-      <nav id="mainNav" class="nav" role="navigation" aria-label="Menú principal">
-        <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">✖</button>
+      <!-- Menú lateral móvil -->
+      <nav id="mainNav" class="nav" role="navigation" aria-label="Menú móvil">
+         <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">×</button>
         <ul class="nav-list">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
-           <!-- 🚧 TEMPORALMENTE OCULTO - Activar cuando imágenes estén listas
-          <li><a href="#trabajos-destacados">Trabajos</a></li>
-          -->
           <li><a href="#ubicacion">Ubicación</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
+        
+        <!-- Social en menú móvil -->
+        <div class="social-mobile">
+          <a href="https://www.facebook.com/deedpri/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/deedpri_oficial" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@deedpri_" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
       </nav>
 
       <!-- Overlay oscuro -->
@@ -649,45 +664,8 @@
     <span class="tooltip">¡Escríbenos!</span>
   </a>
 
-  <!-- JavaScript -->
+ <!-- JavaScript -->
   <script src="assets/js/menu.js?v=1.0"></script>
-  <script>
-    // Efecto de scroll en header
-    window.addEventListener("scroll", () => {
-      const header = document.querySelector(".topbar");
-      if (window.scrollY > 20) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
-
-    // Registrar Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(reg => {
-            // Actualización del SW cuando hay una nueva versión
-            if (reg.waiting) { reg.waiting.postMessage({ type: 'SKIP_WAITING' }); }
-            reg.addEventListener('updatefound', () => {
-              const newWorker = reg.installing;
-              if (!newWorker) return;
-              newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // Nueva versión lista. Se puede notificar al usuario si se desea.
-                }
-              });
-            });
-          })
-          .catch(err => console.error('SW registration failed:', err));
-      });
-      // Mensaje para permitir skipWaiting desde el SW
-      let refreshing = false;
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (refreshing) return; refreshing = true; window.location.reload();
-      });
-    }
-  </script>
 <script>
 // === CARRUSEL DE HERO CON LOOP INFINITO ===
 (function() {
