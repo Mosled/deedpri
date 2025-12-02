@@ -233,7 +233,7 @@ section {
 /* Iconos grandes flotantes */
 .icon-hero-fb {
   font-size: 18rem;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.842);
   animation: floatIcon 6s ease-in-out infinite;
 }
 
@@ -707,7 +707,7 @@ section {
 
 .hamburger-box {
   width: 28px;
-  height: 24px;
+  height: 28px;
   display: inline-block;
   position: relative;
 }
@@ -715,8 +715,8 @@ section {
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-  width: 28px;
-  height: 3px;
+  width: 32px;
+  height: 4px;
   background-color: var(--blanco);
   border-radius: 4px;
   position: absolute;
@@ -731,11 +731,13 @@ section {
 .hamburger-inner::before {
   content: '';
   top: -9px;
+  right: 0px;
 }
 
 .hamburger-inner::after {
   content: '';
   top: 9px;
+  right: 0;
 }
 
 /* Hamburguesa activa (X perfecta) */
@@ -949,12 +951,11 @@ section {
   .nav {
     width: 100%;
   }
-
-  
   .hamburger {
-    margin-right: 1.2rem; /* Máxima separación en móvil muy pequeño */
+    margin-right: 1.2rem !important; /* Máxima separación en móvil muy pequeño */
   }
 }
+
 
 
 
@@ -2268,7 +2269,7 @@ font-family: 'Poppins', sans-serif;
 /* === VISUAL DEL SLIDE 3 === */
 
 .slide-visual-3 {
-  background: linear-gradient(135deg, var(--azul) 0%, #2d4158 50%, var(--amarillo) 100%);
+  background: linear-gradient(135deg, var(--amarillo) 0%, #545454 50%, var(--gris-oscuro) 100%);
 }
 
 /* ========================================
