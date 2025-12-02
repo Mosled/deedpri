@@ -161,112 +161,121 @@
     <!-- Contenedor de ancho máximo -->
     <div class="content">
       
-     <!-- HERO CARRUSEL -->
-<div class="hero-carrusel" id="inicio">
-  <div class="slides-container">
+    <!-- ========================================
+   SECCIÓN DEL CARRUSEL COMPLETA - CORREGIDA
+   Para reemplazar en tu index.html desde línea ~169 hasta ~300
+   ======================================== -->
+
+<!-- HERO CARRUSEL FULL BLEED -->
+<div class="hero-carrusel-fullbleed" id="inicio">
+  <div class="slides-container-fb">
     
-    <!-- SLIDE 1: Hero original -->
-    <div class="slide">
-      <div class="slide-content">
+    <!-- SLIDE 1: HERO PRINCIPAL -->
+    <div class="slide-fb active"> 
+      <!-- Lado derecho: Visual -->
+      <div class="slide-visual-fb slide-visual-1">
+        <div class="icon-hero-fb">
+          <i class="fa-solid fa-print"></i>
+        </div>
+      </div>
+
+       <!-- Lado izquierdo: Contenido -->
+      <div class="slide-content-fb">
+        <span class="badge-fb">Lo mejor</span>
         <h1>Impresiones rápidas y de calidad profesional</h1>
         <p>Copias, impresión fotográfica, impresión láser y más. Tamaños hasta tabloide.</p>
-        <a class="btn" href="https://wa.me/5217295414907" target="_blank" rel="noopener noreferrer">
+        <a class="btn-fb" href="https://wa.me/5217295414907" target="_blank" rel="noopener noreferrer">
           Escríbenos por WhatsApp
+          <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
-      
-      <div class="slide-image">
+    </div>
+
+    <!-- SLIDE 2: PROMOCIÓN (CON TU FOTO 4X6) -->
+    <div class="slide-fb">
+      <!-- Lado derecho: Foto real que ya tienes -->
+      <div class="slide-visual-fb slide-visual-2">
         <picture>
-    <source srcset="assets/img/hero-deedpri.webp" type="image/webp">
-    <img src="assets/img/hero-deedpri.png" 
-         alt="Ilustración de servicios de impresión profesional deedpri" 
-         loading="lazy" 
-         width="460" 
-         height="450">
-  </picture>
+          <source srcset="assets/img/4x6.webp" type="image/webp">
+          <img src="assets/img/4x6.png" 
+               alt="Promoción de fotografía tamaño postal 4x6" 
+               loading="lazy"
+               width="1024"
+               height="1536">
+        </picture>
+      </div>
+      <!-- Lado izquierdo: Contenido -->
+      <div class="slide-content-fb">
+        <span class="badge-fb badge-promo">🔥 ¡Oferta Especial!</span>
+        <h1>25% de Descuento<br>en fotografía postal</h1>
+        <div class="precio-container-fb">
+          <span class="precio-grande-fb">$13.50</span>
+          <span class="precio-antes-fb">$18.00</span>
+        </div>
+        <p>En tamaño postal de 4 x 6 (10cm x 15cm).<br>¡Todos los miércoles!</p>
+        <a href="https://wa.me/5217295414907" class="btn-fb btn-promo-fb" target="_blank" rel="noopener noreferrer">
+          Pregunta por más promociones
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
       </div>
     </div>
 
-    <!-- SLIDE 2: PROMOCIÓN -->
-<div class="slide slide-promo">
-  <div class="promo-content">
-    <span class="promo-badge">🔥 ¡Oferta! </span>
-    <h1>25% de Descuento<br>en fotografia tamaño postal</h1>
-    <div class="precio-container">
-      <span class="precio-grande">$13.50</span>
-      <span class="precio-antes">$18.00</span>
-    </div>
-    <p>En tamaño postal de 4 x 6 (10cm x 15cm).<br>¡Todos los miercoles!</p>
-    <a href="https://wa.me/5217295414907" class="btn-promo" target="_blank" rel="noopener noreferrer">
-      Pregunta por más promociones
-    </a>
-  </div>
-  <div class="promo-image">
-     <picture>
-    <source srcset="assets/img/4x6.webp" type="image/webp">
-    <img src="assets/img/4x6.png" 
-         alt="Promoción de fotografía tamaño postal 4x6" 
-         loading="lazy"
-         width="1024"
-         height="1536">
-  </picture>
-  </div>
-</div>
-
-<!-- SLIDE 3: BENEFICIOS -->
-<div class="slide slide-beneficios">
-  <div class="slide-content beneficios-wrapper">
-    
-    <h1 class="beneficios-titulo">
-      Tu impresión, sin complicaciones
-    </h1>
-
-    <div class="beneficios-grid">
-      <div class="beneficio">
-        <div class="icono">🚀</div>
-        <h3>Rápido</h3>
+    <!-- SLIDE 3: CTA HERO GRANDE -->
+    <div class="slide-fb">
+      <!-- Lado derecho: Visual con ícono -->
+      <div class="slide-visual-fb slide-visual-3">
+        <div class="icon-hero-fb">
+          <i class="fa-solid fa-rocket"></i>
+        </div>
       </div>
+      <!-- Lado izquierdo: Contenido CTA -->
+      <div class="slide-content-fb">
+        <h1 class="cta-hero-title-fb">
+          ¿Listo para<br>empezar?
+        </h1>
 
-      <div class="beneficio">
-        <div class="icono">🎯</div>
-        <h3>Calidad</h3>
-      </div>
+        <p class="cta-hero-subtitle-fb">
+          Obtén tus impresiones profesionales hoy mismo.<br>
+          Sin esperas. Sin complicaciones.
+        </p>
 
-      <div class="beneficio">
-        <div class="icono">💬</div>
-        <h3>Atención real</h3>
-      </div>
-
-      <div class="beneficio">
-        <div class="icono">💵</div>
-        <h3>Sin sorpresas</h3>
+        <div class="cta-buttons-fb">
+          <!-- Botón secundario: Ver servicios -->
+          <a href="#servicios" class="btn-secondary-fb">
+            Ver servicios
+          </a>
+        </div>
       </div>
     </div>
 
-    <p class="beneficios-ubicacion">📍 Zacualtipán, Hidalgo. Unica Sucursal</p>
   </div>
+
+  <!-- CONTROLES: Flechas con glassmorphism -->
+  <div class="carrusel-nav-fb nav-prev-fb">
+    <button aria-label="Slide anterior">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+  </div>
+  <div class="carrusel-nav-fb nav-next-fb">
+    <button aria-label="Siguiente slide">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- DOTS ELEGANTES -->
+  <div class="carrusel-dots-fb">
+    <button class="dot-fb active" data-slide="0" aria-label="Ir a slide 1"></button>
+    <button class="dot-fb" data-slide="1" aria-label="Ir a slide 2"></button>
+    <button class="dot-fb" data-slide="2" aria-label="Ir a slide 3"></button>
+  </div>
+
+  <!-- BARRA DE PROGRESO -->
+  <div class="progress-bar-fb">
+    <div class="progress-fill-fb"></div>
+  </div>
+
 </div>
-
-
-
-  </div>
-
-  <!-- Controles -->
-  <div class="carrusel-nav nav-prev">
-    <button aria-label="Slide anterior">‹</button>
-  </div>
-  <div class="carrusel-nav nav-next">
-    <button aria-label="Siguiente slide">›</button>
-  </div>
-
-  <!-- Dots -->
-  <div class="carrusel-dots">
-    <span class="dot active" data-slide="0"></span>
-    <span class="dot" data-slide="1"></span>
-    <span class="dot" data-slide="2"></span>
-  </div>
-</div>
-
+<!-- FIN CARRUSEL -->
       <!-- Sección Servicios -->
       <section id="servicios" class="section" aria-labelledby="servicios-title">
         <h2 id="servicios-title" class="section-title reveal">Nuestros Servicios</h2>
@@ -666,238 +675,7 @@
 
  <!-- JavaScript -->
   <script src="assets/js/menu.js?v=1.0"></script>
-<script>
-// === CARRUSEL DE HERO CON LOOP INFINITO ===
-(function() {
-  'use strict';
-  
-  class HeroCarrusel {
-    constructor() {
-      this.wrapper = document.querySelector('.hero-carrusel');
-      this.container = document.querySelector('.slides-container');
-      
-      if (!this.container) return;
-      
-      this.slideElements = Array.from(document.querySelectorAll('.slide'));
-      this.dots = document.querySelectorAll('.dot');
-      this.prevBtn = document.querySelector('.nav-prev button');
-      this.nextBtn = document.querySelector('.nav-next button');
-      
-      this.totalSlides = this.slideElements.length;
-      this.currentIndex = 0;
-      this.isTransitioning = false;
-      this.autoplayInterval = null;
-      this.autoplayDelay = 8000;
-      
-      this.init();
-    }
-
-    init() {
-      // Crear clones para loop infinito
-      this.createClones();
-      
-      // Posicionar en el primer slide real
-      this.currentIndex = this.totalSlides;
-      this.setPosition(false);
-      
-      // Event listeners
-      if (this.prevBtn) {
-        this.prevBtn.addEventListener('click', () => this.prev());
-      }
-      
-      if (this.nextBtn) {
-        this.nextBtn.addEventListener('click', () => this.next());
-      }
-      
-      this.dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => this.goToSlide(index));
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') this.prev();
-        if (e.key === 'ArrowRight') this.next();
-      });
-
-      this.addSwipeSupport();
-      
-      // Escuchar cuando termina la transición
-      this.container.addEventListener('transitionend', () => this.handleTransitionEnd());
-
-      // AUTOPLAY: Descomenta para activar
-     this.startAutoplay();
-    }
-
-    createClones() {
-      // Clonar todos los slides y agregarlos al final
-      this.slideElements.forEach(slide => {
-        const clone = slide.cloneNode(true);
-        this.container.appendChild(clone);
-      });
-      
-      // Clonar todos los slides y agregarlos al inicio (en orden inverso)
-      for (let i = this.slideElements.length - 1; i >= 0; i--) {
-        const clone = this.slideElements[i].cloneNode(true);
-        this.container.insertBefore(clone, this.container.firstChild);
-      }
-    }
-
-    setPosition(animate = true) {
-      if (animate) {
-        this.container.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      } else {
-        this.container.style.transition = 'none';
-      }
-      
-      const offset = -this.currentIndex * 100;
-      this.container.style.transform = `translateX(${offset}%)`;
-      
-      // Actualizar dots
-      const realIndex = this.getRealIndex();
-      this.updateDots(realIndex);
-      
-      // Animar contenido
-      if (animate) {
-        this.animateContent();
-      }
-    }
-
-    getRealIndex() {
-      // Convertir el índice actual al índice real (0, 1, 2)
-      return ((this.currentIndex - this.totalSlides) % this.totalSlides + this.totalSlides) % this.totalSlides;
-    }
-
-    next() {
-      if (this.isTransitioning) return;
-      
-      this.isTransitioning = true;
-      this.currentIndex++;
-      this.setPosition(true);
-      
-      if (this.autoplayInterval) {
-        this.stopAutoplay();
-        this.startAutoplay();
-      }
-    }
-
-    prev() {
-      if (this.isTransitioning) return;
-      
-      this.isTransitioning = true;
-      this.currentIndex--;
-      this.setPosition(true);
-      
-      if (this.autoplayInterval) {
-        this.stopAutoplay();
-        this.startAutoplay();
-      }
-    }
-
-    goToSlide(index) {
-      if (this.isTransitioning) return;
-      
-      this.isTransitioning = true;
-      this.currentIndex = this.totalSlides + index;
-      this.setPosition(true);
-      
-      if (this.autoplayInterval) {
-        this.stopAutoplay();
-        this.startAutoplay();
-      }
-    }
-
-    handleTransitionEnd() {
-      this.isTransitioning = false;
-      
-      // Si estamos en un clon al final, saltar al inicio
-      if (this.currentIndex >= this.totalSlides * 2) {
-        this.currentIndex = this.totalSlides;
-        this.setPosition(false);
-      }
-      
-      // Si estamos en un clon al inicio, saltar al final
-      if (this.currentIndex < this.totalSlides) {
-        this.currentIndex = this.totalSlides * 2 - 1;
-        this.setPosition(false);
-      }
-    }
-
-    updateDots(index) {
-      this.dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-    }
-
-    animateContent() {
-      const allSlides = this.container.querySelectorAll('.slide');
-      const currentSlide = allSlides[this.currentIndex];
-      
-      if (currentSlide) {
-        const content = currentSlide.querySelector('.slide-content');
-        if (content) {
-          content.classList.remove('animating');
-          void content.offsetWidth;
-          content.classList.add('animating');
-        }
-      }
-    }
-
-    startAutoplay() {
-      this.autoplayInterval = setInterval(() => this.next(), this.autoplayDelay);
-    }
-
-    stopAutoplay() {
-      if (this.autoplayInterval) {
-        clearInterval(this.autoplayInterval);
-        this.autoplayInterval = null;
-      }
-    }
-
-    addSwipeSupport() {
-      let startX = 0;
-      let endX = 0;
-      let isDragging = false;
-
-      this.wrapper.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-      }, { passive: true });
-
-      this.wrapper.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        endX = e.touches[0].clientX;
-      }, { passive: true });
-
-      this.wrapper.addEventListener('touchend', () => {
-        if (!isDragging) return;
-        
-        const diff = startX - endX;
-        const threshold = 50;
-
-        if (Math.abs(diff) > threshold) {
-          if (diff > 0) {
-            this.next();
-          } else {
-            this.prev();
-          }
-        }
-        
-        isDragging = false;
-      }, { passive: true });
-    }
-  }
-
-  // Inicializar
-  function initCarrusel() {
-    new HeroCarrusel();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCarrusel);
-  } else {
-    initCarrusel();
-  }
-})();
-</script>
+  <script src="assets/js/carrusel.js"></script>
 <script>
 // Footer colapsable
 (function() {
@@ -922,71 +700,6 @@
       }, 100);
     }
   });
-})();
-</script>
-<script>
-// Carousel de trabajos destacados
-(function() {
-  'use strict';
-  
-  const track = document.getElementById('carouselTrabajosTrack');
-  const prevBtn = document.querySelector('.prev-trabajo');
-  const nextBtn = document.querySelector('.next-trabajo');
-  
-  if (!track || !prevBtn || !nextBtn) return;
-  
-  // Ancho de desplazamiento (ancho de card + gap)
-  const scrollAmount = 345; // 320px card + 25px gap
-  
-  // Función para scroll suave
-  function scrollCarousel(direction) {
-    track.scrollBy({
-      left: direction * scrollAmount,
-      behavior: 'smooth'
-    });
-  }
-  
-  // Event listeners para los botones
-  prevBtn.addEventListener('click', function() {
-    scrollCarousel(-1);
-  });
-  
-  nextBtn.addEventListener('click', function() {
-    scrollCarousel(1);
-  });
-  
-  // Soporte para arrastrar con mouse (opcional)
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-  
-  track.addEventListener('mousedown', function(e) {
-    isDown = true;
-    track.style.cursor = 'grabbing';
-    startX = e.pageX - track.offsetLeft;
-    scrollLeft = track.scrollLeft;
-  });
-  
-  track.addEventListener('mouseleave', function() {
-    isDown = false;
-    track.style.cursor = 'grab';
-  });
-  
-  track.addEventListener('mouseup', function() {
-    isDown = false;
-    track.style.cursor = 'grab';
-  });
-  
-  track.addEventListener('mousemove', function(e) {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - track.offsetLeft;
-    const walk = (x - startX) * 2; // Multiplicador para scroll más rápido
-    track.scrollLeft = scrollLeft - walk;
-  });
-  
-  // Establecer cursor inicial
-  track.style.cursor = 'grab';
 })();
 </script>
 </body>
