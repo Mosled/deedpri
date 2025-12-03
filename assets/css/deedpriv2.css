@@ -955,10 +955,6 @@ section {
     margin-right: 1.2rem !important; /* Máxima separación en móvil muy pequeño */
   }
 }
-
-
-
-
 /* ===== 4. SECCIONES ===== */
 .section { padding: 28px 0; }
 .section-title { font-size: 1.2rem; margin-bottom: 12px; color: var(--negro); }
@@ -2577,3 +2573,312 @@ font-family: 'Poppins', sans-serif;
     height: 100%;
   }
 }
+/* ========================================
+   CSS SERVICIOS - CON IMÁGENES (en lugar de iconos)
+   Pega este código AL FINAL de tu deedpriv2.css
+   (REEMPLAZA el CSS anterior de servicios)
+   ======================================== */
+
+/* === SECCIÓN SERVICIOS === */
+#servicios {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(248, 248, 248, 0.9) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Textura de fondo sutil */
+#servicios::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 211, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(74, 74, 74, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.section-title {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--gris-oscuro);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+/* === GRID DE CARDS === */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cards a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* === CARD CON GLASSMORPHISM === */
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 211, 0, 0.2);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Línea superior del card (aparece al hover) */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    var(--amarillo) 50%,
+    transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  border-color: var(--amarillo);
+  box-shadow: 
+    0 20px 60px rgba(255, 211, 0, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* === CONTENEDOR DE IMAGEN === */
+.card-icon {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 211, 0, 0.15) 0%, 
+    rgba(255, 211, 0, 0.05) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  position: relative;
+  padding: 10px; /* Espacio para que la imagen no toque los bordes */
+}
+
+/* Glow al hover */
+.card-icon::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--amarillo), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 30px rgba(255, 211, 0, 0.3);
+}
+
+.card:hover .card-icon::after {
+  opacity: 0.3;
+}
+
+/* === IMAGEN DENTRO DEL CÍRCULO === */
+.card-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* La imagen se ajusta sin distorsionarse */
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-icon img {
+  transform: scale(1.08); /* Crece un poco al hover */
+}
+
+/* === TEXTO DE CARD === */
+.card h3 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gris-oscuro);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.5px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* === CTA AL FINAL === */
+.servicios-cta {
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-ver-todos {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(135deg, var(--amarillo) 0%, #ffed4e 100%);
+  color: var(--gris-oscuro);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 50px;
+  box-shadow: 
+    0 10px 30px rgba(255, 211, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-ver-todos:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 15px 40px rgba(255, 211, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn-ver-todos i {
+  transition: transform 0.3s ease;
+}
+
+.btn-ver-todos:hover i {
+  transform: translateX(5px);
+}
+
+/* === RESPONSIVE === */
+
+/* Tablet */
+@media (max-width: 968px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .card-icon {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Móvil */
+@media (max-width: 640px) {
+  #servicios {
+    padding: 3rem 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    padding: 1.8rem 1.2rem;
+    min-height: 280px;
+  }
+  
+  .card-icon {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 1.2rem;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .card p {
+    font-size: 0.9rem;
+  }
+  
+  .btn-ver-todos {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 400px) {
+  .card-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .btn-ver-todos {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* FIN - CSS Premium Glass con Imágenes */
