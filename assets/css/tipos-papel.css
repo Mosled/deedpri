@@ -1,0 +1,493 @@
+/* ========================================
+   CSS TIPOS DE PAPEL - tipos-papel.css
+   Estilos específicos para la página de tipos de papel
+   Usa deedpriv2.css para header, footer y estilos base
+   ======================================== */
+
+/* === VARIABLES HEREDADAS === */
+/* Se usan las variables de deedpriv2.css:
+   --amarillo: #ffd300
+   --gris-oscuro: #4a4a4a
+   --blanco: #ffffff
+*/
+
+/* === HERO BANNER === */
+.hero-tipos-papel {
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(135deg, var(--gris-oscuro) 0%, #2c3e50 100%);
+  text-align: center;
+  color: var(--blanco);
+}
+
+.hero-content h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+}
+
+.hero-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* === BREADCRUMB === */
+.breadcrumb {
+  padding: 1.5rem 2rem;
+  background: #f8f8f8;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+}
+
+.breadcrumb a {
+  color: var(--gris-oscuro);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--amarillo);
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #999;
+}
+
+.breadcrumb strong {
+  color: var(--amarillo);
+}
+
+/* === MAIN CONTENT === */
+.tipos-papel-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* === PAPEL ITEM === */
+.papel-item {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.papel-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(255, 211, 0, 0.15);
+}
+
+/* === HEADER DEL PAPEL === */
+.papel-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.papel-icon {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  background: linear-gradient(135deg, rgba(255, 211, 0, 0.15) 0%, rgba(255, 211, 0, 0.05) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--amarillo);
+  transition: all 0.3s ease;
+}
+
+.papel-item:hover .papel-icon {
+  transform: scale(1.1);
+  background: var(--amarillo);
+  color: var(--gris-oscuro);
+}
+
+.papel-titulo h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gris-oscuro);
+  margin-bottom: 0.3rem;
+  letter-spacing: -1px;
+}
+
+.papel-titulo .subtitulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #888;
+}
+
+/* === CONTENT DEL PAPEL === */
+.papel-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.papel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.papel-descripcion {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* === CARACTERÍSTICAS === */
+.caracteristicas h3 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gris-oscuro);
+  margin-bottom: 1rem;
+}
+
+.caracteristicas ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.caracteristicas li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.8rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #666;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.caracteristicas li:last-child {
+  border-bottom: none;
+}
+
+.caracteristicas li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  color: var(--amarillo);
+  font-size: 1.2rem;
+}
+
+.caracteristicas strong {
+  color: var(--gris-oscuro);
+  font-weight: 600;
+}
+
+/* === USOS === */
+.usos h3 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gris-oscuro);
+  margin-bottom: 1.5rem;
+}
+
+.usos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.uso-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  background: #f8f8f8;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gris-oscuro);
+  transition: all 0.3s ease;
+}
+
+.uso-tag:hover {
+  background: var(--amarillo);
+  color: var(--gris-oscuro);
+  transform: translateX(5px);
+}
+
+.uso-tag i {
+  font-size: 1rem;
+  color: var(--amarillo);
+}
+
+.uso-tag:hover i {
+  color: var(--gris-oscuro);
+}
+
+/* === CTA FINAL === */
+.cta-final {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #2c3e50 0%, var(--gris-oscuro) 100%);
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--blanco);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.cta-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--amarillo) 0%, #ffed4e 100%);
+  color: var(--gris-oscuro);
+  box-shadow: 0 10px 40px rgba(255, 211, 0, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(255, 211, 0, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--blanco);
+}
+
+.btn-secondary:hover {
+  background: var(--blanco);
+  color: var(--gris-oscuro);
+}
+
+/* === RESPONSIVE === */
+
+/* Tablet grande */
+@media (max-width: 968px) {
+  .hero-tipos-papel {
+    padding: 7rem 2rem 3rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  
+  .papel-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .tipos-papel-main {
+    padding: 3rem 2rem;
+  }
+  
+  .papel-item {
+    padding: 2.5rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .papel-header {
+    gap: 1.5rem;
+  }
+  
+  .papel-icon {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    font-size: 2rem;
+  }
+  
+  .papel-titulo h2 {
+    font-size: 1.8rem;
+  }
+  
+  .usos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    justify-content: center;
+  }
+}
+
+/* Móvil */
+@media (max-width: 640px) {
+  .hero-tipos-papel {
+    padding: 6rem 1.5rem 2.5rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .breadcrumb {
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .tipos-papel-main {
+    padding: 2rem 1.5rem;
+  }
+  
+  .papel-item {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .papel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .papel-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    font-size: 1.8rem;
+  }
+  
+  .papel-titulo h2 {
+    font-size: 1.5rem;
+  }
+  
+  .papel-titulo .subtitulo {
+    font-size: 0.9rem;
+  }
+  
+  .papel-descripcion {
+    font-size: 1rem;
+  }
+  
+  .caracteristicas h3,
+  .usos h3 {
+    font-size: 1.2rem;
+  }
+  
+  .caracteristicas li {
+    font-size: 0.9rem;
+    padding: 0.7rem 0;
+  }
+  
+  .uso-tag {
+    font-size: 0.85rem;
+    padding: 0.7rem 1rem;
+  }
+  
+  .cta-final {
+    padding: 3rem 1.5rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-content p {
+    font-size: 1rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 400px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .papel-item {
+    padding: 1.5rem;
+  }
+  
+  .papel-titulo h2 {
+    font-size: 1.3rem;
+  }
+  
+  .uso-tag {
+    font-size: 0.8rem;
+  }
+}
+
+/* FIN - CSS Tipos de Papel */
