@@ -1,0 +1,398 @@
+<!--
+  Archivo: contacto.html
+  Proyecto: DEEDPRI
+  Descripción: Página de contacto completa
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta básicas -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FZYBH51F8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1FZYBH51F8');
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico?v=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=1.0">
+  <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png?v=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=1.0">
+  <meta name="theme-color" content="#ffd300">
+  
+  <!-- SEO -->
+  <title>Contacto - deedpri | Centro de Impresión en Zacualtipán</title>
+  <meta name="description" content="Contacta con deedpri en Zacualtipán, Hidalgo. Teléfono, WhatsApp, correo y ubicación. Horarios de atención: Lun-Vie 8AM-7PM, Sáb-Dom 9AM-5PM.">
+  <meta name="keywords" content="contacto deedpri, imprenta Zacualtipán, ubicación, teléfono, WhatsApp">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contacto - deedpri">
+  <meta property="og:description" content="Contáctanos para tus proyectos de impresión">
+  <meta property="og:type" content="website">
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Tipografía -->
+  <link rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Spartan:wght@400;700;800&display=swap" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=League+Spartan:wght@400;700;800&display=swap" rel="stylesheet">
+  </noscript>
+  
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    media="print"
+    onload="this.media='all'"
+    referrerpolicy="no-referrer"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </noscript>
+  
+  <!-- CSS principal + página específica -->
+  <link rel="stylesheet" href="../assets/css/deedpriv2.css?v=1.1"/>
+  <link rel="stylesheet" href="../assets/css/contacto.css?v=1.0"/>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="topbar" role="banner">
+    <div class="inner">
+      <!-- Logo -->
+      <div class="branding" aria-label="Identidad del sitio">
+        <a href="../index.html" class="brand-link" aria-label="Ir a inicio">
+          <span class="brand-name">deedpri</span>
+        </a>
+      </div>
+
+      <!-- Navegación Desktop -->
+      <nav class="nav-desktop" aria-label="Menú principal desktop">
+        <a href="../index.html#inicio">Inicio</a>
+        <a href="../index.html#servicios">Servicios</a>
+        <a href="../index.html#tipos-papel">Tipos de papel</a>
+        <a href="../index.html#beneficios">¿Por qué elegirnos?</a>
+        <a href="contacto.html">Contactanos</a>
+      </nav>
+
+      <!-- Redes sociales -->
+      <div class="social-icons" aria-label="Redes sociales">
+        <a href="https://www.facebook.com/deedpri/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/deedpri_oficial" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.tiktok.com/@deedpri_" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- Botón hamburguesa -->
+      <button id="menuBtn" class="hamburger" aria-label="Abrir menú de navegación" aria-controls="mainNav" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <!-- Menú lateral móvil -->
+      <nav id="mainNav" class="nav" role="navigation" aria-label="Menú móvil">
+        <button id="closeBtn" class="close-btn" aria-label="Cerrar menú">×</button>
+        <ul class="nav-list">
+          <li><a href="../index.html#inicio">Inicio</a></li>
+          <li><a href="../index.html#servicios">Servicios</a></li>
+          <li><a href="../index.html#tipos-papel">Tipos de papel</a></li>
+          <li><a href="../index.html#beneficios">¿Por qué elegirnos?</a></li>
+          <li><a href="contacto.html">Contactanos</a></li>
+        </ul>
+        
+        <!-- Social en menú móvil -->
+        <div class="social-mobile">
+          <a href="https://www.facebook.com/deedpri/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/deedpri_oficial" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@deedpri_" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="hero-contacto">
+    <div class="hero-content">
+      <h1>Contáctanos</h1>
+      <p>Estamos listos para hacer realidad tu proyecto. Escríbenos, llámanos o visítanos.</p>
+    </div>
+  </section>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contacto-main">
+
+    <!-- MÉTODOS DE CONTACTO RÁPIDO -->
+    <section class="contacto-rapido">
+      <h2>Formas de contacto</h2>
+      
+      <div class="contacto-cards">
+        
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5217295414907" class="contacto-card whatsapp-card" target="_blank" rel="noopener">
+          <div class="contacto-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p class="contacto-valor">729 541 4907</p>
+          <span class="contacto-accion">Enviar mensaje <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        
+        <!-- Teléfono -->
+        <a href="tel:7295414907" class="contacto-card telefono-card">
+          <div class="contacto-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <h3>Teléfono</h3>
+          <p class="contacto-valor">729 541 4907</p>
+          <span class="contacto-accion">Llamar ahora <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        
+        <!-- Email -->
+        <a href="mailto:contacto@deedpri.com" class="contacto-card email-card">
+          <div class="contacto-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <h3>Correo electrónico</h3>
+          <p class="contacto-valor">contacto@deedpri.com</p>
+          <span class="contacto-accion">Enviar correo <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        
+      </div>
+    </section>
+
+    <!-- UBICACIÓN Y MAPA -->
+    <section class="contacto-ubicacion">
+      <div class="ubicacion-content">
+        
+        <div class="ubicacion-info">
+          <h2>Nuestra ubicación</h2>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="info-text">
+              <h3>Dirección</h3>
+              <p>Av. Ocampo #115, Col. Centro<br>
+              Zacualtipán de Ángeles, Hidalgo<br>
+              C.P. 43200<br>
+            Plaza Aurrera Local 14b</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="info-text">
+              <h3>Horarios de atención</h3>
+              <p><strong>Lunes a Viernes:</strong> 8:00 AM - 7:00 PM<br>
+              <strong>Sábados y Domingos:</strong> 9:00 AM - 5:00 PM</p>
+            </div>
+          </div>
+          
+          <a href="https://maps.app.goo.gl/qr7sTAfCzxKGTJFM8" 
+             class="btn-ver-mapa" 
+             target="_blank" 
+             rel="noopener">
+            <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+          </a>
+        </div>
+        
+        <div class="ubicacion-mapa">
+          <iframe 
+           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4428.724158063174!2d-98.6557131!3d20.6473655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d125a2d59d0185%3A0x1df2faf6e492529a!2sdeedpri!5e1!3m2!1ses!2smx!4v1764893762570!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de deedpri en Google Maps">
+          </iframe>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-contacto">
+      <div class="cta-content">
+        <h2>¿Listo para iniciar tu proyecto?</h2>
+        <p>Contáctanos hoy mismo y recibe asesoría personalizada sin compromiso.</p>
+        <a href="https://wa.me/5217295414907" class="btn-cta-principal" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-colapsable">
+  
+    <!-- Barra principal -->
+    <div class="footer-main">
+      <div class="footer-main-content">
+        
+        <div class="footer-copyright">
+          © 2025 deedpri — Centro de Impresión
+        </div>
+        
+        <div class="footer-social-inline">
+          <a href="https://www.facebook.com/deedpri/" class="social-link-inline" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/deedpri_oficial" class="social-link-inline" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@deedpri_" class="social-link-inline" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+        
+        <button class="footer-toggle-btn" id="footerToggle" aria-expanded="false" aria-controls="footerExpandable">
+          <span id="footerToggleText">Más información</span>
+          <i class="fa-solid fa-chevron-down footer-toggle-icon"></i>
+        </button>
+        
+      </div>
+    </div>
+    
+    <!-- Contenido expandible -->
+    <div class="footer-expandable" id="footerExpandable">
+      <div class="footer-expandable-content">
+        <div class="footer-grid">
+          
+          <!-- Columna 1: Marca -->
+          <div class="footer-brand">
+            <div class="footer-logo">deedpri</div>
+            <p class="footer-tagline">
+              Tu centro de impresión y diseño. Calidad profesional, atención personalizada.<br>
+              <a href="acerca-de.html" class="acerca-de">Acerca de nosotros</a>
+            </p>
+          </div>
+          
+          <!-- Columna 2: Servicios -->
+          <div class="footer-column">
+            <h3>Servicios</h3>
+            <ul class="footer-links">
+              <li><a href="copias-impresiones.html">Copias e Impresiones</a></li>
+              <li><a href="impresion-laser.html">Impresión Láser</a></li>
+              <li><a href="impresion-stickers.html">Stickers Personalizados</a></li>
+              <li><a href="diseno-personalizacion.html">Diseño y Personalización</a></li>
+              <li><a href="impresion-publicitaria.html">Material Publicitario</a></li>
+              <li><a href="impresion-fotografica.html">Impresión Fotográfica</a></li>
+            </ul>
+          </div>
+          
+          <!-- Columna 3: Contacto -->
+          <div class="footer-column">
+            <h3>Contacto</h3>
+            
+            <div class="footer-info-item">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <strong>Teléfono:</strong><br>
+                <a href="tel:7295414907">729 541 4907</a>
+              </div>
+            </div>
+            
+            <div class="footer-info-item">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <a href="mailto:contacto@deedpri.com">contacto@deedpri.com</a>
+              </div>
+            </div>
+            
+            <div class="footer-info-item">
+              <i class="fa-solid fa-clock"></i>
+              <div>
+                <strong>Horarios:</strong>
+                <div class="footer-horario">
+                  Lun-Vie: 8:00 AM - 7:00 PM<br>
+                  Sáb-Dom: 9:00 AM - 5:00 PM
+                </div>
+              </div>
+            </div>
+            
+            <div class="footer-info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <strong>Dirección:</strong><br>
+                Av. Ocampo #115, Col. Centro<br>
+                Zacualtipán, Hidalgo
+              </div>
+            </div>
+            
+            <a href="https://maps.app.goo.gl/qr7sTAfCzxKGTJFM8" 
+               target="_blank" 
+               rel="noopener"
+               class="footer-btn-map">
+              <i class="fa-solid fa-map-location-dot"></i> Ver en Mapa
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/5217295414907" class="whatsapp-fab" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener noreferrer">
+    <img src="../assets/img/WhatsApp.svg" width="60" height="60" alt="Ícono de WhatsApp" loading="lazy">
+    <span class="tooltip">¡Escríbenos!</span>
+  </a>
+
+  <!-- JavaScript -->
+  <script src="../assets/js/menu.js?v=1.0"></script>
+  <script>
+  // Footer colapsable
+  (function() {
+    const toggleBtn = document.getElementById('footerToggle');
+    const expandable = document.getElementById('footerExpandable');
+    const toggleText = document.getElementById('footerToggleText');
+    
+    if (!toggleBtn || !expandable) return;
+    
+    toggleBtn.addEventListener('click', function() {
+      const isOpen = expandable.classList.toggle('open');
+      toggleBtn.classList.toggle('active');
+      
+      toggleText.textContent = isOpen ? 'Menos información' : 'Más información';
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      
+      if (isOpen) {
+        setTimeout(() => {
+          expandable.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
