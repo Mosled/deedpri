@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Encuentra cualquier servicio o producto en tu región. Plomeros, restaurantes, dentistas y más en Zacualtipán, Pachuca, Tulancingo.">
+  <meta name="keywords" content="servicios locales, negocios, directorio, Zacualtipán, Pachuca, Hidalgo">
+  
+  <title>Buscador de Negocios - deedpri</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../assets/css/deedpriv2.css">
+  <link rel="stylesheet" href="../assets/css/buscador.css">
+</head>
+<body>
+
+  <!-- HERO SECTION - BUSCADOR GIGANTE -->
+  <section class="hero-search">
+    <div class="hero-content">
+      
+      <!-- MARCA -->
+      <div class="brand-hero">
+        <h1>deedpri<span class="dot">.</span></h1>
+        <p>Encuentra cualquier servicio o producto en tu región</p>
+      </div>
+
+      <!-- BUSCADOR PRINCIPAL -->
+      <div class="search-container">
+        <div class="search-box">
+          <div class="search-input-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="¿Qué estás buscando?"
+              autocomplete="off"
+              aria-label="Buscar servicios o productos"
+            >
+            <button class="voice-button" id="voiceBtn" title="Búsqueda por voz" aria-label="Activar búsqueda por voz">
+              <i class="fas fa-microphone"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- EJEMPLOS DE BÚSQUEDA -->
+        <div class="search-examples">
+          <div class="example-chip" data-search="plomero urgente">
+            <i class="fas fa-wrench"></i> Plomero urgente
+          </div>
+          <div class="example-chip" data-search="pizza a domicilio">
+            <i class="fas fa-pizza-slice"></i> Pizza a domicilio
+          </div>
+          <div class="example-chip" data-search="dentista económico">
+            <i class="fas fa-tooth"></i> Dentista económico
+          </div>
+          <div class="example-chip" data-search="reparación de celulares">
+            <i class="fas fa-mobile-alt"></i> Reparación celulares
+          </div>
+          <div class="example-chip" data-search="veterinario cerca">
+            <i class="fas fa-paw"></i> Veterinario cerca
+          </div>
+        </div>
+      </div>
+
+      <!-- SELECTOR DE UBICACIÓN -->
+      <div class="location-selector">
+        <span>📍 En:</span>
+        <select class="location-dropdown" id="locationSelect" aria-label="Seleccionar municipio">
+          <option value="zacualtipan">Zacualtipán</option>
+          <option value="pachuca">Pachuca</option>
+          <option value="tulancingo">Tulancingo</option>
+          <option value="mineral-monte">Mineral del Monte</option>
+          <option value="actopan">Actopan</option>
+        </select>
+        <button class="detect-location" id="detectBtn" aria-label="Detectar mi ubicación">
+          <i class="fas fa-location-arrow"></i>
+          Usar mi ubicación
+        </button>
+      </div>
+
+      <!-- CATEGORÍAS RÁPIDAS -->
+      <div class="quick-categories">
+        <h3>O explora por categoría</h3>
+        <div class="categories-grid">
+          
+          <div class="category-card" data-category="alimentos">
+            <span class="category-icon">🍴</span>
+            <div class="category-name">Alimentos</div>
+            <div class="category-count">47 negocios</div>
+          </div>
+
+          <div class="category-card" data-category="salud">
+            <span class="category-icon">🏥</span>
+            <div class="category-name">Salud</div>
+            <div class="category-count">32 negocios</div>
+          </div>
+
+          <div class="category-card" data-category="servicios">
+            <span class="category-icon">🛠️</span>
+            <div class="category-name">Servicios</div>
+            <div class="category-count">58 negocios</div>
+          </div>
+
+          <div class="category-card" data-category="compras">
+            <span class="category-icon">🛒</span>
+            <div class="category-name">Compras</div>
+            <div class="category-count">41 negocios</div>
+          </div>
+
+          <div class="category-card" data-category="hogar">
+            <span class="category-icon">🏠</span>
+            <div class="category-name">Hogar</div>
+            <div class="category-count">23 negocios</div>
+          </div>
+
+          <div class="category-card" data-category="urgencias">
+            <span class="category-icon">⚡</span>
+            <div class="category-name">Urgencias</div>
+            <div class="category-count">18 negocios</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ESTADÍSTICAS -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-number">201</span>
+          <span class="stat-label">Negocios registrados</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">15</span>
+          <span class="stat-label">Municipios cubiertos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">12.5K</span>
+          <span class="stat-label">Búsquedas este mes</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOTÓN FLOTANTE CTA -->
+  <div class="floating-cta" id="floatingCta">
+    <span>¿Tienes un negocio?</span>
+    <i class="fas fa-arrow-right"></i>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../assets/js/buscador.js"></script>
+
+</body>
+</html>
