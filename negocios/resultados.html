@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados de búsqueda - deedpri</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../assets/css/buscador.css">
+  <link rel="stylesheet" href="../assets/css/resultados.css">
+</head>
+<body>
+
+  <!-- Header de búsqueda -->
+  <div class="search-header">
+    <div class="search-header-content">
+      <a href="negocios-index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Volver al buscador
+      </a>
+      <h1 id="resultadosTitulo">Resultados de búsqueda</h1>
+      <div class="search-info" id="searchInfo"></div>
+    </div>
+  </div>
+
+  <!-- Contenedor de resultados -->
+  <div class="results-container">
+    <div class="results-count" id="resultsCount"></div>
+    <div id="resultadosContenedor"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/negocios-data.js"></script>
+  <script>
+    // Obtener datos de búsqueda
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q') || '';
+    const categoria = urlParams.get('cat') || '';
+    const ubicacion = urlParams.get('loc') || 'todos';
+    
+    // Intentar obtener de sessionStorage primero
+    let dataBusqueda = sessionStorage.getItem('busqueda');
+    let resultados = [];
+    
+    if (dataBusqueda) {
+      dataBusqueda = JSON.parse(dataBusqueda);
+      resultados = dataBusqueda.resultados || [];
+    } else {
+      // Si no hay sessionStorage, buscar con parámetros
+      if (categoria) {
+        resultados = obtenerPorCategoria(categoria, ubicacion);
+      } else {
+        resultados = buscarNegocios(query, ubicacion);
+      }
+    }
+    
+    // Mostrar info de búsqueda
+    const tituloElement = document.getElementById('resultadosTitulo');
+    const infoElement = document.getElementById('searchInfo');
+    
+    let titulo = 'Resultados de búsqueda';
+    let infoHTML = '';
+    
+    if (query) {
+      titulo = `Resultados para "${query}"`;
+      infoHTML += `<span><i class="fas fa-search"></i> ${query}</span>`;
+    }
+    
+    if (categoria) {
+      const categoriaNombre = categoria.charAt(0).toUpperCase() + categoria.slice(1);
+      titulo = `Categoría: ${categoriaNombre}`;
+      infoHTML += `<span><i class="fas fa-tag"></i> ${categoriaNombre}</span>`;
+    }
+    
+    if (ubicacion && ubicacion !== 'todos') {
+      const ubicacionNombre = ubicacion.replace('-', ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      infoHTML += `<span><i class="fas fa-map-marker-alt"></i> ${ubicacionNombre}</span>`;
+    }
+    
+    tituloElement.textContent = titulo;
+    infoElement.innerHTML = infoHTML;
+    
+    // Mostrar contador
+    const countElement = document.getElementById('resultsCount');
+    countElement.textContent = `${resultados.length} ${resultados.length === 1 ? 'negocio encontrado' : 'negocios encontrados'}`;
+    
+    // Mostrar resultados
+    const contenedor = document.getElementById('resultadosContenedor');
+    
+    if (resultados.length === 0) {
+      contenedor.innerHTML = `
+        <div class="no-results">
+          <div class="no-results-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h2>No encontramos resultados</h2>
+          <p>Intenta con otros términos de búsqueda o explora por categorías</p>
+          <br>
+          <a href="index.html" class="btn-action btn-whatsapp">
+            <i class="fas fa-arrow-left"></i>
+            Volver al buscador
+          </a>
+        </div>
+      `;
+    } else {
+      resultados.forEach(negocio => {
+        const card = crearCardNegocio(negocio);
+        contenedor.innerHTML += card;
+      });
+      
+      // Agregar event listeners a las cards
+      document.querySelectorAll('.negocio-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          // No navegar si se clickeó un botón
+          if (e.target.tagName === 'A' || e.target.closest('a')) {
+            return;
+          }
+          const id = this.dataset.id;
+          window.location.href = `perfil.html?id=${id}`;
+        });
+      });
+    }
+    
+    // Función para crear card de negocio
+    function crearCardNegocio(negocio) {
+      const planClass = negocio.plan || 'gratis';
+      const badge = negocio.destacado ? `<div class="plan-badge ${planClass}">${
+        planClass === 'premium-plus' ? '👑 PREMIUM PLUS' : 
+        planClass === 'premium' ? '⭐ DESTACADO' : ''
+      }</div>` : '';
+      
+      const rating = negocio.rating ? `
+        <div class="negocio-rating">
+          ${'★'.repeat(Math.floor(negocio.rating))}${'☆'.repeat(5 - Math.floor(negocio.rating))}
+          <span style="color: #666;">${negocio.rating} (${negocio.reviews || 0} reseñas)</span>
+        </div>
+      ` : '';
+      
+      const descripcion = negocio.descripcion ? `
+        <p class="negocio-descripcion">${negocio.descripcion}</p>
+      ` : '';
+      
+      const cupon = negocio.cupon ? `
+        <div class="cupon-box">
+          <i class="fas fa-tag"></i>
+          <span>${negocio.cupon}</span>
+        </div>
+      ` : '';
+      
+      const whatsapp = negocio.whatsapp ? `
+        <a href="https://wa.me/52${negocio.whatsapp}" class="btn-action btn-whatsapp" target="_blank" onclick="event.stopPropagation()">
+          <i class="fab fa-whatsapp"></i>
+          WhatsApp
+        </a>
+      ` : '';
+      
+      const telefono = negocio.telefono ? `
+        <a href="tel:${negocio.telefono}" class="btn-action btn-telefono" onclick="event.stopPropagation()">
+          <i class="fas fa-phone"></i>
+          Llamar
+        </a>
+      ` : '';
+      
+      return `
+        <div class="negocio-card ${planClass}" data-id="${negocio.id}">
+          ${badge}
+          <div class="negocio-grid">
+            <img src="${negocio.foto}" alt="${negocio.nombre}" class="negocio-foto">
+            <div class="negocio-info">
+              <h3 class="negocio-nombre">${negocio.nombre}</h3>
+              ${rating}
+              <p class="negocio-categoria">
+                <i class="fas fa-tag"></i>
+                ${negocio.subcategoria || negocio.categoria}
+              </p>
+              <p class="negocio-direccion">
+                <i class="fas fa-map-marker-alt"></i>
+                ${negocio.direccion}
+              </p>
+              ${descripcion}
+              ${cupon}
+              <div class="negocio-actions">
+                ${whatsapp}
+                ${telefono}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    console.log(`✅ Mostrando ${resultados.length} resultados`);
+  </script>
+
+</body>
+</html>

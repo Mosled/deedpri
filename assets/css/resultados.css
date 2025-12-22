@@ -1,0 +1,290 @@
+ body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fafafa;
+      padding-top: 0;
+    }
+
+    /* Header de búsqueda */
+    .search-header {
+      background: linear-gradient(135deg, #545454 0%, #6b6b6b 100%);
+      padding: 2rem;
+      color: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .search-header-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #ffd300;
+      transform: translateX(-5px);
+    }
+
+    .search-header h1 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .search-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+
+    .search-info span {
+      background: rgba(255,255,255,0.2);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Contenedor de resultados */
+    .results-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .results-count {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    /* Card de negocio */
+    .negocio-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      border: 2px solid transparent;
+    }
+
+    .negocio-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    /* Premium Plus */
+    .negocio-card.premium-plus {
+      background: linear-gradient(135deg, #fffbf0 0%, #fff9e6 100%);
+      border: 2px solid #ffd300;
+    }
+
+    .negocio-card.premium-plus:hover {
+      box-shadow: 0 12px 30px rgba(255, 211, 0, 0.3);
+    }
+
+    /* Premium */
+    .negocio-card.premium {
+      background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+      border: 2px solid #f0f0f0;
+    }
+
+    /* Badge de plan */
+    .plan-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .plan-badge.premium-plus {
+      background: linear-gradient(135deg, #ffd300, #ffe44d);
+      color: #2a2a2a;
+    }
+
+    .plan-badge.premium {
+      background: #ffd300;
+      color: #2a2a2a;
+    }
+
+    /* Grid de contenido */
+    .negocio-grid {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.5rem;
+    }
+
+    .negocio-foto {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .negocio-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .negocio-nombre {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #2a2a2a;
+      margin: 0;
+    }
+
+    .negocio-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ffd300;
+    }
+
+    .negocio-categoria {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .negocio-direccion {
+      color: #888;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .negocio-descripcion {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .negocio-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+    }
+
+    .btn-telefono {
+      background: #f0f0f0;
+      color: #545454;
+    }
+
+    .btn-telefono:hover {
+      background: #e0e0e0;
+    }
+
+    .cupon-box {
+      background: #fff3cd;
+      border-left: 4px solid #ffd300;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cupon-box i {
+      color: #ffd300;
+      font-size: 1.2rem;
+    }
+
+    .cupon-box span {
+      color: #856404;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Sin resultados */
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .no-results-icon {
+      font-size: 5rem;
+      color: #ddd;
+      margin-bottom: 1rem;
+    }
+
+    .no-results h2 {
+      font-family: 'League Spartan', sans-serif;
+      font-size: 1.8rem;
+      color: #545454;
+      margin-bottom: 1rem;
+    }
+
+    .no-results p {
+      color: #888;
+      font-size: 1.1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .negocio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .negocio-foto {
+        width: 100%;
+        height: 200px;
+      }
+
+      .negocio-actions {
+        flex-direction: column;
+      }
+
+      .btn-action {
+        justify-content: center;
+      }
+    }

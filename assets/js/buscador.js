@@ -1,5 +1,5 @@
 /* ========================================
-   BUSCADOR DE NEGOCIOS - JAVASCRIPT
+   BUSCADOR DE NEGOCIOS - JAVASCRIPT FUNCIONAL
    Archivo: assets/js/buscador.js
    Proyecto: deedpri
    ======================================== */
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const query = e.target.value.trim();
       if (query.length > 0) {
         console.log('Buscando:', query);
-        // Aquí irá la lógica de búsqueda en tiempo real
-        // Ejemplo: buscarNegocios(query);
+        // Búsqueda en tiempo real (opcional)
+        // mostrarSugerencias(query);
       }
     });
 
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.value = searchText;
         searchInput.focus();
         console.log('Ejemplo seleccionado:', searchText);
-        // Opcionalmente ejecutar búsqueda automáticamente
-        // realizarBusqueda(searchText);
+        // Ejecutar búsqueda automáticamente
+        realizarBusqueda(searchText);
       }
     });
   });
@@ -65,8 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
     locationSelect.addEventListener('change', function(e) {
       const location = e.target.value;
       console.log('Ubicación cambiada a:', location);
-      // Aquí irá la lógica de filtrado por ubicación
-      // Ejemplo: filtrarPorUbicacion(location);
+      
+      // Si hay búsqueda activa, re-buscar con nueva ubicación
+      if (searchInput && searchInput.value.trim() !== '') {
+        realizarBusqueda(searchInput.value.trim());
+      }
     });
   }
 
@@ -91,9 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (floatingCta) {
     floatingCta.addEventListener('click', function() {
       console.log('Abrir formulario de registro de negocio');
-      // Aquí irá navegación a página de registro
-      // Ejemplo: window.location.href = '/registro-negocio';
-      alert('Próximamente: Formulario de registro de negocios');
+      window.location.href = 'paquetes.html';
     });
   }
 
@@ -115,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // === LOG DE INICIALIZACIÓN ===
   console.log('✅ Buscador de negocios inicializado');
+  console.log(`📊 Total de negocios: ${negociosDB.length}`);
 });
 
 // === FUNCIONES PRINCIPALES ===
@@ -126,16 +128,25 @@ document.addEventListener('DOMContentLoaded', function() {
 function realizarBusqueda(query) {
   console.log('Realizando búsqueda completa:', query);
   
-  // Aquí irá la lógica real de búsqueda:
-  // 1. Llamar a API o buscar en base de datos
-  // 2. Filtrar por ubicación seleccionada
-  // 3. Mostrar resultados
-  // 4. Navegar a página de resultados
+  // Obtener ubicación seleccionada
+  const locationSelect = document.getElementById('locationSelect');
+  const ubicacion = locationSelect ? locationSelect.value : null;
   
-  // Ejemplo temporal:
-  // window.location.href = `/resultados?q=${encodeURIComponent(query)}`;
+  // Buscar en la base de datos
+  const resultados = buscarNegocios(query, ubicacion);
   
-  alert(`Búsqueda: "${query}"\n\nPróximamente: Resultados en tiempo real`);
+  console.log(`✅ Encontrados ${resultados.length} resultados`);
+  
+  // Guardar en sessionStorage para la página de resultados
+  sessionStorage.setItem('busqueda', JSON.stringify({
+    query: query,
+    ubicacion: ubicacion,
+    resultados: resultados,
+    timestamp: Date.now()
+  }));
+  
+  // Navegar a página de resultados
+  window.location.href = `resultados.html?q=${encodeURIComponent(query)}&loc=${ubicacion || 'todos'}`;
 }
 
 /**
@@ -159,21 +170,7 @@ function activarBusquedaVoz() {
 
   console.log('🎤 Búsqueda por voz activada');
   
-  // SIMULACIÓN (3 segundos)
-  // En producción, aquí iría la implementación real de Web Speech API
-  setTimeout(() => {
-    if (voiceBtn) {
-      voiceBtn.classList.remove('listening');
-    }
-    if (searchInput) {
-      searchInput.value = 'plomero cerca de mí';
-      searchInput.focus();
-    }
-    console.log('Voz detectada (simulación)');
-  }, 3000);
-
-  // IMPLEMENTACIÓN REAL (descomentar cuando esté listo):
-  /*
+  // IMPLEMENTACIÓN REAL
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
   
@@ -197,7 +194,11 @@ function activarBusquedaVoz() {
   
   recognition.onerror = function(event) {
     console.error('Error de reconocimiento de voz:', event.error);
-    alert('No se pudo capturar la voz. Intenta de nuevo.');
+    if (event.error === 'no-speech') {
+      alert('No se detectó ninguna voz. Intenta de nuevo.');
+    } else {
+      alert('No se pudo capturar la voz. Intenta de nuevo.');
+    }
   };
   
   recognition.onend = function() {
@@ -206,8 +207,14 @@ function activarBusquedaVoz() {
     }
   };
   
-  recognition.start();
-  */
+  try {
+    recognition.start();
+  } catch (error) {
+    console.error('Error al iniciar reconocimiento:', error);
+    if (voiceBtn) {
+      voiceBtn.classList.remove('listening');
+    }
+  }
 }
 
 /**
@@ -221,10 +228,9 @@ function detectarUbicacion() {
     return;
   }
 
-  // Opciones de geolocalización
   const options = {
     enableHighAccuracy: true,
-    timeout: 5000,
+    timeout: 10000,
     maximumAge: 0
   };
 
@@ -236,12 +242,17 @@ function detectarUbicacion() {
       
       console.log('Ubicación detectada:', { lat, lng });
       
-      // Aquí irá la lógica para:
-      // 1. Convertir coordenadas a municipio (reverse geocoding)
-      // 2. Actualizar selector de ubicación
-      // 3. Filtrar resultados por cercanía
+      // Determinar municipio más cercano
+      const municipio = determinarMunicipioCercano(lat, lng);
       
-      alert(`Ubicación detectada:\nLatitud: ${lat.toFixed(4)}\nLongitud: ${lng.toFixed(4)}\n\nPróximamente: Filtrado automático por cercanía`);
+      // Actualizar selector
+      const locationSelect = document.getElementById('locationSelect');
+      if (locationSelect && municipio) {
+        locationSelect.value = municipio;
+        alert(`📍 Ubicación detectada: ${municipio.charAt(0).toUpperCase() + municipio.slice(1)}`);
+      } else {
+        alert(`Ubicación detectada:\nLatitud: ${lat.toFixed(4)}\nLongitud: ${lng.toFixed(4)}`);
+      }
     },
     // Error
     function(error) {
@@ -269,31 +280,65 @@ function detectarUbicacion() {
 }
 
 /**
+ * Determinar municipio más cercano basado en coordenadas
+ * @param {number} lat - Latitud
+ * @param {number} lng - Longitud
+ * @returns {string} - Municipio más cercano
+ */
+function determinarMunicipioCercano(lat, lng) {
+  // Coordenadas aproximadas de municipios
+  const municipios = [
+    { nombre: 'zacualtipan', lat: 20.125, lng: -98.568 },
+    { nombre: 'pachuca', lat: 20.119, lng: -98.740 },
+    { nombre: 'tulancingo', lat: 20.083, lng: -98.367 },
+    { nombre: 'mineral-monte', lat: 20.140, lng: -98.670 },
+    { nombre: 'actopan', lat: 20.267, lng: -98.933 }
+  ];
+  
+  let cercano = null;
+  let distanciaMin = Infinity;
+  
+  municipios.forEach(mun => {
+    const distancia = Math.sqrt(
+      Math.pow(lat - mun.lat, 2) + Math.pow(lng - mun.lng, 2)
+    );
+    if (distancia < distanciaMin) {
+      distanciaMin = distancia;
+      cercano = mun.nombre;
+    }
+  });
+  
+  return cercano;
+}
+
+/**
  * Navegar a página de categoría
  * @param {string} category - Nombre de la categoría
  */
 function navegarACategoria(category) {
   console.log('Navegando a categoría:', category);
   
-  // Aquí irá la navegación real
-  // window.location.href = `/categoria/${category}`;
+  // Obtener ubicación actual
+  const locationSelect = document.getElementById('locationSelect');
+  const ubicacion = locationSelect ? locationSelect.value : 'todos';
   
-  alert(`Categoría: ${category}\n\nPróximamente: Página de categoría con todos los negocios`);
+  // Buscar negocios de esa categoría
+  const resultados = obtenerPorCategoria(category, ubicacion);
+  
+  // Guardar en sessionStorage
+  sessionStorage.setItem('busqueda', JSON.stringify({
+    query: '',
+    categoria: category,
+    ubicacion: ubicacion,
+    resultados: resultados,
+    timestamp: Date.now()
+  }));
+  
+  // Navegar
+  window.location.href = `resultados.html?cat=${category}&loc=${ubicacion}`;
 }
 
-/**
- * Filtrar negocios por ubicación
- * @param {string} location - Ubicación seleccionada
- */
-function filtrarPorUbicacion(location) {
-  console.log('Filtrando por ubicación:', location);
-  
-  // Aquí irá la lógica de filtrado
-  // Si hay búsqueda activa, re-ejecutarla con nuevo filtro
-  // Actualizar resultados en pantalla
-}
-
-// === EXPONER FUNCIONES GLOBALES (OPCIONAL) ===
+// === EXPONER FUNCIONES GLOBALES ===
 window.BuscadorNegocios = {
   buscar: realizarBusqueda,
   activarVoz: activarBusquedaVoz,
