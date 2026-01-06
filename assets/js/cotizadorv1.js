@@ -5,28 +5,19 @@ const CONFIG = {
   precios: {
     bn: { 
       carta: [
-        { min: 1, max: 9, precio: 2.00 },
-        { min: 10, max: 49, precio: 1.70 },
-        { min: 50, max: 99, precio: 1.50 },
-        { min: 100, max: 299, precio: 1.30 },
-        { min: 300, max: 499, precio: 1.20 },
-        { min: 500, max: Infinity, precio: 1.10 }
+        { min: 1, max: 99, precio: 1.00 },
+        { min: 100, max: 999, precio: 0.90 },
+        { min: 1000, max: Infinity, precio: 0.80 }
       ],
       oficio: [
-        { min: 1, max: 9, precio: 2.50 },
-        { min: 10, max: 49, precio: 2.20 },
-        { min: 50, max: 99, precio: 2.00 },
-        { min: 100, max: 299, precio: 1.80 },
-        { min: 300, max: 499, precio: 1.70 },
-        { min: 500, max: Infinity, precio: 1.60 }
+        { min: 1, max: 99, precio: 1.50 },
+        { min: 100, max: 999, precio: 1.00 },
+        { min: 1000, max: Infinity, precio: 0.90 }
       ],
       tabloide: [
-        { min: 1, max: 9, precio: 6.00 },
-        { min: 10, max: 49, precio: 5.50 },
-        { min: 50, max: 99, precio: 5.00 },
-        { min: 100, max: 299, precio: 4.50 },
-        { min: 300, max: 499, precio: 4.00 },
-        { min: 500, max: Infinity, precio: 3.50 }
+        { min: 1, max: 99, precio: 5.00 },
+        { min: 100, max: 999, precio: 4.00 },
+        { min: 1000, max: Infinity, precio: 3.50 }
       ]
     },
     color: { 
@@ -141,18 +132,12 @@ function calcularTotal({ tipo, tamano, cantidad }) {
   
   // Información del rango para mostrar
   let rangoTexto = '';
-  if (rangoActual.max === 9) {
-    rangoTexto = '1-9 copias';
-  } else if (rangoActual.min === 10 && rangoActual.max === 49) {
-    rangoTexto = '10-49 copias';
-  } else if (rangoActual.min === 50 && rangoActual.max === 99) {
-    rangoTexto = '50-99 copias';
-  } else if (rangoActual.min === 100 && rangoActual.max === 299) {
-    rangoTexto = '100-299 copias';
-  } else if (rangoActual.min === 300 && rangoActual.max === 499) {
-    rangoTexto = '300-499 copias';
-  } else if (rangoActual.min === 500) {
-    rangoTexto = '500+ copias';
+  if (rangoActual.min === 1 && rangoActual.max === 99) {
+    rangoTexto = '1-99 copias';
+  } else if (rangoActual.min === 100 && rangoActual.max === 999) {
+    rangoTexto = '100-999 copias';
+  } else if (rangoActual.min === 1000) {
+    rangoTexto = '1000+ copias';
   }
   
   return { 
@@ -226,11 +211,11 @@ function mostrarResultado({ total, precioUnitario, rangoTexto }, { tipo, tamano,
   limpiarResultados();
   
   // Determinar clase de rango para estilos
-  let claseRango = 'rango-bajo'; // Por defecto 1-9
-  if (cantidad >= 500) {
-    claseRango = 'rango-alto'; // 500+
+  let claseRango = 'rango-bajo'; // Por defecto 1-99
+  if (cantidad >= 1000) {
+    claseRango = 'rango-alto'; // 1000+
   } else if (cantidad >= 100) {
-    claseRango = 'rango-medio'; // 100-499
+    claseRango = 'rango-medio'; // 100-999
   }
   
   // Textos descriptivos
@@ -277,18 +262,18 @@ function mostrarResultado({ total, precioUnitario, rangoTexto }, { tipo, tamano,
   elementos.resultado.classList.add(claseRango);
   
   // Mostrar mensaje informativo según el rango
-  if (cantidad >= 100 && cantidad < 500) {
+  if (cantidad >= 100 && cantidad < 1000) {
     elementos.mensajeDescuento.innerHTML = `
       <i class="fa-solid fa-info-circle"></i>
-      Estás en el rango de 100-499 copias
+      Estás en el rango de 100-999 copias
       <small>Precio preferencial aplicado</small>
     `;
     elementos.mensajeDescuento.classList.add('mostrar-mensaje', 'rango-medio');
-  } else if (cantidad >= 500) {
+  } else if (cantidad >= 1000) {
     elementos.mensajeDescuento.innerHTML = `
       <i class="fa-solid fa-star"></i>
       ¡Precio mayorista activado!
-      <small>500+ copias - Mejor precio disponible</small>
+      <small>1000+ copias - Mejor precio disponible</small>
     `;
     elementos.mensajeDescuento.classList.add('mostrar-mensaje', 'rango-alto');
   }
@@ -304,26 +289,25 @@ function mostrarResultado({ total, precioUnitario, rangoTexto }, { tipo, tamano,
       block: 'nearest'
     });
   }, 100);
-  
   // Al final de mostrarResultado()
-  if (tipo === 'color') {
-    const miniAdvertencia = document.createElement('div');
-    miniAdvertencia.className = 'mini-advertencia-resultado';
-    miniAdvertencia.innerHTML = `
-      <i class="fa-solid fa-info-circle"></i>
-      <small>
-        💡 ℹ️ IMPORTANTE: Esta cotización asume cobertura de tinta ESTÁNDAR (texto y gráficos simples).🎨 ¿Tu documento tiene MUCHO COLOR,
-        fotos o fondos sólidos?📱 Para cotización personalizada. 
-        <a href="https://wa.me/5217295414907?text=Necesito%20cotización%20con%20alta%20cobertura%20para%20impresión/copia" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           style="color: #004aad; font-weight: 600;">
-          Contáctanos
-        </a> si tienes alta cobertura.
-      </small>
-    `;
-    elementos.resultado.appendChild(miniAdvertencia);
-  }
+if (tipo === 'color') {
+  const miniAdvertencia = document.createElement('div');
+  miniAdvertencia.className = 'mini-advertencia-resultado';
+  miniAdvertencia.innerHTML = `
+    <i class="fa-solid fa-info-circle"></i>
+    <small>
+      💡 ℹ️ IMPORTANTE: Esta cotización asume cobertura de tinta ESTÁNDAR (texto y gráficos simples).🎨 ¿Tu documento tiene MUCHO COLOR,
+      fotos o fondos sólidos?📱 Para cotización personalizada. 
+      <a href="https://wa.me/5217295414907?text=Necesito%20cotización%20con%20alta%20cobertura%20para%20impresión/copia" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         style="color: #004aad; font-weight: 600;">
+        Contáctanos
+      </a> si tienes alta cobertura.
+    </small>
+  `;
+  elementos.resultado.appendChild(miniAdvertencia);
+}
 }
 
 // 9️⃣ Iniciar cuando el DOM esté listo
