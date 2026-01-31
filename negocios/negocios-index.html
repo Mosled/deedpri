@@ -26,14 +26,17 @@
 </head>
 <body>
 
-  <!-- HERO SECTION - BUSCADOR GIGANTE -->
+  <!-- HERO SECTION - BUSCADOR MÁGICO -->
   <section class="hero-search">
+    <!-- Canvas para partículas -->
+    <canvas id="particles"></canvas>
+    
     <div class="hero-content">
       
       <!-- MARCA -->
       <div class="brand-hero">
         <h1>deedpri<span class="dot">.</span></h1>
-        <p>Encuentra cualquier servicio o producto en tu región</p>
+        <p>¿Qué necesitas hoy?</p>
       </div>
 
       <!-- BUSCADOR PRINCIPAL -->
@@ -44,7 +47,7 @@
             <input 
               type="text" 
               id="searchInput" 
-              placeholder="¿Qué estás buscando?"
+              placeholder="Tacos, pizza, plomero..."
               autocomplete="off"
               aria-label="Buscar servicios o productos"
             >
@@ -56,20 +59,20 @@
 
         <!-- EJEMPLOS DE BÚSQUEDA -->
         <div class="search-examples">
-          <div class="example-chip" data-search="plomero urgente">
-            <i class="fas fa-wrench"></i> Plomero urgente
+          <div class="example-chip" data-search="Pizza">
+            <i class="fas fa-pizza-slice"></i> Pizza
           </div>
-          <div class="example-chip" data-search="pizza a domicilio">
-            <i class="fas fa-pizza-slice"></i> Pizza a domicilio
+          <div class="example-chip" data-search="Plomería">
+            <i class="fas fa-wrench"></i> Plomería
           </div>
-          <div class="example-chip" data-search="dentista económico">
-            <i class="fas fa-tooth"></i> Dentista económico
+          <div class="example-chip" data-search="Restaurante">
+            <i class="fas fa-utensils"></i> Restaurante
           </div>
-          <div class="example-chip" data-search="reparación de celulares">
-            <i class="fas fa-mobile-alt"></i> Reparación celulares
+          <div class="example-chip" data-search="Dental">
+            <i class="fas fa-tooth"></i> Dental
           </div>
-          <div class="example-chip" data-search="veterinario cerca">
-            <i class="fas fa-paw"></i> Veterinario cerca
+          <div class="example-chip" data-search="Café">
+            <i class="fas fa-coffee"></i> Café
           </div>
         </div>
       </div>
@@ -80,8 +83,8 @@
         <select class="location-dropdown" id="locationSelect" aria-label="Seleccionar municipio">
           <option value="zacualtipan">Zacualtipán</option>
           <option value="pachuca">Tianguistengo</option>
-          <option value="tulancingo">San Agustin</option>
-          <option value="mineral-monte">Meztitlan</option>
+          <option value="tulancingo">San Agustín</option>
+          <option value="mineral-monte">Meztitlán</option>
           <option value="actopan">Molango</option>
         </select>
         <button class="detect-location" id="detectBtn" aria-label="Detectar mi ubicación">
@@ -160,8 +163,91 @@
   </div>
 
   <!-- JavaScript -->
- <script src="../assets/js/negocios-data.js"></script>
-<script src="../assets/js/buscador.js"></script>
+  <script src="../assets/js/negocios-data.js"></script>
+  <script src="../assets/js/buscador.js"></script>
+  
+  <!-- Script de partículas -->
+  <script>
+    // === PARTÍCULAS FLOTANTES ===
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 50;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(255, 211, 0, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    // Redimensionar canvas
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // === PLACEHOLDER ANIMADO ===
+    const input = document.getElementById('searchInput');
+    const placeholders = [
+      '¿Qué necesitas hoy?',
+      'Tacos, pizza, plomero...',
+      'Búscalo, encuéntralo'
+    ];
+    let currentPlaceholder = 0;
+
+    setInterval(() => {
+      if (document.activeElement !== input) {
+        currentPlaceholder = (currentPlaceholder + 1) % placeholders.length;
+        input.placeholder = placeholders[currentPlaceholder];
+      }
+    }, 3000);
+  </script>
 
 </body>
 </html>

@@ -76,7 +76,7 @@ const negociosDB = [
     whatsapp: "7713456789",
     horario: "Martes a Domingo: 2:00 PM - 11:00 PM",
     descripcion: "Pizzas artesanales al horno de leña. Masa fresca todos los días. Servicio a domicilio sin costo extra en la zona centro.",
-    foto: "https://via.placeholder.com/800x600/e74c3c/ffffff?text=La+Italiana",
+    foto: "../assets/img/negocios/pizzeria-italiana.webp",
     galeria: [
       "https://via.placeholder.com/600x400/e74c3c/ffffff?text=Pizza+1",
       "https://via.placeholder.com/600x400/e74c3c/ffffff?text=Pizza+2"
