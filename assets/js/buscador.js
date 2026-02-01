@@ -28,15 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // === ENTER PARA BUSCAR ===
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        const query = searchInput.value.trim();
-        if (query.length > 0) {
-          console.log('Buscar (Enter):', query);
-          realizarBusqueda(query);
-        }
-      }
-    });
+    // === ENTER PARA BUSCAR ===
+searchInput.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    const query = searchInput.value.trim();
+    console.log('Buscar (Enter):', query || 'Todos los negocios');
+    realizarBusqueda(query);  // <-- SIN VALIDAR SI ESTÁ VACÍO
+  }
+});
   }
 
   // === CHIPS DE EJEMPLO ===
@@ -126,14 +125,16 @@ document.addEventListener('DOMContentLoaded', function() {
  * @param {string} query - Término de búsqueda
  */
 function realizarBusqueda(query) {
-  console.log('Realizando búsqueda completa:', query);
+   console.log('Realizando búsqueda completa:', query || 'Todos');
   
   // Obtener ubicación seleccionada
   const locationSelect = document.getElementById('locationSelect');
   const ubicacion = locationSelect ? locationSelect.value : null;
   
-  // Buscar en la base de datos
-  const resultados = buscarNegocios(query, ubicacion);
+  // Si query está vacío, buscar todos
+  const resultados = query && query.trim() !== '' 
+    ? buscarNegocios(query, ubicacion)
+    : obtenerTodosLosNegocios(ubicacion);
   
   console.log(`✅ Encontrados ${resultados.length} resultados`);
   
@@ -289,8 +290,8 @@ function determinarMunicipioCercano(lat, lng) {
   // Coordenadas aproximadas de municipios
   const municipios = [
     { nombre: 'zacualtipan', lat: 20.125, lng: -98.568 },
-    { nombre: 'pachuca', lat: 20.119, lng: -98.740 },
-    { nombre: 'tulancingo', lat: 20.083, lng: -98.367 },
+    { nombre: 'Tianguistengo', lat: 20.119, lng: -98.740 },
+    { nombre: 'San-Agustin', lat: 20.083, lng: -98.367 },
     { nombre: 'mineral-monte', lat: 20.140, lng: -98.670 },
     { nombre: 'actopan', lat: 20.267, lng: -98.933 }
   ];
@@ -337,6 +338,23 @@ function navegarACategoria(category) {
   // Navegar
   window.location.href = `resultados.html?cat=${category}&loc=${ubicacion}`;
 }
+/**
+ * Obtener todos los negocios (sin filtro de búsqueda)
+ * @param {string} ubicacion - Ubicación para filtrar
+ * @returns {Array} - Todos los negocios
+ */
+function obtenerTodosLosNegocios(ubicacion) {
+  console.log('📋 Mostrando todos los negocios');
+  
+  // Si hay ubicación específica, filtrar
+  if (ubicacion && ubicacion !== 'todos') {
+    return negociosDB.filter(n => n.municipio === ubicacion);
+  }
+  
+  // Si no, devolver todos
+  return negociosDB;
+}
+
 
 // === EXPONER FUNCIONES GLOBALES ===
 window.BuscadorNegocios = {

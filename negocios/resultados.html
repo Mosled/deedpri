@@ -34,6 +34,16 @@
   <!-- Contenedor de resultados -->
   <div class="results-container">
     <div class="results-count" id="resultsCount"></div>
+    <!-- CHIP DE VER TODOS - NUEVO -->
+<div class="filter-suggestion" id="filterSuggestion" style="display: none;">
+  <span class="suggestion-text">
+    💡 También hay más negocios en otras ubicaciones
+  </span>
+  <button class="btn-ver-todos" id="btnVerTodos">
+    📍 Ver en todas las ubicaciones
+    <span class="total-count"></span>
+  </button>
+</div>
     <div id="resultadosContenedor"></div>
   </div>
 
@@ -47,20 +57,20 @@
     const ubicacion = urlParams.get('loc') || 'todos';
     
     // Intentar obtener de sessionStorage primero
-    let dataBusqueda = sessionStorage.getItem('busqueda');
-    let resultados = [];
-    
-    if (dataBusqueda) {
-      dataBusqueda = JSON.parse(dataBusqueda);
-      resultados = dataBusqueda.resultados || [];
-    } else {
-      // Si no hay sessionStorage, buscar con parámetros
-      if (categoria) {
-        resultados = obtenerPorCategoria(categoria, ubicacion);
-      } else {
-        resultados = buscarNegocios(query, ubicacion);
-      }
-    }
+    // Siempre usar parámetros de URL (no sessionStorage)
+let resultados = [];
+
+// Si hay query, buscar
+if (query) {
+  resultados = buscarNegocios(query, ubicacion);
+} else if (categoria) {
+  resultados = obtenerPorCategoria(categoria, ubicacion);
+} else {
+  // Sin query ni categoría, mostrar todos
+  resultados = ubicacion && ubicacion !== 'todos' 
+    ? negociosDB.filter(n => n.municipio === ubicacion)
+    : negociosDB;
+}
     
     // Mostrar info de búsqueda
     const tituloElement = document.getElementById('resultadosTitulo');
@@ -91,6 +101,30 @@
     // Mostrar contador
     const countElement = document.getElementById('resultsCount');
     countElement.textContent = `${resultados.length} ${resultados.length === 1 ? 'negocio encontrado' : 'negocios encontrados'}`;
+
+    // Mostrar sugerencia si hay filtro de ubicación
+const filterSuggestion = document.getElementById('filterSuggestion');
+const btnVerTodos = document.getElementById('btnVerTodos');
+
+if (ubicacion && ubicacion !== 'todos') {
+  // Contar todos los negocios sin filtro
+  const todosLosNegocios = query ? buscarNegocios(query, 'todos') : negociosDB;
+  const diferencia = todosLosNegocios.length - resultados.length;
+  
+  if (diferencia > 0) {
+    // Mostrar sugerencia
+    filterSuggestion.style.display = 'flex';
+    btnVerTodos.querySelector('.total-count').textContent = `(${todosLosNegocios.length} total)`;
+    
+    // Click en "Ver todos"
+    btnVerTodos.addEventListener('click', function() {
+      // Recargar sin filtro de ubicación
+      const params = new URLSearchParams(window.location.search);
+      params.set('loc', 'todos');
+      window.location.href = `resultados.html?${params.toString()}`;
+    });
+  }
+}
     
     // Mostrar resultados
     const contenedor = document.getElementById('resultadosContenedor');
