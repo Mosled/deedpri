@@ -2,6 +2,7 @@
    BUSCADOR DE NEGOCIOS - JAVASCRIPT FUNCIONAL
    Archivo: assets/js/buscador.js
    Proyecto: deedpri
+   ACTUALIZADO: Sin sessionStorage, todo por URL
    ======================================== */
 
 // === ESPERAR A QUE EL DOM ESTÉ LISTO ===
@@ -22,20 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const query = e.target.value.trim();
       if (query.length > 0) {
         console.log('Buscando:', query);
-        // Búsqueda en tiempo real (opcional)
-        // mostrarSugerencias(query);
       }
     });
 
     // === ENTER PARA BUSCAR ===
-    // === ENTER PARA BUSCAR ===
-searchInput.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    const query = searchInput.value.trim();
-    console.log('Buscar (Enter):', query || 'Todos los negocios');
-    realizarBusqueda(query);  // <-- SIN VALIDAR SI ESTÁ VACÍO
-  }
-});
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        const query = searchInput.value.trim();
+        console.log('Buscar (Enter):', query || 'Todos los negocios');
+        realizarBusqueda(query);
+      }
+    });
   }
 
   // === CHIPS DE EJEMPLO ===
@@ -46,7 +44,6 @@ searchInput.addEventListener('keypress', function(e) {
         searchInput.value = searchText;
         searchInput.focus();
         console.log('Ejemplo seleccionado:', searchText);
-        // Ejecutar búsqueda automáticamente
         realizarBusqueda(searchText);
       }
     });
@@ -65,7 +62,6 @@ searchInput.addEventListener('keypress', function(e) {
       const location = e.target.value;
       console.log('Ubicación cambiada a:', location);
       
-      // Si hay búsqueda activa, re-buscar con nueva ubicación
       if (searchInput && searchInput.value.trim() !== '') {
         realizarBusqueda(searchInput.value.trim());
       }
@@ -125,29 +121,15 @@ searchInput.addEventListener('keypress', function(e) {
  * @param {string} query - Término de búsqueda
  */
 function realizarBusqueda(query) {
-   console.log('Realizando búsqueda completa:', query || 'Todos');
+  console.log('Realizando búsqueda completa:', query || 'Todos');
   
   // Obtener ubicación seleccionada
   const locationSelect = document.getElementById('locationSelect');
-  const ubicacion = locationSelect ? locationSelect.value : null;
+  const ubicacion = locationSelect ? locationSelect.value : 'todos';
   
-  // Si query está vacío, buscar todos
-  const resultados = query && query.trim() !== '' 
-    ? buscarNegocios(query, ubicacion)
-    : obtenerTodosLosNegocios(ubicacion);
-  
-  console.log(`✅ Encontrados ${resultados.length} resultados`);
-  
-  // Guardar en sessionStorage para la página de resultados
-  sessionStorage.setItem('busqueda', JSON.stringify({
-    query: query,
-    ubicacion: ubicacion,
-    resultados: resultados,
-    timestamp: Date.now()
-  }));
-  
-  // Navegar a página de resultados
-  window.location.href = `resultados.html?q=${encodeURIComponent(query)}&loc=${ubicacion || 'todos'}`;
+  // Navegar a página de resultados (TODO por URL, sin sessionStorage)
+  const queryParam = query ? encodeURIComponent(query) : '';
+  window.location.href = `resultados.html?q=${queryParam}&loc=${ubicacion}`;
 }
 
 /**
@@ -290,8 +272,8 @@ function determinarMunicipioCercano(lat, lng) {
   // Coordenadas aproximadas de municipios
   const municipios = [
     { nombre: 'zacualtipan', lat: 20.125, lng: -98.568 },
-    { nombre: 'Tianguistengo', lat: 20.119, lng: -98.740 },
-    { nombre: 'San-Agustin', lat: 20.083, lng: -98.367 },
+    { nombre: 'pachuca', lat: 20.119, lng: -98.740 },
+    { nombre: 'tulancingo', lat: 20.083, lng: -98.367 },
     { nombre: 'mineral-monte', lat: 20.140, lng: -98.670 },
     { nombre: 'actopan', lat: 20.267, lng: -98.933 }
   ];
@@ -323,21 +305,10 @@ function navegarACategoria(category) {
   const locationSelect = document.getElementById('locationSelect');
   const ubicacion = locationSelect ? locationSelect.value : 'todos';
   
-  // Buscar negocios de esa categoría
-  const resultados = obtenerPorCategoria(category, ubicacion);
-  
-  // Guardar en sessionStorage
-  sessionStorage.setItem('busqueda', JSON.stringify({
-    query: '',
-    categoria: category,
-    ubicacion: ubicacion,
-    resultados: resultados,
-    timestamp: Date.now()
-  }));
-  
-  // Navegar
+  // Navegar (TODO por URL)
   window.location.href = `resultados.html?cat=${category}&loc=${ubicacion}`;
 }
+
 /**
  * Obtener todos los negocios (sin filtro de búsqueda)
  * @param {string} ubicacion - Ubicación para filtrar
@@ -354,7 +325,6 @@ function obtenerTodosLosNegocios(ubicacion) {
   // Si no, devolver todos
   return negociosDB;
 }
-
 
 // === EXPONER FUNCIONES GLOBALES ===
 window.BuscadorNegocios = {

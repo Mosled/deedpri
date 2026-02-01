@@ -13,28 +13,22 @@
  * @returns {Array} - Negocios ordenados por relevancia
  */
 function buscarNegociosInteligente(query, ubicacion) {
-  console.log('🧠 Búsqueda inteligente iniciada:', query);
+  console.log('🧠 Búsqueda inteligente:', query);
   
-  // Si no hay query, devolver todos
   if (!query || query.trim() === '') {
-    console.log('📋 Query vacía, mostrando todos los negocios');
     return filtrarPorUbicacion(negociosDB, ubicacion);
   }
   
-  // Normalizar query
   query = query.toLowerCase().trim();
-  
-  // Expandir query con sinónimos
   const terminosExpandidos = expandirConSinonimos(query);
-  console.log('🔄 Términos expandidos:', terminosExpandidos);
   
-  // Buscar en todos los negocios
+  // Calcular scores
   const negociosConScore = negociosDB.map(negocio => {
     const score = calcularScore(negocio, query, terminosExpandidos);
     return { negocio, score };
   });
   
-  // Filtrar solo los que tienen score > 0
+  // Filtrar y ordenar
   let resultados = negociosConScore
     .filter(item => item.score > 0)
     .sort((a, b) => b.score - a.score)
@@ -43,8 +37,7 @@ function buscarNegociosInteligente(query, ubicacion) {
   // Filtrar por ubicación
   resultados = filtrarPorUbicacion(resultados, ubicacion);
   
-  console.log(`✅ Encontrados ${resultados.length} resultados`);
-  
+  console.log(`✅ ${resultados.length} resultados para "${query}"`);
   return resultados;
 }
 
@@ -57,6 +50,7 @@ function buscarNegociosInteligente(query, ubicacion) {
  */
 function calcularScore(negocio, queryOriginal, terminosExpandidos) {
   let score = 0;
+  let tieneCoincidencia = false;
   
   const nombre = negocio.nombre.toLowerCase();
   const categoria = (negocio.categoria || '').toLowerCase();
@@ -67,7 +61,7 @@ function calcularScore(negocio, queryOriginal, terminosExpandidos) {
   // 1. COINCIDENCIA EXACTA EN NOMBRE (máxima prioridad)
   if (nombre.includes(queryOriginal)) {
     score += 100;
-    console.log(`  ✨ [${negocio.nombre}] Coincidencia exacta en nombre: +100`);
+    tieneCoincidencia = true;
   }
   
   // 2. COINCIDENCIA EN KEYWORDS (alta prioridad)
@@ -81,49 +75,52 @@ function calcularScore(negocio, queryOriginal, terminosExpandidos) {
     const keywordMatch = keywords.some(kw => kw.toLowerCase().includes(termino));
     if (keywordMatch) {
       score += 50;
-      console.log(`  🎯 [${negocio.nombre}] Keyword match "${termino}": +50`);
+      tieneCoincidencia = true;
     }
     
     // Buscar en nombre (parcial)
     if (nombre.includes(termino) && !nombre.includes(queryOriginal)) {
       score += 40;
-      console.log(`  📝 [${negocio.nombre}] Nombre contiene "${termino}": +40`);
+      tieneCoincidencia = true;
     }
     
     // Buscar en subcategoría
     if (subcategoria.includes(termino)) {
       score += 35;
-      console.log(`  🏷️ [${negocio.nombre}] Subcategoría match "${termino}": +35`);
+      tieneCoincidencia = true;
     }
     
     // Buscar en categoría
     if (categoria.includes(termino)) {
       score += 30;
-      console.log(`  📂 [${negocio.nombre}] Categoría match "${termino}": +30`);
+      tieneCoincidencia = true;
     }
     
     // Buscar en descripción
     if (descripcion.includes(termino)) {
       score += 15;
-      console.log(`  📄 [${negocio.nombre}] Descripción contiene "${termino}": +15`);
+      tieneCoincidencia = true;
     }
   });
   
-  // 3. BONUS POR DESTACADO
-  if (negocio.destacado) {
-    score += 10;
-  }
-  
-  // 4. BONUS POR RATING ALTO
-  if (negocio.rating >= 4.5) {
-    score += 8;
-  } else if (negocio.rating >= 4.0) {
-    score += 5;
-  }
-  
-  // 5. BONUS POR VERIFICADO
-  if (negocio.verificado) {
-    score += 3;
+  // SOLO APLICAR BONUS SI HAY ALGUNA COINCIDENCIA
+  if (tieneCoincidencia) {
+    // 3. BONUS POR DESTACADO
+    if (negocio.destacado) {
+      score += 10;
+    }
+    
+    // 4. BONUS POR RATING ALTO
+    if (negocio.rating >= 4.5) {
+      score += 8;
+    } else if (negocio.rating >= 4.0) {
+      score += 5;
+    }
+    
+    // 5. BONUS POR VERIFICADO
+    if (negocio.verificado) {
+      score += 3;
+    }
   }
   
   return score;

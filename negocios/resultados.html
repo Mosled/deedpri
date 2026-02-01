@@ -34,49 +34,68 @@
   <!-- Contenedor de resultados -->
   <div class="results-container">
     <div class="results-count" id="resultsCount"></div>
-    <!-- CHIP DE VER TODOS - NUEVO -->
-<div class="filter-suggestion" id="filterSuggestion" style="display: none;">
-  <span class="suggestion-text">
-    💡 También hay más negocios en otras ubicaciones
-  </span>
-  <button class="btn-ver-todos" id="btnVerTodos">
-    📍 Ver en todas las ubicaciones
-    <span class="total-count"></span>
-  </button>
-</div>
+    
+    <!-- CHIP DE VER TODOS -->
+    <div class="filter-suggestion" id="filterSuggestion" style="display: none;">
+      <span class="suggestion-text">
+        💡 También hay más negocios en otras ubicaciones
+      </span>
+      <button class="btn-ver-todos" id="btnVerTodos">
+        📍 Ver en todas las ubicaciones
+        <span class="total-count"></span>
+      </button>
+    </div>
+    
     <div id="resultadosContenedor"></div>
   </div>
 
   <!-- Scripts -->
-  <!-- Scripts -->
-<script src="../assets/js/negocios-data.js"></script>
-<script src="../assets/js/sinonimos.js"></script>
-<script src="../assets/js/buscador-inteligente.js"></script>
-<script src="../assets/js/buscador.js"></script>
+  <script src="../assets/js/negocios-data.js"></script>
+  <script src="../assets/js/sinonimos.js"></script>
+  <script src="../assets/js/buscador-inteligente.js"></script>
+  <script src="../assets/js/buscador.js"></script>
+  
   <script>
-    // Obtener datos de búsqueda
+    // ============================================
+    // TODO FUNCIONA SOLO CON PARÁMETROS URL
+    // Sin sessionStorage, sin caché
+    // ============================================
+    
+    console.log('🔄 Página de resultados cargada');
+    
+    // Obtener parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('q') || '';
     const categoria = urlParams.get('cat') || '';
     const ubicacion = urlParams.get('loc') || 'todos';
     
-    // Intentar obtener de sessionStorage primero
-    // Siempre usar parámetros de URL (no sessionStorage)
-let resultados = [];
-
-// Si hay query, buscar
-if (query) {
-  resultados = buscarNegocios(query, ubicacion);
-} else if (categoria) {
-  resultados = obtenerPorCategoria(categoria, ubicacion);
-} else {
-  // Sin query ni categoría, mostrar todos
-  resultados = ubicacion && ubicacion !== 'todos' 
-    ? negociosDB.filter(n => n.municipio === ubicacion)
-    : negociosDB;
-}
+    console.log('📋 Parámetros recibidos:', { query, categoria, ubicacion });
     
-    // Mostrar info de búsqueda
+    // BUSCAR usando el buscador inteligente
+    let resultados = [];
+    
+    if (query) {
+      // Búsqueda por texto
+      console.log('🔍 Buscando por query:', query);
+      resultados = buscarNegocios(query, ubicacion);
+    } else if (categoria) {
+      // Búsqueda por categoría
+      console.log('🏷️ Buscando por categoría:', categoria);
+      resultados = obtenerPorCategoria(categoria, ubicacion);
+    } else {
+      // Mostrar todos
+      console.log('📋 Mostrando todos los negocios');
+      resultados = ubicacion && ubicacion !== 'todos' 
+        ? negociosDB.filter(n => n.municipio === ubicacion)
+        : negociosDB;
+    }
+    
+    console.log(`✅ Resultados encontrados: ${resultados.length}`);
+    
+    // ============================================
+    // MOSTRAR INFORMACIÓN DE BÚSQUEDA
+    // ============================================
+    
     const tituloElement = document.getElementById('resultadosTitulo');
     const infoElement = document.getElementById('searchInfo');
     
@@ -95,42 +114,54 @@ if (query) {
     }
     
     if (ubicacion && ubicacion !== 'todos') {
-      const ubicacionNombre = ubicacion.replace('-', ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      const ubicacionNombre = ubicacion.replace('-', ' ')
+        .split(' ')
+        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ');
       infoHTML += `<span><i class="fas fa-map-marker-alt"></i> ${ubicacionNombre}</span>`;
     }
     
     tituloElement.textContent = titulo;
     infoElement.innerHTML = infoHTML;
     
-    // Mostrar contador
+    // ============================================
+    // MOSTRAR CONTADOR
+    // ============================================
+    
     const countElement = document.getElementById('resultsCount');
     countElement.textContent = `${resultados.length} ${resultados.length === 1 ? 'negocio encontrado' : 'negocios encontrados'}`;
-
-    // Mostrar sugerencia si hay filtro de ubicación
-const filterSuggestion = document.getElementById('filterSuggestion');
-const btnVerTodos = document.getElementById('btnVerTodos');
-
-if (ubicacion && ubicacion !== 'todos') {
-  // Contar todos los negocios sin filtro
-  const todosLosNegocios = query ? buscarNegocios(query, 'todos') : negociosDB;
-  const diferencia = todosLosNegocios.length - resultados.length;
-  
-  if (diferencia > 0) {
-    // Mostrar sugerencia
-    filterSuggestion.style.display = 'flex';
-    btnVerTodos.querySelector('.total-count').textContent = `(${todosLosNegocios.length} total)`;
     
-    // Click en "Ver todos"
-    btnVerTodos.addEventListener('click', function() {
-      // Recargar sin filtro de ubicación
-      const params = new URLSearchParams(window.location.search);
-      params.set('loc', 'todos');
-      window.location.href = `resultados.html?${params.toString()}`;
-    });
-  }
-}
+    // ============================================
+    // SUGERENCIA DE VER TODAS LAS UBICACIONES
+    // ============================================
     
-    // Mostrar resultados
+    const filterSuggestion = document.getElementById('filterSuggestion');
+    const btnVerTodos = document.getElementById('btnVerTodos');
+    
+    if (ubicacion && ubicacion !== 'todos') {
+      // Contar todos los negocios sin filtro
+      const todosLosNegocios = query ? buscarNegocios(query, 'todos') : negociosDB;
+      const diferencia = todosLosNegocios.length - resultados.length;
+      
+      if (diferencia > 0) {
+        // Mostrar sugerencia
+        filterSuggestion.style.display = 'flex';
+        btnVerTodos.querySelector('.total-count').textContent = `(${todosLosNegocios.length} total)`;
+        
+        // Click en "Ver todos"
+        btnVerTodos.addEventListener('click', function() {
+          // Recargar sin filtro de ubicación
+          const params = new URLSearchParams(window.location.search);
+          params.set('loc', 'todos');
+          window.location.href = `resultados.html?${params.toString()}`;
+        });
+      }
+    }
+    
+    // ============================================
+    // MOSTRAR RESULTADOS
+    // ============================================
+    
     const contenedor = document.getElementById('resultadosContenedor');
     
     if (resultados.length === 0) {
@@ -142,7 +173,7 @@ if (ubicacion && ubicacion !== 'todos') {
           <h2>No encontramos resultados</h2>
           <p>Intenta con otros términos de búsqueda o explora por categorías</p>
           <br>
-          <a href="index.html" class="btn-action btn-whatsapp">
+          <a href="negocios-index.html" class="btn-action btn-whatsapp">
             <i class="fas fa-arrow-left"></i>
             Volver al buscador
           </a>
@@ -167,7 +198,10 @@ if (ubicacion && ubicacion !== 'todos') {
       });
     }
     
-    // Función para crear card de negocio
+    // ============================================
+    // FUNCIÓN PARA CREAR CARD DE NEGOCIO
+    // ============================================
+    
     function crearCardNegocio(negocio) {
       const planClass = negocio.plan || 'gratis';
       const badge = negocio.destacado ? `<div class="plan-badge ${planClass}">${
@@ -179,17 +213,6 @@ if (ubicacion && ubicacion !== 'todos') {
         <div class="negocio-rating">
           ${'★'.repeat(Math.floor(negocio.rating))}${'☆'.repeat(5 - Math.floor(negocio.rating))}
           <span style="color: #666;">${negocio.rating} (${negocio.reviews || 0} reseñas)</span>
-        </div>
-      ` : '';
-      
-      const descripcion = negocio.descripcion ? `
-        <p class="negocio-descripcion">${negocio.descripcion}</p>
-      ` : '';
-      
-      const cupon = negocio.cupon ? `
-        <div class="cupon-box">
-          <i class="fas fa-tag"></i>
-          <span>${negocio.cupon}</span>
         </div>
       ` : '';
       
@@ -223,19 +246,13 @@ if (ubicacion && ubicacion !== 'todos') {
                 <i class="fas fa-map-marker-alt"></i>
                 ${negocio.direccion}
               </p>
-              ${descripcion}
-              ${cupon}
-              <div class="negocio-actions">
-                ${whatsapp}
-                ${telefono}
-              </div>
             </div>
           </div>
         </div>
       `;
     }
     
-    console.log(`✅ Mostrando ${resultados.length} resultados`);
+    console.log(`✅ Mostrando ${resultados.length} resultados en pantalla`);
   </script>
 
 </body>
