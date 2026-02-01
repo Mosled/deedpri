@@ -2,6 +2,7 @@
    BASE DE DATOS DE NEGOCIOS - PRUEBA
    Archivo: assets/js/negocios-data.js
    Proyecto: deedpri
+   ACTUALIZADO: Con keywords para buscador inteligente
    ======================================== */
 
 // === NEGOCIOS DE PRUEBA ===
@@ -13,6 +14,12 @@ const negociosDB = [
     categoria: "alimentos",
     subcategoria: "Restaurantes",
     municipio: "zacualtipan",
+    keywords: [
+      "restaurante", "comida", "food", "comer", "almorzar",
+      "cenar", "desayunar", "mexicana", "platillos", "menu",
+      "barbacoa", "mole", "antojitos", "familiar", "regional",
+      "tradicional", "tipico", "sabroso", "rico", "economico"
+    ],
     direccion: "Av. Juárez #456, Centro",
     telefono: "7712345678",
     whatsapp: "7712345678",
@@ -41,6 +48,12 @@ const negociosDB = [
     categoria: "salud",
     subcategoria: "Dentistas",
     municipio: "pachuca",
+    keywords: [
+      "dentista", "dental", "odontologo", "odontología", "dientes",
+      "muela", "muelas", "limpieza", "blanqueamiento", "ortodoncia",
+      "brackets", "endodoncia", "extraccion", "implante", "corona",
+      "caries", "dolor", "dra", "garcia", "consulta", "clinica"
+    ],
     direccion: "Calle 5 de Mayo #234, Zona Centro",
     telefono: "7719876543",
     whatsapp: "7719876543",
@@ -71,6 +84,12 @@ const negociosDB = [
     categoria: "alimentos",
     subcategoria: "Pizzerías",
     municipio: "zacualtipan",
+    keywords: [
+      "pizza", "pizzas", "pizzeria", "italiana", "italiano",
+      "horno", "leña", "artesanal", "masa", "pepperoni",
+      "hawaiana", "margarita", "queso", "tomate", "delivery",
+      "domicilio", "comida", "comer", "cenar", "pasta"
+    ],
     direccion: "Av. Hidalgo #123, Centro",
     telefono: "7713456789",
     whatsapp: "7713456789",
@@ -95,6 +114,12 @@ const negociosDB = [
     categoria: "servicios",
     subcategoria: "Plomería",
     municipio: "tulancingo",
+    keywords: [
+      "plomero", "plomeria", "fontanero", "fuga", "goteo",
+      "tapado", "destape", "tuberia", "drenaje", "agua",
+      "baño", "wc", "lavabo", "fregadero", "tinaco",
+      "urgente", "emergencia", "24 horas", "rapido", "jimenez"
+    ],
     direccion: "Col. Centro, Tulancingo",
     telefono: "7755123456",
     whatsapp: "7755123456",
@@ -118,6 +143,11 @@ const negociosDB = [
     categoria: "servicios",
     subcategoria: "Veterinarios",
     municipio: "pachuca",
+    keywords: [
+      "veterinaria", "veterinario", "mascota", "perro", "gato",
+      "animal", "consulta", "vacunas", "cirugia", "estetica",
+      "canina", "alimento", "medico", "pet", "care", "clinica"
+    ],
     direccion: "Blvd. Felipe Ángeles #567",
     telefono: "7718765432",
     whatsapp: "7718765432",
@@ -141,6 +171,12 @@ const negociosDB = [
     categoria: "compras",
     subcategoria: "Ferreterías",
     municipio: "zacualtipan",
+    keywords: [
+      "ferreteria", "construccion", "materiales", "herramientas",
+      "cemento", "varilla", "alambre", "pintura", "tornillos",
+      "clavos", "martillo", "taladro", "nivel", "sierra",
+      "plomeria", "electricidad", "hogar", "reparacion"
+    ],
     direccion: "Carretera a Tulancingo Km 2",
     telefono: "7712987654",
     whatsapp: "7712987654",
@@ -164,6 +200,12 @@ const negociosDB = [
     categoria: "alimentos",
     subcategoria: "Cafeterías",
     municipio: "pachuca",
+    keywords: [
+      "cafe", "café", "cafeteria", "coffee", "americano",
+      "capuchino", "latte", "espresso", "frappe", "pastel",
+      "reposteria", "desayuno", "merienda", "wifi", "internet",
+      "estudiar", "trabajar", "comida", "sandwich", "pan"
+    ],
     direccion: "Av. Revolución #890, Centro",
     telefono: "7716543210",
     whatsapp: "7716543210",
@@ -187,6 +229,12 @@ const negociosDB = [
     categoria: "servicios",
     subcategoria: "Estéticas",
     municipio: "mineral-monte",
+    keywords: [
+      "estetica", "salon", "belleza", "corte", "cabello",
+      "pelo", "tinte", "rayos", "permanente", "peinado",
+      "mujer", "hombre", "dama", "caballero", "unisex",
+      "glamour", "evento", "boda", "xv años"
+    ],
     direccion: "Calle Morelos #45",
     telefono: "7717654321",
     whatsapp: "7717654321",
@@ -210,6 +258,11 @@ const negociosDB = [
     categoria: "salud",
     subcategoria: "Gimnasios",
     municipio: "tulancingo",
+    keywords: [
+      "gimnasio", "gym", "fitness", "ejercicio", "pesas",
+      "cardio", "clases", "zumba", "spinning", "entrenador",
+      "bajar peso", "musculo", "rutina", "salud", "deporte"
+    ],
     direccion: "Col. La Morena, Tulancingo",
     telefono: "7755987654",
     whatsapp: "7755987654",
@@ -234,6 +287,12 @@ const negociosDB = [
     categoria: "servicios",
     subcategoria: "Mecánica",
     municipio: "actopan",
+    keywords: [
+      "mecanico", "taller", "auto", "carro", "coche",
+      "vehiculo", "reparacion", "servicio", "afinacion", "diagnostico",
+      "frenos", "suspension", "motor", "aceite", "transmision",
+      "bateria", "llantas", "rodriguez"
+    ],
     direccion: "Carretera México-Pachuca Km 120",
     telefono: "7723456789",
     whatsapp: "7723456789",
@@ -259,6 +318,11 @@ const negociosDB = [
     categoria: "alimentos",
     subcategoria: "Taquerías",
     municipio: "zacualtipan",
+    keywords: [
+      "tacos", "taco", "taqueria", "pastor", "suadero",
+      "bistec", "carnitas", "quesadilla", "comida", "food",
+      "comer", "cena", "mexicana", "antojo", "don", "pepe"
+    ],
     direccion: "Calle Independencia #78",
     telefono: "7714567890",
     whatsapp: "7714567890",
@@ -272,6 +336,11 @@ const negociosDB = [
     categoria: "compras",
     subcategoria: "Papelerías",
     municipio: "pachuca",
+    keywords: [
+      "papeleria", "utiles", "escolares", "cuadernos", "lapices",
+      "plumas", "colores", "hojas", "folder", "engrapadora",
+      "escuela", "colegio", "estudiante", "tarea"
+    ],
     direccion: "Av. Juárez #321",
     telefono: "7718901234",
     whatsapp: "7718901234",
@@ -285,6 +354,11 @@ const negociosDB = [
     categoria: "servicios",
     subcategoria: "Electricistas",
     municipio: "tulancingo",
+    keywords: [
+      "electricista", "electricidad", "luz", "instalacion", "cables",
+      "apagador", "contacto", "corto circuito", "reparacion",
+      "urgente", "ramirez", "servicio"
+    ],
     direccion: "Col. Centro",
     telefono: "7755234567",
     whatsapp: "7755234567",
@@ -298,6 +372,11 @@ const negociosDB = [
     categoria: "compras",
     subcategoria: "Abarrotes",
     municipio: "zacualtipan",
+    keywords: [
+      "abarrotes", "tienda", "minisuper", "leche", "pan",
+      "refresco", "cerveza", "botana", "dulces", "galletas",
+      "despensa", "compras", "guadalupana"
+    ],
     direccion: "Barrio Alto #12",
     telefono: "7712345098",
     whatsapp: "7712345098",
@@ -311,6 +390,11 @@ const negociosDB = [
     categoria: "salud",
     subcategoria: "Consultorios",
     municipio: "mineral-monte",
+    keywords: [
+      "doctor", "medico", "médico", "consulta", "medicina",
+      "general", "clinica", "enfermedad", "receta", "diagnostico",
+      "salud", "revision"
+    ],
     direccion: "Calle Hidalgo #89",
     telefono: "7717890123",
     whatsapp: "7717890123",
@@ -324,6 +408,11 @@ const negociosDB = [
     categoria: "servicios",
     subcategoria: "Carpintería",
     municipio: "actopan",
+    keywords: [
+      "carpintero", "carpinteria", "madera", "muebles", "closet",
+      "puertas", "ventanas", "mesa", "silla", "reparacion",
+      "san jose"
+    ],
     direccion: "Col. Santa María",
     telefono: "7723567890",
     whatsapp: "7723567890",
@@ -337,6 +426,11 @@ const negociosDB = [
     categoria: "alimentos",
     subcategoria: "Panaderías",
     municipio: "pachuca",
+    keywords: [
+      "panaderia", "pan", "bolillo", "telera", "dulce",
+      "conchas", "cuernos", "dona", "pastel", "pay",
+      "reposteria", "comida", "desayuno"
+    ],
     direccion: "Calle Allende #456",
     telefono: "7716789012",
     whatsapp: "7716789012",
@@ -350,6 +444,11 @@ const negociosDB = [
     categoria: "urgencias",
     subcategoria: "Cerrajeros",
     municipio: "zacualtipan",
+    keywords: [
+      "cerrajero", "cerrajeria", "llaves", "chapa", "cerradura",
+      "duplicado", "emergencia", "urgente", "24 horas",
+      "puerta", "candado", "express"
+    ],
     direccion: "Servicio a domicilio",
     telefono: "7715678901",
     whatsapp: "7715678901",
@@ -363,6 +462,11 @@ const negociosDB = [
     categoria: "hogar",
     subcategoria: "Lavanderías",
     municipio: "tulancingo",
+    keywords: [
+      "lavanderia", "lavar", "ropa", "planchado", "tintoreria",
+      "limpieza", "seco", "blancos", "edredones", "cortinas",
+      "servicio", "total"
+    ],
     direccion: "Av. Juárez #234",
     telefono: "7755890123",
     whatsapp: "7755890123",
@@ -376,6 +480,11 @@ const negociosDB = [
     categoria: "compras",
     subcategoria: "Refaccionarias",
     municipio: "pachuca",
+    keywords: [
+      "refaccionaria", "refacciones", "auto", "partes", "carro",
+      "piezas", "filtro", "balatas", "bujias", "aceite",
+      "bomba", "alternador", "bateria", "mecanica"
+    ],
     direccion: "Blvd. Colosio #789",
     telefono: "7719012345",
     whatsapp: "7719012345",
@@ -391,40 +500,13 @@ function obtenerNegocios() {
 }
 
 // === FUNCIÓN PARA BUSCAR NEGOCIOS ===
+// COMENTADA - Ahora usamos buscador-inteligente.js
+/*
 function buscarNegocios(query, ubicacion = null, categoria = null) {
-  let resultados = [...negociosDB];
-  
-  // Filtrar por ubicación
-  if (ubicacion && ubicacion !== 'todos') {
-    resultados = resultados.filter(n => n.municipio === ubicacion);
-  }
-  
-  // Filtrar por categoría
-  if (categoria && categoria !== 'todos') {
-    resultados = resultados.filter(n => n.categoria === categoria);
-  }
-  
-  // Filtrar por query (búsqueda por texto)
-  if (query && query.trim() !== '') {
-    const queryLower = query.toLowerCase().trim();
-    resultados = resultados.filter(negocio => {
-      return (
-        negocio.nombre.toLowerCase().includes(queryLower) ||
-        negocio.categoria.toLowerCase().includes(queryLower) ||
-        (negocio.subcategoria && negocio.subcategoria.toLowerCase().includes(queryLower)) ||
-        (negocio.descripcion && negocio.descripcion.toLowerCase().includes(queryLower))
-      );
-    });
-  }
-  
-  // Ordenar: Premium Plus > Premium > Gratis
-  resultados.sort((a, b) => {
-    const orden = { 'premium-plus': 3, 'premium': 2, 'gratis': 1 };
-    return (orden[b.plan] || 0) - (orden[a.plan] || 0);
-  });
-  
-  return resultados;
+  // Esta función ya no se usa
+  // El buscador inteligente en buscador-inteligente.js la reemplaza
 }
+*/
 
 // === FUNCIÓN PARA OBTENER NEGOCIO POR ID ===
 function obtenerNegocioPorId(id) {
@@ -433,7 +515,25 @@ function obtenerNegocioPorId(id) {
 
 // === FUNCIÓN PARA OBTENER POR CATEGORÍA ===
 function obtenerPorCategoria(categoria, ubicacion = null) {
-  return buscarNegocios('', ubicacion, categoria);
+  let resultados = [...negociosDB];
+  
+  // Filtrar por categoría
+  if (categoria && categoria !== 'todos') {
+    resultados = resultados.filter(n => n.categoria === categoria);
+  }
+  
+  // Filtrar por ubicación
+  if (ubicacion && ubicacion !== 'todos') {
+    resultados = resultados.filter(n => n.municipio === ubicacion);
+  }
+  
+  // Ordenar por plan
+  resultados.sort((a, b) => {
+    const orden = { 'premium-plus': 3, 'premium': 2, 'gratis': 1 };
+    return (orden[b.plan] || 0) - (orden[a.plan] || 0);
+  });
+  
+  return resultados;
 }
 
 // === EXPORTAR (para usar en otros archivos) ===
@@ -441,8 +541,10 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     negociosDB,
     obtenerNegocios,
-    buscarNegocios,
     obtenerNegocioPorId,
     obtenerPorCategoria
   };
 }
+
+console.log('✅ Base de datos de negocios cargada');
+console.log(`📊 Total de negocios: ${negociosDB.length}`);
