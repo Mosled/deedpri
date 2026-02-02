@@ -1,8 +1,8 @@
 /* ========================================
-   BUSCADOR DE NEGOCIOS - JAVASCRIPT FUNCIONAL
+   BUSCADOR DE NEGOCIOS - SISTEMA HÍBRIDO
    Archivo: assets/js/buscador.js
    Proyecto: deedpri
-   ACTUALIZADO: Sin sessionStorage, todo por URL
+   ACTUALIZADO: Sistema híbrido URL + sessionStorage
    ======================================== */
 
 // === ESPERAR A QUE EL DOM ESTÉ LISTO ===
@@ -110,26 +110,73 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // === LOG DE INICIALIZACIÓN ===
-  console.log('✅ Buscador de negocios inicializado');
-  console.log(`📊 Total de negocios: ${negociosDB.length}`);
+  console.log('✅ Buscador de negocios inicializado (sistema híbrido)');
+  console.log(`📊 Total de negocios: ${typeof negociosDB !== 'undefined' ? negociosDB.length : 'no cargados'}`);
 });
 
 // === FUNCIONES PRINCIPALES ===
 
 /**
- * Realizar búsqueda completa
+ * Realizar búsqueda completa - SISTEMA HÍBRIDO
  * @param {string} query - Término de búsqueda
  */
 function realizarBusqueda(query) {
-  console.log('Realizando búsqueda completa:', query || 'Todos');
+  console.log('🔍 Realizando búsqueda híbrida:', query || 'Todos');
   
-  // Obtener ubicación seleccionada
+  // 1. OBTENER DATOS DE LA BÚSQUEDA
   const locationSelect = document.getElementById('locationSelect');
   const ubicacion = locationSelect ? locationSelect.value : 'todos';
   
-  // Navegar a página de resultados (TODO por URL, sin sessionStorage)
-  const queryParam = query ? encodeURIComponent(query) : '';
-  window.location.href = `resultados.html?q=${queryParam}&loc=${ubicacion}`;
+  // 2. PREPARAR DATOS PARA CACHE
+  const busquedaData = {
+    query: query || '',
+    ubicacion: ubicacion,
+    timestamp: Date.now(),
+    fuente: 'buscador_principal'
+  };
+  
+  // 3. GUARDAR EN SESSIONSTORAGE (CACHE)
+  try {
+    sessionStorage.setItem('deedpri_ultima_busqueda', JSON.stringify(busquedaData));
+    console.log('💾 Cache guardado en sessionStorage');
+  } catch (e) {
+    console.warn('⚠️ No se pudo guardar en sessionStorage:', e.message);
+  }
+  
+  // 4. DETERMINAR MODO DE NAVEGACIÓN
+  const estamosEnResultados = window.location.pathname.includes('resultados.html');
+  
+  if (estamosEnResultados) {
+    // 4A. MODO FLUIDO: Ya estamos en resultados.html
+    console.log('🔄 Actualización fluida (sin recargar)');
+    
+    // Usar History API para cambiar URL sin recargar
+    const params = new URLSearchParams();
+    if (query) params.set('q', query);
+    params.set('loc', ubicacion);
+    
+    // Cambiar URL en el navegador
+    history.pushState(
+      { query, ubicacion, timestamp: Date.now() },
+      '',
+      `resultados.html?${params.toString()}`
+    );
+    
+    // Llamar a función para actualizar resultados dinámicamente
+    if (typeof actualizarResultadosDinamicos === 'function') {
+      actualizarResultadosDinamicos(query, ubicacion);
+    } else {
+      console.warn('⚠️ actualizarResultadosDinamicos no disponible, recargando...');
+      window.location.href = `resultados.html?q=${encodeURIComponent(query || '')}&loc=${ubicacion}`;
+    }
+    
+  } else {
+    // 4B. MODO NORMAL: Navegar desde la página principal
+    console.log('🚀 Navegación normal a resultados');
+    
+    const queryParam = query ? encodeURIComponent(query) : '';
+    window.location.href = `resultados.html?q=${queryParam}&loc=${ubicacion}`;
+  }
 }
 
 /**
@@ -305,8 +352,104 @@ function navegarACategoria(category) {
   const locationSelect = document.getElementById('locationSelect');
   const ubicacion = locationSelect ? locationSelect.value : 'todos';
   
-  // Navegar (TODO por URL)
-  window.location.href = `resultados.html?cat=${category}&loc=${ubicacion}`;
+  // Guardar en cache
+  try {
+    sessionStorage.setItem('deedpri_ultima_busqueda', JSON.stringify({
+      query: '',
+      categoria: category,
+      ubicacion: ubicacion,
+      timestamp: Date.now(),
+      fuente: 'categoria'
+    }));
+  } catch (e) {
+    console.warn('⚠️ Error guardando cache categoría:', e.message);
+  }
+  
+  // Verificar si ya estamos en resultados
+  const estamosEnResultados = window.location.pathname.includes('resultados.html');
+  
+  if (estamosEnResultados) {
+    // Modo fluido
+    const params = new URLSearchParams();
+    params.set('cat', category);
+    params.set('loc', ubicacion);
+    
+    history.pushState(
+      { categoria: category, ubicacion: ubicacion, timestamp: Date.now() },
+      '',
+      `resultados.html?${params.toString()}`
+    );
+    
+    // Actualizar resultados
+    if (typeof actualizarResultadosDinamicos === 'function') {
+      // Esta función necesita aceptar 3 parámetros
+      actualizarResultadosDinamicos('', category, ubicacion);
+    } else {
+      window.location.href = `resultados.html?cat=${category}&loc=${ubicacion}`;
+    }
+  } else {
+    // Modo normal
+    window.location.href = `resultados.html?cat=${category}&loc=${ubicacion}`;
+  }
+}
+
+/**
+ * Actualizar resultados dinámicamente sin recargar página
+ * @param {string} query - Término de búsqueda
+ * @param {string} categoria - Categoría (opcional)
+ * @param {string} ubicacion - Ubicación seleccionada
+ */
+function actualizarResultadosDinamicos(query, categoria, ubicacion) {
+  console.log('⚡ Actualizando resultados dinámicamente...', { query, categoria, ubicacion });
+  
+  // Si categoria es el segundo parámetro (para compatibilidad)
+  if (typeof categoria === 'string' && !ubicacion) {
+    ubicacion = categoria;
+    categoria = '';
+  }
+  
+  // Si no se pasa ubicación, obtener del selector
+  if (!ubicacion) {
+    const locationSelect = document.getElementById('locationSelect');
+    ubicacion = locationSelect ? locationSelect.value : 'todos';
+  }
+  
+  // 1. REALIZAR LA BÚSQUEDA
+  let resultados = [];
+  
+  if (query) {
+    resultados = buscarNegocios(query, ubicacion);
+  } else if (categoria) {
+    resultados = obtenerPorCategoria(categoria, ubicacion);
+  } else {
+    resultados = obtenerTodosLosNegocios(ubicacion);
+  }
+  
+  // 2. GUARDAR EN CACHE LOS RESULTADOS
+  try {
+    sessionStorage.setItem('deedpri_resultados_cache', JSON.stringify({
+      resultados: resultados.map(n => n.id),
+      query: query,
+      categoria: categoria,
+      ubicacion: ubicacion,
+      timestamp: Date.now()
+    }));
+  } catch (e) {
+    console.warn('⚠️ No se pudo cachear resultados:', e.message);
+  }
+  
+  // 3. ACTUALIZAR LA INTERFAZ (si estamos en resultados.html)
+  if (typeof actualizarInterfazResultados === 'function') {
+    actualizarInterfazResultados(resultados, query, categoria, ubicacion);
+  } else {
+    console.warn('⚠️ actualizarInterfazResultados no disponible');
+    // Recargar como fallback
+    const params = new URLSearchParams();
+    if (query) params.set('q', query);
+    if (categoria) params.set('cat', categoria);
+    params.set('loc', ubicacion);
+    window.location.href = `resultados.html?${params.toString()}`;
+  }
 }
 
 /**
@@ -317,6 +460,12 @@ function navegarACategoria(category) {
 function obtenerTodosLosNegocios(ubicacion) {
   console.log('📋 Mostrando todos los negocios');
   
+  // Verificar que negociosDB existe
+  if (typeof negociosDB === 'undefined') {
+    console.error('❌ negociosDB no está definido');
+    return [];
+  }
+  
   // Si hay ubicación específica, filtrar
   if (ubicacion && ubicacion !== 'todos') {
     return negociosDB.filter(n => n.municipio === ubicacion);
@@ -326,10 +475,119 @@ function obtenerTodosLosNegocios(ubicacion) {
   return negociosDB;
 }
 
+/**
+ * Función auxiliar para crear card de negocio
+ * @param {Object} negocio - Datos del negocio
+ * @returns {string} - HTML de la card
+ */
+function crearCardNegocio(negocio) {
+  const planClass = negocio.plan || 'gratis';
+  const badge = negocio.destacado ? `<div class="plan-badge ${planClass}">${
+    planClass === 'premium-plus' ? '👑 PREMIUM PLUS' : 
+    planClass === 'premium' ? '⭐ DESTACADO' : ''
+  }</div>` : '';
+  
+  const rating = negocio.rating ? `
+    <div class="negocio-rating">
+      ${'★'.repeat(Math.floor(negocio.rating))}${'☆'.repeat(5 - Math.floor(negocio.rating))}
+      <span style="color: #666;">${negocio.rating} (${negocio.reviews || 0} reseñas)</span>
+    </div>
+  ` : '';
+  
+  return `
+    <div class="negocio-card ${planClass}" data-id="${negocio.id}">
+      ${badge}
+      <div class="negocio-grid">
+        <img src="${negocio.foto}" alt="${negocio.nombre}" class="negocio-foto">
+        <div class="negocio-info">
+          <h3 class="negocio-nombre">${negocio.nombre}</h3>
+          ${rating}
+          <p class="negocio-categoria">
+            <i class="fas fa-tag"></i>
+            ${negocio.subcategoria || negocio.categoria}
+          </p>
+          <p class="negocio-direccion">
+            <i class="fas fa-map-marker-alt"></i>
+            ${negocio.direccion}
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// === VERIFICAR QUE LAS FUNCIONES NECESARIAS EXISTEN ===
+if (typeof buscarNegocios === 'undefined') {
+  console.warn('⚠️ buscarNegocios no está definido, definiendo función básica');
+  window.buscarNegocios = function(query, ubicacion) {
+    console.log('🔍 Usando función de búsqueda básica');
+    let resultados = typeof negociosDB !== 'undefined' ? negociosDB : [];
+    
+    if (query) {
+      query = query.toLowerCase();
+      resultados = resultados.filter(n => 
+        n.nombre && n.nombre.toLowerCase().includes(query) ||
+        (n.categoria && n.categoria.toLowerCase().includes(query)) ||
+        (n.subcategoria && n.subcategoria.toLowerCase().includes(query))
+      );
+    }
+    
+    if (ubicacion && ubicacion !== 'todos') {
+      resultados = resultados.filter(n => n.municipio === ubicacion);
+    }
+    
+    return resultados;
+  };
+}
+
+if (typeof obtenerPorCategoria === 'undefined') {
+  console.warn('⚠️ obtenerPorCategoria no está definido, definiendo función básica');
+  window.obtenerPorCategoria = function(categoria, ubicacion) {
+    console.log('🏷️ Usando función básica de categoría');
+    let resultados = typeof negociosDB !== 'undefined' ? negociosDB : [];
+    
+    resultados = resultados.filter(n => n.categoria === categoria);
+    
+    if (ubicacion && ubicacion !== 'todos') {
+      resultados = resultados.filter(n => n.municipio === ubicacion);
+    }
+    
+    return resultados;
+  };
+}
+
+// === MANEJAR EVENTO POPSTATE (botón atrás/adelante) ===
+window.addEventListener('popstate', function(event) {
+  console.log('↩️ Evento popstate detectado');
+  
+  // Solo procesar si estamos en resultados.html
+  if (window.location.pathname.includes('resultados.html')) {
+    // Obtener parámetros actuales de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q') || '';
+    const categoria = urlParams.get('cat') || '';
+    const ubicacion = urlParams.get('loc') || 'todos';
+    
+    console.log('📋 Parámetros popstate:', { query, categoria, ubicacion });
+    
+    // Actualizar resultados
+    if (typeof actualizarResultadosDinamicos === 'function') {
+      actualizarResultadosDinamicos(query, categoria, ubicacion);
+    } else {
+      console.log('🔄 Recargando página por popstate');
+      window.location.reload();
+    }
+  }
+});
+
 // === EXPONER FUNCIONES GLOBALES ===
 window.BuscadorNegocios = {
   buscar: realizarBusqueda,
   activarVoz: activarBusquedaVoz,
   detectarUbicacion: detectarUbicacion,
-  navegarCategoria: navegarACategoria
+  navegarCategoria: navegarACategoria,
+  actualizarResultados: actualizarResultadosDinamicos,
+  crearCardNegocio: crearCardNegocio
 };
+
+console.log('✅ Buscador híbrido completamente cargado');

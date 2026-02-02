@@ -251,6 +251,27 @@
       }
     }, 3000);
   </script>
+  <!-- Script para limpiar cache antiguo -->
+<script>
+  // Limpiar cache antiguo al cargar la página principal
+  try {
+    const cacheData = JSON.parse(sessionStorage.getItem('deedpri_resultados_cache') || '{}');
+    const cacheBusqueda = JSON.parse(sessionStorage.getItem('deedpri_ultima_busqueda') || '{}');
+    
+    // Limpiar cache si tiene más de 5 minutos (300000 ms)
+    if (cacheData.timestamp && Date.now() - cacheData.timestamp > 300000) {
+      sessionStorage.removeItem('deedpri_resultados_cache');
+      console.log('🧹 Cache de resultados antiguo limpiado');
+    }
+    
+    if (cacheBusqueda.timestamp && Date.now() - cacheBusqueda.timestamp > 300000) {
+      sessionStorage.removeItem('deedpri_ultima_busqueda');
+      console.log('🧹 Cache de búsqueda antiguo limpiado');
+    }
+  } catch (e) {
+    console.log('✅ No hay cache para limpiar o error al limpiar');
+  }
+</script>
 
 </body>
 </html>
