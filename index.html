@@ -166,119 +166,75 @@
     <!-- Contenedor de ancho máximo -->
     <div class="content">
       
-    <!-- ========================================
-   SECCIÓN DEL CARRUSEL COMPLETA - CORREGIDA
-   Para reemplazar en tu index.html desde línea ~169 hasta ~300
-   ======================================== -->
+    <!-- ════════════════════════════════════════
+     HERO ANIMADO — DEEDPRI v3 (2025)
+     Gris carbón + Amarillo, partículas, gradientes
+     ════════════════════════════════════════ -->
 
-<!-- HERO CARRUSEL FULL BLEED -->
-<div class="hero-carrusel-fullbleed" id="inicio">
-  <div class="slides-container-fb">
-    
-    <!-- SLIDE 1: HERO PRINCIPAL -->
-    <div class="slide-fb active"> 
-      <!-- Lado derecho: Visual -->
-      <div class="slide-visual-fb slide-visual-1">
-        <div class="icon-hero-fb">
-          <i class="fa-solid fa-print"></i>
-        </div>
-      </div>
+<section class="hero-v3" id="inicio" aria-label="Carrusel principal">
+  <!-- Efectos de fondo -->
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow-orb hero-glow-orb-1"></div>
+  <div class="hero-glow-orb hero-glow-orb-2"></div>
+  <div class="hero-glow-orb hero-glow-orb-3"></div>
+  <div class="hero-particles" id="heroParticles"></div>
 
-       <!-- Lado izquierdo: Contenido -->
-      <div class="slide-content-fb">
-        <span class="badge-fb">Lo mejor</span>
-        <h1>Impresiones rápidas y de calidad profesional</h1>
-        <p>Copias, impresión fotográfica, impresión láser y más. Tamaños hasta tabloide.</p>
-        <a class="btn-fb" href="https://wa.me/5217295414907" target="_blank" rel="noopener noreferrer">
-          Escríbenos por WhatsApp
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
+  <!-- Slide 1: Servicios principales -->
+  <div class="hero-slide active">
+    <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Lo mejor en impresión</span>
+    <h1>Impresiones <span class="hero-grad">rápidas</span> y de calidad</h1>
+    <p>Copias, impresión fotográfica, láser y más. Tamaños hasta tabloide.</p>
+    <div class="hero-btn-group">
+      <a href="https://wa.me/5217295414907" class="hero-btn hero-btn-brand" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i> Escríbenos
+      </a>
+      <a href="#servicios" class="hero-btn hero-btn-glass">Ver servicios <i class="fa-solid fa-arrow-right"></i></a>
     </div>
-<!-- ==============================================
-     OPCIÓN 2: ENFOQUE EN CALIDAD
-     Sin promoción, habla de calidad
-     ============================================== -->
-   <div class="slide-fb">
-  <!-- Visual: Tu foto 4x6 -->
-  <div class="slide-visual-fb slide-visual-2">
-    <picture>
-      <source srcset="assets/img/4x6.webp" type="image/webp">
-      <img src="assets/img/4x6.png" 
-           alt="Promoción de fotografía" 
-           loading="lazy"
-           width="1024"
-           height="1536">
-    </picture>
+    <span class="hero-slide-number">01</span>
   </div>
-  
-  <!-- Contenido -->
-  <div class="slide-content-fb">
-    <span class="badge-fb badge-promo">¡Promoción!</span>
-    <h2 class="slide-h2">Fotografía 4x6<br>con 25% OFF</h2>
+
+  <!-- Slide 2: Promoción miércoles -->
+  <div class="hero-slide hero-slide-promo">
+    <div class="hero-promo-photo">
+      <picture>
+        <source srcset="assets/img/4x6.webp" type="image/webp">
+        <img src="assets/img/4x6.png" alt="Fotografía 4x6 promoción" width="1024" height="1536" loading="lazy">
+      </picture>
+    </div>
+    <span class="hero-badge hero-badge-promo"><i class="fa-solid fa-tag"></i> ¡Promoción!</span>
+    <h2>Fotografía 4x6 <span class="hero-grad">25% OFF</span></h2>
     <p>Impresión profesional en tamaño postal. Disponible todos los miércoles.</p>
-    <a href="https://wa.me/5217295414907" class="btn-fb btn-promo-fb" target="_blank" rel="noopener noreferrer">
-      Ver promoción
-      <i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
-</div>
-    <!-- SLIDE 3: CTA HERO GRANDE -->
-    <div class="slide-fb">
-      <!-- Lado derecho: Visual con ícono -->
-      <div class="slide-visual-fb slide-visual-3">
-        <div class="icon-hero-fb">
-          <i class="fa-solid fa-rocket"></i>
-        </div>
-      </div>
-      <!-- Lado izquierdo: Contenido CTA -->
-      <div class="slide-content-fb">
-        <h2 class="cta-hero-title-fb">
-          ¿Listo para<br>empezar?
-        </h1>
-
-        <p class="cta-hero-subtitle-fb">
-          Obtén tus impresiones hoy mismo.<br>
-          Sin esperas. Sin complicaciones.
-        </p>
-
-        <div class="cta-buttons-fb">
-          <!-- Botón secundario: Ver servicios -->
-          <a href="#servicios" class="btn-secondary-fb">
-            Ver servicios
-          </a>
-        </div>
-      </div>
+    <div class="hero-btn-group">
+      <a href="https://wa.me/5217295414907" class="hero-btn hero-btn-brand" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i> Ver promoción
+      </a>
+      <a href="pages/impresion-fotografica.html" class="hero-btn hero-btn-glass">Ver tamaños <i class="fa-solid fa-arrow-right"></i></a>
     </div>
-
+    <span class="hero-slide-number">02</span>
   </div>
 
-  <!-- CONTROLES: Flechas con glassmorphism -->
-  <div class="carrusel-nav-fb nav-prev-fb">
-    <button aria-label="Slide anterior">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-  </div>
-  <div class="carrusel-nav-fb nav-next-fb">
-    <button aria-label="Siguiente slide">
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-  </div>
-
-  <!-- DOTS ELEGANTES -->
-  <div class="carrusel-dots-fb">
-    <button class="dot-fb active" data-slide="0" aria-label="Ir a slide 1"></button>
-    <button class="dot-fb" data-slide="1" aria-label="Ir a slide 2"></button>
-    <button class="dot-fb" data-slide="2" aria-label="Ir a slide 3"></button>
+  <!-- Slide 3: CTA -->
+  <div class="hero-slide">
+    <span class="hero-badge"><i class="fa-solid fa-rocket"></i> Empieza hoy</span>
+    <h2>Sin esperas. Sin <span class="hero-grad">complicaciones.</span></h2>
+    <p>Obtén tus impresiones hoy mismo con la mejor calidad de Zacualtipán.</p>
+    <div class="hero-btn-group">
+      <a href="https://wa.me/5217295414907" class="hero-btn hero-btn-brand" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i> Escríbenos
+      </a>
+      <a href="#servicios" class="hero-btn hero-btn-glass">Ver servicios <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <span class="hero-slide-number">03</span>
   </div>
 
-  <!-- BARRA DE PROGRESO -->
-  <div class="progress-bar-fb">
-    <div class="progress-fill-fb"></div>
+  <!-- Dots con progress -->
+  <div class="hero-dots">
+    <button class="hero-dot active" data-slide="0" aria-label="Ir a slide 1"></button>
+    <button class="hero-dot" data-slide="1" aria-label="Ir a slide 2"></button>
+    <button class="hero-dot" data-slide="2" aria-label="Ir a slide 3"></button>
   </div>
-
-</div>
-<!-- FIN CARRUSEL -->
+</section>
+<!-- FIN HERO -->
       <!-- Sección Servicios -->
     <!-- ========================================
      SECCIÓN SERVICIOS - OPCIÓN 1: PREMIUM GLASS
@@ -820,7 +776,7 @@
 
  <!-- JavaScript -->
   <script src="assets/js/menu.js?v=1.0"></script>
-  <script src="assets/js/carrusel.js"></script>
+  <script src="assets/js/carrusel.js?v=3.0"></script>
 <script>
 // Footer colapsable
 (function() {

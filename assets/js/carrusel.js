@@ -1,249 +1,155 @@
-/* ========================================
-   CARRUSEL FULL BLEED PREMIUM - JAVASCRIPT CORREGIDO
-   ======================================== */
+/* ════════════════════════════════════════════════════════
+   CARRUSEL HERO v3 — DEEDPRI (2025)
+   Partículas + Slides animados + Swipe + Autoplay
+   ════════════════════════════════════════════════════════ */
 
-// === CONFIGURACION ===
-const AUTOPLAY_INTERVAL_FB = 8000; // 8 segundos
+(function () {
+  'use strict';
 
-// === VARIABLES GLOBALES ===
-let currentSlideFB = 0;
-let autoplayTimerFB = null;
-let isPausedFB = false;
-let totalSlidesFB = 0;
+  // ── Config ──
+  const AUTOPLAY_MS = 6000;
 
-// === ELEMENTOS DEL DOM ===
-let slidesFB, dotsFB, prevBtnFB, nextBtnFB, progressFillFB, carruselContainerFB;
+  // ── DOM ──
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  const hero   = document.querySelector('.hero-v3');
+  const particlesContainer = document.getElementById('heroParticles');
 
-// === INICIALIZACION ===
-function initCarruselFB() {
-  slidesFB = document.querySelectorAll('.slide-fb');
-  dotsFB = document.querySelectorAll('.dot-fb');
-  prevBtnFB = document.querySelector('.nav-prev-fb button');
-  nextBtnFB = document.querySelector('.nav-next-fb button');
-  progressFillFB = document.querySelector('.progress-fill-fb');
-  carruselContainerFB = document.querySelector('.hero-carrusel-fullbleed');
-  
-  if (!slidesFB.length) {
-    console.warn('⚠️ No se encontraron slides');
-    return;
-  }
-  
-  totalSlidesFB = slidesFB.length;
-  
-  // Verificar elementos críticos
-  if (slidesFB.length !== dotsFB.length) {
-    console.warn('⚠️ Número de slides y dots no coincide');
-  }
-  
-  // Activar primer slide
-  goToSlideFB(0);
-  
-  // Iniciar autoplay
-  startAutoplayFB();
-  
-  // Iniciar eventos
-  setupEventListeners();
-  
-  console.log('✅ Carrusel Full Bleed inicializado con', totalSlidesFB, 'slides');
-}
+  if (!slides.length || !hero) return;
 
-// === FUNCION PRINCIPAL: CAMBIAR SLIDE ===
-function goToSlideFB(index) {
-  // Validar índice
-  if (index < 0 || index >= totalSlidesFB) {
-    console.warn('Índice fuera de rango:', index);
-    return;
-  }
-  
-  // Remover active de todos los slides
-  slidesFB.forEach(slide => {
-    slide.classList.remove('active');
-  });
-  
-  // Remover active de todos los dots
-  dotsFB.forEach(dot => {
-    dot.classList.remove('active');
-  });
-  
-  // Agregar active al nuevo slide y dot
-  slidesFB[index].classList.add('active');
-  dotsFB[index].classList.add('active');
-  
-  // Actualizar índice actual
-  currentSlideFB = index;
-  
-  // Reiniciar barra de progreso
-  resetProgressBar();
-  startProgressBar();
-}
+  let current = 0;
+  let timer   = null;
+  const total = slides.length;
 
-// === BARRA DE PROGRESO MEJORADA ===
-function resetProgressBar() {
-  if (!progressFillFB) return;
-  progressFillFB.style.transition = 'none';
-  progressFillFB.style.width = '0%';
-}
-
-function startProgressBar() {
-  if (!progressFillFB || isPausedFB) return;
-  
-  // Forzar reflow
-  void progressFillFB.offsetWidth;
-  
-  // Animar a 100% en 8 segundos
-  progressFillFB.style.transition = 'width 8s linear';
-  progressFillFB.style.width = '100%';
-}
-
-// === AUTOPLAY ===
-function startAutoplayFB() {
-  stopAutoplayFB();
-  autoplayTimerFB = setInterval(() => {
-    if (!isPausedFB) {
-      nextSlideFB();
+  // ── Generar partículas ──
+  if (particlesContainer) {
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'hero-particle';
+      p.style.left = Math.random() * 100 + '%';
+      const size = 2 + Math.random() * 4;
+      p.style.width  = size + 'px';
+      p.style.height = size + 'px';
+      p.style.animationDuration = (10 + Math.random() * 15) + 's';
+      p.style.animationDelay   = Math.random() * 12 + 's';
+      particlesContainer.appendChild(p);
     }
-  }, AUTOPLAY_INTERVAL_FB);
-}
-
-function stopAutoplayFB() {
-  if (autoplayTimerFB) {
-    clearInterval(autoplayTimerFB);
-    autoplayTimerFB = null;
   }
-}
 
-// === NAVEGACION ===
-function nextSlideFB() {
-  const next = (currentSlideFB + 1) % totalSlidesFB;
-  goToSlideFB(next);
-}
-
-function prevSlideFB() {
-  const prev = (currentSlideFB - 1 + totalSlidesFB) % totalSlidesFB;
-  goToSlideFB(prev);
-}
-
-// === EVENT LISTENERS ===
-function setupEventListeners() {
-  // Botones de navegación
-  if (prevBtnFB) {
-    prevBtnFB.addEventListener('click', () => {
-      prevSlideFB();
-      resetAutoplay();
-    });
+  // ── Cambiar slide ──
+  function goTo(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => { d.classList.remove('active'); void d.offsetWidth; });
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    current = index;
   }
-  
-  if (nextBtnFB) {
-    nextBtnFB.addEventListener('click', () => {
-      nextSlideFB();
-      resetAutoplay();
-    });
+
+  function next() { goTo((current + 1) % total); }
+  function prev() { goTo((current - 1 + total) % total); }
+
+  // ── Autoplay ──
+  function startAutoplay() {
+    clearInterval(timer);
+    timer = setInterval(next, AUTOPLAY_MS);
   }
-  
-  // Dots
-  dotsFB.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      goToSlideFB(index);
+
+  function resetAutoplay() {
+    clearInterval(timer);
+    startAutoplay();
+  }
+
+  // ── Dots click ──
+  dots.forEach(dot => {
+    dot.addEventListener('click', function () {
+      goTo(parseInt(this.dataset.slide, 10));
       resetAutoplay();
     });
   });
-  
-  // Pausar en hover
-  if (carruselContainerFB) {
-    carruselContainerFB.addEventListener('mouseenter', () => {
-      isPausedFB = true;
-      stopAutoplayFB();
-      if (progressFillFB) {
-        progressFillFB.style.transition = 'none';
-      }
-    });
-    
-    carruselContainerFB.addEventListener('mouseleave', () => {
-      isPausedFB = false;
-      startAutoplayFB();
-      startProgressBar();
-    });
-  }
-  
-  // Teclado
-  document.addEventListener('keydown', (e) => {
-    if (!carruselContainerFB) return;
-    
-    const rect = carruselContainerFB.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-    
-    if (!isVisible) return;
-    
-    if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      prevSlideFB();
-      resetAutoplay();
-    } else if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      nextSlideFB();
+
+  // ── Swipe ──
+  let touchStartX = 0;
+  hero.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  hero.addEventListener('touchend', function (e) {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? next() : prev();
       resetAutoplay();
     }
+  }, { passive: true });
+
+  // ── Keyboard ──
+  document.addEventListener('keydown', function (e) {
+    const rect = hero.getBoundingClientRect();
+    const visible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!visible) return;
+
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); resetAutoplay(); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); next(); resetAutoplay(); }
   });
-  
-  // Touch/Swipe
-  if (carruselContainerFB) {
-    let touchStartX = 0;
-    
-    carruselContainerFB.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-    
-    carruselContainerFB.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      const diff = touchStartX - touchEndX;
-      const swipeThreshold = 50;
-      
-      if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0) {
-          // Swipe izquierda -> siguiente
-          nextSlideFB();
-        } else {
-          // Swipe derecha -> anterior
-          prevSlideFB();
-        }
-        resetAutoplay();
-      }
-    }, { passive: true });
-  }
-  
-  // Pausar al cambiar de pestaña
-  document.addEventListener('visibilitychange', () => {
+
+  // ── Pausa al ocultar pestaña ──
+  document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
-      isPausedFB = true;
-      stopAutoplayFB();
+      clearInterval(timer);
     } else {
-      isPausedFB = false;
-      startAutoplayFB();
-      startProgressBar();
+      startAutoplay();
     }
   });
-}
 
-function resetAutoplay() {
-  stopAutoplayFB();
-  startAutoplayFB();
-  resetProgressBar();
-  startProgressBar();
-}
+  // ── Reveal on scroll (para secciones debajo del hero) ──
+  function setupReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    if (!reveals.length) return;
 
-// === INICIALIZAR CUANDO EL DOM ESTÉ LISTO ===
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initCarruselFB);
-} else {
-  initCarruselFB();
-}
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const delay = parseInt(entry.target.dataset.delay || '0', 10);
+          setTimeout(function () {
+            entry.target.classList.add('active');
+          }, delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-// Exponer funciones para debugging
-window.carruselFB = {
-  goToSlide: goToSlideFB,
-  nextSlide: nextSlideFB,
-  prevSlide: prevSlideFB,
-  startAutoplay: startAutoplayFB,
-  stopAutoplay: stopAutoplayFB,
-  getCurrentSlide: () => currentSlideFB
-};
+    reveals.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ── Header scroll effect ──
+  function setupHeaderScroll() {
+    const topbar = document.querySelector('.topbar');
+    if (!topbar) return;
+
+    let ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          topbar.classList.toggle('scrolled', window.scrollY > 60);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ── Init ──
+  goTo(0);
+  startAutoplay();
+  setupReveal();
+  setupHeaderScroll();
+
+  // ── Debug ──
+  window.carruselFB = {
+    goToSlide: goTo,
+    nextSlide: next,
+    prevSlide: prev,
+    startAutoplay: startAutoplay,
+    stopAutoplay: function () { clearInterval(timer); },
+    getCurrentSlide: function () { return current; }
+  };
+})();
