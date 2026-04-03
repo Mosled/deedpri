@@ -91,7 +91,7 @@
   --max-width-content: 1100px;
   --max-width-wide:    1400px;
   --max-width-full:    1600px;
-  --header-height:     70px;
+  --header-height:     58px;
 
   /* ── BORDER RADIUS ───────────────────────────────────────────────── */
   --radius-sm:   8px;
@@ -167,7 +167,8 @@ img {
 
 
 /* ===================================================================
-   3. HEADER & NAVEGACIÓN
+   3. HEADER & NAVEGACIÓN — v2 Modern (2025)
+   Glassmorphism + animaciones + colores de marca
    =================================================================== */
 
 /* Z-index hierarchy */
@@ -178,7 +179,7 @@ img {
 .hamburger    { z-index: 1001; }
 .social-icons { z-index: 1050; }
 
-/* Header principal */
+/* ── Header principal ── */
 .topbar {
   position: fixed;
   top: 0;
@@ -187,19 +188,21 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-gray-800);
+  background: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(42,42,42,0.92) 100%);
   color: var(--color-white);
-  padding: var(--space-6) var(--space-12);
-  box-shadow: var(--shadow-lg);
-  transition: var(--t-smooth);
+  padding: 1rem var(--space-12);
+  box-shadow: 0 1px 0 rgba(255,211,0,0.06);
+  transition: background 0.4s ease, padding 0.3s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .topbar.scrolled {
-  padding: 1.2rem var(--space-12);
-  box-shadow: 0 6px 25px rgba(0,0,0,0.2);
-  background-color: rgba(84, 84, 84, 0.98);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  padding: 0.7rem var(--space-12);
+  background: rgba(26,26,26,0.97);
+  box-shadow:
+    0 1px 0 rgba(255,211,0,0.1),
+    0 8px 32px rgba(0,0,0,0.3);
 }
 
 .topbar .inner {
@@ -219,109 +222,109 @@ img {
 .brand-name {
   font-family: var(--font-heading);
   color: var(--color-white);
-  font-weight: 700;
-  font-size: 2.5rem;
-  letter-spacing: 2px;
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: 3px;
   text-transform: lowercase;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: relative;
   display: inline-block;
-  transition: var(--t-base);
+  transition: color 0.3s ease;
 }
 
 /* Punto amarillo animado */
 .brand-name::after {
   content: '';
   position: absolute;
-  bottom: 8px;
-  right: -12px;
+  bottom: 6px;
+  right: -14px;
   width: 8px;
   height: 8px;
   background: var(--color-brand);
   border-radius: var(--radius-full);
-  box-shadow: 0 0 10px var(--color-brand-alpha-50);
-  animation: pulse-dot 2s ease-in-out infinite;
+  box-shadow: 0 0 12px var(--color-brand-alpha-50), 0 0 24px rgba(255,211,0,0.15);
+  animation: pulse-dot 2.5s ease-in-out infinite;
 }
 
 .brand-name:hover { color: var(--color-brand); }
 
 @keyframes pulse-dot {
   0%, 100% { transform: scale(1);   opacity: 1;   }
-  50%       { transform: scale(1.2); opacity: 0.8; }
+  50%       { transform: scale(1.3); opacity: 0.7; }
 }
 
 /* ── Navegación Desktop ── */
 .nav-desktop {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .nav-desktop a {
-  color: var(--color-white);
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
-  font-size: var(--text-base);
-  font-weight: 600;
-  transition: var(--t-base);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
   position: relative;
-  padding-bottom: var(--space-1);
+  padding-bottom: 4px;
 }
 
 .nav-desktop a::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 0;
-  height: 3px;
+  height: 2px;
   background: var(--color-brand);
-  transition: width 0.3s ease;
-  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 1px;
 }
 
-.nav-desktop a:hover               { color: var(--color-brand); }
+.nav-desktop a:hover               { color: var(--color-white); }
 .nav-desktop a:hover::after        { width: 100%; }
 
-/* ── CTA en header desktop (nuevo) ── */
+/* ── CTA WhatsApp en header desktop ── */
 .nav-cta {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 0.55rem 1.4rem;
+  gap: 0.4rem;
+  padding: 0.5rem 1.3rem;
   background: var(--color-brand);
-  color: var(--color-gray-800) !important;
+  color: #1a1a1a !important;
   font-weight: 700;
-  font-size: var(--text-sm);
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
   border-radius: var(--radius-pill);
   text-decoration: none;
-  box-shadow: var(--shadow-brand);
-  transition: var(--t-smooth);
+  box-shadow: 0 0 20px rgba(255,211,0,0.15);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   flex-shrink: 0;
-  margin-left: var(--space-4);
+  margin-left: 0.5rem;
 }
 
-.nav-cta::after { display: none !important; } /* Sin subrayado hover */
+.nav-cta::after { display: none !important; }
 
 .nav-cta:hover {
   background: var(--color-brand-light);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-brand-lg);
-  color: var(--color-gray-800) !important;
+  box-shadow: 0 4px 20px rgba(255,211,0,0.3);
+  color: #1a1a1a !important;
 }
 
-/* ── Social Icons ── */
+/* ── Social Icons (desktop) ── */
 .social-icons {
   position: relative;
   display: flex;
-  gap: var(--space-6);
+  gap: 1.2rem;
   padding-right: 0;
 }
 
 .social-icons a {
-  color: rgba(255,255,255,0.8);
-  font-size: var(--text-lg);
-  transition: var(--t-base);
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem;
+  transition: all 0.3s ease;
   text-decoration: none;
   cursor: pointer;
 }
@@ -329,130 +332,172 @@ img {
 .social-icons a i   { pointer-events: none; }
 .social-icons a:hover {
   color: var(--color-brand);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.1);
 }
 
-/* ── Hamburguesa (solo móvil) ── */
+/* ── Hamburguesa animada (solo móvil) ── */
 .hamburger {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.hamburger:hover {
+  background: rgba(255,211,0,0.08);
 }
 
 .hamburger-box {
-  width: 28px;
-  height: 28px;
-  display: inline-block;
+  width: 24px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
 }
 
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-  width: 32px;
-  height: 4px;
+  width: 24px;
+  height: 2px;
   background-color: var(--color-white);
-  border-radius: 4px;
+  border-radius: 2px;
   position: absolute;
-  transition: var(--t-base);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-origin: center;
 }
 
 .hamburger-inner             { top: 50%; transform: translateY(-50%); }
-.hamburger-inner::before     { content: ''; top: -9px; right: 0; }
-.hamburger-inner::after      { content: ''; top: 9px;  right: 0; }
+.hamburger-inner::before     { content: ''; top: -7px; }
+.hamburger-inner::after      { content: ''; top: 7px; }
 
-.hamburger.open {
-  opacity: 0;
-  pointer-events: none;
-  display: none !important;
+/* Animación hamburguesa → X */
+.hamburger.open .hamburger-inner {
+  background-color: transparent;
+}
+.hamburger.open .hamburger-inner::before {
+  top: 0;
+  transform: rotate(45deg);
+  background-color: var(--color-brand);
+}
+.hamburger.open .hamburger-inner::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background-color: var(--color-brand);
 }
 
-/* ── Menú lateral móvil ── */
+/* ── Menú lateral móvil — glassmorphism ── */
 .nav {
   position: fixed;
   top: 0;
   right: -100%;
   width: 300px;
   height: 100vh;
-  background: var(--color-gray-800);
-  padding: var(--space-20) var(--space-8) var(--space-8);
-  box-shadow: -4px 0 20px rgba(0,0,0,0.3);
-  transition: right 0.4s var(--ease-in-out);
+  height: 100dvh;
+  background: linear-gradient(195deg, rgba(26,26,26,0.97) 0%, rgba(20,20,20,0.99) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 5rem 2rem 2rem;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+  transition: right 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow-y: auto;
+  border-left: 1px solid rgba(255,211,0,0.06);
 }
 
 .nav.open { right: 0; }
 
-.close-btn {
+/* Línea decorativa amarilla arriba del menú */
+.nav::before {
+  content: '';
   position: absolute;
-  top: var(--space-6);
-  right: var(--space-6);
-  background: transparent;
-  border: none;
-  color: var(--color-white);
-  font-size: var(--space-8);
-  cursor: pointer;
-  padding: var(--space-2);
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 300;
-  line-height: 1;
-  transition: var(--t-base);
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-brand) 0%, transparent 100%);
+  opacity: 0.4;
 }
 
-.close-btn:hover {
-  color: var(--color-brand);
-  transform: rotate(90deg);
+/* Close-btn oculto: la hamburguesa ahora anima a X */
+.close-btn {
+  display: none;
 }
 
 .nav-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 var(--space-12) 0;
+  margin: 0 0 2rem 0;
 }
 
-.nav-list li  { margin-bottom: var(--space-4); }
+.nav-list li {
+  margin-bottom: 0.25rem;
+}
 
 .nav-list a {
-  color: var(--color-white);
+  color: rgba(255,255,255,0.7);
   text-decoration: none;
-  font-size: var(--text-xl);
-  font-weight: 600;
-  display: block;
-  padding: var(--space-4);
-  border-radius: var(--radius-sm);
-  transition: var(--t-base);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-list a::before {
+  content: '';
+  width: 3px;
+  height: 0;
+  background: var(--color-brand);
+  border-radius: 2px;
+  margin-right: 0.8rem;
+  transition: height 0.3s ease;
 }
 
 .nav-list a:hover {
-  background: rgba(255, 211, 0, 0.1);
-  color: var(--color-brand);
-  padding-left: var(--space-6);
+  background: rgba(255,211,0,0.06);
+  color: var(--color-white);
+}
+
+.nav-list a:hover::before {
+  height: 20px;
 }
 
 /* Social en menú móvil */
 .social-mobile {
   display: flex;
-  gap: var(--space-6);
-  padding-top: var(--space-8);
-  border-top: 1px solid rgba(255,255,255,0.1);
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
   justify-content: center;
 }
 
 .social-mobile a {
-  color: rgba(255,255,255,0.8);
-  font-size: 1.3rem;
-  transition: var(--t-base);
+  color: rgba(255,255,255,0.4);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
   text-decoration: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .social-mobile a:hover {
   color: var(--color-brand);
+  background: rgba(255,211,0,0.08);
+  border-color: rgba(255,211,0,0.15);
   transform: translateY(-2px);
 }
 
@@ -462,11 +507,12 @@ img {
   top: 0; left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.6);
   opacity: 0;
   visibility: hidden;
-  transition: var(--t-base);
-  backdrop-filter: blur(4px);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .overlay.show { opacity: 1; visibility: visible; }
@@ -493,28 +539,25 @@ img {
 @media (max-width: 768px) {
   .hero-v3 {
     height: auto;
-    min-height: 520px;
+    min-height: 580px;
     max-height: none;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
   .hero-slide {
     position: relative;
-    min-height: 520px;
+    min-height: 580px;
+    justify-content: flex-start;
+    padding: 2.5rem 1.5rem 5rem;
   }
   .hero-slide:not(.active) {
     position: absolute;
     inset: 0;
     min-height: unset;
   }
-}
-
-@media (max-width: 480px) {
-  .hero-v3 { min-height: 480px; }
-  .hero-slide { min-height: 480px; }
-}
-
-@media (max-width: 375px) {
-  .hero-v3 { min-height: 450px; }
-  .hero-slide { min-height: 450px; }
+  .hero-dots {
+    bottom: 1.2rem;
+  }
 }
 
 /* ── Grid de fondo sutil ── */
@@ -793,10 +836,9 @@ img {
 @media (max-width: 768px) {
   .hero-slide-promo {
     flex-direction: column;
-    gap: 1.2rem;
-    padding: 2rem 1.5rem;
+    gap: 1rem;
     justify-content: flex-start;
-    padding-top: 3.5rem;
+    padding: 2rem 1.5rem 5rem;
   }
   .hero-promo-photo {
     width: 110px;
@@ -822,8 +864,11 @@ img {
     width: 90px;
   }
   .hero-slide-promo {
-    padding-top: 2.5rem;
+    gap: 0.8rem;
+    padding: 1.5rem 1.2rem 4.5rem;
   }
+  .hero-slide-promo h2 { font-size: 1.8rem; }
+  .hero-slide-promo p { font-size: 0.9rem; }
 }
 
 /* ── Número decorativo ── */
@@ -2012,16 +2057,16 @@ img {
 
 /* ── TABLET GRANDE (max 968px) ── */
 @media (max-width: 968px) {
-  body                      { padding-top: 75px; }
+  body                      { padding-top: 60px; }
 
   /* Header */
-  .topbar                   { padding: 1.2rem var(--space-6); }
-  .topbar.scrolled          { padding: 1rem var(--space-6); }
+  .topbar                   { padding: 0.8rem var(--space-6); }
+  .topbar.scrolled          { padding: 0.6rem var(--space-6); }
   .topbar .inner            { padding: 0 var(--space-4); gap: var(--space-4); }
-  .brand-name               { font-size: 2.2rem; }
+  .brand-name               { font-size: 2rem; }
   .nav-desktop              { display: none; }
   .social-icons             { display: none; }
-  .hamburger                { display: block; margin-right: var(--space-2); }
+  .hamburger                { display: block; }
 
   /* Hero v3 — no necesita ajustes aquí, usa clamp() */
 
@@ -2068,18 +2113,16 @@ img {
 
 /* ── TABLET / MÓVIL GRANDE (max 900px) ── */
 @media (max-width: 900px) {
-  .topbar                   { padding: 1.4rem 0.8rem; }
-  body                      { padding-top: 90px; }
-  main > section            { scroll-margin-top: 120px; }
-  .brand-name               { font-size: 2.4rem; }
+  .topbar                   { padding: 0.8rem 0.8rem; }
+  body                      { padding-top: 58px; }
+  main > section            { scroll-margin-top: 80px; }
+  .brand-name               { font-size: 2rem; }
 
   .hamburger {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    position: absolute !important;
-    top: 2.6rem;
-    right: 1rem;
+    position: relative !important;
     z-index: 1001;
     pointer-events: auto;
   }
@@ -2090,7 +2133,6 @@ img {
   .cards                    { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
   .card                     { min-height: 320px; }
   .card-icon                { width: 90px; height: 90px; }
-  .hamburger                { margin-right: 2.5rem !important; }
 }
 
 /* ── TABLET MEDIANA (max 768px) ── */
@@ -2110,13 +2152,13 @@ img {
 
 /* ── MÓVIL (max 640px) ── */
 @media (max-width: 640px) {
-  body                      { padding-top: 70px; }
+  body                      { padding-top: 56px; }
 
   /* Header */
-  .topbar                   { padding: 1rem; }
-  .topbar.scrolled          { padding: 0.9rem 1rem; }
+  .topbar                   { padding: 0.7rem 0.8rem; }
+  .topbar.scrolled          { padding: 0.55rem 0.8rem; }
   .topbar .inner            { padding: 0 var(--space-2); gap: var(--space-2); }
-  .brand-name               { font-size: var(--space-8); }
+  .brand-name               { font-size: 1.8rem; letter-spacing: 2px; }
   .nav                      { width: 280px; }
 
   /* Hero v3 — responsive manejado en su propia sección */
@@ -2177,8 +2219,6 @@ img {
   .footer-colapsable        { position: relative; z-index: 10; }
   .footer-expandable.open   { max-height: none; overflow-y: visible; }
   .footer-toggle-btn        { min-width: 180px; padding: var(--space-2) 1.2rem; font-size: var(--text-xs); }
-  .hamburger                { margin-right: 1.2rem !important; }
-
   .trabajos-header-content h2  { font-size: 1.6rem; }
   .trabajos-header-content p   { font-size: var(--text-sm); }
   .carousel-trabajos-container { padding: 15px 45px; }
@@ -2219,10 +2259,7 @@ img {
   /* Old carousel 375px adjustments removed */
 }
 
-/* ── RANGO 481px – 900px (hamburguesa) ── */
-@media (min-width: 481px) and (max-width: 900px) {
-  .hamburger                { margin-right: 2.5rem !important; }
-}
+/* ── RANGO 481px – 900px ── */
 
 /* Old slide-visual-2 responsive removed */
 

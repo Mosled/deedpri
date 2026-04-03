@@ -97,17 +97,18 @@ if ('IntersectionObserver' in window){
 
 // ===== Año dinámico en el footer =====
 if (yearEl) yearEl.textContent = new Date().getFullYear();
-// ELIMINA o COMENTA este bloque completo:
-/*
+
 // ===== Efecto scroll en header =====
 const header = document.querySelector('.topbar');
 if (header) {
+  let lastScroll = 0;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 30) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-  });
+    lastScroll = currentScroll;
+  }, { passive: true });
 }
-*/
