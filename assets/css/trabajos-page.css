@@ -85,7 +85,7 @@
   background: var(--trabajos-white);
   border: 2px solid var(--trabajos-gray);
   padding: 0.8rem 1.8rem;
-  border-radius: 50px;
+  border-radius: 12px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
@@ -270,7 +270,7 @@
   font-weight: 600;
   text-decoration: none;
   padding: 1rem 2.5rem;
-  border-radius: 50px;
+  border-radius: 12px;
   box-shadow: 0 4px 15px rgba(255, 211, 0, 0.3);
   transition: all 0.3s ease;
   font-size: 1rem;

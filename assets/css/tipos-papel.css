@@ -14,9 +14,20 @@
 /* === HERO BANNER === */
 .hero-tipos-papel {
   padding: 8rem 2rem 4rem;
-  background: linear-gradient(135deg, var(--gris-oscuro) 0%, #2c3e50 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   text-align: center;
   color: var(--blanco);
+  position: relative;
+}
+
+.hero-tipos-papel::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--amarillo) 20%, var(--amarillo) 80%, transparent 100%);
 }
 
 .hero-content h1 {
@@ -35,7 +46,7 @@
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* === BREADCRUMB === */
@@ -101,20 +112,20 @@
   width: 80px;
   height: 80px;
   min-width: 80px;
-  background: linear-gradient(135deg, rgba(255, 211, 0, 0.15) 0%, rgba(255, 211, 0, 0.05) 100%);
-  border-radius: 50%;
+  background: rgba(255, 211, 0, 0.08);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
   color: var(--amarillo);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .papel-item:hover .papel-icon {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background: var(--amarillo);
-  color: var(--gris-oscuro);
+  color: #1a1a1a;
 }
 
 .papel-titulo h2 {
@@ -243,8 +254,19 @@
 /* === CTA FINAL === */
 .cta-final {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #2c3e50 0%, var(--gris-oscuro) 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   text-align: center;
+  position: relative;
+}
+
+.cta-final::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--amarillo) 20%, var(--amarillo) 80%, transparent 100%);
 }
 
 .cta-content {
@@ -283,7 +305,7 @@
   align-items: center;
   gap: 0.8rem;
   padding: 1.2rem 2.5rem;
-  border-radius: 50px;
+  border-radius: 12px;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
@@ -292,25 +314,27 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--amarillo) 0%, #ffed4e 100%);
-  color: var(--gris-oscuro);
-  box-shadow: 0 10px 40px rgba(255, 211, 0, 0.4);
+  background: var(--amarillo);
+  color: #1a1a1a;
+  box-shadow: 0 6px 20px rgba(255, 211, 0, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 50px rgba(255, 211, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(255, 211, 0, 0.4);
+  background: #ffdf3a;
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--blanco);
-  border: 2px solid var(--blanco);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
 }
 
 .btn-secondary:hover {
   background: var(--blanco);
-  color: var(--gris-oscuro);
+  color: #1a1a1a;
+  border-color: var(--blanco);
 }
 
 /* === RESPONSIVE === */

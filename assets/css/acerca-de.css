@@ -123,8 +123,8 @@
   height: 350px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 20px 60px rgba(255, 211, 0, 0.4);
-  border: 8px solid var(--acerca-yellow);
+  box-shadow: 0 20px 60px rgba(255, 211, 0, 0.25);
+  border: 6px solid var(--acerca-yellow);
 }
 
 @keyframes float {
@@ -246,10 +246,10 @@
 .valor-card {
   background: #fff;
   padding: 2rem;
-  border-radius: 15px;
-  border: 2px solid #eee;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
@@ -268,8 +268,8 @@
 
 .valor-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-  border-color: var(--acerca-yellow);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(255, 211, 0, 0.3);
 }
 
 .valor-card:hover::before {
@@ -277,23 +277,28 @@
 }
 
 .valor-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--acerca-yellow), #ffdf3a);
-  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 211, 0, 0.1);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem auto;
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .valor-card:hover .valor-icon {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.05);
+  background: var(--acerca-yellow);
 }
 
 .valor-icon i {
   font-size: 1.5rem;
+  color: var(--acerca-yellow);
+}
+
+.valor-card:hover .valor-icon i {
   color: var(--acerca-dark);
 }
 
@@ -621,72 +626,7 @@
     justify-content: center;
   }
   
-  /* ===========================
-     FOOTER RESPONSIVE - FIX MÓVIL
-     =========================== */
-  
-  .footer-main-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-  
-  .footer-toggle-btn {
-    width: 100%;
-    max-width: 100%;
-    justify-content: center;
-  }
-  
-  .footer-copyright {
-    font-size: 0.85rem;
-    width: 100%;
-  }
-  
-  .footer-social-inline {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-    padding: 0 1rem;
-  }
-  
-  .footer-brand {
-    grid-column: 1;
-    text-align: center;
-  }
-  
-  .footer-column {
-    text-align: center;
-  }
-  
-  .footer-info-item {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .footer-horario {
-    margin-left: 0;
-  }
-  
-  .footer-btn-map {
-    display: block;
-    text-align: center;
-    max-width: 100%;
-  }
-  
-  .footer-expandable-content {
-    padding: 0 1rem;
-  }
-  
-  .footer-main,
-  .footer-expandable {
-    overflow-x: hidden;
-  }
+  /* Footer responsive ya manejado por deedpriv2.css */
 }
 
 /* Móviles muy pequeños */
@@ -694,18 +634,5 @@
   .hero-image-circle {
     width: 220px;
     height: 220px;
-  }
-  
-  .footer-main-content {
-    padding: 0 0.75rem;
-  }
-  
-  .footer-toggle-btn {
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  .footer-grid {
-    padding: 0 0.75rem;
   }
 }
