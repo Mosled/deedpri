@@ -379,171 +379,167 @@
    RESPONSIVE
    ==================================================================== */
 @media (max-width: 768px) {
-  /* HERO */
+  /* HERO — compacto */
   .hero-diseno {
     min-height: auto;
-    padding: 2rem 1rem 1.5rem;
+    padding: 1.5rem 1rem 1rem;
   }
-  
+
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
     text-align: center;
   }
-  
-  .hero-text {
-    text-align: center;
-  }
-  
+
+  .hero-text { text-align: center; }
+
   .hero-title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-description {
-    font-size: 0.85rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .btn-hero {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
-
-  /* SECCIONES */
-  .seccion-galeria,
-  .seccion-proceso,
-  .seccion-cta-final {
-    padding: 2.5rem 1rem;
-  }
-
-  .titulo-seccion {
     font-size: 1.6rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -1px;
   }
 
-  .subtitulo-seccion {
-    font-size: 0.85rem;
-    margin-bottom: 2rem;
-  }
-
-  /* GALERÍA - 1 COLUMNA (mejor para ver detalles) */
-  .galeria-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .galeria-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .galeria-icono {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1.5rem;
-  }
-
-  .galeria-icono i {
-    font-size: 2.5rem;
-  }
-
-  .galeria-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .galeria-card p {
-    font-size: 0.9rem;
-  }
-
-  /* PROCESO - 2 COLUMNAS */
-  .proceso-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .proceso-step {
-    padding: 1.5rem 1rem;
-  }
-
-  .step-numero {
-    width: 60px;
-    height: 60px;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .proceso-step h3 {
-    font-size: 1rem;
+  .hero-subtitle {
+    font-size: 0.8rem;
     margin-bottom: 0.6rem;
   }
 
-  .proceso-step p {
+  .hero-description {
+    font-size: 0.82rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .hero-image img {
+    max-width: 280px;
+    border-radius: 12px;
+  }
+
+  .btn-hero {
+    padding: 0.65rem 1.4rem;
     font-size: 0.85rem;
   }
 
-  /* CTA FINAL */
+  /* SECCIONES — menos padding */
+  .seccion-galeria,
+  .seccion-proceso,
   .seccion-cta-final {
-    padding: 2.5rem 1rem;
-  }
-
-  .container-cta h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .container-cta p {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .btn-cta-whatsapp {
-    padding: 0.9rem 1.8rem;
-    font-size: 0.95rem;
-  }
-
-  .btn-cta-whatsapp i {
-    font-size: 1.3rem;
-  }
-
-  /* BOTÓN VOLVER */
-  .seccion-volver {
-    padding: 1.5rem 1rem;
-  }
-
-  .btn-volver-diseno {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* MÓVILES MUY PEQUEÑOS */
-@media (max-width: 360px) {
-  .hero-title {
-    font-size: 1.5rem;
+    padding: 2rem 1rem;
   }
 
   .titulo-seccion {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitulo-seccion {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* GALERÍA — 2 columnas compactas */
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .galeria-card {
+    padding: 1.2rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .galeria-icono {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 0.8rem;
+  }
+
+  .galeria-icono i {
+    font-size: 1.6rem;
   }
 
   .galeria-card h3 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
   }
 
+  .galeria-card p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* PROCESO — 2 columnas compactas */
   .proceso-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .proceso-step {
+    padding: 1rem 0.7rem;
+  }
+
+  .step-numero {
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .proceso-step h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .proceso-step p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* CTA FINAL — compacto */
+  .container-cta h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .container-cta p {
+    font-size: 0.82rem;
+    margin-bottom: 1.2rem;
   }
 
   .btn-cta-whatsapp {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.85rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.88rem;
+    border-radius: 10px;
   }
+
+  .btn-cta-whatsapp i { font-size: 1.2rem; }
+
+  /* BOTÓN VOLVER */
+  .seccion-volver { padding: 1.5rem 1rem; }
+
+  .btn-volver-diseno {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-diseno { padding: 1rem 0.8rem 0.8rem; }
+  .hero-title { font-size: 1.4rem; }
+  .hero-image img { max-width: 220px; }
+  .titulo-seccion { font-size: 1.2rem; }
+
+  .galeria-card { padding: 1rem 0.6rem; }
+  .galeria-icono { width: 45px; height: 45px; }
+  .galeria-icono i { font-size: 1.3rem; }
+  .galeria-card h3 { font-size: 0.82rem; }
+  .galeria-card p { font-size: 0.7rem; }
+
+  .proceso-step { padding: 0.8rem 0.5rem; }
+  .step-numero { width: 40px; height: 40px; font-size: 1.2rem; }
+  .proceso-step h3 { font-size: 0.78rem; }
+  .proceso-step p { font-size: 0.7rem; }
 }

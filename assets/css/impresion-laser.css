@@ -510,253 +510,261 @@
    RESPONSIVE
    ==================================================================== */
 @media (max-width: 768px) {
-  /* HERO */
+  /* HERO — compacto */
   .hero-laser {
     min-height: auto;
-    padding: 2rem 1rem 1.5rem;
+    padding: 1.5rem 1rem 1rem;
   }
-  
+
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
     text-align: center;
   }
-  
-  .hero-text {
-    text-align: center;
-  }
-  
+
+  .hero-text { text-align: center; }
+
   .hero-title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -1px;
   }
-  
+
   .hero-subtitle {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
   }
-  
-  .hero-description {
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
-  }
-  
+
   .hero-note {
     flex-direction: row;
     text-align: left;
-    padding: 0.8rem 1rem;
-    margin: 1rem 0 1.5rem;
+    padding: 0.6rem 0.8rem;
+    margin: 0.8rem 0 1rem;
+    gap: 0.5rem;
   }
-  
-  .hero-note i {
-    font-size: 1.2rem;
-  }
-  
-  .hero-note span {
-    font-size: 0.8rem;
+
+  .hero-note i { font-size: 1rem; }
+  .hero-note span { font-size: 0.78rem; }
+  .hero-note-premium i { font-size: 1.1rem; }
+  .hero-note-premium span { font-size: 0.78rem; }
+
+  .hero-image img {
+    max-width: 280px;
+    border-radius: 12px;
   }
 
   .btn-hero {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.85rem;
   }
 
-  /* SECCIONES */
+  /* SECCIONES — menos padding */
   .seccion-tamanos,
   .seccion-ventajas,
   .seccion-comparacion,
   .seccion-usos,
   .seccion-cta-final {
-    padding: 2.5rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .titulo-seccion {
-    font-size: 1.6rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .subtitulo-seccion {
-    font-size: 0.85rem;
-    margin-bottom: 2rem;
-  }
-
-  /* TAMAÑOS - 2 COLUMNAS */
-  .tamanos-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .tamano-card {
-    padding: 1.2rem 1rem;
-  }
-
-  .tamano-icono {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .tamano-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
 
-  .tamano-medidas {
+  .subtitulo-seccion {
     font-size: 0.8rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
   }
 
-  .tamano-badge {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.75rem;
-  }
-
-  /* VENTAJAS - 2 COLUMNAS (si existe) */
-  .ventajas-grid {
+  /* TAMAÑOS — 2 columnas compactas */
+  .tamanos-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
   }
 
-  .ventaja-item {
-    padding: 1.2rem 0.8rem;
+  .tamano-card {
+    padding: 1rem 0.7rem;
+    border-radius: 12px;
   }
 
-  .ventaja-item i {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .ventaja-item h3 {
-    font-size: 1rem;
+  .tamano-icono {
+    font-size: 1.8rem;
     margin-bottom: 0.6rem;
   }
 
-  .ventaja-item p {
-    font-size: 0.8rem;
+  .tamano-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
   }
 
-  /* COMPARACIÓN - 1 COLUMNA (es mejor para leer) */
+  .tamano-medidas {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tamano-badge {
+    padding: 0.25rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  /* VENTAJAS — 2 columnas */
+  .ventajas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .ventaja-item {
+    padding: 1rem 0.7rem;
+  }
+
+  .ventaja-item i {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .ventaja-item h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .ventaja-item p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* COMPARACIÓN — 1 columna compacta */
   .comparacion-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
 
   .comparacion-card {
-    padding: 1.5rem;
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
   }
-  
+
   .card-laser::before {
     top: -10px;
     right: 50%;
     transform: translateX(50%);
-    font-size: 0.7rem;
-    padding: 3px 12px;
+    font-size: 0.65rem;
+    padding: 3px 10px;
+  }
+
+  .card-header {
+    margin-bottom: 1.2rem;
   }
 
   .card-header i {
-    font-size: 2.2rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
   }
 
   .card-header h3 {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
   }
 
   .badge-precio {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.7rem;
   }
 
   .caracteristicas li {
+    font-size: 0.8rem;
+    padding: 0.45rem 0;
+    gap: 0.5rem;
+  }
+
+  .caracteristicas li i {
     font-size: 0.85rem;
-    padding: 0.6rem 0;
   }
 
   .card-footer {
-    font-size: 0.85rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
   }
 
-  /* USOS - 2 COLUMNAS */
+  /* USOS — 2 columnas compactas */
   .usos-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
   }
 
   .uso-card {
-    padding: 1.2rem 0.8rem;
+    padding: 1rem 0.7rem;
+    border-radius: 12px;
   }
 
   .uso-card i {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .uso-card h3 {
-    font-size: 0.95rem;
+    font-size: 1.6rem;
     margin-bottom: 0.6rem;
   }
 
+  .uso-card h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
   .uso-card p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
 
-  /* CTA FINAL */
-  .seccion-cta-final {
-    padding: 2.5rem 1rem;
-  }
-
+  /* CTA FINAL — compacto */
   .container-cta h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
   }
 
   .container-cta p {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    margin-bottom: 1.2rem;
   }
-  
+
   .btn-cta-whatsapp {
-    padding: 0.9rem 1.8rem;
-    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.88rem;
+    border-radius: 10px;
   }
 
   .btn-cta-whatsapp i {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   /* BOTÓN VOLVER */
-  .seccion-volver {
-    padding: 1.5rem 1rem;
-  }
+  .seccion-volver { padding: 1.5rem 1rem; }
 
   .btn-volver-laser {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
   }
 }
 
-/* MÓVILES MUY PEQUEÑOS */
-@media (max-width: 360px) {
-  .hero-title {
-    font-size: 1.5rem;
-  }
+@media (max-width: 480px) {
+  .hero-laser { padding: 1rem 0.8rem 0.8rem; }
+  .hero-title { font-size: 1.4rem; }
+  .hero-image img { max-width: 220px; }
+  .titulo-seccion { font-size: 1.2rem; }
 
-  .titulo-seccion {
-    font-size: 1.4rem;
-  }
+  .tamano-card { padding: 0.8rem 0.5rem; }
+  .tamano-icono { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .tamano-card h3 { font-size: 0.88rem; }
 
-  .tamano-card h3,
-  .uso-card h3 {
-    font-size: 0.95rem;
-  }
+  .comparacion-card { padding: 1rem 0.8rem; }
+  .card-header i { font-size: 1.5rem; }
+  .card-header h3 { font-size: 0.95rem; }
+  .caracteristicas li { font-size: 0.75rem; }
 
-  .btn-cta-whatsapp {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.85rem;
-  }
+  .uso-card { padding: 0.8rem 0.5rem; }
+  .uso-card i { font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .uso-card h3 { font-size: 0.78rem; }
+  .uso-card p { font-size: 0.7rem; }
 }

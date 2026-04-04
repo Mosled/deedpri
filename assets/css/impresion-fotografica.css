@@ -1137,324 +1137,223 @@
    RESPONSIVE
    ==================================================================== */
 @media (max-width: 768px) {
-  /* HERO */
+  /* HERO — compacto */
   .hero-foto {
     min-height: auto;
-    padding: 3rem 1rem 2rem;
+    padding: 1.5rem 1rem 1rem;
   }
-  
+
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    letter-spacing: -1px;
+    margin-bottom: 0.6rem;
   }
-  
+
   .hero-subtitle {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-image img {
+    max-width: 280px;
+    border-radius: 12px;
   }
 
   .btn-hero {
-    padding: 0.8rem 1.8rem;
-    font-size: 0.95rem;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.85rem;
   }
 
-  /* SECCIÓN TAMAÑOS */
-  .seccion-tamanos {
-    padding: 3rem 1rem;
+  /* SECCIONES — menos padding */
+  .seccion-tamanos,
+  .seccion-proceso,
+  .seccion-papeles,
+  .seccion-cotizador {
+    padding: 2rem 1rem;
   }
 
   .titulo-seccion {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
   }
 
   .subtitulo-seccion {
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
   }
 
+  /* TAMAÑOS */
   .tamanos-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1rem 0;
+    gap: 1rem;
+    padding: 0;
   }
 
   .tamano-card {
     grid-template-columns: 1fr;
-    padding: 1rem 1rem 2rem;
+    padding: 0.8rem;
   }
 
   .tamano-imagen {
-    height: 140px;
+    height: 120px;
   }
 
-  .tamano-info h3 {
-    font-size: 1.5rem;
-  }
-
-  .tamano-nombre {
-    font-size: 0.95rem;
-  }
-
-  .tamano-medidas {
-    font-size: 0.8rem;
-  }
-
-  .tamano-info {
-    text-align: center;
-  }
+  .tamano-info h3 { font-size: 1.2rem; }
+  .tamano-nombre { font-size: 0.85rem; }
+  .tamano-medidas { font-size: 0.75rem; }
+  .tamano-info { text-align: center; }
 
   /* TAMAÑO PERSONALIZADO */
   .tamano-personalizado {
-    padding: 1.5rem;
-    margin-top: 2rem;
+    padding: 1.2rem;
+    margin-top: 1.5rem;
     flex-direction: column;
     text-align: center;
   }
 
-  .tamano-personalizado i {
-    font-size: 2rem;
-  }
+  .tamano-personalizado i { font-size: 1.6rem; }
+  .tamano-personalizado h3 { font-size: 0.95rem; }
+  .tamano-personalizado p { font-size: 0.8rem; }
 
-  .tamano-personalizado h3 {
-    font-size: 1.1rem;
-  }
-
-  .tamano-personalizado p {
-    font-size: 0.9rem;
-  }
-
-  /* PROCESO DE PEDIDO */
-  .seccion-proceso {
-    padding: 3rem 1rem;
-  }
-
+  /* PROCESO — 2 columnas */
   .pasos-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
   }
 
   .paso-card {
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.7rem;
+    border-radius: 12px;
   }
 
   .paso-numero {
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
-    top: -12px;
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+    top: -10px;
   }
 
   .paso-icono {
-    font-size: 2rem;
-    margin: 0.5rem 0 1rem;
+    font-size: 1.5rem;
+    margin: 0.3rem 0 0.6rem;
   }
 
-  .paso-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .paso-card p {
-    font-size: 0.85rem;
-  }
+  .paso-card h3 { font-size: 0.85rem; }
+  .paso-card p { font-size: 0.75rem; line-height: 1.4; }
 
   .btn-proceso {
-    padding: 1rem 1.8rem;
-    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
   }
 
-  /* TIPOS DE PAPEL */
-  .seccion-papeles {
-    padding: 3rem 1rem;
-  }
-
+  /* TIPOS DE PAPEL — 2 columnas */
   .papeles-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
   }
 
   .papel-card {
-    padding: 1.5rem 1.2rem;
+    padding: 1rem 0.7rem;
+    border-radius: 12px;
   }
 
-  .papel-card h3 {
-    font-size: 1.2rem;
-  }
-
-  .papel-subtitle {
-    font-size: 0.75rem;
-  }
-
-  .papel-card p {
-    font-size: 0.85rem;
-  }
+  .papel-card h3 { font-size: 0.9rem; }
+  .papel-subtitle { font-size: 0.65rem; }
+  .papel-card p { font-size: 0.75rem; line-height: 1.4; }
 
   /* ACABADO ESPECIAL */
   .acabado-especial {
-    padding: 1.5rem;
+    padding: 1.2rem;
     flex-direction: column;
     text-align: center;
   }
 
-  .acabado-especial i {
-    font-size: 2rem;
-  }
-
-  .acabado-especial h3 {
-    font-size: 1.1rem;
-  }
-
-  .acabado-especial p {
-    font-size: 0.85rem;
-  }
+  .acabado-especial i { font-size: 1.6rem; }
+  .acabado-especial h3 { font-size: 0.95rem; }
+  .acabado-especial p { font-size: 0.78rem; }
 
   /* COTIZADOR */
- /* COTIZADOR */
-  .seccion-cotizador {
-    padding: 3rem 1rem;
-  }
-
   .wizard-container {
-    padding: 2rem 0.5rem; /* ← Cambiar de 0.8rem a 0.5rem */
+    padding: 1.5rem 0.5rem;
   }
 
   .progress-bar {
-    max-width: 280px;
-    margin-bottom: 2rem;
+    max-width: 250px;
+    margin-bottom: 1.5rem;
   }
 
   .progress-step {
-    width: 35px;
-    height: 35px;
-    font-size: 0.9rem;
-  }
-
-  .paso-header h3 {
-    font-size: 1.2rem; /* ← Cambiar de 1.3rem a 1.2rem */
-  }
-
-  .paso-header p {
-    font-size: 0.8rem; /* ← Cambiar de 0.85rem a 0.8rem */
-  }
-
-  .paso {
-    padding: 0 0.3rem; /* ← AGREGAR ESTA LÍNEA */
-  }
-
-  .opciones-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem; /* ← Cambiar de 0.8rem a 0.5rem */
-    padding: 0;
-  }
-
-  .opcion-card {
-    padding: 0.7rem 0.3rem; /* ← Cambiar de 0.8rem 0.4rem a 0.7rem 0.3rem */
-  }
-
-  .opcion-card i {
-    font-size: 1.5rem; /* ← Cambiar de 2rem a 1.5rem */
-    margin-bottom: 0.4rem; /* ← Cambiar de 0.6rem a 0.4rem */
-  }
-
-  .opcion-card h4 {
-    font-size: 0.85rem; /* ← Cambiar de 1rem a 0.85rem */
-  }
-
-  .opcion-card p {
-    font-size: 0.65rem; /* ← Cambiar de 0.75rem a 0.65rem */
-  }
-
-  .opcion-precio {
-    font-size: 0.85rem; /* ← Cambiar de 1rem a 0.85rem */
-  }
-
-  .cantidad-display {
-    font-size: 2.5rem;
-  }
-
-  .btn-cantidad {
-    width: 45px;
-    height: 45px;
-    font-size: 1.5rem;
-  }
-
-  .nota-descuento {
-    padding: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  .nota-descuento i {
-    font-size: 1.5rem;
-  }
-
-  .nota-descuento p {
+    width: 32px;
+    height: 32px;
     font-size: 0.85rem;
   }
 
-  .resumen-final {
-    padding: 1.5rem;
+  .paso-header h3 { font-size: 1.1rem; }
+  .paso-header p { font-size: 0.75rem; }
+  .paso { padding: 0 0.3rem; }
+
+  .opciones-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 0;
   }
 
-  .resumen-final h4 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
+  .opcion-card { padding: 0.6rem 0.3rem; }
+  .opcion-card i { font-size: 1.3rem; margin-bottom: 0.3rem; }
+  .opcion-card h4 { font-size: 0.78rem; }
+  .opcion-card p { font-size: 0.6rem; }
+  .opcion-precio { font-size: 0.78rem; }
 
-  .resumen-item {
-    font-size: 0.95rem;
-    padding: 0.8rem 0;
-  }
+  .cantidad-display { font-size: 2.2rem; }
+  .btn-cantidad { width: 40px; height: 40px; font-size: 1.3rem; }
 
-  .resumen-total-item {
-    font-size: 1.4rem;
+  .nota-descuento {
+    padding: 0.8rem;
+    margin-top: 1rem;
   }
+  .nota-descuento i { font-size: 1.2rem; }
+  .nota-descuento p { font-size: 0.78rem; }
+
+  .resumen-final { padding: 1.2rem; }
+  .resumen-final h4 { font-size: 1.2rem; margin-bottom: 0.8rem; }
+  .resumen-item { font-size: 0.85rem; padding: 0.6rem 0; }
+  .resumen-total-item { font-size: 1.2rem; }
 
   .wizard-buttons {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     flex-direction: column;
   }
 
-  .btn-wizard {
-    padding: 1rem;
-    font-size: 0.95rem;
-  }
+  .btn-wizard { padding: 0.8rem; font-size: 0.88rem; border-radius: 10px; }
 
   /* NOTA DE CRECIMIENTO */
-  .nota-crecimiento {
-    padding: 2rem 1rem;
-  }
-
+  .nota-crecimiento { padding: 1.5rem 1rem; }
   .nota-content {
     flex-direction: column;
     text-align: center;
-    gap: 1rem;
+    gap: 0.8rem;
   }
-
-  .nota-content p {
-    font-size: 0.95rem;
-  }
+  .nota-content p { font-size: 0.82rem; }
 
   /* BOTÓN VOLVER */
-  .seccion-volver {
-    padding: 1.5rem;
-  }
-
+  .seccion-volver { padding: 1.5rem 1rem; }
   .btn-volver-foto {
-    padding: 0.8rem 1.4rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
   }
 }
 
-/* EXTRA PEQUEÑO (menos de 480px) */
+/* EXTRA PEQUEÑO */
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.8rem;
-  }
+  .hero-foto { padding: 1rem 0.8rem 0.8rem; }
+  .hero-title { font-size: 1.4rem; }
+  .hero-image img { max-width: 220px; }
+  .titulo-seccion { font-size: 1.2rem; }
 
-  .titulo-seccion {
-    font-size: 1.6rem;
-  }
+  .tamano-imagen { height: 100px; }
+  .tamano-info h3 { font-size: 1rem; }
 
-  .tamano-imagen {
-    height: 160px;
-  }
+  .opciones-grid { grid-template-columns: repeat(2, 1fr); }
 }

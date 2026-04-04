@@ -367,177 +367,171 @@
    RESPONSIVE
    ==================================================================== */
 @media (max-width: 768px) {
-  /* HERO */
+  /* HERO — compacto */
   .hero-stickers {
     min-height: auto;
-    padding: 2rem 1rem 1.5rem;
+    padding: 1.5rem 1rem 1rem;
   }
-  
+
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
     text-align: center;
   }
-  
-  .hero-text {
-    text-align: center;
-  }
-  
+
+  .hero-text { text-align: center; }
+
   .hero-title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-note {
-    flex-direction: row;
-    text-align: left;
-    padding: 0.8rem 1rem;
-    margin: 1rem 0 1.5rem;
-  }
-  
-  .hero-note i {
-    font-size: 1.2rem;
-  }
-  
-  .hero-note span {
-    font-size: 0.8rem;
-  }
-
-  .btn-hero {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
-
-  /* SECCIONES */
-  .seccion-tamanos,
-  .seccion-usos,
-  .seccion-cta-final {
-    padding: 2.5rem 1rem;
-  }
-
-  .titulo-seccion {
     font-size: 1.6rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -1px;
   }
 
-  .subtitulo-seccion {
-    font-size: 0.85rem;
-    margin-bottom: 2rem;
-  }
-
-  /* TIPOS - 2 COLUMNAS */
-  .tamanos-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .tamano-card {
-    padding: 1.2rem 1rem;
-  }
-
-  .tamano-icono {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .tamano-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .tamano-medidas {
+  .hero-subtitle {
     font-size: 0.8rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .tamano-badge {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.75rem;
-  }
-
-  /* USOS - 2 COLUMNAS */
-  .usos-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .uso-card {
-    padding: 1.2rem 0.8rem;
-  }
-
-  .uso-card i {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .uso-card h3 {
-    font-size: 0.95rem;
     margin-bottom: 0.6rem;
   }
 
-  .uso-card p {
-    font-size: 0.8rem;
+  .hero-note {
+    flex-direction: row;
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    margin: 0.8rem 0 1rem;
+    gap: 0.5rem;
   }
 
-  /* CTA FINAL */
+  .hero-note i { font-size: 1rem; }
+  .hero-note span { font-size: 0.78rem; }
+
+  .hero-image img {
+    max-width: 280px;
+    border-radius: 12px;
+  }
+
+  .btn-hero {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  /* SECCIONES — menos padding */
+  .seccion-tamanos,
+  .seccion-usos,
   .seccion-cta-final {
-    padding: 2.5rem 1rem;
-  }
-
-  .container-cta h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .container-cta p {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .btn-cta-whatsapp {
-    padding: 0.9rem 1.8rem;
-    font-size: 0.95rem;
-  }
-
-  .btn-cta-whatsapp i {
-    font-size: 1.3rem;
-  }
-
-  /* BOTÓN VOLVER */
-  .seccion-volver {
-    padding: 1.5rem 1rem;
-  }
-
-  .btn-volver-stickers {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* MÓVILES MUY PEQUEÑOS */
-@media (max-width: 360px) {
-  .hero-title {
-    font-size: 1.5rem;
+    padding: 2rem 1rem;
   }
 
   .titulo-seccion {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
   }
 
-  .tamano-card h3,
+  .subtitulo-seccion {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* TIPOS — 2 columnas compactas */
+  .tamanos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .tamano-card {
+    padding: 1rem 0.7rem;
+    border-radius: 12px;
+  }
+
+  .tamano-icono {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .tamano-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .tamano-medidas {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tamano-badge {
+    padding: 0.25rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  /* USOS — 2 columnas compactas */
+  .usos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .uso-card {
+    padding: 1rem 0.7rem;
+    border-radius: 12px;
+  }
+
+  .uso-card i {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+
   .uso-card h3 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .uso-card p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* CTA FINAL — compacto */
+  .container-cta h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .container-cta p {
+    font-size: 0.82rem;
+    margin-bottom: 1.2rem;
   }
 
   .btn-cta-whatsapp {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.85rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.88rem;
+    border-radius: 10px;
   }
+
+  .btn-cta-whatsapp i {
+    font-size: 1.2rem;
+  }
+
+  /* BOTÓN VOLVER */
+  .seccion-volver { padding: 1.5rem 1rem; }
+
+  .btn-volver-stickers {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stickers { padding: 1rem 0.8rem 0.8rem; }
+  .hero-title { font-size: 1.4rem; }
+  .hero-image img { max-width: 220px; }
+  .titulo-seccion { font-size: 1.2rem; }
+
+  .tamano-card { padding: 0.8rem 0.5rem; }
+  .tamano-icono { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .tamano-card h3 { font-size: 0.88rem; }
+
+  .uso-card { padding: 0.8rem 0.5rem; }
+  .uso-card i { font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .uso-card h3 { font-size: 0.78rem; }
+  .uso-card p { font-size: 0.7rem; }
 }

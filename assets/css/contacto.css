@@ -405,160 +405,156 @@
 
 /* Tablet */
 @media (max-width: 968px) {
-  .hero-contacto {
-    padding: 7rem 2rem 3rem;
-  }
-  
-  .hero-contacto .hero-content h1 {
-    font-size: 3rem;
-  }
-  
-  .contacto-main {
-    padding: 3rem 2rem;
-  }
-  
-  .contacto-rapido h2 {
-    font-size: 2rem;
-  }
-  
+  .hero-contacto { padding: 7rem 2rem 3rem; }
+  .hero-contacto .hero-content h1 { font-size: 3rem; }
+  .contacto-main { padding: 3rem 2rem; }
+  .contacto-rapido h2 { font-size: 2rem; }
+
   .contacto-cards {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .ubicacion-content {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  
-  .ubicacion-mapa {
-    height: 400px;
-  }
+
+  .ubicacion-mapa { height: 400px; }
 }
 
 /* Móvil */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .hero-contacto {
-    padding: 6rem 1.5rem 2.5rem;
+    padding: 5rem 1rem 1.5rem;
   }
-  
+
   .hero-contacto .hero-content h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
   }
-  
+
   .hero-contacto .hero-content p {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
-  
+
   .breadcrumb {
-    padding: 1rem 1.5rem;
-    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.78rem;
   }
-  
+
   .contacto-main {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
   }
-  
+
   .contacto-rapido {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
-  
+
   .contacto-rapido h2 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
   }
-  
+
+  .contacto-cards {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
   .contacto-card {
-    padding: 2rem 1.5rem;
+    padding: 1.2rem 1rem;
+    border-radius: 14px;
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
   }
-  
+
   .contacto-icon {
-    width: 70px;
-    height: 70px;
-    font-size: 2rem;
-  }
-  
-  .contacto-card h3 {
-    font-size: 1.2rem;
-  }
-  
-  .contacto-valor {
-    font-size: 1rem;
-  }
-  
-  .contacto-ubicacion {
-    padding: 3rem 1.5rem;
-    margin-bottom: 3rem;
-  }
-  
-  .ubicacion-info h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .info-item {
-    margin-bottom: 2rem;
-  }
-  
-  .info-icon {
     width: 50px;
     height: 50px;
-    min-width: 50px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    flex-shrink: 0;
   }
-  
-  .info-text h3 {
-    font-size: 1.15rem;
+
+  .contacto-card h3 { font-size: 0.95rem; }
+  .contacto-valor { font-size: 0.85rem; }
+  .contacto-accion { font-size: 0.78rem; }
+
+  /* Ubicación */
+  .contacto-ubicacion {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: 14px;
   }
-  
-  .info-text p {
-    font-size: 0.95rem;
+
+  .ubicacion-content { gap: 2rem; }
+
+  .ubicacion-info h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
   }
-  
+
+  .info-item {
+    margin-bottom: 1.5rem;
+    gap: 0.8rem;
+  }
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 1.1rem;
+  }
+
+  .info-text h3 { font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .info-text p { font-size: 0.82rem; line-height: 1.5; }
+
   .btn-ver-mapa {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
     width: 100%;
     justify-content: center;
+    border-radius: 10px;
   }
-  
+
   .ubicacion-mapa {
-    height: 350px;
+    height: 280px;
+    border-radius: 14px;
   }
-  
+
+  /* CTA */
   .cta-contacto {
-    padding: 3rem 1.5rem;
+    padding: 2rem 1rem;
+    border-radius: 14px;
   }
-  
+
   .cta-contacto h2 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
   }
-  
+
   .cta-contacto p {
-    font-size: 1rem;
+    font-size: 0.82rem;
+    margin-bottom: 1.5rem;
   }
-  
+
   .btn-cta-principal {
-    padding: 1.1rem 2rem;
-    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.88rem;
     width: 100%;
     justify-content: center;
+    border-radius: 10px;
   }
 }
 
-/* Móvil pequeño */
-@media (max-width: 400px) {
-  .hero-contacto .hero-content h1 {
-    font-size: 1.8rem;
-  }
-  
-  .contacto-card {
-    padding: 1.5rem;
-  }
-  
-  .ubicacion-mapa {
-    height: 300px;
-  }
+@media (max-width: 480px) {
+  .hero-contacto { padding: 4.5rem 0.8rem 1rem; }
+  .hero-contacto .hero-content h1 { font-size: 1.4rem; }
+
+  .contacto-icon { width: 42px; height: 42px; font-size: 1.2rem; }
+  .ubicacion-mapa { height: 240px; }
 }
 
 /* FIN - CSS Contacto */

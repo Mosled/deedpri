@@ -559,80 +559,206 @@
     text-align: center;
     min-height: auto;
   }
-  
-  .acerca-hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-image-circle {
-    width: 280px;
-    height: 280px;
-  }
-  
+
+  .acerca-hero-title { font-size: 2.5rem; }
+  .hero-image-circle { width: 280px; height: 280px; }
+
   .historia-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
-  .historia-year {
-    position: static;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
+
+  .historia-year { position: static; }
+  .section-title { font-size: 2rem; }
+
   .logro-especial {
     flex-direction: column;
     text-align: center;
   }
 }
 
-@media (max-width: 640px) {
-  .acerca-section {
-    padding: 3rem 0;
+@media (max-width: 768px) {
+  .acerca-main { padding-top: 60px; }
+
+  .acerca-section { padding: 2rem 0; }
+
+  .acerca-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
   }
-  
+
+  .acerca-hero-tag {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
   .acerca-hero-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
   }
-  
+
+  .acerca-hero-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
   .hero-image-circle {
-    width: 250px;
-    height: 250px;
+    width: 180px;
+    height: 180px;
+    border-width: 4px;
   }
-  
+
+  /* Section headers compactos */
+  .section-header { margin-bottom: 1.5rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.4rem;
+    line-height: 1.2;
   }
-  
-  .valores-grid,
-  .ventajas-grid,
+
+  /* Historia */
+  .historia-content { gap: 1.2rem; }
+
+  .year-badge {
+    width: 90px;
+    height: 90px;
+    font-size: 1.6rem;
+  }
+
+  .year-text { font-size: 0.78rem; }
+
+  .historia-text p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  /* Misión */
+  .mision-card { padding: 2rem 1.2rem; }
+
+  .mision-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 1.2rem;
+  }
+
+  .mision-icon i { font-size: 1.4rem; }
+  .mision-title { font-size: 1.5rem; margin-bottom: 1rem; }
+  .mision-text { font-size: 0.88rem; line-height: 1.6; }
+
+  /* Valores — 2 columnas */
+  .valores-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .valor-card {
+    padding: 1.2rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .valor-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .valor-icon i { font-size: 1.1rem; }
+  .valor-title { font-size: 0.9rem; margin-bottom: 0.4rem; }
+  .valor-text { font-size: 0.78rem; line-height: 1.4; }
+
+  /* Ventajas — 2 columnas */
+  .ventajas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .ventaja-item {
+    padding: 1.2rem 0.8rem;
+    border-radius: 10px;
+  }
+
+  .ventaja-numero { font-size: 2rem; margin-bottom: 0.3rem; }
+
+  .ventaja-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.6rem;
+    border-radius: 10px;
+  }
+
+  .ventaja-icon i { font-size: 1.2rem; }
+  .ventaja-label { font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .ventaja-desc { font-size: 0.75rem; }
+
+  /* Logros — 2 columnas */
   .logros-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
   }
-  
-  .cta-title {
-    font-size: 2rem;
+
+  .logro-card {
+    padding: 1.2rem 0.8rem;
+    border-radius: 10px;
   }
-  
+
+  .logro-card i { font-size: 1.6rem; margin-bottom: 0.6rem; }
+  .logro-card h3 { font-size: 0.88rem; margin-bottom: 0.4rem; }
+  .logro-card p { font-size: 0.75rem; }
+
+  .logro-especial {
+    padding: 1.5rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .logro-especial-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .logro-especial-icon i { font-size: 1.4rem; }
+  .logro-especial-label { font-size: 0.72rem; }
+  .logro-especial-title { font-size: 1.2rem; }
+  .logro-especial-text { font-size: 0.82rem; }
+
+  /* CTA */
+  .acerca-cta { padding: 2.5rem 0; }
+  .cta-title { font-size: 1.4rem; margin-bottom: 0.6rem; }
+  .cta-text { font-size: 0.85rem; margin-bottom: 1.5rem; }
+
   .cta-buttons {
     flex-direction: column;
+    gap: 0.8rem;
+    padding: 0 1rem;
   }
-  
+
   .btn-cta-primary,
   .btn-cta-secondary {
     width: 100%;
     justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.88rem;
+    border-radius: 10px;
   }
-  
-  /* Footer responsive ya manejado por deedpriv2.css */
 }
 
-/* Móviles muy pequeños */
-@media (max-width: 375px) {
-  .hero-image-circle {
-    width: 220px;
-    height: 220px;
-  }
+@media (max-width: 480px) {
+  .acerca-hero-title { font-size: 1.4rem; }
+  .hero-image-circle { width: 150px; height: 150px; }
+  .section-title { font-size: 1.2rem; }
+  .year-badge { width: 75px; height: 75px; font-size: 1.3rem; }
+  .mision-title { font-size: 1.3rem; }
+  .cta-title { font-size: 1.2rem; }
 }
